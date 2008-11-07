@@ -1,0 +1,145 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>8.0.50727</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{FA3DD994-4BC6-4D0F-932F-31C3975DF8D1}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <RootNamespace>FARMACIASJ</RootNamespace>
+    <AssemblyName>FARMACIASJ</AssemblyName>
+    <MyType>Empty</MyType>
+    <StartupObject>FARMACIASJ.FARMACIASJ_INICIO</StartupObject>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <DefineDebug>true</DefineDebug>
+    <DefineTrace>true</DefineTrace>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DocumentationFile>
+    </DocumentationFile>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <DefineDebug>false</DefineDebug>
+    <DefineTrace>true</DefineTrace>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DocumentationFile>
+    </DocumentationFile>
+  </PropertyGroup>
+  <ItemGroup>
+    <Import Include="Microsoft.VisualBasic" />
+    <Import Include="System" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="MODELO\Cliente.vb" />
+    <Compile Include="MODELO\FarmaciaSJDataSet.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>FarmaciaSJDataSet.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="My Project\Settings.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+      <DependentUpon>Settings.settings</DependentUpon>
+    </Compile>
+    <Compile Include="VISTA\FARMACIASJ_INICIO.Designer.vb">
+      <DependentUpon>FARMACIASJ_INICIO.vb</DependentUpon>
+    </Compile>
+    <Compile Include="VISTA\FARMACIASJ_INICIO.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="VISTA\Administrador.Designer.vb">
+      <DependentUpon>Administrador.vb</DependentUpon>
+    </Compile>
+    <Compile Include="VISTA\Administrador.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="VISTA\FARMACIASJ_SESION.Designer.vb">
+      <DependentUpon>FARMACIASJ_SESION.vb</DependentUpon>
+    </Compile>
+    <Compile Include="VISTA\FARMACIASJ_SESION.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="VISTA\Form1.Designer.vb">
+      <DependentUpon>Form1.vb</DependentUpon>
+    </Compile>
+    <Compile Include="VISTA\Form1.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="VISTA\Vendedor.Designer.vb">
+      <DependentUpon>Vendedor.vb</DependentUpon>
+    </Compile>
+    <Compile Include="VISTA\Vendedor.vb">
+      <SubType>Form</SubType>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="VISTA\FARMACIASJ_INICIO.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>FARMACIASJ_INICIO.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="VISTA\Administrador.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>Administrador.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="VISTA\FARMACIASJ_SESION.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>FARMACIASJ_SESION.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="VISTA\Form1.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>Form1.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="VISTA\Vendedor.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>Vendedor.vb</DependentUpon>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Data, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=x86">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\..\WINDOWS\assembly\GAC_32\System.Data\2.0.0.0__b77a5c561934e089\System.Data.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\..\WINDOWS\assembly\GAC_MSIL\System.Xml\2.0.0.0__b77a5c561934e089\System.Xml.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="MODELO\app.config" />
+    <None Include="MODELO\FarmaciaSJDataSet.xsc">
+      <DependentUpon>FarmaciaSJDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="MODELO\FarmaciaSJDataSet.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>FarmaciaSJDataSet.Designer.vb</LastGenOutput>
+    </None>
+    <None Include="MODELO\FarmaciaSJDataSet.xss">
+      <DependentUpon>FarmaciaSJDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="My Project\Settings.settings">
+      <CustomToolNamespace>My</CustomToolNamespace>
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.vb</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="CONTROLADOR\" />
+  </ItemGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.VisualBasic.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
