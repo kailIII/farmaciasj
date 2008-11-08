@@ -70,10 +70,10 @@
     <Compile Include="VISTA\Form1.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="VISTA\RealizarVenta.Designer.vb">
-      <DependentUpon>RealizarVenta.vb</DependentUpon>
+    <Compile Include="VISTA\Realizar_Venta.Designer.vb">
+      <DependentUpon>Realizar_Venta.vb</DependentUpon>
     </Compile>
-    <Compile Include="VISTA\RealizarVenta.vb">
+    <Compile Include="VISTA\Realizar_Venta.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="VISTA\Vendedor.Designer.vb">
@@ -100,9 +100,9 @@
       <SubType>Designer</SubType>
       <DependentUpon>Form1.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="VISTA\RealizarVenta.resx">
+    <EmbeddedResource Include="VISTA\Realizar_Venta.resx">
       <SubType>Designer</SubType>
-      <DependentUpon>RealizarVenta.vb</DependentUpon>
+      <DependentUpon>Realizar_Venta.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="VISTA\Vendedor.resx">
       <SubType>Designer</SubType>

@@ -56,6 +56,8 @@ Partial Public Class FarmaciaSJDataSet
     
     Private tableVENTA As VENTADataTable
     
+    Private tablePEDIDO_FRECUENTE As PEDIDO_FRECUENTEDataTable
+    
     Private relationFK_COMPRA_PROVEEDOR As System.Data.DataRelation
     
     Private relationFK_DETALLE_COMPRA_COMPRA As System.Data.DataRelation
@@ -83,6 +85,10 @@ Partial Public Class FarmaciaSJDataSet
     Private relationFK_TELEFONO_PROVEEDOR_PROVEEDOR As System.Data.DataRelation
     
     Private relationFK_VENTA_CLIENTE As System.Data.DataRelation
+    
+    Private relationFK_PEDIDO_FRECUENTE_PEDIDO_FRECUENTE As System.Data.DataRelation
+    
+    Private relationFK_PEDIDO_FRECUENTE_PEDIDO_FRECUENTE1 As System.Data.DataRelation
     
     Private _schemaSerializationMode As System.Data.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema
     
@@ -158,6 +164,9 @@ Partial Public Class FarmaciaSJDataSet
             End If
             If (Not (ds.Tables("VENTA")) Is Nothing) Then
                 MyBase.Tables.Add(New VENTADataTable(ds.Tables("VENTA")))
+            End If
+            If (Not (ds.Tables("PEDIDO_FRECUENTE")) Is Nothing) Then
+                MyBase.Tables.Add(New PEDIDO_FRECUENTEDataTable(ds.Tables("PEDIDO_FRECUENTE")))
             End If
             Me.DataSetName = ds.DataSetName
             Me.Prefix = ds.Prefix
@@ -321,6 +330,15 @@ Partial Public Class FarmaciaSJDataSet
     End Property
     
     <System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+     System.ComponentModel.Browsable(false),  _
+     System.ComponentModel.DesignerSerializationVisibility(System.ComponentModel.DesignerSerializationVisibility.Content)>  _
+    Public ReadOnly Property PEDIDO_FRECUENTE() As PEDIDO_FRECUENTEDataTable
+        Get
+            Return Me.tablePEDIDO_FRECUENTE
+        End Get
+    End Property
+    
+    <System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
      System.ComponentModel.BrowsableAttribute(true),  _
      System.ComponentModel.DesignerSerializationVisibilityAttribute(System.ComponentModel.DesignerSerializationVisibility.Visible)>  _
     Public Overrides Property SchemaSerializationMode() As System.Data.SchemaSerializationMode
@@ -426,6 +444,9 @@ Partial Public Class FarmaciaSJDataSet
             End If
             If (Not (ds.Tables("VENTA")) Is Nothing) Then
                 MyBase.Tables.Add(New VENTADataTable(ds.Tables("VENTA")))
+            End If
+            If (Not (ds.Tables("PEDIDO_FRECUENTE")) Is Nothing) Then
+                MyBase.Tables.Add(New PEDIDO_FRECUENTEDataTable(ds.Tables("PEDIDO_FRECUENTE")))
             End If
             Me.DataSetName = ds.DataSetName
             Me.Prefix = ds.Prefix
@@ -552,6 +573,12 @@ Partial Public Class FarmaciaSJDataSet
                 Me.tableVENTA.InitVars
             End If
         End If
+        Me.tablePEDIDO_FRECUENTE = CType(MyBase.Tables("PEDIDO_FRECUENTE"),PEDIDO_FRECUENTEDataTable)
+        If (initTable = true) Then
+            If (Not (Me.tablePEDIDO_FRECUENTE) Is Nothing) Then
+                Me.tablePEDIDO_FRECUENTE.InitVars
+            End If
+        End If
         Me.relationFK_COMPRA_PROVEEDOR = Me.Relations("FK_COMPRA_PROVEEDOR")
         Me.relationFK_DETALLE_COMPRA_COMPRA = Me.Relations("FK_DETALLE_COMPRA_COMPRA")
         Me.relationFK_DETALLE_COMPRA_PRODUCTO = Me.Relations("FK_DETALLE_COMPRA_PRODUCTO")
@@ -566,6 +593,8 @@ Partial Public Class FarmaciaSJDataSet
         Me.relationFK_PROVEEDOR_PRODUCTO_PROVEEDOR = Me.Relations("FK_PROVEEDOR_PRODUCTO_PROVEEDOR")
         Me.relationFK_TELEFONO_PROVEEDOR_PROVEEDOR = Me.Relations("FK_TELEFONO_PROVEEDOR_PROVEEDOR")
         Me.relationFK_VENTA_CLIENTE = Me.Relations("FK_VENTA_CLIENTE")
+        Me.relationFK_PEDIDO_FRECUENTE_PEDIDO_FRECUENTE = Me.Relations("FK_PEDIDO_FRECUENTE_PEDIDO_FRECUENTE")
+        Me.relationFK_PEDIDO_FRECUENTE_PEDIDO_FRECUENTE1 = Me.Relations("FK_PEDIDO_FRECUENTE_PEDIDO_FRECUENTE1")
     End Sub
     
     <System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
@@ -607,6 +636,8 @@ Partial Public Class FarmaciaSJDataSet
         MyBase.Tables.Add(Me.tableTELEFONO_PROVEEDOR)
         Me.tableVENTA = New VENTADataTable
         MyBase.Tables.Add(Me.tableVENTA)
+        Me.tablePEDIDO_FRECUENTE = New PEDIDO_FRECUENTEDataTable
+        MyBase.Tables.Add(Me.tablePEDIDO_FRECUENTE)
         Me.relationFK_COMPRA_PROVEEDOR = New System.Data.DataRelation("FK_COMPRA_PROVEEDOR", New System.Data.DataColumn() {Me.tablePROVEEDOR.ID_PROVEEDORColumn}, New System.Data.DataColumn() {Me.tableCOMPRA.ID_PROVEEDORColumn}, false)
         Me.Relations.Add(Me.relationFK_COMPRA_PROVEEDOR)
         Me.relationFK_DETALLE_COMPRA_COMPRA = New System.Data.DataRelation("FK_DETALLE_COMPRA_COMPRA", New System.Data.DataColumn() {Me.tableCOMPRA.ID_COMPRAColumn}, New System.Data.DataColumn() {Me.tableDETALLE_COMPRA.ID_COMPRAColumn}, false)
@@ -635,6 +666,10 @@ Partial Public Class FarmaciaSJDataSet
         Me.Relations.Add(Me.relationFK_TELEFONO_PROVEEDOR_PROVEEDOR)
         Me.relationFK_VENTA_CLIENTE = New System.Data.DataRelation("FK_VENTA_CLIENTE", New System.Data.DataColumn() {Me.tableCLIENTE.ID_CLIENTEColumn}, New System.Data.DataColumn() {Me.tableVENTA.ID_CLIENTEColumn}, false)
         Me.Relations.Add(Me.relationFK_VENTA_CLIENTE)
+        Me.relationFK_PEDIDO_FRECUENTE_PEDIDO_FRECUENTE = New System.Data.DataRelation("FK_PEDIDO_FRECUENTE_PEDIDO_FRECUENTE", New System.Data.DataColumn() {Me.tablePRODUCTO.ID_PRODUCTOColumn}, New System.Data.DataColumn() {Me.tablePEDIDO_FRECUENTE.ID_PRODUCTOColumn}, false)
+        Me.Relations.Add(Me.relationFK_PEDIDO_FRECUENTE_PEDIDO_FRECUENTE)
+        Me.relationFK_PEDIDO_FRECUENTE_PEDIDO_FRECUENTE1 = New System.Data.DataRelation("FK_PEDIDO_FRECUENTE_PEDIDO_FRECUENTE1", New System.Data.DataColumn() {Me.tableCLIENTE.ID_CLIENTEColumn}, New System.Data.DataColumn() {Me.tablePEDIDO_FRECUENTE.ID_CLIENTEColumn}, false)
+        Me.Relations.Add(Me.relationFK_PEDIDO_FRECUENTE_PEDIDO_FRECUENTE1)
     End Sub
     
     <System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
@@ -718,6 +753,11 @@ Partial Public Class FarmaciaSJDataSet
     End Function
     
     <System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+    Private Function ShouldSerializePEDIDO_FRECUENTE() As Boolean
+        Return false
+    End Function
+    
+    <System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
     Private Sub SchemaChanged(ByVal sender As Object, ByVal e As System.ComponentModel.CollectionChangeEventArgs)
         If (e.Action = System.ComponentModel.CollectionChangeAction.Remove) Then
             Me.InitVars
@@ -768,6 +808,8 @@ Partial Public Class FarmaciaSJDataSet
     Public Delegate Sub TELEFONO_PROVEEDORRowChangeEventHandler(ByVal sender As Object, ByVal e As TELEFONO_PROVEEDORRowChangeEvent)
     
     Public Delegate Sub VENTARowChangeEventHandler(ByVal sender As Object, ByVal e As VENTARowChangeEvent)
+    
+    Public Delegate Sub PEDIDO_FRECUENTERowChangeEventHandler(ByVal sender As Object, ByVal e As PEDIDO_FRECUENTERowChangeEvent)
     
     <System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "2.0.0.0"),  _
      System.Serializable(),  _
@@ -3742,6 +3784,8 @@ Partial Public Class FarmaciaSJDataSet
         
         Private columnID_LINEA As System.Data.DataColumn
         
+        Private columnUNIDADES_POR_PAQUETE As System.Data.DataColumn
+        
         <System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
         Public Sub New()
             MyBase.New
@@ -3823,6 +3867,13 @@ Partial Public Class FarmaciaSJDataSet
             End Get
         End Property
         
+        <System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public ReadOnly Property UNIDADES_POR_PAQUETEColumn() As System.Data.DataColumn
+            Get
+                Return Me.columnUNIDADES_POR_PAQUETE
+            End Get
+        End Property
+        
         <System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          System.ComponentModel.Browsable(false)>  _
         Public ReadOnly Property Count() As Integer
@@ -3852,9 +3903,9 @@ Partial Public Class FarmaciaSJDataSet
         End Sub
         
         <System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
-        Public Overloads Function AddPRODUCTORow(ByVal NOMBRE As String, ByVal CODIGO_DE_BARRAS As String, ByVal CODIGO As String, ByVal DESCRIPCION As String, ByVal GRAVADO_EXENTO As String, ByVal parentLINEARowByFK_PRODUCTO_LINEA As LINEARow) As PRODUCTORow
+        Public Overloads Function AddPRODUCTORow(ByVal NOMBRE As String, ByVal CODIGO_DE_BARRAS As String, ByVal CODIGO As String, ByVal DESCRIPCION As String, ByVal GRAVADO_EXENTO As String, ByVal parentLINEARowByFK_PRODUCTO_LINEA As LINEARow, ByVal UNIDADES_POR_PAQUETE As Decimal) As PRODUCTORow
             Dim rowPRODUCTORow As PRODUCTORow = CType(Me.NewRow,PRODUCTORow)
-            rowPRODUCTORow.ItemArray = New Object() {Nothing, NOMBRE, CODIGO_DE_BARRAS, CODIGO, DESCRIPCION, GRAVADO_EXENTO, parentLINEARowByFK_PRODUCTO_LINEA(0)}
+            rowPRODUCTORow.ItemArray = New Object() {Nothing, NOMBRE, CODIGO_DE_BARRAS, CODIGO, DESCRIPCION, GRAVADO_EXENTO, parentLINEARowByFK_PRODUCTO_LINEA(0), UNIDADES_POR_PAQUETE}
             Me.Rows.Add(rowPRODUCTORow)
             Return rowPRODUCTORow
         End Function
@@ -3890,6 +3941,7 @@ Partial Public Class FarmaciaSJDataSet
             Me.columnDESCRIPCION = MyBase.Columns("DESCRIPCION")
             Me.columnGRAVADO_EXENTO = MyBase.Columns("GRAVADO_EXENTO")
             Me.columnID_LINEA = MyBase.Columns("ID_LINEA")
+            Me.columnUNIDADES_POR_PAQUETE = MyBase.Columns("UNIDADES_POR_PAQUETE")
         End Sub
         
         <System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
@@ -3908,6 +3960,8 @@ Partial Public Class FarmaciaSJDataSet
             MyBase.Columns.Add(Me.columnGRAVADO_EXENTO)
             Me.columnID_LINEA = New System.Data.DataColumn("ID_LINEA", GetType(Decimal), Nothing, System.Data.MappingType.Element)
             MyBase.Columns.Add(Me.columnID_LINEA)
+            Me.columnUNIDADES_POR_PAQUETE = New System.Data.DataColumn("UNIDADES_POR_PAQUETE", GetType(Decimal), Nothing, System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnUNIDADES_POR_PAQUETE)
             Me.Constraints.Add(New System.Data.UniqueConstraint("Constraint1", New System.Data.DataColumn() {Me.columnID_PRODUCTO}, true))
             Me.columnID_PRODUCTO.AutoIncrement = true
             Me.columnID_PRODUCTO.AllowDBNull = false
@@ -3924,6 +3978,7 @@ Partial Public Class FarmaciaSJDataSet
             Me.columnGRAVADO_EXENTO.AllowDBNull = false
             Me.columnGRAVADO_EXENTO.MaxLength = 2147483647
             Me.columnID_LINEA.AllowDBNull = false
+            Me.columnUNIDADES_POR_PAQUETE.AllowDBNull = false
         End Sub
         
         <System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
@@ -4031,6 +4086,8 @@ Partial Public Class FarmaciaSJDataSet
         
         Private columnSaldo As System.Data.DataColumn
         
+        Private columnEstatus As System.Data.DataColumn
+        
         <System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
         Public Sub New()
             MyBase.New
@@ -4119,6 +4176,13 @@ Partial Public Class FarmaciaSJDataSet
             End Get
         End Property
         
+        <System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public ReadOnly Property EstatusColumn() As System.Data.DataColumn
+            Get
+                Return Me.columnEstatus
+            End Get
+        End Property
+        
         <System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          System.ComponentModel.Browsable(false)>  _
         Public ReadOnly Property Count() As Integer
@@ -4148,9 +4212,9 @@ Partial Public Class FarmaciaSJDataSet
         End Sub
         
         <System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
-        Public Overloads Function AddPROVEEDORRow(ByVal Codigo As String, ByVal RIF As String, ByVal Nombre As String, ByVal Mail As String, ByVal Ciudad As String, ByVal Direccion As String, ByVal Saldo As Double) As PROVEEDORRow
+        Public Overloads Function AddPROVEEDORRow(ByVal Codigo As String, ByVal RIF As String, ByVal Nombre As String, ByVal Mail As String, ByVal Ciudad As String, ByVal Direccion As String, ByVal Saldo As Double, ByVal Estatus As String) As PROVEEDORRow
             Dim rowPROVEEDORRow As PROVEEDORRow = CType(Me.NewRow,PROVEEDORRow)
-            rowPROVEEDORRow.ItemArray = New Object() {Nothing, Codigo, RIF, Nombre, Mail, Ciudad, Direccion, Saldo}
+            rowPROVEEDORRow.ItemArray = New Object() {Nothing, Codigo, RIF, Nombre, Mail, Ciudad, Direccion, Saldo, Estatus}
             Me.Rows.Add(rowPROVEEDORRow)
             Return rowPROVEEDORRow
         End Function
@@ -4187,6 +4251,7 @@ Partial Public Class FarmaciaSJDataSet
             Me.columnCiudad = MyBase.Columns("Ciudad")
             Me.columnDireccion = MyBase.Columns("Direccion")
             Me.columnSaldo = MyBase.Columns("Saldo")
+            Me.columnEstatus = MyBase.Columns("Estatus")
         End Sub
         
         <System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
@@ -4207,6 +4272,8 @@ Partial Public Class FarmaciaSJDataSet
             MyBase.Columns.Add(Me.columnDireccion)
             Me.columnSaldo = New System.Data.DataColumn("Saldo", GetType(Double), Nothing, System.Data.MappingType.Element)
             MyBase.Columns.Add(Me.columnSaldo)
+            Me.columnEstatus = New System.Data.DataColumn("Estatus", GetType(String), Nothing, System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnEstatus)
             Me.Constraints.Add(New System.Data.UniqueConstraint("Constraint1", New System.Data.DataColumn() {Me.columnID_PROVEEDOR}, true))
             Me.columnID_PROVEEDOR.AutoIncrement = true
             Me.columnID_PROVEEDOR.AllowDBNull = false
@@ -4224,6 +4291,8 @@ Partial Public Class FarmaciaSJDataSet
             Me.columnDireccion.AllowDBNull = false
             Me.columnDireccion.MaxLength = 2147483647
             Me.columnSaldo.AllowDBNull = false
+            Me.columnEstatus.AllowDBNull = false
+            Me.columnEstatus.MaxLength = 2147483647
         End Sub
         
         <System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
@@ -5062,6 +5131,330 @@ Partial Public Class FarmaciaSJDataSet
         End Function
     End Class
     
+    <System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "2.0.0.0"),  _
+     System.Serializable(),  _
+     System.Xml.Serialization.XmlSchemaProviderAttribute("GetTypedTableSchema")>  _
+    Partial Public Class PEDIDO_FRECUENTEDataTable
+        Inherits System.Data.DataTable
+        Implements System.Collections.IEnumerable
+        
+        Private columnID_PEDIDO As System.Data.DataColumn
+        
+        Private columnNUMERO_PEDIDO As System.Data.DataColumn
+        
+        Private columnFECHA_INICIO As System.Data.DataColumn
+        
+        Private columnFECHA_FIN As System.Data.DataColumn
+        
+        Private columnFECHA_ULTIMA_COMPRA As System.Data.DataColumn
+        
+        Private columnDESCRIPCION As System.Data.DataColumn
+        
+        Private columnCANTIDAD_DIARIA As System.Data.DataColumn
+        
+        Private columnID_PRODUCTO As System.Data.DataColumn
+        
+        Private columnID_CLIENTE As System.Data.DataColumn
+        
+        Private columnESTATUS As System.Data.DataColumn
+        
+        <System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public Sub New()
+            MyBase.New
+            Me.TableName = "PEDIDO_FRECUENTE"
+            Me.BeginInit
+            Me.InitClass
+            Me.EndInit
+        End Sub
+        
+        <System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Friend Sub New(ByVal table As System.Data.DataTable)
+            MyBase.New
+            Me.TableName = table.TableName
+            If (table.CaseSensitive <> table.DataSet.CaseSensitive) Then
+                Me.CaseSensitive = table.CaseSensitive
+            End If
+            If (table.Locale.ToString <> table.DataSet.Locale.ToString) Then
+                Me.Locale = table.Locale
+            End If
+            If (table.Namespace <> table.DataSet.Namespace) Then
+                Me.Namespace = table.Namespace
+            End If
+            Me.Prefix = table.Prefix
+            Me.MinimumCapacity = table.MinimumCapacity
+        End Sub
+        
+        <System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Protected Sub New(ByVal info As System.Runtime.Serialization.SerializationInfo, ByVal context As System.Runtime.Serialization.StreamingContext)
+            MyBase.New(info, context)
+            Me.InitVars
+        End Sub
+        
+        <System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public ReadOnly Property ID_PEDIDOColumn() As System.Data.DataColumn
+            Get
+                Return Me.columnID_PEDIDO
+            End Get
+        End Property
+        
+        <System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public ReadOnly Property NUMERO_PEDIDOColumn() As System.Data.DataColumn
+            Get
+                Return Me.columnNUMERO_PEDIDO
+            End Get
+        End Property
+        
+        <System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public ReadOnly Property FECHA_INICIOColumn() As System.Data.DataColumn
+            Get
+                Return Me.columnFECHA_INICIO
+            End Get
+        End Property
+        
+        <System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public ReadOnly Property FECHA_FINColumn() As System.Data.DataColumn
+            Get
+                Return Me.columnFECHA_FIN
+            End Get
+        End Property
+        
+        <System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public ReadOnly Property FECHA_ULTIMA_COMPRAColumn() As System.Data.DataColumn
+            Get
+                Return Me.columnFECHA_ULTIMA_COMPRA
+            End Get
+        End Property
+        
+        <System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public ReadOnly Property DESCRIPCIONColumn() As System.Data.DataColumn
+            Get
+                Return Me.columnDESCRIPCION
+            End Get
+        End Property
+        
+        <System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public ReadOnly Property CANTIDAD_DIARIAColumn() As System.Data.DataColumn
+            Get
+                Return Me.columnCANTIDAD_DIARIA
+            End Get
+        End Property
+        
+        <System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public ReadOnly Property ID_PRODUCTOColumn() As System.Data.DataColumn
+            Get
+                Return Me.columnID_PRODUCTO
+            End Get
+        End Property
+        
+        <System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public ReadOnly Property ID_CLIENTEColumn() As System.Data.DataColumn
+            Get
+                Return Me.columnID_CLIENTE
+            End Get
+        End Property
+        
+        <System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public ReadOnly Property ESTATUSColumn() As System.Data.DataColumn
+            Get
+                Return Me.columnESTATUS
+            End Get
+        End Property
+        
+        <System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         System.ComponentModel.Browsable(false)>  _
+        Public ReadOnly Property Count() As Integer
+            Get
+                Return Me.Rows.Count
+            End Get
+        End Property
+        
+        <System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public Default ReadOnly Property Item(ByVal index As Integer) As PEDIDO_FRECUENTERow
+            Get
+                Return CType(Me.Rows(index),PEDIDO_FRECUENTERow)
+            End Get
+        End Property
+        
+        Public Event PEDIDO_FRECUENTERowChanging As PEDIDO_FRECUENTERowChangeEventHandler
+        
+        Public Event PEDIDO_FRECUENTERowChanged As PEDIDO_FRECUENTERowChangeEventHandler
+        
+        Public Event PEDIDO_FRECUENTERowDeleting As PEDIDO_FRECUENTERowChangeEventHandler
+        
+        Public Event PEDIDO_FRECUENTERowDeleted As PEDIDO_FRECUENTERowChangeEventHandler
+        
+        <System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public Overloads Sub AddPEDIDO_FRECUENTERow(ByVal row As PEDIDO_FRECUENTERow)
+            Me.Rows.Add(row)
+        End Sub
+        
+        <System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public Overloads Function AddPEDIDO_FRECUENTERow(ByVal NUMERO_PEDIDO As String, ByVal FECHA_INICIO As Date, ByVal FECHA_FIN As Date, ByVal FECHA_ULTIMA_COMPRA As Date, ByVal DESCRIPCION As String, ByVal CANTIDAD_DIARIA As Decimal, ByVal parentPRODUCTORowByFK_PEDIDO_FRECUENTE_PEDIDO_FRECUENTE As PRODUCTORow, ByVal parentCLIENTERowByFK_PEDIDO_FRECUENTE_PEDIDO_FRECUENTE1 As CLIENTERow, ByVal ESTATUS As String) As PEDIDO_FRECUENTERow
+            Dim rowPEDIDO_FRECUENTERow As PEDIDO_FRECUENTERow = CType(Me.NewRow,PEDIDO_FRECUENTERow)
+            rowPEDIDO_FRECUENTERow.ItemArray = New Object() {Nothing, NUMERO_PEDIDO, FECHA_INICIO, FECHA_FIN, FECHA_ULTIMA_COMPRA, DESCRIPCION, CANTIDAD_DIARIA, parentPRODUCTORowByFK_PEDIDO_FRECUENTE_PEDIDO_FRECUENTE(0), parentCLIENTERowByFK_PEDIDO_FRECUENTE_PEDIDO_FRECUENTE1(0), ESTATUS}
+            Me.Rows.Add(rowPEDIDO_FRECUENTERow)
+            Return rowPEDIDO_FRECUENTERow
+        End Function
+        
+        <System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public Function FindByID_PEDIDO(ByVal ID_PEDIDO As Decimal) As PEDIDO_FRECUENTERow
+            Return CType(Me.Rows.Find(New Object() {ID_PEDIDO}),PEDIDO_FRECUENTERow)
+        End Function
+        
+        <System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public Overridable Function GetEnumerator() As System.Collections.IEnumerator Implements System.Collections.IEnumerable.GetEnumerator
+            Return Me.Rows.GetEnumerator
+        End Function
+        
+        <System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public Overrides Function Clone() As System.Data.DataTable
+            Dim cln As PEDIDO_FRECUENTEDataTable = CType(MyBase.Clone,PEDIDO_FRECUENTEDataTable)
+            cln.InitVars
+            Return cln
+        End Function
+        
+        <System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Protected Overrides Function CreateInstance() As System.Data.DataTable
+            Return New PEDIDO_FRECUENTEDataTable
+        End Function
+        
+        <System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Friend Sub InitVars()
+            Me.columnID_PEDIDO = MyBase.Columns("ID_PEDIDO")
+            Me.columnNUMERO_PEDIDO = MyBase.Columns("NUMERO_PEDIDO")
+            Me.columnFECHA_INICIO = MyBase.Columns("FECHA_INICIO")
+            Me.columnFECHA_FIN = MyBase.Columns("FECHA_FIN")
+            Me.columnFECHA_ULTIMA_COMPRA = MyBase.Columns("FECHA_ULTIMA_COMPRA")
+            Me.columnDESCRIPCION = MyBase.Columns("DESCRIPCION")
+            Me.columnCANTIDAD_DIARIA = MyBase.Columns("CANTIDAD_DIARIA")
+            Me.columnID_PRODUCTO = MyBase.Columns("ID_PRODUCTO")
+            Me.columnID_CLIENTE = MyBase.Columns("ID_CLIENTE")
+            Me.columnESTATUS = MyBase.Columns("ESTATUS")
+        End Sub
+        
+        <System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Private Sub InitClass()
+            Me.columnID_PEDIDO = New System.Data.DataColumn("ID_PEDIDO", GetType(Decimal), Nothing, System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnID_PEDIDO)
+            Me.columnNUMERO_PEDIDO = New System.Data.DataColumn("NUMERO_PEDIDO", GetType(String), Nothing, System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnNUMERO_PEDIDO)
+            Me.columnFECHA_INICIO = New System.Data.DataColumn("FECHA_INICIO", GetType(Date), Nothing, System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnFECHA_INICIO)
+            Me.columnFECHA_FIN = New System.Data.DataColumn("FECHA_FIN", GetType(Date), Nothing, System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnFECHA_FIN)
+            Me.columnFECHA_ULTIMA_COMPRA = New System.Data.DataColumn("FECHA_ULTIMA_COMPRA", GetType(Date), Nothing, System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnFECHA_ULTIMA_COMPRA)
+            Me.columnDESCRIPCION = New System.Data.DataColumn("DESCRIPCION", GetType(String), Nothing, System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnDESCRIPCION)
+            Me.columnCANTIDAD_DIARIA = New System.Data.DataColumn("CANTIDAD_DIARIA", GetType(Decimal), Nothing, System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnCANTIDAD_DIARIA)
+            Me.columnID_PRODUCTO = New System.Data.DataColumn("ID_PRODUCTO", GetType(Decimal), Nothing, System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnID_PRODUCTO)
+            Me.columnID_CLIENTE = New System.Data.DataColumn("ID_CLIENTE", GetType(Decimal), Nothing, System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnID_CLIENTE)
+            Me.columnESTATUS = New System.Data.DataColumn("ESTATUS", GetType(String), Nothing, System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnESTATUS)
+            Me.Constraints.Add(New System.Data.UniqueConstraint("Constraint1", New System.Data.DataColumn() {Me.columnID_PEDIDO}, true))
+            Me.columnID_PEDIDO.AutoIncrement = true
+            Me.columnID_PEDIDO.AllowDBNull = false
+            Me.columnID_PEDIDO.ReadOnly = true
+            Me.columnID_PEDIDO.Unique = true
+            Me.columnNUMERO_PEDIDO.AllowDBNull = false
+            Me.columnNUMERO_PEDIDO.MaxLength = 2147483647
+            Me.columnFECHA_INICIO.AllowDBNull = false
+            Me.columnFECHA_FIN.AllowDBNull = false
+            Me.columnFECHA_ULTIMA_COMPRA.AllowDBNull = false
+            Me.columnDESCRIPCION.AllowDBNull = false
+            Me.columnDESCRIPCION.MaxLength = 2147483647
+            Me.columnCANTIDAD_DIARIA.AllowDBNull = false
+            Me.columnID_PRODUCTO.AllowDBNull = false
+            Me.columnID_CLIENTE.AllowDBNull = false
+            Me.columnESTATUS.AllowDBNull = false
+            Me.columnESTATUS.MaxLength = 2147483647
+        End Sub
+        
+        <System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public Function NewPEDIDO_FRECUENTERow() As PEDIDO_FRECUENTERow
+            Return CType(Me.NewRow,PEDIDO_FRECUENTERow)
+        End Function
+        
+        <System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Protected Overrides Function NewRowFromBuilder(ByVal builder As System.Data.DataRowBuilder) As System.Data.DataRow
+            Return New PEDIDO_FRECUENTERow(builder)
+        End Function
+        
+        <System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Protected Overrides Function GetRowType() As System.Type
+            Return GetType(PEDIDO_FRECUENTERow)
+        End Function
+        
+        <System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Protected Overrides Sub OnRowChanged(ByVal e As System.Data.DataRowChangeEventArgs)
+            MyBase.OnRowChanged(e)
+            If (Not (Me.PEDIDO_FRECUENTERowChangedEvent) Is Nothing) Then
+                RaiseEvent PEDIDO_FRECUENTERowChanged(Me, New PEDIDO_FRECUENTERowChangeEvent(CType(e.Row,PEDIDO_FRECUENTERow), e.Action))
+            End If
+        End Sub
+        
+        <System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Protected Overrides Sub OnRowChanging(ByVal e As System.Data.DataRowChangeEventArgs)
+            MyBase.OnRowChanging(e)
+            If (Not (Me.PEDIDO_FRECUENTERowChangingEvent) Is Nothing) Then
+                RaiseEvent PEDIDO_FRECUENTERowChanging(Me, New PEDIDO_FRECUENTERowChangeEvent(CType(e.Row,PEDIDO_FRECUENTERow), e.Action))
+            End If
+        End Sub
+        
+        <System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Protected Overrides Sub OnRowDeleted(ByVal e As System.Data.DataRowChangeEventArgs)
+            MyBase.OnRowDeleted(e)
+            If (Not (Me.PEDIDO_FRECUENTERowDeletedEvent) Is Nothing) Then
+                RaiseEvent PEDIDO_FRECUENTERowDeleted(Me, New PEDIDO_FRECUENTERowChangeEvent(CType(e.Row,PEDIDO_FRECUENTERow), e.Action))
+            End If
+        End Sub
+        
+        <System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Protected Overrides Sub OnRowDeleting(ByVal e As System.Data.DataRowChangeEventArgs)
+            MyBase.OnRowDeleting(e)
+            If (Not (Me.PEDIDO_FRECUENTERowDeletingEvent) Is Nothing) Then
+                RaiseEvent PEDIDO_FRECUENTERowDeleting(Me, New PEDIDO_FRECUENTERowChangeEvent(CType(e.Row,PEDIDO_FRECUENTERow), e.Action))
+            End If
+        End Sub
+        
+        <System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public Sub RemovePEDIDO_FRECUENTERow(ByVal row As PEDIDO_FRECUENTERow)
+            Me.Rows.Remove(row)
+        End Sub
+        
+        <System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public Shared Function GetTypedTableSchema(ByVal xs As System.Xml.Schema.XmlSchemaSet) As System.Xml.Schema.XmlSchemaComplexType
+            Dim type As System.Xml.Schema.XmlSchemaComplexType = New System.Xml.Schema.XmlSchemaComplexType
+            Dim sequence As System.Xml.Schema.XmlSchemaSequence = New System.Xml.Schema.XmlSchemaSequence
+            Dim ds As FarmaciaSJDataSet = New FarmaciaSJDataSet
+            xs.Add(ds.GetSchemaSerializable)
+            Dim any1 As System.Xml.Schema.XmlSchemaAny = New System.Xml.Schema.XmlSchemaAny
+            any1.Namespace = "http://www.w3.org/2001/XMLSchema"
+            any1.MinOccurs = New Decimal(0)
+            any1.MaxOccurs = Decimal.MaxValue
+            any1.ProcessContents = System.Xml.Schema.XmlSchemaContentProcessing.Lax
+            sequence.Items.Add(any1)
+            Dim any2 As System.Xml.Schema.XmlSchemaAny = New System.Xml.Schema.XmlSchemaAny
+            any2.Namespace = "urn:schemas-microsoft-com:xml-diffgram-v1"
+            any2.MinOccurs = New Decimal(1)
+            any2.ProcessContents = System.Xml.Schema.XmlSchemaContentProcessing.Lax
+            sequence.Items.Add(any2)
+            Dim attribute1 As System.Xml.Schema.XmlSchemaAttribute = New System.Xml.Schema.XmlSchemaAttribute
+            attribute1.Name = "namespace"
+            attribute1.FixedValue = ds.Namespace
+            type.Attributes.Add(attribute1)
+            Dim attribute2 As System.Xml.Schema.XmlSchemaAttribute = New System.Xml.Schema.XmlSchemaAttribute
+            attribute2.Name = "tableTypeName"
+            attribute2.FixedValue = "PEDIDO_FRECUENTEDataTable"
+            type.Attributes.Add(attribute2)
+            type.Particle = sequence
+            Return type
+        End Function
+    End Class
+    
     <System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "2.0.0.0")>  _
     Partial Public Class CLIENTERow
         Inherits System.Data.DataRow
@@ -5171,6 +5564,11 @@ Partial Public Class FarmaciaSJDataSet
         <System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
         Public Function GetVENTARows() As VENTARow()
             Return CType(MyBase.GetChildRows(Me.Table.ChildRelations("FK_VENTA_CLIENTE")),VENTARow())
+        End Function
+        
+        <System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public Function GetPEDIDO_FRECUENTERows() As PEDIDO_FRECUENTERow()
+            Return CType(MyBase.GetChildRows(Me.Table.ChildRelations("FK_PEDIDO_FRECUENTE_PEDIDO_FRECUENTE1")),PEDIDO_FRECUENTERow())
         End Function
     End Class
     
@@ -6171,6 +6569,16 @@ Partial Public Class FarmaciaSJDataSet
         End Property
         
         <System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public Property UNIDADES_POR_PAQUETE() As Decimal
+            Get
+                Return CType(Me(Me.tablePRODUCTO.UNIDADES_POR_PAQUETEColumn),Decimal)
+            End Get
+            Set
+                Me(Me.tablePRODUCTO.UNIDADES_POR_PAQUETEColumn) = value
+            End Set
+        End Property
+        
+        <System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
         Public Property LINEARow() As LINEARow
             Get
                 Return CType(Me.GetParentRow(Me.Table.ParentRelations("FK_PRODUCTO_LINEA")),LINEARow)
@@ -6193,6 +6601,11 @@ Partial Public Class FarmaciaSJDataSet
         <System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
         Public Function GetPROVEEDOR_PRODUCTORows() As PROVEEDOR_PRODUCTORow()
             Return CType(MyBase.GetChildRows(Me.Table.ChildRelations("FK_PROVEEDOR_PRODUCTO_PRODUCTO")),PROVEEDOR_PRODUCTORow())
+        End Function
+        
+        <System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public Function GetPEDIDO_FRECUENTERows() As PEDIDO_FRECUENTERow()
+            Return CType(MyBase.GetChildRows(Me.Table.ChildRelations("FK_PEDIDO_FRECUENTE_PEDIDO_FRECUENTE")),PEDIDO_FRECUENTERow())
         End Function
     End Class
     
@@ -6289,6 +6702,16 @@ Partial Public Class FarmaciaSJDataSet
             End Get
             Set
                 Me(Me.tablePROVEEDOR.SaldoColumn) = value
+            End Set
+        End Property
+        
+        <System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public Property Estatus() As String
+            Get
+                Return CType(Me(Me.tablePROVEEDOR.EstatusColumn),String)
+            End Get
+            Set
+                Me(Me.tablePROVEEDOR.EstatusColumn) = value
             End Set
         End Property
         
@@ -6540,6 +6963,139 @@ Partial Public Class FarmaciaSJDataSet
         Public Function GetDETALLE_VENTARows() As DETALLE_VENTARow()
             Return CType(MyBase.GetChildRows(Me.Table.ChildRelations("FK_DETALLE_VENTA_VENTA")),DETALLE_VENTARow())
         End Function
+    End Class
+    
+    <System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "2.0.0.0")>  _
+    Partial Public Class PEDIDO_FRECUENTERow
+        Inherits System.Data.DataRow
+        
+        Private tablePEDIDO_FRECUENTE As PEDIDO_FRECUENTEDataTable
+        
+        <System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Friend Sub New(ByVal rb As System.Data.DataRowBuilder)
+            MyBase.New(rb)
+            Me.tablePEDIDO_FRECUENTE = CType(Me.Table,PEDIDO_FRECUENTEDataTable)
+        End Sub
+        
+        <System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public Property ID_PEDIDO() As Decimal
+            Get
+                Return CType(Me(Me.tablePEDIDO_FRECUENTE.ID_PEDIDOColumn),Decimal)
+            End Get
+            Set
+                Me(Me.tablePEDIDO_FRECUENTE.ID_PEDIDOColumn) = value
+            End Set
+        End Property
+        
+        <System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public Property NUMERO_PEDIDO() As String
+            Get
+                Return CType(Me(Me.tablePEDIDO_FRECUENTE.NUMERO_PEDIDOColumn),String)
+            End Get
+            Set
+                Me(Me.tablePEDIDO_FRECUENTE.NUMERO_PEDIDOColumn) = value
+            End Set
+        End Property
+        
+        <System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public Property FECHA_INICIO() As Date
+            Get
+                Return CType(Me(Me.tablePEDIDO_FRECUENTE.FECHA_INICIOColumn),Date)
+            End Get
+            Set
+                Me(Me.tablePEDIDO_FRECUENTE.FECHA_INICIOColumn) = value
+            End Set
+        End Property
+        
+        <System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public Property FECHA_FIN() As Date
+            Get
+                Return CType(Me(Me.tablePEDIDO_FRECUENTE.FECHA_FINColumn),Date)
+            End Get
+            Set
+                Me(Me.tablePEDIDO_FRECUENTE.FECHA_FINColumn) = value
+            End Set
+        End Property
+        
+        <System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public Property FECHA_ULTIMA_COMPRA() As Date
+            Get
+                Return CType(Me(Me.tablePEDIDO_FRECUENTE.FECHA_ULTIMA_COMPRAColumn),Date)
+            End Get
+            Set
+                Me(Me.tablePEDIDO_FRECUENTE.FECHA_ULTIMA_COMPRAColumn) = value
+            End Set
+        End Property
+        
+        <System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public Property DESCRIPCION() As String
+            Get
+                Return CType(Me(Me.tablePEDIDO_FRECUENTE.DESCRIPCIONColumn),String)
+            End Get
+            Set
+                Me(Me.tablePEDIDO_FRECUENTE.DESCRIPCIONColumn) = value
+            End Set
+        End Property
+        
+        <System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public Property CANTIDAD_DIARIA() As Decimal
+            Get
+                Return CType(Me(Me.tablePEDIDO_FRECUENTE.CANTIDAD_DIARIAColumn),Decimal)
+            End Get
+            Set
+                Me(Me.tablePEDIDO_FRECUENTE.CANTIDAD_DIARIAColumn) = value
+            End Set
+        End Property
+        
+        <System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public Property ID_PRODUCTO() As Decimal
+            Get
+                Return CType(Me(Me.tablePEDIDO_FRECUENTE.ID_PRODUCTOColumn),Decimal)
+            End Get
+            Set
+                Me(Me.tablePEDIDO_FRECUENTE.ID_PRODUCTOColumn) = value
+            End Set
+        End Property
+        
+        <System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public Property ID_CLIENTE() As Decimal
+            Get
+                Return CType(Me(Me.tablePEDIDO_FRECUENTE.ID_CLIENTEColumn),Decimal)
+            End Get
+            Set
+                Me(Me.tablePEDIDO_FRECUENTE.ID_CLIENTEColumn) = value
+            End Set
+        End Property
+        
+        <System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public Property ESTATUS() As String
+            Get
+                Return CType(Me(Me.tablePEDIDO_FRECUENTE.ESTATUSColumn),String)
+            End Get
+            Set
+                Me(Me.tablePEDIDO_FRECUENTE.ESTATUSColumn) = value
+            End Set
+        End Property
+        
+        <System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public Property PRODUCTORow() As PRODUCTORow
+            Get
+                Return CType(Me.GetParentRow(Me.Table.ParentRelations("FK_PEDIDO_FRECUENTE_PEDIDO_FRECUENTE")),PRODUCTORow)
+            End Get
+            Set
+                Me.SetParentRow(value, Me.Table.ParentRelations("FK_PEDIDO_FRECUENTE_PEDIDO_FRECUENTE"))
+            End Set
+        End Property
+        
+        <System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public Property CLIENTERow() As CLIENTERow
+            Get
+                Return CType(Me.GetParentRow(Me.Table.ParentRelations("FK_PEDIDO_FRECUENTE_PEDIDO_FRECUENTE1")),CLIENTERow)
+            End Get
+            Set
+                Me.SetParentRow(value, Me.Table.ParentRelations("FK_PEDIDO_FRECUENTE_PEDIDO_FRECUENTE1"))
+            End Set
+        End Property
     End Class
     
     <System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "2.0.0.0")>  _
@@ -7009,6 +7565,36 @@ Partial Public Class FarmaciaSJDataSet
         
         <System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
         Public ReadOnly Property Row() As VENTARow
+            Get
+                Return Me.eventRow
+            End Get
+        End Property
+        
+        <System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public ReadOnly Property Action() As System.Data.DataRowAction
+            Get
+                Return Me.eventAction
+            End Get
+        End Property
+    End Class
+    
+    <System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "2.0.0.0")>  _
+    Public Class PEDIDO_FRECUENTERowChangeEvent
+        Inherits System.EventArgs
+        
+        Private eventRow As PEDIDO_FRECUENTERow
+        
+        Private eventAction As System.Data.DataRowAction
+        
+        <System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public Sub New(ByVal row As PEDIDO_FRECUENTERow, ByVal action As System.Data.DataRowAction)
+            MyBase.New
+            Me.eventRow = row
+            Me.eventAction = action
+        End Sub
+        
+        <System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public ReadOnly Property Row() As PEDIDO_FRECUENTERow
             Get
                 Return Me.eventRow
             End Get
@@ -10397,21 +10983,25 @@ Namespace FarmaciaSJDataSetTableAdapters
             tableMapping.ColumnMappings.Add("DESCRIPCION", "DESCRIPCION")
             tableMapping.ColumnMappings.Add("GRAVADO_EXENTO", "GRAVADO_EXENTO")
             tableMapping.ColumnMappings.Add("ID_LINEA", "ID_LINEA")
+            tableMapping.ColumnMappings.Add("UNIDADES_POR_PAQUETE", "UNIDADES_POR_PAQUETE")
             Me._adapter.TableMappings.Add(tableMapping)
             Me._adapter.DeleteCommand = New System.Data.SqlClient.SqlCommand
             Me._adapter.DeleteCommand.Connection = Me.Connection
-            Me._adapter.DeleteCommand.CommandText = "DELETE FROM [dbo].[PRODUCTO] WHERE (([ID_PRODUCTO] = @Original_ID_PRODUCTO) AND ("& _ 
-                "[ID_LINEA] = @Original_ID_LINEA))"
+            Me._adapter.DeleteCommand.CommandText = "DELETE FROM [PRODUCTO] WHERE (([ID_PRODUCTO] = @Original_ID_PRODUCTO) AND ([ID_LI"& _ 
+                "NEA] = @Original_ID_LINEA) AND ([UNIDADES_POR_PAQUETE] = @Original_UNIDADES_POR_"& _ 
+                "PAQUETE))"
             Me._adapter.DeleteCommand.CommandType = System.Data.CommandType.Text
             Me._adapter.DeleteCommand.Parameters.Add(New System.Data.SqlClient.SqlParameter("@Original_ID_PRODUCTO", System.Data.SqlDbType.[Decimal], 0, System.Data.ParameterDirection.Input, 18, 0, "ID_PRODUCTO", System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
             Me._adapter.DeleteCommand.Parameters.Add(New System.Data.SqlClient.SqlParameter("@Original_ID_LINEA", System.Data.SqlDbType.[Decimal], 0, System.Data.ParameterDirection.Input, 18, 0, "ID_LINEA", System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
+            Me._adapter.DeleteCommand.Parameters.Add(New System.Data.SqlClient.SqlParameter("@Original_UNIDADES_POR_PAQUETE", System.Data.SqlDbType.[Decimal], 0, System.Data.ParameterDirection.Input, 18, 0, "UNIDADES_POR_PAQUETE", System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
             Me._adapter.InsertCommand = New System.Data.SqlClient.SqlCommand
             Me._adapter.InsertCommand.Connection = Me.Connection
-            Me._adapter.InsertCommand.CommandText = "INSERT INTO [dbo].[PRODUCTO] ([NOMBRE], [CODIGO_DE_BARRAS], [CODIGO], [DESCRIPCIO"& _ 
-                "N], [GRAVADO_EXENTO], [ID_LINEA]) VALUES (@NOMBRE, @CODIGO_DE_BARRAS, @CODIGO, @"& _ 
-                "DESCRIPCION, @GRAVADO_EXENTO, @ID_LINEA);"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"SELECT ID_PRODUCTO, NOMBRE, CODIGO_DE"& _ 
-                "_BARRAS, CODIGO, DESCRIPCION, GRAVADO_EXENTO, ID_LINEA FROM PRODUCTO WHERE (ID_P"& _ 
-                "RODUCTO = SCOPE_IDENTITY())"
+            Me._adapter.InsertCommand.CommandText = "INSERT INTO [PRODUCTO] ([NOMBRE], [CODIGO_DE_BARRAS], [CODIGO], [DESCRIPCION], [G"& _ 
+                "RAVADO_EXENTO], [ID_LINEA], [UNIDADES_POR_PAQUETE]) VALUES (@NOMBRE, @CODIGO_DE_"& _ 
+                "BARRAS, @CODIGO, @DESCRIPCION, @GRAVADO_EXENTO, @ID_LINEA, @UNIDADES_POR_PAQUETE"& _ 
+                ");"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"SELECT ID_PRODUCTO, NOMBRE, CODIGO_DE_BARRAS, CODIGO, DESCRIPCION, GRAVADO_E"& _ 
+                "XENTO, ID_LINEA, UNIDADES_POR_PAQUETE FROM PRODUCTO WHERE (ID_PRODUCTO = SCOPE_I"& _ 
+                "DENTITY())"
             Me._adapter.InsertCommand.CommandType = System.Data.CommandType.Text
             Me._adapter.InsertCommand.Parameters.Add(New System.Data.SqlClient.SqlParameter("@NOMBRE", System.Data.SqlDbType.VarChar, 0, System.Data.ParameterDirection.Input, 0, 0, "NOMBRE", System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
             Me._adapter.InsertCommand.Parameters.Add(New System.Data.SqlClient.SqlParameter("@CODIGO_DE_BARRAS", System.Data.SqlDbType.VarChar, 0, System.Data.ParameterDirection.Input, 0, 0, "CODIGO_DE_BARRAS", System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
@@ -10419,14 +11009,16 @@ Namespace FarmaciaSJDataSetTableAdapters
             Me._adapter.InsertCommand.Parameters.Add(New System.Data.SqlClient.SqlParameter("@DESCRIPCION", System.Data.SqlDbType.VarChar, 0, System.Data.ParameterDirection.Input, 0, 0, "DESCRIPCION", System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
             Me._adapter.InsertCommand.Parameters.Add(New System.Data.SqlClient.SqlParameter("@GRAVADO_EXENTO", System.Data.SqlDbType.VarChar, 0, System.Data.ParameterDirection.Input, 0, 0, "GRAVADO_EXENTO", System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
             Me._adapter.InsertCommand.Parameters.Add(New System.Data.SqlClient.SqlParameter("@ID_LINEA", System.Data.SqlDbType.[Decimal], 0, System.Data.ParameterDirection.Input, 18, 0, "ID_LINEA", System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.InsertCommand.Parameters.Add(New System.Data.SqlClient.SqlParameter("@UNIDADES_POR_PAQUETE", System.Data.SqlDbType.[Decimal], 0, System.Data.ParameterDirection.Input, 18, 0, "UNIDADES_POR_PAQUETE", System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
             Me._adapter.UpdateCommand = New System.Data.SqlClient.SqlCommand
             Me._adapter.UpdateCommand.Connection = Me.Connection
-            Me._adapter.UpdateCommand.CommandText = "UPDATE [dbo].[PRODUCTO] SET [NOMBRE] = @NOMBRE, [CODIGO_DE_BARRAS] = @CODIGO_DE_B"& _ 
-                "ARRAS, [CODIGO] = @CODIGO, [DESCRIPCION] = @DESCRIPCION, [GRAVADO_EXENTO] = @GRA"& _ 
-                "VADO_EXENTO, [ID_LINEA] = @ID_LINEA WHERE (([ID_PRODUCTO] = @Original_ID_PRODUCT"& _ 
-                "O) AND ([ID_LINEA] = @Original_ID_LINEA));"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"SELECT ID_PRODUCTO, NOMBRE, CODIGO_D"& _ 
-                "E_BARRAS, CODIGO, DESCRIPCION, GRAVADO_EXENTO, ID_LINEA FROM PRODUCTO WHERE (ID_"& _ 
-                "PRODUCTO = @ID_PRODUCTO)"
+            Me._adapter.UpdateCommand.CommandText = "UPDATE [PRODUCTO] SET [NOMBRE] = @NOMBRE, [CODIGO_DE_BARRAS] = @CODIGO_DE_BARRAS,"& _ 
+                " [CODIGO] = @CODIGO, [DESCRIPCION] = @DESCRIPCION, [GRAVADO_EXENTO] = @GRAVADO_E"& _ 
+                "XENTO, [ID_LINEA] = @ID_LINEA, [UNIDADES_POR_PAQUETE] = @UNIDADES_POR_PAQUETE WH"& _ 
+                "ERE (([ID_PRODUCTO] = @Original_ID_PRODUCTO) AND ([ID_LINEA] = @Original_ID_LINE"& _ 
+                "A) AND ([UNIDADES_POR_PAQUETE] = @Original_UNIDADES_POR_PAQUETE));"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"SELECT ID_PR"& _ 
+                "ODUCTO, NOMBRE, CODIGO_DE_BARRAS, CODIGO, DESCRIPCION, GRAVADO_EXENTO, ID_LINEA,"& _ 
+                " UNIDADES_POR_PAQUETE FROM PRODUCTO WHERE (ID_PRODUCTO = @ID_PRODUCTO)"
             Me._adapter.UpdateCommand.CommandType = System.Data.CommandType.Text
             Me._adapter.UpdateCommand.Parameters.Add(New System.Data.SqlClient.SqlParameter("@NOMBRE", System.Data.SqlDbType.VarChar, 0, System.Data.ParameterDirection.Input, 0, 0, "NOMBRE", System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
             Me._adapter.UpdateCommand.Parameters.Add(New System.Data.SqlClient.SqlParameter("@CODIGO_DE_BARRAS", System.Data.SqlDbType.VarChar, 0, System.Data.ParameterDirection.Input, 0, 0, "CODIGO_DE_BARRAS", System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
@@ -10434,8 +11026,10 @@ Namespace FarmaciaSJDataSetTableAdapters
             Me._adapter.UpdateCommand.Parameters.Add(New System.Data.SqlClient.SqlParameter("@DESCRIPCION", System.Data.SqlDbType.VarChar, 0, System.Data.ParameterDirection.Input, 0, 0, "DESCRIPCION", System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
             Me._adapter.UpdateCommand.Parameters.Add(New System.Data.SqlClient.SqlParameter("@GRAVADO_EXENTO", System.Data.SqlDbType.VarChar, 0, System.Data.ParameterDirection.Input, 0, 0, "GRAVADO_EXENTO", System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
             Me._adapter.UpdateCommand.Parameters.Add(New System.Data.SqlClient.SqlParameter("@ID_LINEA", System.Data.SqlDbType.[Decimal], 0, System.Data.ParameterDirection.Input, 18, 0, "ID_LINEA", System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New System.Data.SqlClient.SqlParameter("@UNIDADES_POR_PAQUETE", System.Data.SqlDbType.[Decimal], 0, System.Data.ParameterDirection.Input, 18, 0, "UNIDADES_POR_PAQUETE", System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
             Me._adapter.UpdateCommand.Parameters.Add(New System.Data.SqlClient.SqlParameter("@Original_ID_PRODUCTO", System.Data.SqlDbType.[Decimal], 0, System.Data.ParameterDirection.Input, 18, 0, "ID_PRODUCTO", System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
             Me._adapter.UpdateCommand.Parameters.Add(New System.Data.SqlClient.SqlParameter("@Original_ID_LINEA", System.Data.SqlDbType.[Decimal], 0, System.Data.ParameterDirection.Input, 18, 0, "ID_LINEA", System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New System.Data.SqlClient.SqlParameter("@Original_UNIDADES_POR_PAQUETE", System.Data.SqlDbType.[Decimal], 0, System.Data.ParameterDirection.Input, 18, 0, "UNIDADES_POR_PAQUETE", System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
             Me._adapter.UpdateCommand.Parameters.Add(New System.Data.SqlClient.SqlParameter("@ID_PRODUCTO", System.Data.SqlDbType.[Decimal], 9, System.Data.ParameterDirection.Input, 18, 0, "ID_PRODUCTO", System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
         End Sub
         
@@ -10451,7 +11045,7 @@ Namespace FarmaciaSJDataSetTableAdapters
             Me._commandCollection(0) = New System.Data.SqlClient.SqlCommand
             Me._commandCollection(0).Connection = Me.Connection
             Me._commandCollection(0).CommandText = "SELECT ID_PRODUCTO, NOMBRE, CODIGO_DE_BARRAS, CODIGO, DESCRIPCION, GRAVADO_EXENTO"& _ 
-                ", ID_LINEA FROM dbo.PRODUCTO"
+                ", ID_LINEA, UNIDADES_POR_PAQUETE FROM PRODUCTO"
             Me._commandCollection(0).CommandType = System.Data.CommandType.Text
         End Sub
         
@@ -10504,9 +11098,10 @@ Namespace FarmaciaSJDataSetTableAdapters
         <System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
          System.ComponentModel.DataObjectMethodAttribute(System.ComponentModel.DataObjectMethodType.Delete, true)>  _
-        Public Overloads Overridable Function Delete(ByVal Original_ID_PRODUCTO As Decimal, ByVal Original_ID_LINEA As Decimal) As Integer
+        Public Overloads Overridable Function Delete(ByVal Original_ID_PRODUCTO As Decimal, ByVal Original_ID_LINEA As Decimal, ByVal Original_UNIDADES_POR_PAQUETE As Decimal) As Integer
             Me.Adapter.DeleteCommand.Parameters(0).Value = CType(Original_ID_PRODUCTO,Decimal)
             Me.Adapter.DeleteCommand.Parameters(1).Value = CType(Original_ID_LINEA,Decimal)
+            Me.Adapter.DeleteCommand.Parameters(2).Value = CType(Original_UNIDADES_POR_PAQUETE,Decimal)
             Dim previousConnectionState As System.Data.ConnectionState = Me.Adapter.DeleteCommand.Connection.State
             If ((Me.Adapter.DeleteCommand.Connection.State And System.Data.ConnectionState.Open)  _
                         <> System.Data.ConnectionState.Open) Then
@@ -10525,7 +11120,7 @@ Namespace FarmaciaSJDataSetTableAdapters
         <System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
          System.ComponentModel.DataObjectMethodAttribute(System.ComponentModel.DataObjectMethodType.Insert, true)>  _
-        Public Overloads Overridable Function Insert(ByVal NOMBRE As String, ByVal CODIGO_DE_BARRAS As String, ByVal CODIGO As String, ByVal DESCRIPCION As String, ByVal GRAVADO_EXENTO As String, ByVal ID_LINEA As Decimal) As Integer
+        Public Overloads Overridable Function Insert(ByVal NOMBRE As String, ByVal CODIGO_DE_BARRAS As String, ByVal CODIGO As String, ByVal DESCRIPCION As String, ByVal GRAVADO_EXENTO As String, ByVal ID_LINEA As Decimal, ByVal UNIDADES_POR_PAQUETE As Decimal) As Integer
             If (NOMBRE Is Nothing) Then
                 Throw New System.ArgumentNullException("NOMBRE")
             Else
@@ -10552,6 +11147,7 @@ Namespace FarmaciaSJDataSetTableAdapters
                 Me.Adapter.InsertCommand.Parameters(4).Value = CType(GRAVADO_EXENTO,String)
             End If
             Me.Adapter.InsertCommand.Parameters(5).Value = CType(ID_LINEA,Decimal)
+            Me.Adapter.InsertCommand.Parameters(6).Value = CType(UNIDADES_POR_PAQUETE,Decimal)
             Dim previousConnectionState As System.Data.ConnectionState = Me.Adapter.InsertCommand.Connection.State
             If ((Me.Adapter.InsertCommand.Connection.State And System.Data.ConnectionState.Open)  _
                         <> System.Data.ConnectionState.Open) Then
@@ -10570,7 +11166,7 @@ Namespace FarmaciaSJDataSetTableAdapters
         <System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
          System.ComponentModel.DataObjectMethodAttribute(System.ComponentModel.DataObjectMethodType.Update, true)>  _
-        Public Overloads Overridable Function Update(ByVal NOMBRE As String, ByVal CODIGO_DE_BARRAS As String, ByVal CODIGO As String, ByVal DESCRIPCION As String, ByVal GRAVADO_EXENTO As String, ByVal ID_LINEA As Decimal, ByVal Original_ID_PRODUCTO As Decimal, ByVal Original_ID_LINEA As Decimal, ByVal ID_PRODUCTO As Decimal) As Integer
+        Public Overloads Overridable Function Update(ByVal NOMBRE As String, ByVal CODIGO_DE_BARRAS As String, ByVal CODIGO As String, ByVal DESCRIPCION As String, ByVal GRAVADO_EXENTO As String, ByVal ID_LINEA As Decimal, ByVal UNIDADES_POR_PAQUETE As Decimal, ByVal Original_ID_PRODUCTO As Decimal, ByVal Original_ID_LINEA As Decimal, ByVal Original_UNIDADES_POR_PAQUETE As Decimal, ByVal ID_PRODUCTO As Decimal) As Integer
             If (NOMBRE Is Nothing) Then
                 Throw New System.ArgumentNullException("NOMBRE")
             Else
@@ -10597,9 +11193,11 @@ Namespace FarmaciaSJDataSetTableAdapters
                 Me.Adapter.UpdateCommand.Parameters(4).Value = CType(GRAVADO_EXENTO,String)
             End If
             Me.Adapter.UpdateCommand.Parameters(5).Value = CType(ID_LINEA,Decimal)
-            Me.Adapter.UpdateCommand.Parameters(6).Value = CType(Original_ID_PRODUCTO,Decimal)
-            Me.Adapter.UpdateCommand.Parameters(7).Value = CType(Original_ID_LINEA,Decimal)
-            Me.Adapter.UpdateCommand.Parameters(8).Value = CType(ID_PRODUCTO,Decimal)
+            Me.Adapter.UpdateCommand.Parameters(6).Value = CType(UNIDADES_POR_PAQUETE,Decimal)
+            Me.Adapter.UpdateCommand.Parameters(7).Value = CType(Original_ID_PRODUCTO,Decimal)
+            Me.Adapter.UpdateCommand.Parameters(8).Value = CType(Original_ID_LINEA,Decimal)
+            Me.Adapter.UpdateCommand.Parameters(9).Value = CType(Original_UNIDADES_POR_PAQUETE,Decimal)
+            Me.Adapter.UpdateCommand.Parameters(10).Value = CType(ID_PRODUCTO,Decimal)
             Dim previousConnectionState As System.Data.ConnectionState = Me.Adapter.UpdateCommand.Connection.State
             If ((Me.Adapter.UpdateCommand.Connection.State And System.Data.ConnectionState.Open)  _
                         <> System.Data.ConnectionState.Open) Then
@@ -10713,20 +11311,21 @@ Namespace FarmaciaSJDataSetTableAdapters
             tableMapping.ColumnMappings.Add("Ciudad", "Ciudad")
             tableMapping.ColumnMappings.Add("Direccion", "Direccion")
             tableMapping.ColumnMappings.Add("Saldo", "Saldo")
+            tableMapping.ColumnMappings.Add("Estatus", "Estatus")
             Me._adapter.TableMappings.Add(tableMapping)
             Me._adapter.DeleteCommand = New System.Data.SqlClient.SqlCommand
             Me._adapter.DeleteCommand.Connection = Me.Connection
-            Me._adapter.DeleteCommand.CommandText = "DELETE FROM [dbo].[PROVEEDOR] WHERE (([ID_PROVEEDOR] = @Original_ID_PROVEEDOR) AN"& _ 
-                "D ([Saldo] = @Original_Saldo))"
+            Me._adapter.DeleteCommand.CommandText = "DELETE FROM [PROVEEDOR] WHERE (([ID_PROVEEDOR] = @Original_ID_PROVEEDOR) AND ([Sa"& _ 
+                "ldo] = @Original_Saldo))"
             Me._adapter.DeleteCommand.CommandType = System.Data.CommandType.Text
             Me._adapter.DeleteCommand.Parameters.Add(New System.Data.SqlClient.SqlParameter("@Original_ID_PROVEEDOR", System.Data.SqlDbType.[Decimal], 0, System.Data.ParameterDirection.Input, 18, 0, "ID_PROVEEDOR", System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
             Me._adapter.DeleteCommand.Parameters.Add(New System.Data.SqlClient.SqlParameter("@Original_Saldo", System.Data.SqlDbType.Float, 0, System.Data.ParameterDirection.Input, 0, 0, "Saldo", System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
             Me._adapter.InsertCommand = New System.Data.SqlClient.SqlCommand
             Me._adapter.InsertCommand.Connection = Me.Connection
-            Me._adapter.InsertCommand.CommandText = "INSERT INTO [dbo].[PROVEEDOR] ([Codigo], [RIF], [Nombre], [Mail], [Ciudad], [Dire"& _ 
-                "ccion], [Saldo]) VALUES (@Codigo, @RIF, @Nombre, @Mail, @Ciudad, @Direccion, @Sa"& _ 
-                "ldo);"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"SELECT ID_PROVEEDOR, Codigo, RIF, Nombre, Mail, Ciudad, Direccion, Saldo "& _ 
-                "FROM PROVEEDOR WHERE (ID_PROVEEDOR = SCOPE_IDENTITY())"
+            Me._adapter.InsertCommand.CommandText = "INSERT INTO [PROVEEDOR] ([Codigo], [RIF], [Nombre], [Mail], [Ciudad], [Direccion]"& _ 
+                ", [Saldo], [Estatus]) VALUES (@Codigo, @RIF, @Nombre, @Mail, @Ciudad, @Direccion"& _ 
+                ", @Saldo, @Estatus);"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"SELECT ID_PROVEEDOR, Codigo, RIF, Nombre, Mail, Ciudad, Di"& _ 
+                "reccion, Saldo, Estatus FROM PROVEEDOR WHERE (ID_PROVEEDOR = SCOPE_IDENTITY())"
             Me._adapter.InsertCommand.CommandType = System.Data.CommandType.Text
             Me._adapter.InsertCommand.Parameters.Add(New System.Data.SqlClient.SqlParameter("@Codigo", System.Data.SqlDbType.VarChar, 0, System.Data.ParameterDirection.Input, 0, 0, "Codigo", System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
             Me._adapter.InsertCommand.Parameters.Add(New System.Data.SqlClient.SqlParameter("@RIF", System.Data.SqlDbType.VarChar, 0, System.Data.ParameterDirection.Input, 0, 0, "RIF", System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
@@ -10735,13 +11334,14 @@ Namespace FarmaciaSJDataSetTableAdapters
             Me._adapter.InsertCommand.Parameters.Add(New System.Data.SqlClient.SqlParameter("@Ciudad", System.Data.SqlDbType.VarChar, 0, System.Data.ParameterDirection.Input, 0, 0, "Ciudad", System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
             Me._adapter.InsertCommand.Parameters.Add(New System.Data.SqlClient.SqlParameter("@Direccion", System.Data.SqlDbType.VarChar, 0, System.Data.ParameterDirection.Input, 0, 0, "Direccion", System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
             Me._adapter.InsertCommand.Parameters.Add(New System.Data.SqlClient.SqlParameter("@Saldo", System.Data.SqlDbType.Float, 0, System.Data.ParameterDirection.Input, 0, 0, "Saldo", System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.InsertCommand.Parameters.Add(New System.Data.SqlClient.SqlParameter("@Estatus", System.Data.SqlDbType.NVarChar, 0, System.Data.ParameterDirection.Input, 0, 0, "Estatus", System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
             Me._adapter.UpdateCommand = New System.Data.SqlClient.SqlCommand
             Me._adapter.UpdateCommand.Connection = Me.Connection
-            Me._adapter.UpdateCommand.CommandText = "UPDATE [dbo].[PROVEEDOR] SET [Codigo] = @Codigo, [RIF] = @RIF, [Nombre] = @Nombre"& _ 
-                ", [Mail] = @Mail, [Ciudad] = @Ciudad, [Direccion] = @Direccion, [Saldo] = @Saldo"& _ 
-                " WHERE (([ID_PROVEEDOR] = @Original_ID_PROVEEDOR) AND ([Saldo] = @Original_Saldo"& _ 
-                "));"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"SELECT ID_PROVEEDOR, Codigo, RIF, Nombre, Mail, Ciudad, Direccion, Saldo FR"& _ 
-                "OM PROVEEDOR WHERE (ID_PROVEEDOR = @ID_PROVEEDOR)"
+            Me._adapter.UpdateCommand.CommandText = "UPDATE [PROVEEDOR] SET [Codigo] = @Codigo, [RIF] = @RIF, [Nombre] = @Nombre, [Mai"& _ 
+                "l] = @Mail, [Ciudad] = @Ciudad, [Direccion] = @Direccion, [Saldo] = @Saldo, [Est"& _ 
+                "atus] = @Estatus WHERE (([ID_PROVEEDOR] = @Original_ID_PROVEEDOR) AND ([Saldo] ="& _ 
+                " @Original_Saldo));"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"SELECT ID_PROVEEDOR, Codigo, RIF, Nombre, Mail, Ciudad, Dir"& _ 
+                "eccion, Saldo, Estatus FROM PROVEEDOR WHERE (ID_PROVEEDOR = @ID_PROVEEDOR)"
             Me._adapter.UpdateCommand.CommandType = System.Data.CommandType.Text
             Me._adapter.UpdateCommand.Parameters.Add(New System.Data.SqlClient.SqlParameter("@Codigo", System.Data.SqlDbType.VarChar, 0, System.Data.ParameterDirection.Input, 0, 0, "Codigo", System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
             Me._adapter.UpdateCommand.Parameters.Add(New System.Data.SqlClient.SqlParameter("@RIF", System.Data.SqlDbType.VarChar, 0, System.Data.ParameterDirection.Input, 0, 0, "RIF", System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
@@ -10750,6 +11350,7 @@ Namespace FarmaciaSJDataSetTableAdapters
             Me._adapter.UpdateCommand.Parameters.Add(New System.Data.SqlClient.SqlParameter("@Ciudad", System.Data.SqlDbType.VarChar, 0, System.Data.ParameterDirection.Input, 0, 0, "Ciudad", System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
             Me._adapter.UpdateCommand.Parameters.Add(New System.Data.SqlClient.SqlParameter("@Direccion", System.Data.SqlDbType.VarChar, 0, System.Data.ParameterDirection.Input, 0, 0, "Direccion", System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
             Me._adapter.UpdateCommand.Parameters.Add(New System.Data.SqlClient.SqlParameter("@Saldo", System.Data.SqlDbType.Float, 0, System.Data.ParameterDirection.Input, 0, 0, "Saldo", System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New System.Data.SqlClient.SqlParameter("@Estatus", System.Data.SqlDbType.NVarChar, 0, System.Data.ParameterDirection.Input, 0, 0, "Estatus", System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
             Me._adapter.UpdateCommand.Parameters.Add(New System.Data.SqlClient.SqlParameter("@Original_ID_PROVEEDOR", System.Data.SqlDbType.[Decimal], 0, System.Data.ParameterDirection.Input, 18, 0, "ID_PROVEEDOR", System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
             Me._adapter.UpdateCommand.Parameters.Add(New System.Data.SqlClient.SqlParameter("@Original_Saldo", System.Data.SqlDbType.Float, 0, System.Data.ParameterDirection.Input, 0, 0, "Saldo", System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
             Me._adapter.UpdateCommand.Parameters.Add(New System.Data.SqlClient.SqlParameter("@ID_PROVEEDOR", System.Data.SqlDbType.[Decimal], 9, System.Data.ParameterDirection.Input, 18, 0, "ID_PROVEEDOR", System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
@@ -10766,8 +11367,8 @@ Namespace FarmaciaSJDataSetTableAdapters
             Me._commandCollection = New System.Data.SqlClient.SqlCommand(0) {}
             Me._commandCollection(0) = New System.Data.SqlClient.SqlCommand
             Me._commandCollection(0).Connection = Me.Connection
-            Me._commandCollection(0).CommandText = "SELECT ID_PROVEEDOR, Codigo, RIF, Nombre, Mail, Ciudad, Direccion, Saldo FROM dbo"& _ 
-                ".PROVEEDOR"
+            Me._commandCollection(0).CommandText = "SELECT ID_PROVEEDOR, Codigo, RIF, Nombre, Mail, Ciudad, Direccion, Saldo, Estatus"& _ 
+                " FROM PROVEEDOR"
             Me._commandCollection(0).CommandType = System.Data.CommandType.Text
         End Sub
         
@@ -10841,7 +11442,7 @@ Namespace FarmaciaSJDataSetTableAdapters
         <System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
          System.ComponentModel.DataObjectMethodAttribute(System.ComponentModel.DataObjectMethodType.Insert, true)>  _
-        Public Overloads Overridable Function Insert(ByVal Codigo As String, ByVal RIF As String, ByVal Nombre As String, ByVal Mail As String, ByVal Ciudad As String, ByVal Direccion As String, ByVal Saldo As Double) As Integer
+        Public Overloads Overridable Function Insert(ByVal Codigo As String, ByVal RIF As String, ByVal Nombre As String, ByVal Mail As String, ByVal Ciudad As String, ByVal Direccion As String, ByVal Saldo As Double, ByVal Estatus As String) As Integer
             If (Codigo Is Nothing) Then
                 Throw New System.ArgumentNullException("Codigo")
             Else
@@ -10873,6 +11474,11 @@ Namespace FarmaciaSJDataSetTableAdapters
                 Me.Adapter.InsertCommand.Parameters(5).Value = CType(Direccion,String)
             End If
             Me.Adapter.InsertCommand.Parameters(6).Value = CType(Saldo,Double)
+            If (Estatus Is Nothing) Then
+                Throw New System.ArgumentNullException("Estatus")
+            Else
+                Me.Adapter.InsertCommand.Parameters(7).Value = CType(Estatus,String)
+            End If
             Dim previousConnectionState As System.Data.ConnectionState = Me.Adapter.InsertCommand.Connection.State
             If ((Me.Adapter.InsertCommand.Connection.State And System.Data.ConnectionState.Open)  _
                         <> System.Data.ConnectionState.Open) Then
@@ -10891,7 +11497,7 @@ Namespace FarmaciaSJDataSetTableAdapters
         <System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
          System.ComponentModel.DataObjectMethodAttribute(System.ComponentModel.DataObjectMethodType.Update, true)>  _
-        Public Overloads Overridable Function Update(ByVal Codigo As String, ByVal RIF As String, ByVal Nombre As String, ByVal Mail As String, ByVal Ciudad As String, ByVal Direccion As String, ByVal Saldo As Double, ByVal Original_ID_PROVEEDOR As Decimal, ByVal Original_Saldo As Double, ByVal ID_PROVEEDOR As Decimal) As Integer
+        Public Overloads Overridable Function Update(ByVal Codigo As String, ByVal RIF As String, ByVal Nombre As String, ByVal Mail As String, ByVal Ciudad As String, ByVal Direccion As String, ByVal Saldo As Double, ByVal Estatus As String, ByVal Original_ID_PROVEEDOR As Decimal, ByVal Original_Saldo As Double, ByVal ID_PROVEEDOR As Decimal) As Integer
             If (Codigo Is Nothing) Then
                 Throw New System.ArgumentNullException("Codigo")
             Else
@@ -10923,9 +11529,14 @@ Namespace FarmaciaSJDataSetTableAdapters
                 Me.Adapter.UpdateCommand.Parameters(5).Value = CType(Direccion,String)
             End If
             Me.Adapter.UpdateCommand.Parameters(6).Value = CType(Saldo,Double)
-            Me.Adapter.UpdateCommand.Parameters(7).Value = CType(Original_ID_PROVEEDOR,Decimal)
-            Me.Adapter.UpdateCommand.Parameters(8).Value = CType(Original_Saldo,Double)
-            Me.Adapter.UpdateCommand.Parameters(9).Value = CType(ID_PROVEEDOR,Decimal)
+            If (Estatus Is Nothing) Then
+                Throw New System.ArgumentNullException("Estatus")
+            Else
+                Me.Adapter.UpdateCommand.Parameters(7).Value = CType(Estatus,String)
+            End If
+            Me.Adapter.UpdateCommand.Parameters(8).Value = CType(Original_ID_PROVEEDOR,Decimal)
+            Me.Adapter.UpdateCommand.Parameters(9).Value = CType(Original_Saldo,Double)
+            Me.Adapter.UpdateCommand.Parameters(10).Value = CType(ID_PROVEEDOR,Decimal)
             Dim previousConnectionState As System.Data.ConnectionState = Me.Adapter.UpdateCommand.Connection.State
             If ((Me.Adapter.UpdateCommand.Connection.State And System.Data.ConnectionState.Open)  _
                         <> System.Data.ConnectionState.Open) Then
@@ -11769,6 +12380,368 @@ Namespace FarmaciaSJDataSetTableAdapters
             Me.Adapter.UpdateCommand.Parameters(10).Value = CType(Original_VENCE,Date)
             Me.Adapter.UpdateCommand.Parameters(11).Value = CType(Original_DESCUENTO,Double)
             Me.Adapter.UpdateCommand.Parameters(12).Value = CType(Original_ID_CLIENTE,Decimal)
+            Dim previousConnectionState As System.Data.ConnectionState = Me.Adapter.UpdateCommand.Connection.State
+            If ((Me.Adapter.UpdateCommand.Connection.State And System.Data.ConnectionState.Open)  _
+                        <> System.Data.ConnectionState.Open) Then
+                Me.Adapter.UpdateCommand.Connection.Open
+            End If
+            Try 
+                Dim returnValue As Integer = Me.Adapter.UpdateCommand.ExecuteNonQuery
+                Return returnValue
+            Finally
+                If (previousConnectionState = System.Data.ConnectionState.Closed) Then
+                    Me.Adapter.UpdateCommand.Connection.Close
+                End If
+            End Try
+        End Function
+    End Class
+    
+    <System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "2.0.0.0"),  _
+     System.ComponentModel.DesignerCategoryAttribute("code"),  _
+     System.ComponentModel.ToolboxItem(true),  _
+     System.ComponentModel.DataObjectAttribute(true),  _
+     System.ComponentModel.DesignerAttribute("Microsoft.VSDesigner.DataSource.Design.TableAdapterDesigner, Microsoft.VSDesigner"& _ 
+        ", Version=8.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a"),  _
+     System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")>  _
+    Partial Public Class PEDIDO_FRECUENTETableAdapter
+        Inherits System.ComponentModel.Component
+        
+        Private WithEvents _adapter As System.Data.SqlClient.SqlDataAdapter
+        
+        Private _connection As System.Data.SqlClient.SqlConnection
+        
+        Private _commandCollection() As System.Data.SqlClient.SqlCommand
+        
+        Private _clearBeforeFill As Boolean
+        
+        <System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public Sub New()
+            MyBase.New
+            Me.ClearBeforeFill = true
+        End Sub
+        
+        <System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Private ReadOnly Property Adapter() As System.Data.SqlClient.SqlDataAdapter
+            Get
+                If (Me._adapter Is Nothing) Then
+                    Me.InitAdapter
+                End If
+                Return Me._adapter
+            End Get
+        End Property
+        
+        <System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Friend Property Connection() As System.Data.SqlClient.SqlConnection
+            Get
+                If (Me._connection Is Nothing) Then
+                    Me.InitConnection
+                End If
+                Return Me._connection
+            End Get
+            Set
+                Me._connection = value
+                If (Not (Me.Adapter.InsertCommand) Is Nothing) Then
+                    Me.Adapter.InsertCommand.Connection = value
+                End If
+                If (Not (Me.Adapter.DeleteCommand) Is Nothing) Then
+                    Me.Adapter.DeleteCommand.Connection = value
+                End If
+                If (Not (Me.Adapter.UpdateCommand) Is Nothing) Then
+                    Me.Adapter.UpdateCommand.Connection = value
+                End If
+                Dim i As Integer = 0
+                Do While (i < Me.CommandCollection.Length)
+                    If (Not (Me.CommandCollection(i)) Is Nothing) Then
+                        CType(Me.CommandCollection(i),System.Data.SqlClient.SqlCommand).Connection = value
+                    End If
+                    i = (i + 1)
+                Loop
+            End Set
+        End Property
+        
+        <System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Protected ReadOnly Property CommandCollection() As System.Data.SqlClient.SqlCommand()
+            Get
+                If (Me._commandCollection Is Nothing) Then
+                    Me.InitCommandCollection
+                End If
+                Return Me._commandCollection
+            End Get
+        End Property
+        
+        <System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public Property ClearBeforeFill() As Boolean
+            Get
+                Return Me._clearBeforeFill
+            End Get
+            Set
+                Me._clearBeforeFill = value
+            End Set
+        End Property
+        
+        <System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Private Sub InitAdapter()
+            Me._adapter = New System.Data.SqlClient.SqlDataAdapter
+            Dim tableMapping As System.Data.Common.DataTableMapping = New System.Data.Common.DataTableMapping
+            tableMapping.SourceTable = "Table"
+            tableMapping.DataSetTable = "PEDIDO_FRECUENTE"
+            tableMapping.ColumnMappings.Add("ID_PEDIDO", "ID_PEDIDO")
+            tableMapping.ColumnMappings.Add("NUMERO_PEDIDO", "NUMERO_PEDIDO")
+            tableMapping.ColumnMappings.Add("FECHA_INICIO", "FECHA_INICIO")
+            tableMapping.ColumnMappings.Add("FECHA_FIN", "FECHA_FIN")
+            tableMapping.ColumnMappings.Add("FECHA_ULTIMA_COMPRA", "FECHA_ULTIMA_COMPRA")
+            tableMapping.ColumnMappings.Add("DESCRIPCION", "DESCRIPCION")
+            tableMapping.ColumnMappings.Add("CANTIDAD_DIARIA", "CANTIDAD_DIARIA")
+            tableMapping.ColumnMappings.Add("ID_PRODUCTO", "ID_PRODUCTO")
+            tableMapping.ColumnMappings.Add("ID_CLIENTE", "ID_CLIENTE")
+            tableMapping.ColumnMappings.Add("ESTATUS", "ESTATUS")
+            Me._adapter.TableMappings.Add(tableMapping)
+            Me._adapter.DeleteCommand = New System.Data.SqlClient.SqlCommand
+            Me._adapter.DeleteCommand.Connection = Me.Connection
+            Me._adapter.DeleteCommand.CommandText = "DELETE FROM [dbo].[PEDIDO_FRECUENTE] WHERE (([ID_PEDIDO] = @Original_ID_PEDIDO) A"& _ 
+                "ND ([FECHA_INICIO] = @Original_FECHA_INICIO) AND ([FECHA_FIN] = @Original_FECHA_"& _ 
+                "FIN) AND ([FECHA_ULTIMA_COMPRA] = @Original_FECHA_ULTIMA_COMPRA) AND ([CANTIDAD_"& _ 
+                "DIARIA] = @Original_CANTIDAD_DIARIA) AND ([ID_PRODUCTO] = @Original_ID_PRODUCTO)"& _ 
+                " AND ([ID_CLIENTE] = @Original_ID_CLIENTE))"
+            Me._adapter.DeleteCommand.CommandType = System.Data.CommandType.Text
+            Me._adapter.DeleteCommand.Parameters.Add(New System.Data.SqlClient.SqlParameter("@Original_ID_PEDIDO", System.Data.SqlDbType.[Decimal], 0, System.Data.ParameterDirection.Input, 18, 0, "ID_PEDIDO", System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
+            Me._adapter.DeleteCommand.Parameters.Add(New System.Data.SqlClient.SqlParameter("@Original_FECHA_INICIO", System.Data.SqlDbType.DateTime, 0, System.Data.ParameterDirection.Input, 0, 0, "FECHA_INICIO", System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
+            Me._adapter.DeleteCommand.Parameters.Add(New System.Data.SqlClient.SqlParameter("@Original_FECHA_FIN", System.Data.SqlDbType.DateTime, 0, System.Data.ParameterDirection.Input, 0, 0, "FECHA_FIN", System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
+            Me._adapter.DeleteCommand.Parameters.Add(New System.Data.SqlClient.SqlParameter("@Original_FECHA_ULTIMA_COMPRA", System.Data.SqlDbType.DateTime, 0, System.Data.ParameterDirection.Input, 0, 0, "FECHA_ULTIMA_COMPRA", System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
+            Me._adapter.DeleteCommand.Parameters.Add(New System.Data.SqlClient.SqlParameter("@Original_CANTIDAD_DIARIA", System.Data.SqlDbType.[Decimal], 0, System.Data.ParameterDirection.Input, 18, 0, "CANTIDAD_DIARIA", System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
+            Me._adapter.DeleteCommand.Parameters.Add(New System.Data.SqlClient.SqlParameter("@Original_ID_PRODUCTO", System.Data.SqlDbType.[Decimal], 0, System.Data.ParameterDirection.Input, 18, 0, "ID_PRODUCTO", System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
+            Me._adapter.DeleteCommand.Parameters.Add(New System.Data.SqlClient.SqlParameter("@Original_ID_CLIENTE", System.Data.SqlDbType.[Decimal], 0, System.Data.ParameterDirection.Input, 18, 0, "ID_CLIENTE", System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
+            Me._adapter.InsertCommand = New System.Data.SqlClient.SqlCommand
+            Me._adapter.InsertCommand.Connection = Me.Connection
+            Me._adapter.InsertCommand.CommandText = "INSERT INTO [dbo].[PEDIDO_FRECUENTE] ([NUMERO_PEDIDO], [FECHA_INICIO], [FECHA_FIN"& _ 
+                "], [FECHA_ULTIMA_COMPRA], [DESCRIPCION], [CANTIDAD_DIARIA], [ID_PRODUCTO], [ID_C"& _ 
+                "LIENTE], [ESTATUS]) VALUES (@NUMERO_PEDIDO, @FECHA_INICIO, @FECHA_FIN, @FECHA_UL"& _ 
+                "TIMA_COMPRA, @DESCRIPCION, @CANTIDAD_DIARIA, @ID_PRODUCTO, @ID_CLIENTE, @ESTATUS"& _ 
+                ");"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"SELECT ID_PEDIDO, NUMERO_PEDIDO, FECHA_INICIO, FECHA_FIN, FECHA_ULTIMA_COMPR"& _ 
+                "A, DESCRIPCION, CANTIDAD_DIARIA, ID_PRODUCTO, ID_CLIENTE, ESTATUS FROM PEDIDO_FR"& _ 
+                "ECUENTE WHERE (ID_PEDIDO = SCOPE_IDENTITY())"
+            Me._adapter.InsertCommand.CommandType = System.Data.CommandType.Text
+            Me._adapter.InsertCommand.Parameters.Add(New System.Data.SqlClient.SqlParameter("@NUMERO_PEDIDO", System.Data.SqlDbType.VarChar, 0, System.Data.ParameterDirection.Input, 0, 0, "NUMERO_PEDIDO", System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.InsertCommand.Parameters.Add(New System.Data.SqlClient.SqlParameter("@FECHA_INICIO", System.Data.SqlDbType.DateTime, 0, System.Data.ParameterDirection.Input, 0, 0, "FECHA_INICIO", System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.InsertCommand.Parameters.Add(New System.Data.SqlClient.SqlParameter("@FECHA_FIN", System.Data.SqlDbType.DateTime, 0, System.Data.ParameterDirection.Input, 0, 0, "FECHA_FIN", System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.InsertCommand.Parameters.Add(New System.Data.SqlClient.SqlParameter("@FECHA_ULTIMA_COMPRA", System.Data.SqlDbType.DateTime, 0, System.Data.ParameterDirection.Input, 0, 0, "FECHA_ULTIMA_COMPRA", System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.InsertCommand.Parameters.Add(New System.Data.SqlClient.SqlParameter("@DESCRIPCION", System.Data.SqlDbType.VarChar, 0, System.Data.ParameterDirection.Input, 0, 0, "DESCRIPCION", System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.InsertCommand.Parameters.Add(New System.Data.SqlClient.SqlParameter("@CANTIDAD_DIARIA", System.Data.SqlDbType.[Decimal], 0, System.Data.ParameterDirection.Input, 18, 0, "CANTIDAD_DIARIA", System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.InsertCommand.Parameters.Add(New System.Data.SqlClient.SqlParameter("@ID_PRODUCTO", System.Data.SqlDbType.[Decimal], 0, System.Data.ParameterDirection.Input, 18, 0, "ID_PRODUCTO", System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.InsertCommand.Parameters.Add(New System.Data.SqlClient.SqlParameter("@ID_CLIENTE", System.Data.SqlDbType.[Decimal], 0, System.Data.ParameterDirection.Input, 18, 0, "ID_CLIENTE", System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.InsertCommand.Parameters.Add(New System.Data.SqlClient.SqlParameter("@ESTATUS", System.Data.SqlDbType.VarChar, 0, System.Data.ParameterDirection.Input, 0, 0, "ESTATUS", System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand = New System.Data.SqlClient.SqlCommand
+            Me._adapter.UpdateCommand.Connection = Me.Connection
+            Me._adapter.UpdateCommand.CommandText = "UPDATE [dbo].[PEDIDO_FRECUENTE] SET [NUMERO_PEDIDO] = @NUMERO_PEDIDO, [FECHA_INIC"& _ 
+                "IO] = @FECHA_INICIO, [FECHA_FIN] = @FECHA_FIN, [FECHA_ULTIMA_COMPRA] = @FECHA_UL"& _ 
+                "TIMA_COMPRA, [DESCRIPCION] = @DESCRIPCION, [CANTIDAD_DIARIA] = @CANTIDAD_DIARIA,"& _ 
+                " [ID_PRODUCTO] = @ID_PRODUCTO, [ID_CLIENTE] = @ID_CLIENTE, [ESTATUS] = @ESTATUS "& _ 
+                "WHERE (([ID_PEDIDO] = @Original_ID_PEDIDO) AND ([FECHA_INICIO] = @Original_FECHA"& _ 
+                "_INICIO) AND ([FECHA_FIN] = @Original_FECHA_FIN) AND ([FECHA_ULTIMA_COMPRA] = @O"& _ 
+                "riginal_FECHA_ULTIMA_COMPRA) AND ([CANTIDAD_DIARIA] = @Original_CANTIDAD_DIARIA)"& _ 
+                " AND ([ID_PRODUCTO] = @Original_ID_PRODUCTO) AND ([ID_CLIENTE] = @Original_ID_CL"& _ 
+                "IENTE));"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"SELECT ID_PEDIDO, NUMERO_PEDIDO, FECHA_INICIO, FECHA_FIN, FECHA_ULTIMA"& _ 
+                "_COMPRA, DESCRIPCION, CANTIDAD_DIARIA, ID_PRODUCTO, ID_CLIENTE, ESTATUS FROM PED"& _ 
+                "IDO_FRECUENTE WHERE (ID_PEDIDO = @ID_PEDIDO)"
+            Me._adapter.UpdateCommand.CommandType = System.Data.CommandType.Text
+            Me._adapter.UpdateCommand.Parameters.Add(New System.Data.SqlClient.SqlParameter("@NUMERO_PEDIDO", System.Data.SqlDbType.VarChar, 0, System.Data.ParameterDirection.Input, 0, 0, "NUMERO_PEDIDO", System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New System.Data.SqlClient.SqlParameter("@FECHA_INICIO", System.Data.SqlDbType.DateTime, 0, System.Data.ParameterDirection.Input, 0, 0, "FECHA_INICIO", System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New System.Data.SqlClient.SqlParameter("@FECHA_FIN", System.Data.SqlDbType.DateTime, 0, System.Data.ParameterDirection.Input, 0, 0, "FECHA_FIN", System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New System.Data.SqlClient.SqlParameter("@FECHA_ULTIMA_COMPRA", System.Data.SqlDbType.DateTime, 0, System.Data.ParameterDirection.Input, 0, 0, "FECHA_ULTIMA_COMPRA", System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New System.Data.SqlClient.SqlParameter("@DESCRIPCION", System.Data.SqlDbType.VarChar, 0, System.Data.ParameterDirection.Input, 0, 0, "DESCRIPCION", System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New System.Data.SqlClient.SqlParameter("@CANTIDAD_DIARIA", System.Data.SqlDbType.[Decimal], 0, System.Data.ParameterDirection.Input, 18, 0, "CANTIDAD_DIARIA", System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New System.Data.SqlClient.SqlParameter("@ID_PRODUCTO", System.Data.SqlDbType.[Decimal], 0, System.Data.ParameterDirection.Input, 18, 0, "ID_PRODUCTO", System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New System.Data.SqlClient.SqlParameter("@ID_CLIENTE", System.Data.SqlDbType.[Decimal], 0, System.Data.ParameterDirection.Input, 18, 0, "ID_CLIENTE", System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New System.Data.SqlClient.SqlParameter("@ESTATUS", System.Data.SqlDbType.VarChar, 0, System.Data.ParameterDirection.Input, 0, 0, "ESTATUS", System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New System.Data.SqlClient.SqlParameter("@Original_ID_PEDIDO", System.Data.SqlDbType.[Decimal], 0, System.Data.ParameterDirection.Input, 18, 0, "ID_PEDIDO", System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New System.Data.SqlClient.SqlParameter("@Original_FECHA_INICIO", System.Data.SqlDbType.DateTime, 0, System.Data.ParameterDirection.Input, 0, 0, "FECHA_INICIO", System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New System.Data.SqlClient.SqlParameter("@Original_FECHA_FIN", System.Data.SqlDbType.DateTime, 0, System.Data.ParameterDirection.Input, 0, 0, "FECHA_FIN", System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New System.Data.SqlClient.SqlParameter("@Original_FECHA_ULTIMA_COMPRA", System.Data.SqlDbType.DateTime, 0, System.Data.ParameterDirection.Input, 0, 0, "FECHA_ULTIMA_COMPRA", System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New System.Data.SqlClient.SqlParameter("@Original_CANTIDAD_DIARIA", System.Data.SqlDbType.[Decimal], 0, System.Data.ParameterDirection.Input, 18, 0, "CANTIDAD_DIARIA", System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New System.Data.SqlClient.SqlParameter("@Original_ID_PRODUCTO", System.Data.SqlDbType.[Decimal], 0, System.Data.ParameterDirection.Input, 18, 0, "ID_PRODUCTO", System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New System.Data.SqlClient.SqlParameter("@Original_ID_CLIENTE", System.Data.SqlDbType.[Decimal], 0, System.Data.ParameterDirection.Input, 18, 0, "ID_CLIENTE", System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New System.Data.SqlClient.SqlParameter("@ID_PEDIDO", System.Data.SqlDbType.[Decimal], 9, System.Data.ParameterDirection.Input, 18, 0, "ID_PEDIDO", System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+        End Sub
+        
+        <System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Private Sub InitConnection()
+            Me._connection = New System.Data.SqlClient.SqlConnection
+            Me._connection.ConnectionString = Global.FARMACIASJ.My.MySettings.Default.FarmaciaSJConnectionString
+        End Sub
+        
+        <System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Private Sub InitCommandCollection()
+            Me._commandCollection = New System.Data.SqlClient.SqlCommand(0) {}
+            Me._commandCollection(0) = New System.Data.SqlClient.SqlCommand
+            Me._commandCollection(0).Connection = Me.Connection
+            Me._commandCollection(0).CommandText = "SELECT ID_PEDIDO, NUMERO_PEDIDO, FECHA_INICIO, FECHA_FIN, FECHA_ULTIMA_COMPRA, DE"& _ 
+                "SCRIPCION, CANTIDAD_DIARIA, ID_PRODUCTO, ID_CLIENTE, ESTATUS FROM dbo.PEDIDO_FRE"& _ 
+                "CUENTE"
+            Me._commandCollection(0).CommandType = System.Data.CommandType.Text
+        End Sub
+        
+        <System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
+         System.ComponentModel.DataObjectMethodAttribute(System.ComponentModel.DataObjectMethodType.Fill, true)>  _
+        Public Overloads Overridable Function Fill(ByVal dataTable As FarmaciaSJDataSet.PEDIDO_FRECUENTEDataTable) As Integer
+            Me.Adapter.SelectCommand = Me.CommandCollection(0)
+            If (Me.ClearBeforeFill = true) Then
+                dataTable.Clear
+            End If
+            Dim returnValue As Integer = Me.Adapter.Fill(dataTable)
+            Return returnValue
+        End Function
+        
+        <System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
+         System.ComponentModel.DataObjectMethodAttribute(System.ComponentModel.DataObjectMethodType.[Select], true)>  _
+        Public Overloads Overridable Function GetData() As FarmaciaSJDataSet.PEDIDO_FRECUENTEDataTable
+            Me.Adapter.SelectCommand = Me.CommandCollection(0)
+            Dim dataTable As FarmaciaSJDataSet.PEDIDO_FRECUENTEDataTable = New FarmaciaSJDataSet.PEDIDO_FRECUENTEDataTable
+            Me.Adapter.Fill(dataTable)
+            Return dataTable
+        End Function
+        
+        <System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")>  _
+        Public Overloads Overridable Function Update(ByVal dataTable As FarmaciaSJDataSet.PEDIDO_FRECUENTEDataTable) As Integer
+            Return Me.Adapter.Update(dataTable)
+        End Function
+        
+        <System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")>  _
+        Public Overloads Overridable Function Update(ByVal dataSet As FarmaciaSJDataSet) As Integer
+            Return Me.Adapter.Update(dataSet, "PEDIDO_FRECUENTE")
+        End Function
+        
+        <System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")>  _
+        Public Overloads Overridable Function Update(ByVal dataRow As System.Data.DataRow) As Integer
+            Return Me.Adapter.Update(New System.Data.DataRow() {dataRow})
+        End Function
+        
+        <System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")>  _
+        Public Overloads Overridable Function Update(ByVal dataRows() As System.Data.DataRow) As Integer
+            Return Me.Adapter.Update(dataRows)
+        End Function
+        
+        <System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
+         System.ComponentModel.DataObjectMethodAttribute(System.ComponentModel.DataObjectMethodType.Delete, true)>  _
+        Public Overloads Overridable Function Delete(ByVal Original_ID_PEDIDO As Decimal, ByVal Original_FECHA_INICIO As Date, ByVal Original_FECHA_FIN As Date, ByVal Original_FECHA_ULTIMA_COMPRA As Date, ByVal Original_CANTIDAD_DIARIA As Decimal, ByVal Original_ID_PRODUCTO As Decimal, ByVal Original_ID_CLIENTE As Decimal) As Integer
+            Me.Adapter.DeleteCommand.Parameters(0).Value = CType(Original_ID_PEDIDO,Decimal)
+            Me.Adapter.DeleteCommand.Parameters(1).Value = CType(Original_FECHA_INICIO,Date)
+            Me.Adapter.DeleteCommand.Parameters(2).Value = CType(Original_FECHA_FIN,Date)
+            Me.Adapter.DeleteCommand.Parameters(3).Value = CType(Original_FECHA_ULTIMA_COMPRA,Date)
+            Me.Adapter.DeleteCommand.Parameters(4).Value = CType(Original_CANTIDAD_DIARIA,Decimal)
+            Me.Adapter.DeleteCommand.Parameters(5).Value = CType(Original_ID_PRODUCTO,Decimal)
+            Me.Adapter.DeleteCommand.Parameters(6).Value = CType(Original_ID_CLIENTE,Decimal)
+            Dim previousConnectionState As System.Data.ConnectionState = Me.Adapter.DeleteCommand.Connection.State
+            If ((Me.Adapter.DeleteCommand.Connection.State And System.Data.ConnectionState.Open)  _
+                        <> System.Data.ConnectionState.Open) Then
+                Me.Adapter.DeleteCommand.Connection.Open
+            End If
+            Try 
+                Dim returnValue As Integer = Me.Adapter.DeleteCommand.ExecuteNonQuery
+                Return returnValue
+            Finally
+                If (previousConnectionState = System.Data.ConnectionState.Closed) Then
+                    Me.Adapter.DeleteCommand.Connection.Close
+                End If
+            End Try
+        End Function
+        
+        <System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
+         System.ComponentModel.DataObjectMethodAttribute(System.ComponentModel.DataObjectMethodType.Insert, true)>  _
+        Public Overloads Overridable Function Insert(ByVal NUMERO_PEDIDO As String, ByVal FECHA_INICIO As Date, ByVal FECHA_FIN As Date, ByVal FECHA_ULTIMA_COMPRA As Date, ByVal DESCRIPCION As String, ByVal CANTIDAD_DIARIA As Decimal, ByVal ID_PRODUCTO As Decimal, ByVal ID_CLIENTE As Decimal, ByVal ESTATUS As String) As Integer
+            If (NUMERO_PEDIDO Is Nothing) Then
+                Throw New System.ArgumentNullException("NUMERO_PEDIDO")
+            Else
+                Me.Adapter.InsertCommand.Parameters(0).Value = CType(NUMERO_PEDIDO,String)
+            End If
+            Me.Adapter.InsertCommand.Parameters(1).Value = CType(FECHA_INICIO,Date)
+            Me.Adapter.InsertCommand.Parameters(2).Value = CType(FECHA_FIN,Date)
+            Me.Adapter.InsertCommand.Parameters(3).Value = CType(FECHA_ULTIMA_COMPRA,Date)
+            If (DESCRIPCION Is Nothing) Then
+                Throw New System.ArgumentNullException("DESCRIPCION")
+            Else
+                Me.Adapter.InsertCommand.Parameters(4).Value = CType(DESCRIPCION,String)
+            End If
+            Me.Adapter.InsertCommand.Parameters(5).Value = CType(CANTIDAD_DIARIA,Decimal)
+            Me.Adapter.InsertCommand.Parameters(6).Value = CType(ID_PRODUCTO,Decimal)
+            Me.Adapter.InsertCommand.Parameters(7).Value = CType(ID_CLIENTE,Decimal)
+            If (ESTATUS Is Nothing) Then
+                Throw New System.ArgumentNullException("ESTATUS")
+            Else
+                Me.Adapter.InsertCommand.Parameters(8).Value = CType(ESTATUS,String)
+            End If
+            Dim previousConnectionState As System.Data.ConnectionState = Me.Adapter.InsertCommand.Connection.State
+            If ((Me.Adapter.InsertCommand.Connection.State And System.Data.ConnectionState.Open)  _
+                        <> System.Data.ConnectionState.Open) Then
+                Me.Adapter.InsertCommand.Connection.Open
+            End If
+            Try 
+                Dim returnValue As Integer = Me.Adapter.InsertCommand.ExecuteNonQuery
+                Return returnValue
+            Finally
+                If (previousConnectionState = System.Data.ConnectionState.Closed) Then
+                    Me.Adapter.InsertCommand.Connection.Close
+                End If
+            End Try
+        End Function
+        
+        <System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
+         System.ComponentModel.DataObjectMethodAttribute(System.ComponentModel.DataObjectMethodType.Update, true)>  _
+        Public Overloads Overridable Function Update( _
+                    ByVal NUMERO_PEDIDO As String,  _
+                    ByVal FECHA_INICIO As Date,  _
+                    ByVal FECHA_FIN As Date,  _
+                    ByVal FECHA_ULTIMA_COMPRA As Date,  _
+                    ByVal DESCRIPCION As String,  _
+                    ByVal CANTIDAD_DIARIA As Decimal,  _
+                    ByVal ID_PRODUCTO As Decimal,  _
+                    ByVal ID_CLIENTE As Decimal,  _
+                    ByVal ESTATUS As String,  _
+                    ByVal Original_ID_PEDIDO As Decimal,  _
+                    ByVal Original_FECHA_INICIO As Date,  _
+                    ByVal Original_FECHA_FIN As Date,  _
+                    ByVal Original_FECHA_ULTIMA_COMPRA As Date,  _
+                    ByVal Original_CANTIDAD_DIARIA As Decimal,  _
+                    ByVal Original_ID_PRODUCTO As Decimal,  _
+                    ByVal Original_ID_CLIENTE As Decimal,  _
+                    ByVal ID_PEDIDO As Decimal) As Integer
+            If (NUMERO_PEDIDO Is Nothing) Then
+                Throw New System.ArgumentNullException("NUMERO_PEDIDO")
+            Else
+                Me.Adapter.UpdateCommand.Parameters(0).Value = CType(NUMERO_PEDIDO,String)
+            End If
+            Me.Adapter.UpdateCommand.Parameters(1).Value = CType(FECHA_INICIO,Date)
+            Me.Adapter.UpdateCommand.Parameters(2).Value = CType(FECHA_FIN,Date)
+            Me.Adapter.UpdateCommand.Parameters(3).Value = CType(FECHA_ULTIMA_COMPRA,Date)
+            If (DESCRIPCION Is Nothing) Then
+                Throw New System.ArgumentNullException("DESCRIPCION")
+            Else
+                Me.Adapter.UpdateCommand.Parameters(4).Value = CType(DESCRIPCION,String)
+            End If
+            Me.Adapter.UpdateCommand.Parameters(5).Value = CType(CANTIDAD_DIARIA,Decimal)
+            Me.Adapter.UpdateCommand.Parameters(6).Value = CType(ID_PRODUCTO,Decimal)
+            Me.Adapter.UpdateCommand.Parameters(7).Value = CType(ID_CLIENTE,Decimal)
+            If (ESTATUS Is Nothing) Then
+                Throw New System.ArgumentNullException("ESTATUS")
+            Else
+                Me.Adapter.UpdateCommand.Parameters(8).Value = CType(ESTATUS,String)
+            End If
+            Me.Adapter.UpdateCommand.Parameters(9).Value = CType(Original_ID_PEDIDO,Decimal)
+            Me.Adapter.UpdateCommand.Parameters(10).Value = CType(Original_FECHA_INICIO,Date)
+            Me.Adapter.UpdateCommand.Parameters(11).Value = CType(Original_FECHA_FIN,Date)
+            Me.Adapter.UpdateCommand.Parameters(12).Value = CType(Original_FECHA_ULTIMA_COMPRA,Date)
+            Me.Adapter.UpdateCommand.Parameters(13).Value = CType(Original_CANTIDAD_DIARIA,Decimal)
+            Me.Adapter.UpdateCommand.Parameters(14).Value = CType(Original_ID_PRODUCTO,Decimal)
+            Me.Adapter.UpdateCommand.Parameters(15).Value = CType(Original_ID_CLIENTE,Decimal)
+            Me.Adapter.UpdateCommand.Parameters(16).Value = CType(ID_PEDIDO,Decimal)
             Dim previousConnectionState As System.Data.ConnectionState = Me.Adapter.UpdateCommand.Connection.State
             If ((Me.Adapter.UpdateCommand.Connection.State And System.Data.ConnectionState.Open)  _
                         <> System.Data.ConnectionState.Open) Then
