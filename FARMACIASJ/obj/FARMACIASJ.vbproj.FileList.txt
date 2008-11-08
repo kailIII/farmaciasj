@@ -24,3 +24,4 @@ obj\Release\FARMACIASJ.exe
 obj\Release\FARMACIASJ.pdb
 obj\Debug\FARMACIASJ.Form1.resources
 obj\Release\FARMACIASJ.Form1.resources
+obj\Debug\FARMACIASJ.RealizarVenta.resources

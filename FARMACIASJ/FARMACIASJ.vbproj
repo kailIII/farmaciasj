@@ -10,7 +10,7 @@
     <RootNamespace>FARMACIASJ</RootNamespace>
     <AssemblyName>FARMACIASJ</AssemblyName>
     <MyType>Empty</MyType>
-    <StartupObject>FARMACIASJ.FARMACIASJ_INICIO</StartupObject>
+    <StartupObject>FARMACIASJ.FARMACIASJ_SESION</StartupObject>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -70,6 +70,12 @@
     <Compile Include="VISTA\Form1.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="VISTA\RealizarVenta.Designer.vb">
+      <DependentUpon>RealizarVenta.vb</DependentUpon>
+    </Compile>
+    <Compile Include="VISTA\RealizarVenta.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="VISTA\Vendedor.Designer.vb">
       <DependentUpon>Vendedor.vb</DependentUpon>
     </Compile>
@@ -93,6 +99,10 @@
     <EmbeddedResource Include="VISTA\Form1.resx">
       <SubType>Designer</SubType>
       <DependentUpon>Form1.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="VISTA\RealizarVenta.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>RealizarVenta.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="VISTA\Vendedor.resx">
       <SubType>Designer</SubType>
