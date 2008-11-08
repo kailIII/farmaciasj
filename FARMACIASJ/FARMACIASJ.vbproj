@@ -37,6 +37,7 @@
   <ItemGroup>
     <Compile Include="CONTROLADOR\Controlador_Linea.vb" />
     <Compile Include="MODELO\Cliente.vb" />
+    <Compile Include="MODELO\Controlador_Cliente.vb" />
     <Compile Include="MODELO\FarmaciaSJDataSet.Designer.vb">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -45,6 +46,7 @@
     <Compile Include="MODELO\FarmaciaSJDataSet.vb">
       <DependentUpon>FarmaciaSJDataSet.xsd</DependentUpon>
     </Compile>
+    <Compile Include="MODELO\Validaciones_Generales.vb" />
     <Compile Include="My Project\Settings.Designer.vb">
       <AutoGen>True</AutoGen>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
@@ -80,6 +82,12 @@
     <Compile Include="VISTA\Ingresar_Linea.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="VISTA\Ingresar_Producto.Designer.vb">
+      <DependentUpon>Ingresar_Producto.vb</DependentUpon>
+    </Compile>
+    <Compile Include="VISTA\Ingresar_Producto.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="VISTA\Realizar_Venta.Designer.vb">
       <DependentUpon>Realizar_Venta.vb</DependentUpon>
     </Compile>
@@ -113,6 +121,10 @@
     <EmbeddedResource Include="VISTA\Ingresar_Linea.resx">
       <SubType>Designer</SubType>
       <DependentUpon>Ingresar_Linea.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="VISTA\Ingresar_Producto.resx">
+      <DependentUpon>Ingresar_Producto.vb</DependentUpon>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="VISTA\Realizar_Venta.resx">
       <SubType>Designer</SubType>
