@@ -26,3 +26,4 @@ obj\Debug\FARMACIASJ.Form1.resources
 obj\Release\FARMACIASJ.Form1.resources
 obj\Debug\FARMACIASJ.Ingresar_Linea.resources
 obj\Debug\FARMACIASJ.Realizar_Venta.resources
+obj\Debug\FARMACIASJ.Ingresar_Producto.resources

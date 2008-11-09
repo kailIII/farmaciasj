@@ -10,7 +10,7 @@
     <RootNamespace>FARMACIASJ</RootNamespace>
     <AssemblyName>FARMACIASJ</AssemblyName>
     <MyType>Empty</MyType>
-    <StartupObject>FARMACIASJ.Ingresar_Linea</StartupObject>
+    <StartupObject>FARMACIASJ.Realizar_Venta</StartupObject>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -37,7 +37,7 @@
   <ItemGroup>
     <Compile Include="CONTROLADOR\Controlador_Linea.vb" />
     <Compile Include="MODELO\Cliente.vb" />
-    <Compile Include="MODELO\Controlador_Cliente.vb" />
+    <Compile Include="CONTROLADOR\Controlador_Cliente.vb" />
     <Compile Include="MODELO\FarmaciaSJDataSet.Designer.vb">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -46,7 +46,7 @@
     <Compile Include="MODELO\FarmaciaSJDataSet.vb">
       <DependentUpon>FarmaciaSJDataSet.xsd</DependentUpon>
     </Compile>
-    <Compile Include="MODELO\Validaciones_Generales.vb" />
+    <Compile Include="CONTROLADOR\Validaciones_Generales.vb" />
     <Compile Include="My Project\Settings.Designer.vb">
       <AutoGen>True</AutoGen>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
