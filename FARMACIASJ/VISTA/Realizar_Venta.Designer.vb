@@ -34,8 +34,9 @@ Partial Class Realizar_Venta
         Me.Tipo_Identidad = New System.Windows.Forms.ComboBox
         Me.Label1 = New System.Windows.Forms.Label
         Me.GroupBox2 = New System.Windows.Forms.GroupBox
+        Me.Fecha_Compra = New System.Windows.Forms.DateTimePicker
         Me.Label3 = New System.Windows.Forms.Label
-        Me.TextBox1 = New System.Windows.Forms.TextBox
+        Me.Numero = New System.Windows.Forms.TextBox
         Me.Numero_Factura = New System.Windows.Forms.Label
         Me.Detalle_Venta = New System.Windows.Forms.DataGridView
         Me.FarmaciaSJDataSetBindingSource = New System.Windows.Forms.BindingSource(Me.components)
@@ -62,7 +63,8 @@ Partial Class Realizar_Venta
         Me.Sub_Total = New System.Windows.Forms.TextBox
         Me.Label8 = New System.Windows.Forms.Label
         Me.Button2 = New System.Windows.Forms.Button
-        Me.DateTimePicker1 = New System.Windows.Forms.DateTimePicker
+        Me.Vence = New System.Windows.Forms.DateTimePicker
+        Me.Label17 = New System.Windows.Forms.Label
         Me.GroupBox1.SuspendLayout()
         Me.GroupBox2.SuspendLayout()
         CType(Me.Detalle_Venta, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -199,9 +201,11 @@ Partial Class Realizar_Venta
         '
         'GroupBox2
         '
-        Me.GroupBox2.Controls.Add(Me.DateTimePicker1)
+        Me.GroupBox2.Controls.Add(Me.Vence)
+        Me.GroupBox2.Controls.Add(Me.Label17)
+        Me.GroupBox2.Controls.Add(Me.Fecha_Compra)
         Me.GroupBox2.Controls.Add(Me.Label3)
-        Me.GroupBox2.Controls.Add(Me.TextBox1)
+        Me.GroupBox2.Controls.Add(Me.Numero)
         Me.GroupBox2.Controls.Add(Me.Numero_Factura)
         Me.GroupBox2.Location = New System.Drawing.Point(23, 10)
         Me.GroupBox2.Name = "GroupBox2"
@@ -209,6 +213,16 @@ Partial Class Realizar_Venta
         Me.GroupBox2.TabIndex = 1
         Me.GroupBox2.TabStop = False
         Me.GroupBox2.Text = "Factura"
+        '
+        'Fecha_Compra
+        '
+        Me.Fecha_Compra.CustomFormat = "dd/MM/yyyy HH:MM:ss"
+        Me.Fecha_Compra.Enabled = False
+        Me.Fecha_Compra.Format = System.Windows.Forms.DateTimePickerFormat.Custom
+        Me.Fecha_Compra.Location = New System.Drawing.Point(95, 15)
+        Me.Fecha_Compra.Name = "Fecha_Compra"
+        Me.Fecha_Compra.Size = New System.Drawing.Size(139, 20)
+        Me.Fecha_Compra.TabIndex = 3
         '
         'Label3
         '
@@ -219,18 +233,18 @@ Partial Class Realizar_Venta
         Me.Label3.TabIndex = 2
         Me.Label3.Text = "Fecha"
         '
-        'TextBox1
+        'Numero
         '
-        Me.TextBox1.Enabled = False
-        Me.TextBox1.Location = New System.Drawing.Point(547, 19)
-        Me.TextBox1.Name = "TextBox1"
-        Me.TextBox1.Size = New System.Drawing.Size(100, 20)
-        Me.TextBox1.TabIndex = 1
+        Me.Numero.Enabled = False
+        Me.Numero.Location = New System.Drawing.Point(547, 19)
+        Me.Numero.Name = "Numero"
+        Me.Numero.Size = New System.Drawing.Size(100, 20)
+        Me.Numero.TabIndex = 1
         '
         'Numero_Factura
         '
         Me.Numero_Factura.AutoSize = True
-        Me.Numero_Factura.Location = New System.Drawing.Point(431, 22)
+        Me.Numero_Factura.Location = New System.Drawing.Point(469, 22)
         Me.Numero_Factura.Name = "Numero_Factura"
         Me.Numero_Factura.Size = New System.Drawing.Size(44, 13)
         Me.Numero_Factura.TabIndex = 0
@@ -456,14 +470,23 @@ Partial Class Realizar_Venta
         Me.Button2.Text = "Procesar"
         Me.Button2.UseVisualStyleBackColor = True
         '
-        'DateTimePicker1
+        'Vence
         '
-        Me.DateTimePicker1.CustomFormat = "dd/MM/yyyy HH:MM:ss"
-        Me.DateTimePicker1.Format = System.Windows.Forms.DateTimePickerFormat.Custom
-        Me.DateTimePicker1.Location = New System.Drawing.Point(95, 15)
-        Me.DateTimePicker1.Name = "DateTimePicker1"
-        Me.DateTimePicker1.Size = New System.Drawing.Size(250, 20)
-        Me.DateTimePicker1.TabIndex = 3
+        Me.Vence.CustomFormat = "dd/MM/yyyy HH:MM:ss"
+        Me.Vence.Format = System.Windows.Forms.DateTimePickerFormat.Custom
+        Me.Vence.Location = New System.Drawing.Point(296, 15)
+        Me.Vence.Name = "Vence"
+        Me.Vence.Size = New System.Drawing.Size(139, 20)
+        Me.Vence.TabIndex = 5
+        '
+        'Label17
+        '
+        Me.Label17.AutoSize = True
+        Me.Label17.Location = New System.Drawing.Point(240, 19)
+        Me.Label17.Name = "Label17"
+        Me.Label17.Size = New System.Drawing.Size(38, 13)
+        Me.Label17.TabIndex = 4
+        Me.Label17.Text = "Vence"
         '
         'Realizar_Venta
         '
@@ -502,7 +525,7 @@ Partial Class Realizar_Venta
     Friend WithEvents Apellido As System.Windows.Forms.TextBox
     Friend WithEvents Label4 As System.Windows.Forms.Label
     Friend WithEvents Nombre As System.Windows.Forms.TextBox
-    Friend WithEvents TextBox1 As System.Windows.Forms.TextBox
+    Friend WithEvents Numero As System.Windows.Forms.TextBox
     Friend WithEvents Numero_Factura As System.Windows.Forms.Label
     Friend WithEvents Label6 As System.Windows.Forms.Label
     Friend WithEvents Telefono As System.Windows.Forms.TextBox
@@ -534,5 +557,7 @@ Partial Class Realizar_Venta
     Friend WithEvents Button1 As System.Windows.Forms.Button
     Friend WithEvents Button2 As System.Windows.Forms.Button
     Friend WithEvents Label3 As System.Windows.Forms.Label
-    Friend WithEvents DateTimePicker1 As System.Windows.Forms.DateTimePicker
+    Friend WithEvents Fecha_Compra As System.Windows.Forms.DateTimePicker
+    Friend WithEvents Vence As System.Windows.Forms.DateTimePicker
+    Friend WithEvents Label17 As System.Windows.Forms.Label
 End Class

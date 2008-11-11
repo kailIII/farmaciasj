@@ -6,7 +6,7 @@ Public Class Form1
         Dim Cliente As Cliente
         Cliente = New Cliente
         If (MsgBox("Seguro que desea Ingresar a: " & Nombre.Text & " " & Apellido.Text & " en la Base de Datos ", MsgBoxStyle.YesNo, "Confirmacion ") = MsgBoxResult.Yes) Then
-            Cliente.Ingresar(Nombre.Text, Apellido.Text, Tipo_Cliente.Text, Tipo_Identidad.Text, Numero_Identidad.Text, Telefono.Text, Direccion.Text)
+            Cliente.Ingresar(Nombre.Text, Apellido.Text, Tipo_Identidad.Text, Numero_Identidad.Text, Telefono.Text, Direccion.Text)
             Me.Close()
         End If
     End Sub

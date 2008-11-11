@@ -18,4 +18,19 @@ Public Class Controlador_Cliente
             MsgBox("Se presentaron problemas en la conexion con la Base de Datos, intente de nuevo", MsgBoxStyle.OkOnly, "Error")
         End If
     End Sub
+
+    Public Function Ingresar_Cliente(ByVal Tipo_Identidad As String, ByVal Numero As String, ByVal Nombre As String, ByVal Apellido As String, ByVal Telefono As String, ByVal Direccion As String) As Boolean
+        Dim Cliente As Cliente
+        Dim a As Boolean
+        Cliente = New Cliente
+
+        a = Cliente.Ingresar(Nombre, Apellido, Tipo_Identidad, Numero, Telefono, Direccion)
+        If (a = True) Then
+            MsgBox("El Cliente " & Nombre & " " & Apellido & "Fue Ingresado con Exito", MsgBoxStyle.OkOnly, "Alert")
+            Return True
+        Else
+            MsgBox("El Cliente,No se pudo Agregar", MsgBoxStyle.OkOnly, "Alert")
+            Return False
+        End If
+    End Function
 End Class

@@ -1,7 +1,7 @@
 Public Class Cliente
     Public BasedeDatos As FarmaciaSJDataSet
 
-    Public Sub Ingresar(ByVal Nombre As String, ByVal Apellido As String, ByVal Tipo_cliente As String, ByVal Tipo_Identidad As String, ByVal Documento_Identidad As String, ByVal Telefono As String, ByVal Direccion As String)
+    Public Function Ingresar(ByVal Nombre As String, ByVal Apellido As String, ByVal Tipo_Identidad As String, ByVal Documento_Identidad As String, ByVal Telefono As String, ByVal Direccion As String) As Boolean
         Dim ClienteTableAdapter As FarmaciaSJDataSetTableAdapters.CLIENTETableAdapter
         Try
             BasedeDatos = New FarmaciaSJDataSet
@@ -9,11 +9,11 @@ Public Class Cliente
             ClienteTableAdapter.Insert(Tipo_Identidad, Documento_Identidad, Nombre, Apellido, Telefono, Direccion)
             ClienteTableAdapter.Update(BasedeDatos.CLIENTE)
             BasedeDatos.AcceptChanges()
-            MsgBox("El Cliente se Agrego con Exito", MsgBoxStyle.OkOnly, "Aviso")
+            Return True
         Catch err As ArgumentNullException
-            MsgBox("El Cliente no se pudo Agregar", MsgBoxStyle.OkOnly, "Error")
+            Return False
         End Try
-    End Sub
+    End Function
 
     Public Function buscar_identidad(ByVal Tipo As String, ByVal Numero As String, ByVal Venta As Realizar_Venta) As Integer
         Dim Cliente As FarmaciaSJDataSetTableAdapters.CLIENTETableAdapter
