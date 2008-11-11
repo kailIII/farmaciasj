@@ -6,4 +6,5 @@ Public Class Ingresar_Linea
         Controlador_Linea.Ingresando_Linea(NombreLinea.Text, DescMax.Text, DescripcionLinea.Text, MargenUtil.Text)
 
     End Sub
+
 End Class

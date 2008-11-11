@@ -19,7 +19,6 @@ Partial Class Ingresar_Linea
     'No lo modifique con el editor de código.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
-        Me.components = New System.ComponentModel.Container
         Me.GroupBox1 = New System.Windows.Forms.GroupBox
         Me.Ingresar_Boton = New System.Windows.Forms.Button
         Me.Label4 = New System.Windows.Forms.Label
@@ -30,12 +29,7 @@ Partial Class Ingresar_Linea
         Me.Label3 = New System.Windows.Forms.Label
         Me.Label2 = New System.Windows.Forms.Label
         Me.Label1 = New System.Windows.Forms.Label
-        Me.FarmaciaSJDataSet = New FARMACIASJ.FarmaciaSJDataSet
-        Me.DETALLECOMPRABindingSource = New System.Windows.Forms.BindingSource(Me.components)
-        Me.DETALLE_COMPRATableAdapter = New FARMACIASJ.FarmaciaSJDataSetTableAdapters.DETALLE_COMPRATableAdapter
         Me.GroupBox1.SuspendLayout()
-        CType(Me.FarmaciaSJDataSet, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.DETALLECOMPRABindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'GroupBox1
@@ -51,14 +45,14 @@ Partial Class Ingresar_Linea
         Me.GroupBox1.Controls.Add(Me.Label1)
         Me.GroupBox1.Location = New System.Drawing.Point(12, 12)
         Me.GroupBox1.Name = "GroupBox1"
-        Me.GroupBox1.Size = New System.Drawing.Size(341, 277)
+        Me.GroupBox1.Size = New System.Drawing.Size(360, 278)
         Me.GroupBox1.TabIndex = 0
         Me.GroupBox1.TabStop = False
         Me.GroupBox1.Text = "Ingresar Línea"
         '
         'Ingresar_Boton
         '
-        Me.Ingresar_Boton.Location = New System.Drawing.Point(25, 235)
+        Me.Ingresar_Boton.Location = New System.Drawing.Point(147, 223)
         Me.Ingresar_Boton.Name = "Ingresar_Boton"
         Me.Ingresar_Boton.Size = New System.Drawing.Size(75, 23)
         Me.Ingresar_Boton.TabIndex = 7
@@ -130,32 +124,16 @@ Partial Class Ingresar_Linea
         Me.Label1.TabIndex = 0
         Me.Label1.Text = "Nombre"
         '
-        'FarmaciaSJDataSet
-        '
-        Me.FarmaciaSJDataSet.DataSetName = "FarmaciaSJDataSet"
-        Me.FarmaciaSJDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema
-        '
-        'DETALLECOMPRABindingSource
-        '
-        Me.DETALLECOMPRABindingSource.DataMember = "DETALLE_COMPRA"
-        Me.DETALLECOMPRABindingSource.DataSource = Me.FarmaciaSJDataSet
-        '
-        'DETALLE_COMPRATableAdapter
-        '
-        Me.DETALLE_COMPRATableAdapter.ClearBeforeFill = True
-        '
         'Ingresar_Linea
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(369, 302)
+        Me.ClientSize = New System.Drawing.Size(393, 314)
         Me.Controls.Add(Me.GroupBox1)
         Me.Name = "Ingresar_Linea"
         Me.Text = "Ingresar_Linea"
         Me.GroupBox1.ResumeLayout(False)
         Me.GroupBox1.PerformLayout()
-        CType(Me.FarmaciaSJDataSet, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.DETALLECOMPRABindingSource, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
 
     End Sub
@@ -169,7 +147,4 @@ Partial Class Ingresar_Linea
     Friend WithEvents Label4 As System.Windows.Forms.Label
     Friend WithEvents MargenUtil As System.Windows.Forms.TextBox
     Friend WithEvents Ingresar_Boton As System.Windows.Forms.Button
-    Friend WithEvents FarmaciaSJDataSet As FARMACIASJ.FarmaciaSJDataSet
-    Friend WithEvents DETALLECOMPRABindingSource As System.Windows.Forms.BindingSource
-    Friend WithEvents DETALLE_COMPRATableAdapter As FARMACIASJ.FarmaciaSJDataSetTableAdapters.DETALLE_COMPRATableAdapter
 End Class
