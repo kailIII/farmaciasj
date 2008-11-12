@@ -49,6 +49,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="CONTROLADOR\Controlador_Linea.vb" />
+    <Compile Include="CONTROLADOR\Controlador_Producto.vb" />
     <Compile Include="CONTROLADOR\Controlador_Proveedor.vb" />
     <Compile Include="CONTROLADOR\Controlador_Venta.vb" />
     <Compile Include="FarmaciaSJDataSet.Designer.vb">
@@ -60,6 +61,7 @@
     <Compile Include="CONTROLADOR\Controlador_Cliente.vb" />
     <Compile Include="CONTROLADOR\Validaciones_Generales.vb" />
     <Compile Include="MODELO\Linea.vb" />
+    <Compile Include="MODELO\Producto.vb" />
     <Compile Include="MODELO\Proveedor.vb" />
     <Compile Include="MODELO\Venta.vb" />
     <Compile Include="My Project\Settings.Designer.vb">
@@ -71,6 +73,12 @@
       <DependentUpon>Buscar_Proveedor.vb</DependentUpon>
     </Compile>
     <Compile Include="VISTA\Buscar_Proveedor.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="VISTA\Elegir_Lote.Designer.vb">
+      <DependentUpon>Elegir_Lote.vb</DependentUpon>
+    </Compile>
+    <Compile Include="VISTA\Elegir_Lote.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="VISTA\FARMACIASJ_INICIO.Designer.vb">
@@ -132,6 +140,10 @@
     <EmbeddedResource Include="VISTA\Buscar_Proveedor.resx">
       <SubType>Designer</SubType>
       <DependentUpon>Buscar_Proveedor.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="VISTA\Elegir_Lote.resx">
+      <DependentUpon>Elegir_Lote.vb</DependentUpon>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="VISTA\FARMACIASJ_INICIO.resx">
       <SubType>Designer</SubType>

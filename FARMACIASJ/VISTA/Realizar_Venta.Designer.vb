@@ -34,6 +34,8 @@ Partial Class Realizar_Venta
         Me.Tipo_Identidad = New System.Windows.Forms.ComboBox
         Me.Label1 = New System.Windows.Forms.Label
         Me.GroupBox2 = New System.Windows.Forms.GroupBox
+        Me.Vence = New System.Windows.Forms.DateTimePicker
+        Me.Label17 = New System.Windows.Forms.Label
         Me.Fecha_Compra = New System.Windows.Forms.DateTimePicker
         Me.Label3 = New System.Windows.Forms.Label
         Me.Numero = New System.Windows.Forms.TextBox
@@ -42,10 +44,12 @@ Partial Class Realizar_Venta
         Me.FarmaciaSJDataSetBindingSource = New System.Windows.Forms.BindingSource(Me.components)
         Me.FarmaciaSJDataSet = New FARMACIASJ.FarmaciaSJDataSet
         Me.GroupBox3 = New System.Windows.Forms.GroupBox
+        Me.Cantidad = New System.Windows.Forms.TextBox
+        Me.Label18 = New System.Windows.Forms.Label
         Me.Button1 = New System.Windows.Forms.Button
         Me.SubtotalP = New System.Windows.Forms.TextBox
         Me.Label16 = New System.Windows.Forms.Label
-        Me.Cantidad = New System.Windows.Forms.TextBox
+        Me.Descuento = New System.Windows.Forms.TextBox
         Me.Label15 = New System.Windows.Forms.Label
         Me.Descripcion = New System.Windows.Forms.RichTextBox
         Me.Label14 = New System.Windows.Forms.Label
@@ -63,8 +67,6 @@ Partial Class Realizar_Venta
         Me.Sub_Total = New System.Windows.Forms.TextBox
         Me.Label8 = New System.Windows.Forms.Label
         Me.Button2 = New System.Windows.Forms.Button
-        Me.Vence = New System.Windows.Forms.DateTimePicker
-        Me.Label17 = New System.Windows.Forms.Label
         Me.GroupBox1.SuspendLayout()
         Me.GroupBox2.SuspendLayout()
         CType(Me.Detalle_Venta, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -214,6 +216,24 @@ Partial Class Realizar_Venta
         Me.GroupBox2.TabStop = False
         Me.GroupBox2.Text = "Factura"
         '
+        'Vence
+        '
+        Me.Vence.CustomFormat = "dd/MM/yyyy HH:MM:ss"
+        Me.Vence.Format = System.Windows.Forms.DateTimePickerFormat.Custom
+        Me.Vence.Location = New System.Drawing.Point(296, 15)
+        Me.Vence.Name = "Vence"
+        Me.Vence.Size = New System.Drawing.Size(139, 20)
+        Me.Vence.TabIndex = 5
+        '
+        'Label17
+        '
+        Me.Label17.AutoSize = True
+        Me.Label17.Location = New System.Drawing.Point(240, 19)
+        Me.Label17.Name = "Label17"
+        Me.Label17.Size = New System.Drawing.Size(38, 13)
+        Me.Label17.TabIndex = 4
+        Me.Label17.Text = "Vence"
+        '
         'Fecha_Compra
         '
         Me.Fecha_Compra.CustomFormat = "dd/MM/yyyy HH:MM:ss"
@@ -240,6 +260,7 @@ Partial Class Realizar_Venta
         Me.Numero.Name = "Numero"
         Me.Numero.Size = New System.Drawing.Size(100, 20)
         Me.Numero.TabIndex = 1
+        Me.Numero.Text = "F001"
         '
         'Numero_Factura
         '
@@ -272,10 +293,12 @@ Partial Class Realizar_Venta
         '
         'GroupBox3
         '
+        Me.GroupBox3.Controls.Add(Me.Cantidad)
+        Me.GroupBox3.Controls.Add(Me.Label18)
         Me.GroupBox3.Controls.Add(Me.Button1)
         Me.GroupBox3.Controls.Add(Me.SubtotalP)
         Me.GroupBox3.Controls.Add(Me.Label16)
-        Me.GroupBox3.Controls.Add(Me.Cantidad)
+        Me.GroupBox3.Controls.Add(Me.Descuento)
         Me.GroupBox3.Controls.Add(Me.Label15)
         Me.GroupBox3.Controls.Add(Me.Descripcion)
         Me.GroupBox3.Controls.Add(Me.Label14)
@@ -292,9 +315,25 @@ Partial Class Realizar_Venta
         Me.GroupBox3.TabStop = False
         Me.GroupBox3.Text = "Producto"
         '
+        'Cantidad
+        '
+        Me.Cantidad.Location = New System.Drawing.Point(245, 66)
+        Me.Cantidad.Name = "Cantidad"
+        Me.Cantidad.Size = New System.Drawing.Size(90, 20)
+        Me.Cantidad.TabIndex = 14
+        '
+        'Label18
+        '
+        Me.Label18.AutoSize = True
+        Me.Label18.Location = New System.Drawing.Point(15, 98)
+        Me.Label18.Name = "Label18"
+        Me.Label18.Size = New System.Drawing.Size(59, 13)
+        Me.Label18.TabIndex = 13
+        Me.Label18.Text = "Descuento"
+        '
         'Button1
         '
-        Me.Button1.Location = New System.Drawing.Point(196, 93)
+        Me.Button1.Location = New System.Drawing.Point(228, 93)
         Me.Button1.Name = "Button1"
         Me.Button1.Size = New System.Drawing.Size(106, 23)
         Me.Button1.TabIndex = 12
@@ -311,23 +350,23 @@ Partial Class Realizar_Venta
         'Label16
         '
         Me.Label16.AutoSize = True
-        Me.Label16.Location = New System.Drawing.Point(338, 73)
+        Me.Label16.Location = New System.Drawing.Point(340, 70)
         Me.Label16.Name = "Label16"
         Me.Label16.Size = New System.Drawing.Size(49, 13)
         Me.Label16.TabIndex = 10
         Me.Label16.Text = "Sub-total"
         '
-        'Cantidad
+        'Descuento
         '
-        Me.Cantidad.Location = New System.Drawing.Point(242, 67)
-        Me.Cantidad.Name = "Cantidad"
-        Me.Cantidad.Size = New System.Drawing.Size(90, 20)
-        Me.Cantidad.TabIndex = 9
+        Me.Descuento.Location = New System.Drawing.Point(97, 95)
+        Me.Descuento.Name = "Descuento"
+        Me.Descuento.Size = New System.Drawing.Size(90, 20)
+        Me.Descuento.TabIndex = 9
         '
         'Label15
         '
         Me.Label15.AutoSize = True
-        Me.Label15.Location = New System.Drawing.Point(193, 70)
+        Me.Label15.Location = New System.Drawing.Point(196, 70)
         Me.Label15.Name = "Label15"
         Me.Label15.Size = New System.Drawing.Size(43, 13)
         Me.Label15.TabIndex = 8
@@ -470,24 +509,6 @@ Partial Class Realizar_Venta
         Me.Button2.Text = "Procesar"
         Me.Button2.UseVisualStyleBackColor = True
         '
-        'Vence
-        '
-        Me.Vence.CustomFormat = "dd/MM/yyyy HH:MM:ss"
-        Me.Vence.Format = System.Windows.Forms.DateTimePickerFormat.Custom
-        Me.Vence.Location = New System.Drawing.Point(296, 15)
-        Me.Vence.Name = "Vence"
-        Me.Vence.Size = New System.Drawing.Size(139, 20)
-        Me.Vence.TabIndex = 5
-        '
-        'Label17
-        '
-        Me.Label17.AutoSize = True
-        Me.Label17.Location = New System.Drawing.Point(240, 19)
-        Me.Label17.Name = "Label17"
-        Me.Label17.Size = New System.Drawing.Size(38, 13)
-        Me.Label17.TabIndex = 4
-        Me.Label17.Text = "Vence"
-        '
         'Realizar_Venta
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -552,7 +573,7 @@ Partial Class Realizar_Venta
     Friend WithEvents Label13 As System.Windows.Forms.Label
     Friend WithEvents SubtotalP As System.Windows.Forms.TextBox
     Friend WithEvents Label16 As System.Windows.Forms.Label
-    Friend WithEvents Cantidad As System.Windows.Forms.TextBox
+    Friend WithEvents Descuento As System.Windows.Forms.TextBox
     Friend WithEvents Label15 As System.Windows.Forms.Label
     Friend WithEvents Button1 As System.Windows.Forms.Button
     Friend WithEvents Button2 As System.Windows.Forms.Button
@@ -560,4 +581,6 @@ Partial Class Realizar_Venta
     Friend WithEvents Fecha_Compra As System.Windows.Forms.DateTimePicker
     Friend WithEvents Vence As System.Windows.Forms.DateTimePicker
     Friend WithEvents Label17 As System.Windows.Forms.Label
+    Friend WithEvents Cantidad As System.Windows.Forms.TextBox
+    Friend WithEvents Label18 As System.Windows.Forms.Label
 End Class
