@@ -10,7 +10,20 @@
     <RootNamespace>FARMACIASJ</RootNamespace>
     <AssemblyName>FARMACIASJ</AssemblyName>
     <MyType>Empty</MyType>
-    <StartupObject>FARMACIASJ.Ingresar_Linea</StartupObject>
+    <StartupObject>FARMACIASJ.Buscar_Proveedor</StartupObject>
+    <PublishUrl>publish\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Disk</InstallFrom>
+    <UpdateEnabled>false</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -36,24 +49,29 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="CONTROLADOR\Controlador_Linea.vb" />
+    <Compile Include="CONTROLADOR\Controlador_Proveedor.vb" />
     <Compile Include="CONTROLADOR\Controlador_Venta.vb" />
-    <Compile Include="MODELO\Cliente.vb" />
-    <Compile Include="CONTROLADOR\Controlador_Cliente.vb" />
-    <Compile Include="MODELO\FarmaciaSJDataSet.Designer.vb">
+    <Compile Include="FarmaciaSJDataSet.Designer.vb">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>FarmaciaSJDataSet.xsd</DependentUpon>
     </Compile>
-    <Compile Include="MODELO\FarmaciaSJDataSet.vb">
-      <DependentUpon>FarmaciaSJDataSet.xsd</DependentUpon>
-    </Compile>
+    <Compile Include="MODELO\Cliente.vb" />
+    <Compile Include="CONTROLADOR\Controlador_Cliente.vb" />
     <Compile Include="CONTROLADOR\Validaciones_Generales.vb" />
     <Compile Include="MODELO\Linea.vb" />
+    <Compile Include="MODELO\Proveedor.vb" />
     <Compile Include="MODELO\Venta.vb" />
     <Compile Include="My Project\Settings.Designer.vb">
       <AutoGen>True</AutoGen>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
       <DependentUpon>Settings.settings</DependentUpon>
+    </Compile>
+    <Compile Include="VISTA\Buscar_Proveedor.Designer.vb">
+      <DependentUpon>Buscar_Proveedor.vb</DependentUpon>
+    </Compile>
+    <Compile Include="VISTA\Buscar_Proveedor.vb">
+      <SubType>Form</SubType>
     </Compile>
     <Compile Include="VISTA\FARMACIASJ_INICIO.Designer.vb">
       <DependentUpon>FARMACIASJ_INICIO.vb</DependentUpon>
@@ -91,6 +109,12 @@
     <Compile Include="VISTA\Ingresar_Producto.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="VISTA\Ingresar_Proveedor.Designer.vb">
+      <DependentUpon>Ingresar_Proveedor.vb</DependentUpon>
+    </Compile>
+    <Compile Include="VISTA\Ingresar_Proveedor.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="VISTA\Realizar_Venta.Designer.vb">
       <DependentUpon>Realizar_Venta.vb</DependentUpon>
     </Compile>
@@ -105,6 +129,10 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Include="VISTA\Buscar_Proveedor.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>Buscar_Proveedor.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="VISTA\FARMACIASJ_INICIO.resx">
       <SubType>Designer</SubType>
       <DependentUpon>FARMACIASJ_INICIO.vb</DependentUpon>
@@ -129,6 +157,10 @@
       <DependentUpon>Ingresar_Producto.vb</DependentUpon>
       <SubType>Designer</SubType>
     </EmbeddedResource>
+    <EmbeddedResource Include="VISTA\Ingresar_Proveedor.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>Ingresar_Proveedor.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="VISTA\Realizar_Venta.resx">
       <SubType>Designer</SubType>
       <DependentUpon>Realizar_Venta.vb</DependentUpon>
@@ -152,23 +184,41 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <None Include="MODELO\app.config" />
-    <None Include="MODELO\FarmaciaSJDataSet.xsc">
+    <None Include="app.config" />
+    <None Include="FarmaciaSJDataSet.xsc">
       <DependentUpon>FarmaciaSJDataSet.xsd</DependentUpon>
     </None>
-    <None Include="MODELO\FarmaciaSJDataSet.xsd">
+    <None Include="FarmaciaSJDataSet.xsd">
       <SubType>Designer</SubType>
       <Generator>MSDataSetGenerator</Generator>
       <LastGenOutput>FarmaciaSJDataSet.Designer.vb</LastGenOutput>
     </None>
-    <None Include="MODELO\FarmaciaSJDataSet.xss">
+    <None Include="FarmaciaSJDataSet.xss">
       <DependentUpon>FarmaciaSJDataSet.xsd</DependentUpon>
     </None>
+    <None Include="MODELO\app.config" />
     <None Include="My Project\Settings.settings">
       <CustomToolNamespace>My</CustomToolNamespace>
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.vb</LastGenOutput>
     </None>
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.2.0">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 2.0</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Sql.Server.Express.1.0">
+      <Visible>False</Visible>
+      <ProductName>SQL Server 2005 Express</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Windows.Installer.3.1">
+      <Visible>False</Visible>
+      <ProductName>Windows Installer 3.1</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.VisualBasic.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
