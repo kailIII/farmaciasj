@@ -10,7 +10,7 @@
     <RootNamespace>FARMACIASJ</RootNamespace>
     <AssemblyName>FARMACIASJ</AssemblyName>
     <MyType>Empty</MyType>
-    <StartupObject>FARMACIASJ.Buscar_Proveedor</StartupObject>
+    <StartupObject>FARMACIASJ.Realizar_Venta</StartupObject>
     <PublishUrl>publish\</PublishUrl>
     <Install>true</Install>
     <InstallFrom>Disk</InstallFrom>
@@ -52,7 +52,7 @@
     <Compile Include="CONTROLADOR\Controlador_Producto.vb" />
     <Compile Include="CONTROLADOR\Controlador_Proveedor.vb" />
     <Compile Include="CONTROLADOR\Controlador_Venta.vb" />
-    <Compile Include="FarmaciaSJDataSet.Designer.vb">
+    <Compile Include="MODELO\FarmaciaSJDataSet.Designer.vb">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>FarmaciaSJDataSet.xsd</DependentUpon>
@@ -196,19 +196,18 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <None Include="app.config" />
-    <None Include="FarmaciaSJDataSet.xsc">
+    <None Include="MODELO\app.config" />
+    <None Include="MODELO\FarmaciaSJDataSet.xsc">
       <DependentUpon>FarmaciaSJDataSet.xsd</DependentUpon>
     </None>
-    <None Include="FarmaciaSJDataSet.xsd">
-      <SubType>Designer</SubType>
+    <None Include="MODELO\FarmaciaSJDataSet.xsd">
       <Generator>MSDataSetGenerator</Generator>
       <LastGenOutput>FarmaciaSJDataSet.Designer.vb</LastGenOutput>
+      <SubType>Designer</SubType>
     </None>
-    <None Include="FarmaciaSJDataSet.xss">
+    <None Include="MODELO\FarmaciaSJDataSet.xss">
       <DependentUpon>FarmaciaSJDataSet.xsd</DependentUpon>
     </None>
-    <None Include="MODELO\app.config" />
     <None Include="My Project\Settings.settings">
       <CustomToolNamespace>My</CustomToolNamespace>
       <Generator>SettingsSingleFileGenerator</Generator>

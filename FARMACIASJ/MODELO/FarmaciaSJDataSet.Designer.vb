@@ -7773,7 +7773,7 @@ Namespace FarmaciaSJDataSetTableAdapters
         <System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
         Private Sub InitConnection()
             Me._connection = New System.Data.SqlClient.SqlConnection
-            Me._connection.ConnectionString = Global.FARMACIASJ.My.MySettings.Default.FarmaciaSJConnectionString
+            Me._connection.ConnectionString = Global.FARMACIASJ.My.MySettings.Default.FarmaciaSJConnectionString1
         End Sub
         
         <System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
@@ -8106,7 +8106,7 @@ Namespace FarmaciaSJDataSetTableAdapters
         <System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
         Private Sub InitConnection()
             Me._connection = New System.Data.SqlClient.SqlConnection
-            Me._connection.ConnectionString = Global.FARMACIASJ.My.MySettings.Default.FarmaciaSJConnectionString
+            Me._connection.ConnectionString = Global.FARMACIASJ.My.MySettings.Default.FarmaciaSJConnectionString1
         End Sub
         
         <System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
@@ -8409,7 +8409,7 @@ Namespace FarmaciaSJDataSetTableAdapters
         <System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
         Private Sub InitConnection()
             Me._connection = New System.Data.SqlClient.SqlConnection
-            Me._connection.ConnectionString = Global.FARMACIASJ.My.MySettings.Default.FarmaciaSJConnectionString
+            Me._connection.ConnectionString = Global.FARMACIASJ.My.MySettings.Default.FarmaciaSJConnectionString1
         End Sub
         
         <System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
@@ -8718,7 +8718,7 @@ Namespace FarmaciaSJDataSetTableAdapters
         <System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
         Private Sub InitConnection()
             Me._connection = New System.Data.SqlClient.SqlConnection
-            Me._connection.ConnectionString = Global.FARMACIASJ.My.MySettings.Default.FarmaciaSJConnectionString
+            Me._connection.ConnectionString = Global.FARMACIASJ.My.MySettings.Default.FarmaciaSJConnectionString1
         End Sub
         
         <System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
@@ -9039,7 +9039,7 @@ Namespace FarmaciaSJDataSetTableAdapters
         <System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
         Private Sub InitConnection()
             Me._connection = New System.Data.SqlClient.SqlConnection
-            Me._connection.ConnectionString = Global.FARMACIASJ.My.MySettings.Default.FarmaciaSJConnectionString
+            Me._connection.ConnectionString = Global.FARMACIASJ.My.MySettings.Default.FarmaciaSJConnectionString1
         End Sub
         
         <System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
@@ -9375,7 +9375,7 @@ Namespace FarmaciaSJDataSetTableAdapters
         <System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
         Private Sub InitConnection()
             Me._connection = New System.Data.SqlClient.SqlConnection
-            Me._connection.ConnectionString = Global.FARMACIASJ.My.MySettings.Default.FarmaciaSJConnectionString
+            Me._connection.ConnectionString = Global.FARMACIASJ.My.MySettings.Default.FarmaciaSJConnectionString1
         End Sub
         
         <System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
@@ -9703,7 +9703,7 @@ Namespace FarmaciaSJDataSetTableAdapters
         <System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
         Private Sub InitConnection()
             Me._connection = New System.Data.SqlClient.SqlConnection
-            Me._connection.ConnectionString = Global.FARMACIASJ.My.MySettings.Default.FarmaciaSJConnectionString
+            Me._connection.ConnectionString = Global.FARMACIASJ.My.MySettings.Default.FarmaciaSJConnectionString1
         End Sub
         
         <System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
@@ -9994,7 +9994,7 @@ Namespace FarmaciaSJDataSetTableAdapters
         <System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
         Private Sub InitConnection()
             Me._connection = New System.Data.SqlClient.SqlConnection
-            Me._connection.ConnectionString = Global.FARMACIASJ.My.MySettings.Default.FarmaciaSJConnectionString
+            Me._connection.ConnectionString = Global.FARMACIASJ.My.MySettings.Default.FarmaciaSJConnectionString1
         End Sub
         
         <System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
@@ -10263,7 +10263,7 @@ Namespace FarmaciaSJDataSetTableAdapters
         <System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
         Private Sub InitConnection()
             Me._connection = New System.Data.SqlClient.SqlConnection
-            Me._connection.ConnectionString = Global.FARMACIASJ.My.MySettings.Default.FarmaciaSJConnectionString
+            Me._connection.ConnectionString = Global.FARMACIASJ.My.MySettings.Default.FarmaciaSJConnectionString1
         End Sub
         
         <System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
@@ -10559,7 +10559,7 @@ Namespace FarmaciaSJDataSetTableAdapters
         <System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
         Private Sub InitConnection()
             Me._connection = New System.Data.SqlClient.SqlConnection
-            Me._connection.ConnectionString = Global.FARMACIASJ.My.MySettings.Default.FarmaciaSJConnectionString
+            Me._connection.ConnectionString = Global.FARMACIASJ.My.MySettings.Default.FarmaciaSJConnectionString1
         End Sub
         
         <System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
@@ -10806,7 +10806,7 @@ Namespace FarmaciaSJDataSetTableAdapters
         <System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
         Private Sub InitConnection()
             Me._connection = New System.Data.SqlClient.SqlConnection
-            Me._connection.ConnectionString = Global.FARMACIASJ.My.MySettings.Default.FarmaciaSJConnectionString
+            Me._connection.ConnectionString = Global.FARMACIASJ.My.MySettings.Default.FarmaciaSJConnectionString1
         End Sub
         
         <System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
@@ -11057,7 +11057,7 @@ Namespace FarmaciaSJDataSetTableAdapters
         <System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
         Private Sub InitConnection()
             Me._connection = New System.Data.SqlClient.SqlConnection
-            Me._connection.ConnectionString = Global.FARMACIASJ.My.MySettings.Default.FarmaciaSJConnectionString
+            Me._connection.ConnectionString = Global.FARMACIASJ.My.MySettings.Default.FarmaciaSJConnectionString1
         End Sub
         
         <System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
@@ -11398,7 +11398,7 @@ Namespace FarmaciaSJDataSetTableAdapters
         <System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
         Private Sub InitConnection()
             Me._connection = New System.Data.SqlClient.SqlConnection
-            Me._connection.ConnectionString = Global.FARMACIASJ.My.MySettings.Default.FarmaciaSJConnectionString
+            Me._connection.ConnectionString = Global.FARMACIASJ.My.MySettings.Default.FarmaciaSJConnectionString1
         End Sub
         
         <System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
@@ -11723,7 +11723,7 @@ Namespace FarmaciaSJDataSetTableAdapters
         <System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
         Private Sub InitConnection()
             Me._connection = New System.Data.SqlClient.SqlConnection
-            Me._connection.ConnectionString = Global.FARMACIASJ.My.MySettings.Default.FarmaciaSJConnectionString
+            Me._connection.ConnectionString = Global.FARMACIASJ.My.MySettings.Default.FarmaciaSJConnectionString1
         End Sub
         
         <System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
@@ -12041,7 +12041,7 @@ Namespace FarmaciaSJDataSetTableAdapters
         <System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
         Private Sub InitConnection()
             Me._connection = New System.Data.SqlClient.SqlConnection
-            Me._connection.ConnectionString = Global.FARMACIASJ.My.MySettings.Default.FarmaciaSJConnectionString
+            Me._connection.ConnectionString = Global.FARMACIASJ.My.MySettings.Default.FarmaciaSJConnectionString1
         End Sub
         
         <System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
@@ -12296,7 +12296,7 @@ Namespace FarmaciaSJDataSetTableAdapters
         <System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
         Private Sub InitConnection()
             Me._connection = New System.Data.SqlClient.SqlConnection
-            Me._connection.ConnectionString = Global.FARMACIASJ.My.MySettings.Default.FarmaciaSJConnectionString
+            Me._connection.ConnectionString = Global.FARMACIASJ.My.MySettings.Default.FarmaciaSJConnectionString1
         End Sub
         
         <System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
@@ -12596,7 +12596,7 @@ Namespace FarmaciaSJDataSetTableAdapters
         <System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
         Private Sub InitConnection()
             Me._connection = New System.Data.SqlClient.SqlConnection
-            Me._connection.ConnectionString = Global.FARMACIASJ.My.MySettings.Default.FarmaciaSJConnectionString
+            Me._connection.ConnectionString = Global.FARMACIASJ.My.MySettings.Default.FarmaciaSJConnectionString1
         End Sub
         
         <System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
