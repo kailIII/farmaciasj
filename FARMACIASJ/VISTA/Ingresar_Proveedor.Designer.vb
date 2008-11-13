@@ -20,7 +20,7 @@ Partial Class Ingresar_Proveedor
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
         Me.GroupBox1 = New System.Windows.Forms.GroupBox
-        Me.Button1 = New System.Windows.Forms.Button
+        Me.Boton_Registrar = New System.Windows.Forms.Button
         Me.Saldo = New System.Windows.Forms.TextBox
         Me.Ciudad = New System.Windows.Forms.TextBox
         Me.Dir = New System.Windows.Forms.RichTextBox
@@ -40,7 +40,7 @@ Partial Class Ingresar_Proveedor
         '
         'GroupBox1
         '
-        Me.GroupBox1.Controls.Add(Me.Button1)
+        Me.GroupBox1.Controls.Add(Me.Boton_Registrar)
         Me.GroupBox1.Controls.Add(Me.Saldo)
         Me.GroupBox1.Controls.Add(Me.Ciudad)
         Me.GroupBox1.Controls.Add(Me.Dir)
@@ -62,14 +62,14 @@ Partial Class Ingresar_Proveedor
         Me.GroupBox1.TabStop = False
         Me.GroupBox1.Text = "Registrar Proveedor"
         '
-        'Button1
+        'Boton_Registrar
         '
-        Me.Button1.Location = New System.Drawing.Point(248, 256)
-        Me.Button1.Name = "Button1"
-        Me.Button1.Size = New System.Drawing.Size(75, 23)
-        Me.Button1.TabIndex = 14
-        Me.Button1.Text = "Registrar"
-        Me.Button1.UseVisualStyleBackColor = True
+        Me.Boton_Registrar.Location = New System.Drawing.Point(248, 256)
+        Me.Boton_Registrar.Name = "Boton_Registrar"
+        Me.Boton_Registrar.Size = New System.Drawing.Size(75, 23)
+        Me.Boton_Registrar.TabIndex = 14
+        Me.Boton_Registrar.Text = "Registrar"
+        Me.Boton_Registrar.UseVisualStyleBackColor = True
         '
         'Saldo
         '
@@ -212,5 +212,5 @@ Partial Class Ingresar_Proveedor
     Friend WithEvents Ciudad As System.Windows.Forms.TextBox
     Friend WithEvents Dir As System.Windows.Forms.RichTextBox
     Friend WithEvents Correo As System.Windows.Forms.TextBox
-    Friend WithEvents Button1 As System.Windows.Forms.Button
+    Friend WithEvents Boton_Registrar As System.Windows.Forms.Button
 End Class

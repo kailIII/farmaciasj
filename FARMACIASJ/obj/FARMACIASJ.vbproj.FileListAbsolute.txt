@@ -5,7 +5,6 @@ C:\Documents and Settings\Administrador\Mis documentos\FarmaciaSJ\FARMACIASJ\bin
 C:\Documents and Settings\Administrador\Mis documentos\FarmaciaSJ\FARMACIASJ\bin\Debug\FARMACIASJ.pdb
 C:\Documents and Settings\Administrador\Mis documentos\FarmaciaSJ\FARMACIASJ\bin\Debug\System.Data.dll
 C:\Documents and Settings\Administrador\Mis documentos\FarmaciaSJ\FARMACIASJ\obj\Debug\ResolveAssemblyReference.cache
-C:\Documents and Settings\Administrador\Mis documentos\FarmaciaSJ\FARMACIASJ\obj\Debug\FARMACIASJ.FARMACIASJ_INICIO.resources
 C:\Documents and Settings\Administrador\Mis documentos\FarmaciaSJ\FARMACIASJ\obj\Debug\FARMACIASJ.Administrador.resources
 C:\Documents and Settings\Administrador\Mis documentos\FarmaciaSJ\FARMACIASJ\obj\Debug\FARMACIASJ.FARMACIASJ_SESION.resources
 C:\Documents and Settings\Administrador\Mis documentos\FarmaciaSJ\FARMACIASJ\obj\Debug\FARMACIASJ.Form1.resources
@@ -16,3 +15,4 @@ C:\Documents and Settings\Administrador\Mis documentos\FarmaciaSJ\FARMACIASJ\obj
 C:\Documents and Settings\Administrador\Mis documentos\FarmaciaSJ\FARMACIASJ\obj\Debug\FARMACIASJ.vbproj.GenerateResource.Cache
 C:\Documents and Settings\Administrador\Mis documentos\FarmaciaSJ\FARMACIASJ\obj\Debug\FARMACIASJ.Ingresar_Proveedor.resources
 C:\Documents and Settings\Administrador\Mis documentos\FarmaciaSJ\FARMACIASJ\obj\Debug\FARMACIASJ.Buscar_Proveedor.resources
+C:\Documents and Settings\Administrador\Mis documentos\FarmaciaSJ\FARMACIASJ\obj\Debug\FARMACIASJ.BORRAR.resources
