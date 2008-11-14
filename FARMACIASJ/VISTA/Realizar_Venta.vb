@@ -50,23 +50,24 @@ Public Class Realizar_Venta
 
             End If
             If (ID_Cliente <> -1) Then
-                ID_Factura = ControladorF.Ingresar_Factura(Numero.Text, Fecha_Compra.Value, Vence.Value, ID_Cliente)
-                If (ID_Factura <> -1) Then
-                    ID_Detalle = ID_Detalle + 1
-                    ControladorF.Ingresar_Detalle(ID_Detalle, ID_Factura, ID_Producto, ID_Lote, Cantidad.Text, ID_Impuesto, ID_Historico_Impuesto, CImpuestos)
-                    Me.Detalle_Venta.DataMember = "Select Detalle_venta.ID_Detalle_Venta AS Numero,Producto.Nombre,Lote.PVP As Precio_Unitario,((Lote.Descuento/100)*(Lote.PVP*Detalle_Venta.Cantidad))As Descuento,Ip.Impuesto, Detalle_Venta.Cantidad, ((Lote.PVP*Detalle_Venta.Cantidad)+(1-((Lote.Descuento/100)*(Lote.PVP*Detalle_Venta.Cantidad)))+IP.Impuesto) As Sub_Total from (Select I.ID_Detalle_Venta,Sum(I.Impuesto)As Impuesto From (SELECT     DETALLE_VENTA.ID_DETALLE_VENTA, (HISTORICO_IMPUESTO.VALOR / 100 ) * (DETALLE_VENTA.Cantidad * LOTE.PVP) AS Impuesto FROM         DETALLE_VENTA INNER JOIN IMPUESTO_DETALLE_VENTA ON DETALLE_VENTA.ID_DETALLE_VENTA = IMPUESTO_DETALLE_VENTA.ID_DETALLE_VENTA AND DETALLE_VENTA.ID_VENTA = IMPUESTO_DETALLE_VENTA.ID_VENTA INNER JOIN HISTORICO_IMPUESTO ON IMPUESTO_DETALLE_VENTA.ID_HISTORICO_IMPUESTO = HISTORICO_IMPUESTO.ID_HISTORICO_IMPUESTO AND IMPUESTO_DETALLE_VENTA.ID_IMPUESTO = HISTORICO_IMPUESTO.ID_IMPUESTO INNER JOIN LOTE ON DETALLE_VENTA.ID_LOTE = LOTE.ID_LOTE AND DETALLE_VENTA.ID_PRODUCTO = LOTE.ID_PRODUCTO WHERE     (DETALLE_VENTA.ID_VENTA = " & ID_Factura & "))I Group By I.Id_Detalle_Venta)IP Inner Join Detalle_Venta ON IP.ID_Detalle_Venta=Detalle_Venta.ID_Detalle_Venta Inner Join Lote on Detalle_Venta.ID_Lote=Lote.ID_Lote and Detalle_Venta.ID_Producto=Lote.ID_Producto Inner Join Producto On Lote.ID_Producto=Producto.ID_Producto where Detalle_Venta.ID_Venta=" & ID_Factura
-                    Me.Detalle_Venta.Refresh()
-                    Me.Detalle_Venta.Update()
-                    subt = Me.Sub_Total.Text
-                    subt = subt + Me.SubtotalP.Text
-                    Me.Sub_Total.Text = subt
-                    impuesto = Me.Impuesto.Text
-                    impuesto = impuesto + ImpuestoP
-                    Me.Impuesto.Text = impuesto
-                    Total = subt + impuesto
-                    Me.Total.Text = Total
+                If (ID_Factura = -1) Then
+                    ID_Factura = ControladorF.Ingresar_Factura(Numero.Text, Fecha_Compra.Value, Vence.Value, ID_Cliente)
                 End If
             End If
+        End If
+        If (ID_Factura <> -1) Then
+            ID_Detalle = ID_Detalle + 1
+            ControladorF.Ingresar_Detalle(ID_Detalle, ID_Factura, ID_Producto, ID_Lote, Cantidad.Text, ID_Impuesto, ID_Historico_Impuesto, CImpuestos)
+            Me.DETALLE_VENTA.DataSource = ControladorF.Traer_Detalle(ID_Factura)
+            Me.DETALLE_VENTA.Update()
+            subt = Me.Sub_Total.Text
+            subt = subt + Me.SubtotalP.Text
+            Me.Sub_Total.Text = subt
+            impuesto = Me.Impuesto.Text
+            impuesto = impuesto + ImpuestoP
+            Me.Impuesto.Text = impuesto
+            Total = subt + impuesto
+            Me.Total.Text = Total
         End If
     End Sub
 
@@ -98,4 +99,15 @@ Public Class Realizar_Venta
         End If
     End Sub
 
+    Private Sub Button3_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Button3.Click
+        Dim ControladorF As Controlador_Venta
+
+        ControladorF = New Controlador_Venta
+        ControladorF.Borrar_Factura(ID_Factura)
+        Me.Close()
+    End Sub
+
+    Private Sub Button2_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Button2.Click
+
+    End Sub
 End Class

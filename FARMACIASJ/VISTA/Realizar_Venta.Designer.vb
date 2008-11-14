@@ -19,7 +19,6 @@ Partial Class Realizar_Venta
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
-        Me.components = New System.ComponentModel.Container
         Me.GroupBox1 = New System.Windows.Forms.GroupBox
         Me.Label7 = New System.Windows.Forms.Label
         Me.Direccion = New System.Windows.Forms.RichTextBox
@@ -40,7 +39,6 @@ Partial Class Realizar_Venta
         Me.Label3 = New System.Windows.Forms.Label
         Me.Numero = New System.Windows.Forms.TextBox
         Me.Numero_Factura = New System.Windows.Forms.Label
-        Me.Detalle_Venta = New System.Windows.Forms.DataGridView
         Me.GroupBox3 = New System.Windows.Forms.GroupBox
         Me.Cantidad = New System.Windows.Forms.TextBox
         Me.Label18 = New System.Windows.Forms.Label
@@ -66,15 +64,12 @@ Partial Class Realizar_Venta
         Me.Label8 = New System.Windows.Forms.Label
         Me.Button2 = New System.Windows.Forms.Button
         Me.Button3 = New System.Windows.Forms.Button
-        Me.FarmaciaSJDataSetBindingSource = New System.Windows.Forms.BindingSource(Me.components)
-        Me.FarmaciaSJDataSet = New FARMACIASJ.FarmaciaSJDataSet
+        Me.DETALLE_VENTA = New System.Windows.Forms.DataGridView
         Me.GroupBox1.SuspendLayout()
         Me.GroupBox2.SuspendLayout()
-        CType(Me.Detalle_Venta, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.GroupBox3.SuspendLayout()
         Me.GroupBox4.SuspendLayout()
-        CType(Me.FarmaciaSJDataSetBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.FarmaciaSJDataSet, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.DETALLE_VENTA, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'GroupBox1
@@ -271,16 +266,6 @@ Partial Class Realizar_Venta
         Me.Numero_Factura.Size = New System.Drawing.Size(44, 13)
         Me.Numero_Factura.TabIndex = 0
         Me.Numero_Factura.Text = "Numero"
-        '
-        'Detalle_Venta
-        '
-        Me.Detalle_Venta.AutoGenerateColumns = False
-        Me.Detalle_Venta.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.Detalle_Venta.DataSource = Me.FarmaciaSJDataSetBindingSource
-        Me.Detalle_Venta.Location = New System.Drawing.Point(23, 221)
-        Me.Detalle_Venta.Name = "Detalle_Venta"
-        Me.Detalle_Venta.Size = New System.Drawing.Size(660, 125)
-        Me.Detalle_Venta.TabIndex = 2
         '
         'GroupBox3
         '
@@ -520,26 +505,24 @@ Partial Class Realizar_Venta
         Me.Button3.Text = "Cancelar"
         Me.Button3.UseVisualStyleBackColor = True
         '
-        'FarmaciaSJDataSetBindingSource
+        'DETALLE_VENTA
         '
-        Me.FarmaciaSJDataSetBindingSource.DataSource = Me.FarmaciaSJDataSet
-        Me.FarmaciaSJDataSetBindingSource.Position = 0
-        '
-        'FarmaciaSJDataSet
-        '
-        Me.FarmaciaSJDataSet.DataSetName = "FarmaciaSJDataSet"
-        Me.FarmaciaSJDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema
+        Me.DETALLE_VENTA.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
+        Me.DETALLE_VENTA.Location = New System.Drawing.Point(23, 221)
+        Me.DETALLE_VENTA.Name = "DETALLE_VENTA"
+        Me.DETALLE_VENTA.Size = New System.Drawing.Size(660, 125)
+        Me.DETALLE_VENTA.TabIndex = 7
         '
         'Realizar_Venta
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(692, 505)
+        Me.Controls.Add(Me.DETALLE_VENTA)
         Me.Controls.Add(Me.Button3)
         Me.Controls.Add(Me.Button2)
         Me.Controls.Add(Me.GroupBox4)
         Me.Controls.Add(Me.GroupBox3)
-        Me.Controls.Add(Me.Detalle_Venta)
         Me.Controls.Add(Me.GroupBox2)
         Me.Controls.Add(Me.GroupBox1)
         Me.Name = "Realizar_Venta"
@@ -548,13 +531,11 @@ Partial Class Realizar_Venta
         Me.GroupBox1.PerformLayout()
         Me.GroupBox2.ResumeLayout(False)
         Me.GroupBox2.PerformLayout()
-        CType(Me.Detalle_Venta, System.ComponentModel.ISupportInitialize).EndInit()
         Me.GroupBox3.ResumeLayout(False)
         Me.GroupBox3.PerformLayout()
         Me.GroupBox4.ResumeLayout(False)
         Me.GroupBox4.PerformLayout()
-        CType(Me.FarmaciaSJDataSetBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.FarmaciaSJDataSet, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.DETALLE_VENTA, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
 
     End Sub
@@ -574,7 +555,6 @@ Partial Class Realizar_Venta
     Friend WithEvents Telefono As System.Windows.Forms.TextBox
     Friend WithEvents Direccion As System.Windows.Forms.RichTextBox
     Friend WithEvents Label7 As System.Windows.Forms.Label
-    Friend WithEvents Detalle_Venta As System.Windows.Forms.DataGridView
     Friend WithEvents GroupBox3 As System.Windows.Forms.GroupBox
     Friend WithEvents GroupBox4 As System.Windows.Forms.GroupBox
     Friend WithEvents Label8 As System.Windows.Forms.Label
@@ -583,8 +563,6 @@ Partial Class Realizar_Venta
     Friend WithEvents Sub_Total As System.Windows.Forms.TextBox
     Friend WithEvents Total As System.Windows.Forms.TextBox
     Friend WithEvents Label10 As System.Windows.Forms.Label
-    Friend WithEvents FarmaciaSJDataSetBindingSource As System.Windows.Forms.BindingSource
-    Friend WithEvents FarmaciaSJDataSet As FARMACIASJ.FarmaciaSJDataSet
     Friend WithEvents NombreP As System.Windows.Forms.TextBox
     Friend WithEvents Label12 As System.Windows.Forms.Label
     Friend WithEvents Label11 As System.Windows.Forms.Label
@@ -606,4 +584,5 @@ Partial Class Realizar_Venta
     Friend WithEvents Cantidad As System.Windows.Forms.TextBox
     Friend WithEvents Label18 As System.Windows.Forms.Label
     Friend WithEvents Button3 As System.Windows.Forms.Button
+    Friend WithEvents DETALLE_VENTA As System.Windows.Forms.DataGridView
 End Class

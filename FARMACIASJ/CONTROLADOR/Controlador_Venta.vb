@@ -20,5 +20,17 @@ Public Class Controlador_Venta
         Venta.Ingresar_Detalle(ID_Detalle, ID_VENTA, ID_Producto, ID_Lote, ID_Impuesto, Id_Historico_Impuesto, Cantidad, N)
 
     End Sub
-
+    Public Function Traer_Detalle(ByVal Id_Factura As String) As Data.DataTable
+        Dim Venta As Venta
+        Venta = New Venta
+        Return Venta.traer_detalle(Id_Factura)
+    End Function
+    Public Sub Borrar_Factura(ByVal ID_Factura As String)
+        Dim Venta As Venta
+        Dim Factura As Realizar_Venta
+        Venta = New Venta()
+        Venta.Borrar_Factura(ID_Factura)
+        Factura = New Realizar_Venta()
+        Factura.Show()
+    End Sub
 End Class
