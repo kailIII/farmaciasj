@@ -13,7 +13,11 @@ Public Class Controlador_Venta
         End If
     End Function
 
-    Public Sub Ingresar_Detalle()
+    Public Sub Ingresar_Detalle(ByVal ID_Detalle As String, ByVal ID_VENTA As String, ByVal ID_Producto As String, ByVal ID_Lote As String, ByVal Cantidad As String, ByVal ID_Impuesto() As String, ByVal Id_Historico_Impuesto() As String, ByVal N As Integer)
+        Dim Venta As Venta
+
+        Venta = New Venta
+        Venta.Ingresar_Detalle(ID_Detalle, ID_VENTA, ID_Producto, ID_Lote, ID_Impuesto, Id_Historico_Impuesto, Cantidad, N)
 
     End Sub
 

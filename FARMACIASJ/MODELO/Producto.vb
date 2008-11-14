@@ -36,4 +36,42 @@ Public Class Producto
         Reder.Read()
         Return Reder.Item(0).ToString
     End Function
+
+    Public Function Impuestos(ByVal Codigo As String) As Data.SqlClient.SqlDataReader
+        Dim Producto As FarmaciaSJDataSetTableAdapters.PRODUCTOTableAdapter
+        Dim Lote As FarmaciaSJDataSetTableAdapters.LOTETableAdapter
+        Dim Conextion As Data.SqlClient.SqlConnection
+        Dim Consulta As Data.SqlClient.SqlCommand
+        Dim Reder As Data.SqlClient.SqlDataReader
+
+        Producto = New FarmaciaSJDataSetTableAdapters.PRODUCTOTableAdapter
+        Lote = New FarmaciaSJDataSetTableAdapters.LOTETableAdapter
+        Conextion = Producto.Connection
+        Consulta = New Data.SqlClient.SqlCommand
+        Conextion.Open()
+        Consulta.Connection = Conextion
+        Consulta.CommandText = "SELECT     HISTORICO_IMPUESTO.ID_HISTORICO_IMPUESTO, HISTORICO_IMPUESTO.ID_IMPUESTO, HISTORICO_IMPUESTO.VALOR FROM         Linea_Impuesto INNER JOIN LINEA ON Linea_Impuesto.ID_LINEA = LINEA.ID_LINEA INNER JOIN IMPUESTO ON Linea_Impuesto.ID_IMPUESTO = IMPUESTO.ID_IMPUESTO INNER JOIN HISTORICO_IMPUESTO ON IMPUESTO.ID_IMPUESTO = HISTORICO_IMPUESTO.ID_IMPUESTO INNER JOIN PRODUCTO ON LINEA.ID_LINEA = PRODUCTO.ID_LINEA WHERE     (PRODUCTO.CODIGO_DE_BARRAS = '" & Codigo & "') AND (HISTORICO_IMPUESTO.FECHA_FIN IS NULL) AND (PRODUCTO.GRAVADO_EXENTO = 'GRAVADO')"
+        Reder = Consulta.ExecuteReader()
+        Return Reder
+    End Function
+
+    Public Function Cantidad_Impuestos(ByVal Codigo As String) As Integer
+        Dim Producto As FarmaciaSJDataSetTableAdapters.PRODUCTOTableAdapter
+        Dim Lote As FarmaciaSJDataSetTableAdapters.LOTETableAdapter
+        Dim Conextion As Data.SqlClient.SqlConnection
+        Dim Consulta As Data.SqlClient.SqlCommand
+        Dim Reder As Data.SqlClient.SqlDataReader
+
+
+        Producto = New FarmaciaSJDataSetTableAdapters.PRODUCTOTableAdapter
+        Lote = New FarmaciaSJDataSetTableAdapters.LOTETableAdapter
+        Conextion = Producto.Connection
+        Consulta = New Data.SqlClient.SqlCommand
+        Conextion.Open()
+        Consulta.Connection = Conextion
+        Consulta.CommandText = "select count(*) from (SELECT     HISTORICO_IMPUESTO.ID_HISTORICO_IMPUESTO, HISTORICO_IMPUESTO.ID_IMPUESTO, HISTORICO_IMPUESTO.VALOR FROM         Linea_Impuesto INNER JOIN LINEA ON Linea_Impuesto.ID_LINEA = LINEA.ID_LINEA INNER JOIN IMPUESTO ON Linea_Impuesto.ID_IMPUESTO = IMPUESTO.ID_IMPUESTO INNER JOIN HISTORICO_IMPUESTO ON IMPUESTO.ID_IMPUESTO = HISTORICO_IMPUESTO.ID_IMPUESTO INNER JOIN PRODUCTO ON LINEA.ID_LINEA = PRODUCTO.ID_LINEA WHERE     (PRODUCTO.CODIGO_DE_BARRAS = '" & Codigo & "') AND (HISTORICO_IMPUESTO.FECHA_FIN IS NULL) AND (PRODUCTO.GRAVADO_EXENTO = 'GRAVADO'))LHI"
+        Reder = Consulta.ExecuteReader()
+        Reder.Read()
+        Return Reder.Item(0).ToString
+    End Function
 End Class

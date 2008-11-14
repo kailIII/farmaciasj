@@ -30,8 +30,6 @@ Partial Public Class FarmaciaSJDataSet
     
     Private tableDETALLE_COMPRA As DETALLE_COMPRADataTable
     
-    Private tableDETALLE_VENTA As DETALLE_VENTADataTable
-    
     Private tableEMPLEADO As EMPLEADODataTable
     
     Private tableHISTORICO_EMPLEADO As HISTORICO_EMPLEADODataTable
@@ -58,17 +56,17 @@ Partial Public Class FarmaciaSJDataSet
     
     Private tableVENTA As VENTADataTable
     
+    Private tableIMPUESTO_DETALLE_VENTA As IMPUESTO_DETALLE_VENTADataTable
+    
+    Private tableLinea_Impuesto As Linea_ImpuestoDataTable
+    
+    Private tableDETALLE_VENTA As DETALLE_VENTADataTable
+    
     Private relationFK_COMPRA_PROVEEDOR As System.Data.DataRelation
     
     Private relationFK_DETALLE_COMPRA_COMPRA As System.Data.DataRelation
     
     Private relationFK_DETALLE_COMPRA_PRODUCTO As System.Data.DataRelation
-    
-    Private relationFK_DETALLE_VENTA_HISTORICO_IMPUESTO As System.Data.DataRelation
-    
-    Private relationFK_DETALLE_VENTA_LOTE As System.Data.DataRelation
-    
-    Private relationFK_DETALLE_VENTA_VENTA As System.Data.DataRelation
     
     Private relationFK_HISTORICO_EMPLEADO_EMPLEADO As System.Data.DataRelation
     
@@ -89,6 +87,14 @@ Partial Public Class FarmaciaSJDataSet
     Private relationFK_TELEFONO_PROVEEDOR_PROVEEDOR As System.Data.DataRelation
     
     Private relationFK_VENTA_CLIENTE As System.Data.DataRelation
+    
+    Private relationFK_Linea_Impuesto_IMPUESTO As System.Data.DataRelation
+    
+    Private relationFK_Linea_Impuesto_LINEA As System.Data.DataRelation
+    
+    Private relationFK_DETALLE_VENTA_LOTE As System.Data.DataRelation
+    
+    Private relationFK_DETALLE_VENTA_VENTA As System.Data.DataRelation
     
     Private _schemaSerializationMode As System.Data.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema
     
@@ -125,9 +131,6 @@ Partial Public Class FarmaciaSJDataSet
             End If
             If (Not (ds.Tables("DETALLE_COMPRA")) Is Nothing) Then
                 MyBase.Tables.Add(New DETALLE_COMPRADataTable(ds.Tables("DETALLE_COMPRA")))
-            End If
-            If (Not (ds.Tables("DETALLE_VENTA")) Is Nothing) Then
-                MyBase.Tables.Add(New DETALLE_VENTADataTable(ds.Tables("DETALLE_VENTA")))
             End If
             If (Not (ds.Tables("EMPLEADO")) Is Nothing) Then
                 MyBase.Tables.Add(New EMPLEADODataTable(ds.Tables("EMPLEADO")))
@@ -167,6 +170,15 @@ Partial Public Class FarmaciaSJDataSet
             End If
             If (Not (ds.Tables("VENTA")) Is Nothing) Then
                 MyBase.Tables.Add(New VENTADataTable(ds.Tables("VENTA")))
+            End If
+            If (Not (ds.Tables("IMPUESTO_DETALLE_VENTA")) Is Nothing) Then
+                MyBase.Tables.Add(New IMPUESTO_DETALLE_VENTADataTable(ds.Tables("IMPUESTO_DETALLE_VENTA")))
+            End If
+            If (Not (ds.Tables("Linea_Impuesto")) Is Nothing) Then
+                MyBase.Tables.Add(New Linea_ImpuestoDataTable(ds.Tables("Linea_Impuesto")))
+            End If
+            If (Not (ds.Tables("DETALLE_VENTA")) Is Nothing) Then
+                MyBase.Tables.Add(New DETALLE_VENTADataTable(ds.Tables("DETALLE_VENTA")))
             End If
             Me.DataSetName = ds.DataSetName
             Me.Prefix = ds.Prefix
@@ -209,15 +221,6 @@ Partial Public Class FarmaciaSJDataSet
     Public ReadOnly Property DETALLE_COMPRA() As DETALLE_COMPRADataTable
         Get
             Return Me.tableDETALLE_COMPRA
-        End Get
-    End Property
-    
-    <System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-     System.ComponentModel.Browsable(false),  _
-     System.ComponentModel.DesignerSerializationVisibility(System.ComponentModel.DesignerSerializationVisibility.Content)>  _
-    Public ReadOnly Property DETALLE_VENTA() As DETALLE_VENTADataTable
-        Get
-            Return Me.tableDETALLE_VENTA
         End Get
     End Property
     
@@ -339,6 +342,33 @@ Partial Public Class FarmaciaSJDataSet
     End Property
     
     <System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+     System.ComponentModel.Browsable(false),  _
+     System.ComponentModel.DesignerSerializationVisibility(System.ComponentModel.DesignerSerializationVisibility.Content)>  _
+    Public ReadOnly Property IMPUESTO_DETALLE_VENTA() As IMPUESTO_DETALLE_VENTADataTable
+        Get
+            Return Me.tableIMPUESTO_DETALLE_VENTA
+        End Get
+    End Property
+    
+    <System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+     System.ComponentModel.Browsable(false),  _
+     System.ComponentModel.DesignerSerializationVisibility(System.ComponentModel.DesignerSerializationVisibility.Content)>  _
+    Public ReadOnly Property Linea_Impuesto() As Linea_ImpuestoDataTable
+        Get
+            Return Me.tableLinea_Impuesto
+        End Get
+    End Property
+    
+    <System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+     System.ComponentModel.Browsable(false),  _
+     System.ComponentModel.DesignerSerializationVisibility(System.ComponentModel.DesignerSerializationVisibility.Content)>  _
+    Public ReadOnly Property DETALLE_VENTA() As DETALLE_VENTADataTable
+        Get
+            Return Me.tableDETALLE_VENTA
+        End Get
+    End Property
+    
+    <System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
      System.ComponentModel.BrowsableAttribute(true),  _
      System.ComponentModel.DesignerSerializationVisibilityAttribute(System.ComponentModel.DesignerSerializationVisibility.Visible)>  _
     Public Overrides Property SchemaSerializationMode() As System.Data.SchemaSerializationMode
@@ -406,9 +436,6 @@ Partial Public Class FarmaciaSJDataSet
             If (Not (ds.Tables("DETALLE_COMPRA")) Is Nothing) Then
                 MyBase.Tables.Add(New DETALLE_COMPRADataTable(ds.Tables("DETALLE_COMPRA")))
             End If
-            If (Not (ds.Tables("DETALLE_VENTA")) Is Nothing) Then
-                MyBase.Tables.Add(New DETALLE_VENTADataTable(ds.Tables("DETALLE_VENTA")))
-            End If
             If (Not (ds.Tables("EMPLEADO")) Is Nothing) Then
                 MyBase.Tables.Add(New EMPLEADODataTable(ds.Tables("EMPLEADO")))
             End If
@@ -447,6 +474,15 @@ Partial Public Class FarmaciaSJDataSet
             End If
             If (Not (ds.Tables("VENTA")) Is Nothing) Then
                 MyBase.Tables.Add(New VENTADataTable(ds.Tables("VENTA")))
+            End If
+            If (Not (ds.Tables("IMPUESTO_DETALLE_VENTA")) Is Nothing) Then
+                MyBase.Tables.Add(New IMPUESTO_DETALLE_VENTADataTable(ds.Tables("IMPUESTO_DETALLE_VENTA")))
+            End If
+            If (Not (ds.Tables("Linea_Impuesto")) Is Nothing) Then
+                MyBase.Tables.Add(New Linea_ImpuestoDataTable(ds.Tables("Linea_Impuesto")))
+            End If
+            If (Not (ds.Tables("DETALLE_VENTA")) Is Nothing) Then
+                MyBase.Tables.Add(New DETALLE_VENTADataTable(ds.Tables("DETALLE_VENTA")))
             End If
             Me.DataSetName = ds.DataSetName
             Me.Prefix = ds.Prefix
@@ -493,12 +529,6 @@ Partial Public Class FarmaciaSJDataSet
         If (initTable = true) Then
             If (Not (Me.tableDETALLE_COMPRA) Is Nothing) Then
                 Me.tableDETALLE_COMPRA.InitVars
-            End If
-        End If
-        Me.tableDETALLE_VENTA = CType(MyBase.Tables("DETALLE_VENTA"),DETALLE_VENTADataTable)
-        If (initTable = true) Then
-            If (Not (Me.tableDETALLE_VENTA) Is Nothing) Then
-                Me.tableDETALLE_VENTA.InitVars
             End If
         End If
         Me.tableEMPLEADO = CType(MyBase.Tables("EMPLEADO"),EMPLEADODataTable)
@@ -579,12 +609,27 @@ Partial Public Class FarmaciaSJDataSet
                 Me.tableVENTA.InitVars
             End If
         End If
+        Me.tableIMPUESTO_DETALLE_VENTA = CType(MyBase.Tables("IMPUESTO_DETALLE_VENTA"),IMPUESTO_DETALLE_VENTADataTable)
+        If (initTable = true) Then
+            If (Not (Me.tableIMPUESTO_DETALLE_VENTA) Is Nothing) Then
+                Me.tableIMPUESTO_DETALLE_VENTA.InitVars
+            End If
+        End If
+        Me.tableLinea_Impuesto = CType(MyBase.Tables("Linea_Impuesto"),Linea_ImpuestoDataTable)
+        If (initTable = true) Then
+            If (Not (Me.tableLinea_Impuesto) Is Nothing) Then
+                Me.tableLinea_Impuesto.InitVars
+            End If
+        End If
+        Me.tableDETALLE_VENTA = CType(MyBase.Tables("DETALLE_VENTA"),DETALLE_VENTADataTable)
+        If (initTable = true) Then
+            If (Not (Me.tableDETALLE_VENTA) Is Nothing) Then
+                Me.tableDETALLE_VENTA.InitVars
+            End If
+        End If
         Me.relationFK_COMPRA_PROVEEDOR = Me.Relations("FK_COMPRA_PROVEEDOR")
         Me.relationFK_DETALLE_COMPRA_COMPRA = Me.Relations("FK_DETALLE_COMPRA_COMPRA")
         Me.relationFK_DETALLE_COMPRA_PRODUCTO = Me.Relations("FK_DETALLE_COMPRA_PRODUCTO")
-        Me.relationFK_DETALLE_VENTA_HISTORICO_IMPUESTO = Me.Relations("FK_DETALLE_VENTA_HISTORICO_IMPUESTO")
-        Me.relationFK_DETALLE_VENTA_LOTE = Me.Relations("FK_DETALLE_VENTA_LOTE")
-        Me.relationFK_DETALLE_VENTA_VENTA = Me.Relations("FK_DETALLE_VENTA_VENTA")
         Me.relationFK_HISTORICO_EMPLEADO_EMPLEADO = Me.Relations("FK_HISTORICO_EMPLEADO_EMPLEADO")
         Me.relationFK_HISTORICO_IMPUESTO_IMPUESTO = Me.Relations("FK_HISTORICO_IMPUESTO_IMPUESTO")
         Me.relationFK_LOTE_PRODUCTO = Me.Relations("FK_LOTE_PRODUCTO")
@@ -595,6 +640,10 @@ Partial Public Class FarmaciaSJDataSet
         Me.relationFK_PROVEEDOR_PRODUCTO_PROVEEDOR = Me.Relations("FK_PROVEEDOR_PRODUCTO_PROVEEDOR")
         Me.relationFK_TELEFONO_PROVEEDOR_PROVEEDOR = Me.Relations("FK_TELEFONO_PROVEEDOR_PROVEEDOR")
         Me.relationFK_VENTA_CLIENTE = Me.Relations("FK_VENTA_CLIENTE")
+        Me.relationFK_Linea_Impuesto_IMPUESTO = Me.Relations("FK_Linea_Impuesto_IMPUESTO")
+        Me.relationFK_Linea_Impuesto_LINEA = Me.Relations("FK_Linea_Impuesto_LINEA")
+        Me.relationFK_DETALLE_VENTA_LOTE = Me.Relations("FK_DETALLE_VENTA_LOTE")
+        Me.relationFK_DETALLE_VENTA_VENTA = Me.Relations("FK_DETALLE_VENTA_VENTA")
     End Sub
     
     <System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
@@ -610,8 +659,6 @@ Partial Public Class FarmaciaSJDataSet
         MyBase.Tables.Add(Me.tableCOMPRA)
         Me.tableDETALLE_COMPRA = New DETALLE_COMPRADataTable
         MyBase.Tables.Add(Me.tableDETALLE_COMPRA)
-        Me.tableDETALLE_VENTA = New DETALLE_VENTADataTable
-        MyBase.Tables.Add(Me.tableDETALLE_VENTA)
         Me.tableEMPLEADO = New EMPLEADODataTable
         MyBase.Tables.Add(Me.tableEMPLEADO)
         Me.tableHISTORICO_EMPLEADO = New HISTORICO_EMPLEADODataTable
@@ -638,18 +685,18 @@ Partial Public Class FarmaciaSJDataSet
         MyBase.Tables.Add(Me.tableTELEFONO_PROVEEDOR)
         Me.tableVENTA = New VENTADataTable
         MyBase.Tables.Add(Me.tableVENTA)
+        Me.tableIMPUESTO_DETALLE_VENTA = New IMPUESTO_DETALLE_VENTADataTable
+        MyBase.Tables.Add(Me.tableIMPUESTO_DETALLE_VENTA)
+        Me.tableLinea_Impuesto = New Linea_ImpuestoDataTable
+        MyBase.Tables.Add(Me.tableLinea_Impuesto)
+        Me.tableDETALLE_VENTA = New DETALLE_VENTADataTable
+        MyBase.Tables.Add(Me.tableDETALLE_VENTA)
         Me.relationFK_COMPRA_PROVEEDOR = New System.Data.DataRelation("FK_COMPRA_PROVEEDOR", New System.Data.DataColumn() {Me.tablePROVEEDOR.ID_PROVEEDORColumn}, New System.Data.DataColumn() {Me.tableCOMPRA.ID_PROVEEDORColumn}, false)
         Me.Relations.Add(Me.relationFK_COMPRA_PROVEEDOR)
         Me.relationFK_DETALLE_COMPRA_COMPRA = New System.Data.DataRelation("FK_DETALLE_COMPRA_COMPRA", New System.Data.DataColumn() {Me.tableCOMPRA.ID_COMPRAColumn}, New System.Data.DataColumn() {Me.tableDETALLE_COMPRA.ID_COMPRAColumn}, false)
         Me.Relations.Add(Me.relationFK_DETALLE_COMPRA_COMPRA)
         Me.relationFK_DETALLE_COMPRA_PRODUCTO = New System.Data.DataRelation("FK_DETALLE_COMPRA_PRODUCTO", New System.Data.DataColumn() {Me.tablePRODUCTO.ID_PRODUCTOColumn}, New System.Data.DataColumn() {Me.tableDETALLE_COMPRA.ID_PRODUCTOColumn}, false)
         Me.Relations.Add(Me.relationFK_DETALLE_COMPRA_PRODUCTO)
-        Me.relationFK_DETALLE_VENTA_HISTORICO_IMPUESTO = New System.Data.DataRelation("FK_DETALLE_VENTA_HISTORICO_IMPUESTO", New System.Data.DataColumn() {Me.tableHISTORICO_IMPUESTO.ID_HISTORICO_IMPUESTOColumn, Me.tableHISTORICO_IMPUESTO.ID_IMPUESTOColumn}, New System.Data.DataColumn() {Me.tableDETALLE_VENTA.ID_HISTORICO_IMPUESTOColumn, Me.tableDETALLE_VENTA.ID_IMPUESTOColumn}, false)
-        Me.Relations.Add(Me.relationFK_DETALLE_VENTA_HISTORICO_IMPUESTO)
-        Me.relationFK_DETALLE_VENTA_LOTE = New System.Data.DataRelation("FK_DETALLE_VENTA_LOTE", New System.Data.DataColumn() {Me.tableLOTE.ID_LOTEColumn, Me.tableLOTE.ID_PRODUCTOColumn}, New System.Data.DataColumn() {Me.tableDETALLE_VENTA.ID_LOTEColumn, Me.tableDETALLE_VENTA.ID_PRODUCTOColumn}, false)
-        Me.Relations.Add(Me.relationFK_DETALLE_VENTA_LOTE)
-        Me.relationFK_DETALLE_VENTA_VENTA = New System.Data.DataRelation("FK_DETALLE_VENTA_VENTA", New System.Data.DataColumn() {Me.tableVENTA.ID_VENTAColumn}, New System.Data.DataColumn() {Me.tableDETALLE_VENTA.ID_VENTAColumn}, false)
-        Me.Relations.Add(Me.relationFK_DETALLE_VENTA_VENTA)
         Me.relationFK_HISTORICO_EMPLEADO_EMPLEADO = New System.Data.DataRelation("FK_HISTORICO_EMPLEADO_EMPLEADO", New System.Data.DataColumn() {Me.tableEMPLEADO.ID_EMPLEADOColumn}, New System.Data.DataColumn() {Me.tableHISTORICO_EMPLEADO.ID_EMPLEADOColumn}, false)
         Me.Relations.Add(Me.relationFK_HISTORICO_EMPLEADO_EMPLEADO)
         Me.relationFK_HISTORICO_IMPUESTO_IMPUESTO = New System.Data.DataRelation("FK_HISTORICO_IMPUESTO_IMPUESTO", New System.Data.DataColumn() {Me.tableIMPUESTO.ID_IMPUESTOColumn}, New System.Data.DataColumn() {Me.tableHISTORICO_IMPUESTO.ID_IMPUESTOColumn}, false)
@@ -670,6 +717,14 @@ Partial Public Class FarmaciaSJDataSet
         Me.Relations.Add(Me.relationFK_TELEFONO_PROVEEDOR_PROVEEDOR)
         Me.relationFK_VENTA_CLIENTE = New System.Data.DataRelation("FK_VENTA_CLIENTE", New System.Data.DataColumn() {Me.tableCLIENTE.ID_CLIENTEColumn}, New System.Data.DataColumn() {Me.tableVENTA.ID_CLIENTEColumn}, false)
         Me.Relations.Add(Me.relationFK_VENTA_CLIENTE)
+        Me.relationFK_Linea_Impuesto_IMPUESTO = New System.Data.DataRelation("FK_Linea_Impuesto_IMPUESTO", New System.Data.DataColumn() {Me.tableIMPUESTO.ID_IMPUESTOColumn}, New System.Data.DataColumn() {Me.tableLinea_Impuesto.ID_IMPUESTOColumn}, false)
+        Me.Relations.Add(Me.relationFK_Linea_Impuesto_IMPUESTO)
+        Me.relationFK_Linea_Impuesto_LINEA = New System.Data.DataRelation("FK_Linea_Impuesto_LINEA", New System.Data.DataColumn() {Me.tableLINEA.ID_LINEAColumn}, New System.Data.DataColumn() {Me.tableLinea_Impuesto.ID_LINEAColumn}, false)
+        Me.Relations.Add(Me.relationFK_Linea_Impuesto_LINEA)
+        Me.relationFK_DETALLE_VENTA_LOTE = New System.Data.DataRelation("FK_DETALLE_VENTA_LOTE", New System.Data.DataColumn() {Me.tableLOTE.ID_LOTEColumn, Me.tableLOTE.ID_PRODUCTOColumn}, New System.Data.DataColumn() {Me.tableDETALLE_VENTA.ID_LOTEColumn, Me.tableDETALLE_VENTA.ID_PRODUCTOColumn}, false)
+        Me.Relations.Add(Me.relationFK_DETALLE_VENTA_LOTE)
+        Me.relationFK_DETALLE_VENTA_VENTA = New System.Data.DataRelation("FK_DETALLE_VENTA_VENTA", New System.Data.DataColumn() {Me.tableVENTA.ID_VENTAColumn}, New System.Data.DataColumn() {Me.tableDETALLE_VENTA.ID_VENTAColumn}, false)
+        Me.Relations.Add(Me.relationFK_DETALLE_VENTA_VENTA)
     End Sub
     
     <System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
@@ -684,11 +739,6 @@ Partial Public Class FarmaciaSJDataSet
     
     <System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
     Private Function ShouldSerializeDETALLE_COMPRA() As Boolean
-        Return false
-    End Function
-    
-    <System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
-    Private Function ShouldSerializeDETALLE_VENTA() As Boolean
         Return false
     End Function
     
@@ -758,6 +808,21 @@ Partial Public Class FarmaciaSJDataSet
     End Function
     
     <System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+    Private Function ShouldSerializeIMPUESTO_DETALLE_VENTA() As Boolean
+        Return false
+    End Function
+    
+    <System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+    Private Function ShouldSerializeLinea_Impuesto() As Boolean
+        Return false
+    End Function
+    
+    <System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+    Private Function ShouldSerializeDETALLE_VENTA() As Boolean
+        Return false
+    End Function
+    
+    <System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
     Private Sub SchemaChanged(ByVal sender As Object, ByVal e As System.ComponentModel.CollectionChangeEventArgs)
         If (e.Action = System.ComponentModel.CollectionChangeAction.Remove) Then
             Me.InitVars
@@ -782,8 +847,6 @@ Partial Public Class FarmaciaSJDataSet
     Public Delegate Sub COMPRARowChangeEventHandler(ByVal sender As Object, ByVal e As COMPRARowChangeEvent)
     
     Public Delegate Sub DETALLE_COMPRARowChangeEventHandler(ByVal sender As Object, ByVal e As DETALLE_COMPRARowChangeEvent)
-    
-    Public Delegate Sub DETALLE_VENTARowChangeEventHandler(ByVal sender As Object, ByVal e As DETALLE_VENTARowChangeEvent)
     
     Public Delegate Sub EMPLEADORowChangeEventHandler(ByVal sender As Object, ByVal e As EMPLEADORowChangeEvent)
     
@@ -810,6 +873,12 @@ Partial Public Class FarmaciaSJDataSet
     Public Delegate Sub TELEFONO_PROVEEDORRowChangeEventHandler(ByVal sender As Object, ByVal e As TELEFONO_PROVEEDORRowChangeEvent)
     
     Public Delegate Sub VENTARowChangeEventHandler(ByVal sender As Object, ByVal e As VENTARowChangeEvent)
+    
+    Public Delegate Sub IMPUESTO_DETALLE_VENTARowChangeEventHandler(ByVal sender As Object, ByVal e As IMPUESTO_DETALLE_VENTARowChangeEvent)
+    
+    Public Delegate Sub Linea_ImpuestoRowChangeEventHandler(ByVal sender As Object, ByVal e As Linea_ImpuestoRowChangeEvent)
+    
+    Public Delegate Sub DETALLE_VENTARowChangeEventHandler(ByVal sender As Object, ByVal e As DETALLE_VENTARowChangeEvent)
     
     <System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "2.0.0.0"),  _
      System.Serializable(),  _
@@ -1641,283 +1710,6 @@ Partial Public Class FarmaciaSJDataSet
             Dim attribute2 As System.Xml.Schema.XmlSchemaAttribute = New System.Xml.Schema.XmlSchemaAttribute
             attribute2.Name = "tableTypeName"
             attribute2.FixedValue = "DETALLE_COMPRADataTable"
-            type.Attributes.Add(attribute2)
-            type.Particle = sequence
-            Return type
-        End Function
-    End Class
-    
-    <System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "2.0.0.0"),  _
-     System.Serializable(),  _
-     System.Xml.Serialization.XmlSchemaProviderAttribute("GetTypedTableSchema")>  _
-    Partial Public Class DETALLE_VENTADataTable
-        Inherits System.Data.DataTable
-        Implements System.Collections.IEnumerable
-        
-        Private columnID_DETALLE_VENTA As System.Data.DataColumn
-        
-        Private columnID_VENTA As System.Data.DataColumn
-        
-        Private columnCantidad As System.Data.DataColumn
-        
-        Private columnID_LOTE As System.Data.DataColumn
-        
-        Private columnID_IMPUESTO As System.Data.DataColumn
-        
-        Private columnID_HISTORICO_IMPUESTO As System.Data.DataColumn
-        
-        Private columnID_PRODUCTO As System.Data.DataColumn
-        
-        <System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
-        Public Sub New()
-            MyBase.New
-            Me.TableName = "DETALLE_VENTA"
-            Me.BeginInit
-            Me.InitClass
-            Me.EndInit
-        End Sub
-        
-        <System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
-        Friend Sub New(ByVal table As System.Data.DataTable)
-            MyBase.New
-            Me.TableName = table.TableName
-            If (table.CaseSensitive <> table.DataSet.CaseSensitive) Then
-                Me.CaseSensitive = table.CaseSensitive
-            End If
-            If (table.Locale.ToString <> table.DataSet.Locale.ToString) Then
-                Me.Locale = table.Locale
-            End If
-            If (table.Namespace <> table.DataSet.Namespace) Then
-                Me.Namespace = table.Namespace
-            End If
-            Me.Prefix = table.Prefix
-            Me.MinimumCapacity = table.MinimumCapacity
-        End Sub
-        
-        <System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
-        Protected Sub New(ByVal info As System.Runtime.Serialization.SerializationInfo, ByVal context As System.Runtime.Serialization.StreamingContext)
-            MyBase.New(info, context)
-            Me.InitVars
-        End Sub
-        
-        <System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
-        Public ReadOnly Property ID_DETALLE_VENTAColumn() As System.Data.DataColumn
-            Get
-                Return Me.columnID_DETALLE_VENTA
-            End Get
-        End Property
-        
-        <System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
-        Public ReadOnly Property ID_VENTAColumn() As System.Data.DataColumn
-            Get
-                Return Me.columnID_VENTA
-            End Get
-        End Property
-        
-        <System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
-        Public ReadOnly Property CantidadColumn() As System.Data.DataColumn
-            Get
-                Return Me.columnCantidad
-            End Get
-        End Property
-        
-        <System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
-        Public ReadOnly Property ID_LOTEColumn() As System.Data.DataColumn
-            Get
-                Return Me.columnID_LOTE
-            End Get
-        End Property
-        
-        <System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
-        Public ReadOnly Property ID_IMPUESTOColumn() As System.Data.DataColumn
-            Get
-                Return Me.columnID_IMPUESTO
-            End Get
-        End Property
-        
-        <System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
-        Public ReadOnly Property ID_HISTORICO_IMPUESTOColumn() As System.Data.DataColumn
-            Get
-                Return Me.columnID_HISTORICO_IMPUESTO
-            End Get
-        End Property
-        
-        <System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
-        Public ReadOnly Property ID_PRODUCTOColumn() As System.Data.DataColumn
-            Get
-                Return Me.columnID_PRODUCTO
-            End Get
-        End Property
-        
-        <System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         System.ComponentModel.Browsable(false)>  _
-        Public ReadOnly Property Count() As Integer
-            Get
-                Return Me.Rows.Count
-            End Get
-        End Property
-        
-        <System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
-        Public Default ReadOnly Property Item(ByVal index As Integer) As DETALLE_VENTARow
-            Get
-                Return CType(Me.Rows(index),DETALLE_VENTARow)
-            End Get
-        End Property
-        
-        Public Event DETALLE_VENTARowChanging As DETALLE_VENTARowChangeEventHandler
-        
-        Public Event DETALLE_VENTARowChanged As DETALLE_VENTARowChangeEventHandler
-        
-        Public Event DETALLE_VENTARowDeleting As DETALLE_VENTARowChangeEventHandler
-        
-        Public Event DETALLE_VENTARowDeleted As DETALLE_VENTARowChangeEventHandler
-        
-        <System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
-        Public Overloads Sub AddDETALLE_VENTARow(ByVal row As DETALLE_VENTARow)
-            Me.Rows.Add(row)
-        End Sub
-        
-        <System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
-        Public Overloads Function AddDETALLE_VENTARow(ByVal ID_DETALLE_VENTA As Decimal, ByVal parentVENTARowByFK_DETALLE_VENTA_VENTA As VENTARow, ByVal Cantidad As Decimal, ByVal ID_LOTE As Decimal, ByVal ID_IMPUESTO As Decimal, ByVal ID_HISTORICO_IMPUESTO As Decimal, ByVal ID_PRODUCTO As Decimal) As DETALLE_VENTARow
-            Dim rowDETALLE_VENTARow As DETALLE_VENTARow = CType(Me.NewRow,DETALLE_VENTARow)
-            rowDETALLE_VENTARow.ItemArray = New Object() {ID_DETALLE_VENTA, parentVENTARowByFK_DETALLE_VENTA_VENTA(0), Cantidad, ID_LOTE, ID_IMPUESTO, ID_HISTORICO_IMPUESTO, ID_PRODUCTO}
-            Me.Rows.Add(rowDETALLE_VENTARow)
-            Return rowDETALLE_VENTARow
-        End Function
-        
-        <System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
-        Public Function FindByID_DETALLE_VENTAID_VENTA(ByVal ID_DETALLE_VENTA As Decimal, ByVal ID_VENTA As Decimal) As DETALLE_VENTARow
-            Return CType(Me.Rows.Find(New Object() {ID_DETALLE_VENTA, ID_VENTA}),DETALLE_VENTARow)
-        End Function
-        
-        <System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
-        Public Overridable Function GetEnumerator() As System.Collections.IEnumerator Implements System.Collections.IEnumerable.GetEnumerator
-            Return Me.Rows.GetEnumerator
-        End Function
-        
-        <System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
-        Public Overrides Function Clone() As System.Data.DataTable
-            Dim cln As DETALLE_VENTADataTable = CType(MyBase.Clone,DETALLE_VENTADataTable)
-            cln.InitVars
-            Return cln
-        End Function
-        
-        <System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
-        Protected Overrides Function CreateInstance() As System.Data.DataTable
-            Return New DETALLE_VENTADataTable
-        End Function
-        
-        <System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
-        Friend Sub InitVars()
-            Me.columnID_DETALLE_VENTA = MyBase.Columns("ID_DETALLE_VENTA")
-            Me.columnID_VENTA = MyBase.Columns("ID_VENTA")
-            Me.columnCantidad = MyBase.Columns("Cantidad")
-            Me.columnID_LOTE = MyBase.Columns("ID_LOTE")
-            Me.columnID_IMPUESTO = MyBase.Columns("ID_IMPUESTO")
-            Me.columnID_HISTORICO_IMPUESTO = MyBase.Columns("ID_HISTORICO_IMPUESTO")
-            Me.columnID_PRODUCTO = MyBase.Columns("ID_PRODUCTO")
-        End Sub
-        
-        <System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
-        Private Sub InitClass()
-            Me.columnID_DETALLE_VENTA = New System.Data.DataColumn("ID_DETALLE_VENTA", GetType(Decimal), Nothing, System.Data.MappingType.Element)
-            MyBase.Columns.Add(Me.columnID_DETALLE_VENTA)
-            Me.columnID_VENTA = New System.Data.DataColumn("ID_VENTA", GetType(Decimal), Nothing, System.Data.MappingType.Element)
-            MyBase.Columns.Add(Me.columnID_VENTA)
-            Me.columnCantidad = New System.Data.DataColumn("Cantidad", GetType(Decimal), Nothing, System.Data.MappingType.Element)
-            MyBase.Columns.Add(Me.columnCantidad)
-            Me.columnID_LOTE = New System.Data.DataColumn("ID_LOTE", GetType(Decimal), Nothing, System.Data.MappingType.Element)
-            MyBase.Columns.Add(Me.columnID_LOTE)
-            Me.columnID_IMPUESTO = New System.Data.DataColumn("ID_IMPUESTO", GetType(Decimal), Nothing, System.Data.MappingType.Element)
-            MyBase.Columns.Add(Me.columnID_IMPUESTO)
-            Me.columnID_HISTORICO_IMPUESTO = New System.Data.DataColumn("ID_HISTORICO_IMPUESTO", GetType(Decimal), Nothing, System.Data.MappingType.Element)
-            MyBase.Columns.Add(Me.columnID_HISTORICO_IMPUESTO)
-            Me.columnID_PRODUCTO = New System.Data.DataColumn("ID_PRODUCTO", GetType(Decimal), Nothing, System.Data.MappingType.Element)
-            MyBase.Columns.Add(Me.columnID_PRODUCTO)
-            Me.Constraints.Add(New System.Data.UniqueConstraint("Constraint1", New System.Data.DataColumn() {Me.columnID_DETALLE_VENTA, Me.columnID_VENTA}, true))
-            Me.columnID_DETALLE_VENTA.AllowDBNull = false
-            Me.columnID_VENTA.AllowDBNull = false
-            Me.columnCantidad.AllowDBNull = false
-            Me.columnID_LOTE.AllowDBNull = false
-            Me.columnID_PRODUCTO.AllowDBNull = false
-        End Sub
-        
-        <System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
-        Public Function NewDETALLE_VENTARow() As DETALLE_VENTARow
-            Return CType(Me.NewRow,DETALLE_VENTARow)
-        End Function
-        
-        <System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
-        Protected Overrides Function NewRowFromBuilder(ByVal builder As System.Data.DataRowBuilder) As System.Data.DataRow
-            Return New DETALLE_VENTARow(builder)
-        End Function
-        
-        <System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
-        Protected Overrides Function GetRowType() As System.Type
-            Return GetType(DETALLE_VENTARow)
-        End Function
-        
-        <System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
-        Protected Overrides Sub OnRowChanged(ByVal e As System.Data.DataRowChangeEventArgs)
-            MyBase.OnRowChanged(e)
-            If (Not (Me.DETALLE_VENTARowChangedEvent) Is Nothing) Then
-                RaiseEvent DETALLE_VENTARowChanged(Me, New DETALLE_VENTARowChangeEvent(CType(e.Row,DETALLE_VENTARow), e.Action))
-            End If
-        End Sub
-        
-        <System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
-        Protected Overrides Sub OnRowChanging(ByVal e As System.Data.DataRowChangeEventArgs)
-            MyBase.OnRowChanging(e)
-            If (Not (Me.DETALLE_VENTARowChangingEvent) Is Nothing) Then
-                RaiseEvent DETALLE_VENTARowChanging(Me, New DETALLE_VENTARowChangeEvent(CType(e.Row,DETALLE_VENTARow), e.Action))
-            End If
-        End Sub
-        
-        <System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
-        Protected Overrides Sub OnRowDeleted(ByVal e As System.Data.DataRowChangeEventArgs)
-            MyBase.OnRowDeleted(e)
-            If (Not (Me.DETALLE_VENTARowDeletedEvent) Is Nothing) Then
-                RaiseEvent DETALLE_VENTARowDeleted(Me, New DETALLE_VENTARowChangeEvent(CType(e.Row,DETALLE_VENTARow), e.Action))
-            End If
-        End Sub
-        
-        <System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
-        Protected Overrides Sub OnRowDeleting(ByVal e As System.Data.DataRowChangeEventArgs)
-            MyBase.OnRowDeleting(e)
-            If (Not (Me.DETALLE_VENTARowDeletingEvent) Is Nothing) Then
-                RaiseEvent DETALLE_VENTARowDeleting(Me, New DETALLE_VENTARowChangeEvent(CType(e.Row,DETALLE_VENTARow), e.Action))
-            End If
-        End Sub
-        
-        <System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
-        Public Sub RemoveDETALLE_VENTARow(ByVal row As DETALLE_VENTARow)
-            Me.Rows.Remove(row)
-        End Sub
-        
-        <System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
-        Public Shared Function GetTypedTableSchema(ByVal xs As System.Xml.Schema.XmlSchemaSet) As System.Xml.Schema.XmlSchemaComplexType
-            Dim type As System.Xml.Schema.XmlSchemaComplexType = New System.Xml.Schema.XmlSchemaComplexType
-            Dim sequence As System.Xml.Schema.XmlSchemaSequence = New System.Xml.Schema.XmlSchemaSequence
-            Dim ds As FarmaciaSJDataSet = New FarmaciaSJDataSet
-            xs.Add(ds.GetSchemaSerializable)
-            Dim any1 As System.Xml.Schema.XmlSchemaAny = New System.Xml.Schema.XmlSchemaAny
-            any1.Namespace = "http://www.w3.org/2001/XMLSchema"
-            any1.MinOccurs = New Decimal(0)
-            any1.MaxOccurs = Decimal.MaxValue
-            any1.ProcessContents = System.Xml.Schema.XmlSchemaContentProcessing.Lax
-            sequence.Items.Add(any1)
-            Dim any2 As System.Xml.Schema.XmlSchemaAny = New System.Xml.Schema.XmlSchemaAny
-            any2.Namespace = "urn:schemas-microsoft-com:xml-diffgram-v1"
-            any2.MinOccurs = New Decimal(1)
-            any2.ProcessContents = System.Xml.Schema.XmlSchemaContentProcessing.Lax
-            sequence.Items.Add(any2)
-            Dim attribute1 As System.Xml.Schema.XmlSchemaAttribute = New System.Xml.Schema.XmlSchemaAttribute
-            attribute1.Name = "namespace"
-            attribute1.FixedValue = ds.Namespace
-            type.Attributes.Add(attribute1)
-            Dim attribute2 As System.Xml.Schema.XmlSchemaAttribute = New System.Xml.Schema.XmlSchemaAttribute
-            attribute2.Name = "tableTypeName"
-            attribute2.FixedValue = "DETALLE_VENTADataTable"
             type.Attributes.Add(attribute2)
             type.Particle = sequence
             Return type
@@ -5448,6 +5240,713 @@ Partial Public Class FarmaciaSJDataSet
         End Function
     End Class
     
+    <System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "2.0.0.0"),  _
+     System.Serializable(),  _
+     System.Xml.Serialization.XmlSchemaProviderAttribute("GetTypedTableSchema")>  _
+    Partial Public Class IMPUESTO_DETALLE_VENTADataTable
+        Inherits System.Data.DataTable
+        Implements System.Collections.IEnumerable
+        
+        Private columnID_HISTORICO_IMPUESTO As System.Data.DataColumn
+        
+        Private columnID_IMPUESTO As System.Data.DataColumn
+        
+        Private columnID_VENTA As System.Data.DataColumn
+        
+        Private columnID_DETALLE_VENTA As System.Data.DataColumn
+        
+        <System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public Sub New()
+            MyBase.New
+            Me.TableName = "IMPUESTO_DETALLE_VENTA"
+            Me.BeginInit
+            Me.InitClass
+            Me.EndInit
+        End Sub
+        
+        <System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Friend Sub New(ByVal table As System.Data.DataTable)
+            MyBase.New
+            Me.TableName = table.TableName
+            If (table.CaseSensitive <> table.DataSet.CaseSensitive) Then
+                Me.CaseSensitive = table.CaseSensitive
+            End If
+            If (table.Locale.ToString <> table.DataSet.Locale.ToString) Then
+                Me.Locale = table.Locale
+            End If
+            If (table.Namespace <> table.DataSet.Namespace) Then
+                Me.Namespace = table.Namespace
+            End If
+            Me.Prefix = table.Prefix
+            Me.MinimumCapacity = table.MinimumCapacity
+        End Sub
+        
+        <System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Protected Sub New(ByVal info As System.Runtime.Serialization.SerializationInfo, ByVal context As System.Runtime.Serialization.StreamingContext)
+            MyBase.New(info, context)
+            Me.InitVars
+        End Sub
+        
+        <System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public ReadOnly Property ID_HISTORICO_IMPUESTOColumn() As System.Data.DataColumn
+            Get
+                Return Me.columnID_HISTORICO_IMPUESTO
+            End Get
+        End Property
+        
+        <System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public ReadOnly Property ID_IMPUESTOColumn() As System.Data.DataColumn
+            Get
+                Return Me.columnID_IMPUESTO
+            End Get
+        End Property
+        
+        <System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public ReadOnly Property ID_VENTAColumn() As System.Data.DataColumn
+            Get
+                Return Me.columnID_VENTA
+            End Get
+        End Property
+        
+        <System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public ReadOnly Property ID_DETALLE_VENTAColumn() As System.Data.DataColumn
+            Get
+                Return Me.columnID_DETALLE_VENTA
+            End Get
+        End Property
+        
+        <System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         System.ComponentModel.Browsable(false)>  _
+        Public ReadOnly Property Count() As Integer
+            Get
+                Return Me.Rows.Count
+            End Get
+        End Property
+        
+        <System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public Default ReadOnly Property Item(ByVal index As Integer) As IMPUESTO_DETALLE_VENTARow
+            Get
+                Return CType(Me.Rows(index),IMPUESTO_DETALLE_VENTARow)
+            End Get
+        End Property
+        
+        Public Event IMPUESTO_DETALLE_VENTARowChanging As IMPUESTO_DETALLE_VENTARowChangeEventHandler
+        
+        Public Event IMPUESTO_DETALLE_VENTARowChanged As IMPUESTO_DETALLE_VENTARowChangeEventHandler
+        
+        Public Event IMPUESTO_DETALLE_VENTARowDeleting As IMPUESTO_DETALLE_VENTARowChangeEventHandler
+        
+        Public Event IMPUESTO_DETALLE_VENTARowDeleted As IMPUESTO_DETALLE_VENTARowChangeEventHandler
+        
+        <System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public Overloads Sub AddIMPUESTO_DETALLE_VENTARow(ByVal row As IMPUESTO_DETALLE_VENTARow)
+            Me.Rows.Add(row)
+        End Sub
+        
+        <System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public Overloads Function AddIMPUESTO_DETALLE_VENTARow(ByVal ID_HISTORICO_IMPUESTO As Decimal, ByVal ID_IMPUESTO As Decimal, ByVal ID_VENTA As Decimal, ByVal ID_DETALLE_VENTA As Decimal) As IMPUESTO_DETALLE_VENTARow
+            Dim rowIMPUESTO_DETALLE_VENTARow As IMPUESTO_DETALLE_VENTARow = CType(Me.NewRow,IMPUESTO_DETALLE_VENTARow)
+            rowIMPUESTO_DETALLE_VENTARow.ItemArray = New Object() {ID_HISTORICO_IMPUESTO, ID_IMPUESTO, ID_VENTA, ID_DETALLE_VENTA}
+            Me.Rows.Add(rowIMPUESTO_DETALLE_VENTARow)
+            Return rowIMPUESTO_DETALLE_VENTARow
+        End Function
+        
+        <System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public Function FindByID_HISTORICO_IMPUESTOID_IMPUESTOID_VENTAID_DETALLE_VENTA(ByVal ID_HISTORICO_IMPUESTO As Decimal, ByVal ID_IMPUESTO As Decimal, ByVal ID_VENTA As Decimal, ByVal ID_DETALLE_VENTA As Decimal) As IMPUESTO_DETALLE_VENTARow
+            Return CType(Me.Rows.Find(New Object() {ID_HISTORICO_IMPUESTO, ID_IMPUESTO, ID_VENTA, ID_DETALLE_VENTA}),IMPUESTO_DETALLE_VENTARow)
+        End Function
+        
+        <System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public Overridable Function GetEnumerator() As System.Collections.IEnumerator Implements System.Collections.IEnumerable.GetEnumerator
+            Return Me.Rows.GetEnumerator
+        End Function
+        
+        <System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public Overrides Function Clone() As System.Data.DataTable
+            Dim cln As IMPUESTO_DETALLE_VENTADataTable = CType(MyBase.Clone,IMPUESTO_DETALLE_VENTADataTable)
+            cln.InitVars
+            Return cln
+        End Function
+        
+        <System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Protected Overrides Function CreateInstance() As System.Data.DataTable
+            Return New IMPUESTO_DETALLE_VENTADataTable
+        End Function
+        
+        <System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Friend Sub InitVars()
+            Me.columnID_HISTORICO_IMPUESTO = MyBase.Columns("ID_HISTORICO_IMPUESTO")
+            Me.columnID_IMPUESTO = MyBase.Columns("ID_IMPUESTO")
+            Me.columnID_VENTA = MyBase.Columns("ID_VENTA")
+            Me.columnID_DETALLE_VENTA = MyBase.Columns("ID_DETALLE_VENTA")
+        End Sub
+        
+        <System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Private Sub InitClass()
+            Me.columnID_HISTORICO_IMPUESTO = New System.Data.DataColumn("ID_HISTORICO_IMPUESTO", GetType(Decimal), Nothing, System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnID_HISTORICO_IMPUESTO)
+            Me.columnID_IMPUESTO = New System.Data.DataColumn("ID_IMPUESTO", GetType(Decimal), Nothing, System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnID_IMPUESTO)
+            Me.columnID_VENTA = New System.Data.DataColumn("ID_VENTA", GetType(Decimal), Nothing, System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnID_VENTA)
+            Me.columnID_DETALLE_VENTA = New System.Data.DataColumn("ID_DETALLE_VENTA", GetType(Decimal), Nothing, System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnID_DETALLE_VENTA)
+            Me.Constraints.Add(New System.Data.UniqueConstraint("Constraint1", New System.Data.DataColumn() {Me.columnID_HISTORICO_IMPUESTO, Me.columnID_IMPUESTO, Me.columnID_VENTA, Me.columnID_DETALLE_VENTA}, true))
+            Me.columnID_HISTORICO_IMPUESTO.AllowDBNull = false
+            Me.columnID_IMPUESTO.AllowDBNull = false
+            Me.columnID_VENTA.AllowDBNull = false
+            Me.columnID_DETALLE_VENTA.AllowDBNull = false
+        End Sub
+        
+        <System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public Function NewIMPUESTO_DETALLE_VENTARow() As IMPUESTO_DETALLE_VENTARow
+            Return CType(Me.NewRow,IMPUESTO_DETALLE_VENTARow)
+        End Function
+        
+        <System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Protected Overrides Function NewRowFromBuilder(ByVal builder As System.Data.DataRowBuilder) As System.Data.DataRow
+            Return New IMPUESTO_DETALLE_VENTARow(builder)
+        End Function
+        
+        <System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Protected Overrides Function GetRowType() As System.Type
+            Return GetType(IMPUESTO_DETALLE_VENTARow)
+        End Function
+        
+        <System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Protected Overrides Sub OnRowChanged(ByVal e As System.Data.DataRowChangeEventArgs)
+            MyBase.OnRowChanged(e)
+            If (Not (Me.IMPUESTO_DETALLE_VENTARowChangedEvent) Is Nothing) Then
+                RaiseEvent IMPUESTO_DETALLE_VENTARowChanged(Me, New IMPUESTO_DETALLE_VENTARowChangeEvent(CType(e.Row,IMPUESTO_DETALLE_VENTARow), e.Action))
+            End If
+        End Sub
+        
+        <System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Protected Overrides Sub OnRowChanging(ByVal e As System.Data.DataRowChangeEventArgs)
+            MyBase.OnRowChanging(e)
+            If (Not (Me.IMPUESTO_DETALLE_VENTARowChangingEvent) Is Nothing) Then
+                RaiseEvent IMPUESTO_DETALLE_VENTARowChanging(Me, New IMPUESTO_DETALLE_VENTARowChangeEvent(CType(e.Row,IMPUESTO_DETALLE_VENTARow), e.Action))
+            End If
+        End Sub
+        
+        <System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Protected Overrides Sub OnRowDeleted(ByVal e As System.Data.DataRowChangeEventArgs)
+            MyBase.OnRowDeleted(e)
+            If (Not (Me.IMPUESTO_DETALLE_VENTARowDeletedEvent) Is Nothing) Then
+                RaiseEvent IMPUESTO_DETALLE_VENTARowDeleted(Me, New IMPUESTO_DETALLE_VENTARowChangeEvent(CType(e.Row,IMPUESTO_DETALLE_VENTARow), e.Action))
+            End If
+        End Sub
+        
+        <System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Protected Overrides Sub OnRowDeleting(ByVal e As System.Data.DataRowChangeEventArgs)
+            MyBase.OnRowDeleting(e)
+            If (Not (Me.IMPUESTO_DETALLE_VENTARowDeletingEvent) Is Nothing) Then
+                RaiseEvent IMPUESTO_DETALLE_VENTARowDeleting(Me, New IMPUESTO_DETALLE_VENTARowChangeEvent(CType(e.Row,IMPUESTO_DETALLE_VENTARow), e.Action))
+            End If
+        End Sub
+        
+        <System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public Sub RemoveIMPUESTO_DETALLE_VENTARow(ByVal row As IMPUESTO_DETALLE_VENTARow)
+            Me.Rows.Remove(row)
+        End Sub
+        
+        <System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public Shared Function GetTypedTableSchema(ByVal xs As System.Xml.Schema.XmlSchemaSet) As System.Xml.Schema.XmlSchemaComplexType
+            Dim type As System.Xml.Schema.XmlSchemaComplexType = New System.Xml.Schema.XmlSchemaComplexType
+            Dim sequence As System.Xml.Schema.XmlSchemaSequence = New System.Xml.Schema.XmlSchemaSequence
+            Dim ds As FarmaciaSJDataSet = New FarmaciaSJDataSet
+            xs.Add(ds.GetSchemaSerializable)
+            Dim any1 As System.Xml.Schema.XmlSchemaAny = New System.Xml.Schema.XmlSchemaAny
+            any1.Namespace = "http://www.w3.org/2001/XMLSchema"
+            any1.MinOccurs = New Decimal(0)
+            any1.MaxOccurs = Decimal.MaxValue
+            any1.ProcessContents = System.Xml.Schema.XmlSchemaContentProcessing.Lax
+            sequence.Items.Add(any1)
+            Dim any2 As System.Xml.Schema.XmlSchemaAny = New System.Xml.Schema.XmlSchemaAny
+            any2.Namespace = "urn:schemas-microsoft-com:xml-diffgram-v1"
+            any2.MinOccurs = New Decimal(1)
+            any2.ProcessContents = System.Xml.Schema.XmlSchemaContentProcessing.Lax
+            sequence.Items.Add(any2)
+            Dim attribute1 As System.Xml.Schema.XmlSchemaAttribute = New System.Xml.Schema.XmlSchemaAttribute
+            attribute1.Name = "namespace"
+            attribute1.FixedValue = ds.Namespace
+            type.Attributes.Add(attribute1)
+            Dim attribute2 As System.Xml.Schema.XmlSchemaAttribute = New System.Xml.Schema.XmlSchemaAttribute
+            attribute2.Name = "tableTypeName"
+            attribute2.FixedValue = "IMPUESTO_DETALLE_VENTADataTable"
+            type.Attributes.Add(attribute2)
+            type.Particle = sequence
+            Return type
+        End Function
+    End Class
+    
+    <System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "2.0.0.0"),  _
+     System.Serializable(),  _
+     System.Xml.Serialization.XmlSchemaProviderAttribute("GetTypedTableSchema")>  _
+    Partial Public Class Linea_ImpuestoDataTable
+        Inherits System.Data.DataTable
+        Implements System.Collections.IEnumerable
+        
+        Private columnID_LINEA As System.Data.DataColumn
+        
+        Private columnID_IMPUESTO As System.Data.DataColumn
+        
+        <System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public Sub New()
+            MyBase.New
+            Me.TableName = "Linea_Impuesto"
+            Me.BeginInit
+            Me.InitClass
+            Me.EndInit
+        End Sub
+        
+        <System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Friend Sub New(ByVal table As System.Data.DataTable)
+            MyBase.New
+            Me.TableName = table.TableName
+            If (table.CaseSensitive <> table.DataSet.CaseSensitive) Then
+                Me.CaseSensitive = table.CaseSensitive
+            End If
+            If (table.Locale.ToString <> table.DataSet.Locale.ToString) Then
+                Me.Locale = table.Locale
+            End If
+            If (table.Namespace <> table.DataSet.Namespace) Then
+                Me.Namespace = table.Namespace
+            End If
+            Me.Prefix = table.Prefix
+            Me.MinimumCapacity = table.MinimumCapacity
+        End Sub
+        
+        <System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Protected Sub New(ByVal info As System.Runtime.Serialization.SerializationInfo, ByVal context As System.Runtime.Serialization.StreamingContext)
+            MyBase.New(info, context)
+            Me.InitVars
+        End Sub
+        
+        <System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public ReadOnly Property ID_LINEAColumn() As System.Data.DataColumn
+            Get
+                Return Me.columnID_LINEA
+            End Get
+        End Property
+        
+        <System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public ReadOnly Property ID_IMPUESTOColumn() As System.Data.DataColumn
+            Get
+                Return Me.columnID_IMPUESTO
+            End Get
+        End Property
+        
+        <System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         System.ComponentModel.Browsable(false)>  _
+        Public ReadOnly Property Count() As Integer
+            Get
+                Return Me.Rows.Count
+            End Get
+        End Property
+        
+        <System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public Default ReadOnly Property Item(ByVal index As Integer) As Linea_ImpuestoRow
+            Get
+                Return CType(Me.Rows(index),Linea_ImpuestoRow)
+            End Get
+        End Property
+        
+        Public Event Linea_ImpuestoRowChanging As Linea_ImpuestoRowChangeEventHandler
+        
+        Public Event Linea_ImpuestoRowChanged As Linea_ImpuestoRowChangeEventHandler
+        
+        Public Event Linea_ImpuestoRowDeleting As Linea_ImpuestoRowChangeEventHandler
+        
+        Public Event Linea_ImpuestoRowDeleted As Linea_ImpuestoRowChangeEventHandler
+        
+        <System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public Overloads Sub AddLinea_ImpuestoRow(ByVal row As Linea_ImpuestoRow)
+            Me.Rows.Add(row)
+        End Sub
+        
+        <System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public Overloads Function AddLinea_ImpuestoRow(ByVal parentLINEARowByFK_Linea_Impuesto_LINEA As LINEARow, ByVal parentIMPUESTORowByFK_Linea_Impuesto_IMPUESTO As IMPUESTORow) As Linea_ImpuestoRow
+            Dim rowLinea_ImpuestoRow As Linea_ImpuestoRow = CType(Me.NewRow,Linea_ImpuestoRow)
+            rowLinea_ImpuestoRow.ItemArray = New Object() {parentLINEARowByFK_Linea_Impuesto_LINEA(0), parentIMPUESTORowByFK_Linea_Impuesto_IMPUESTO(0)}
+            Me.Rows.Add(rowLinea_ImpuestoRow)
+            Return rowLinea_ImpuestoRow
+        End Function
+        
+        <System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public Function FindByID_LINEAID_IMPUESTO(ByVal ID_LINEA As Decimal, ByVal ID_IMPUESTO As Decimal) As Linea_ImpuestoRow
+            Return CType(Me.Rows.Find(New Object() {ID_LINEA, ID_IMPUESTO}),Linea_ImpuestoRow)
+        End Function
+        
+        <System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public Overridable Function GetEnumerator() As System.Collections.IEnumerator Implements System.Collections.IEnumerable.GetEnumerator
+            Return Me.Rows.GetEnumerator
+        End Function
+        
+        <System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public Overrides Function Clone() As System.Data.DataTable
+            Dim cln As Linea_ImpuestoDataTable = CType(MyBase.Clone,Linea_ImpuestoDataTable)
+            cln.InitVars
+            Return cln
+        End Function
+        
+        <System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Protected Overrides Function CreateInstance() As System.Data.DataTable
+            Return New Linea_ImpuestoDataTable
+        End Function
+        
+        <System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Friend Sub InitVars()
+            Me.columnID_LINEA = MyBase.Columns("ID_LINEA")
+            Me.columnID_IMPUESTO = MyBase.Columns("ID_IMPUESTO")
+        End Sub
+        
+        <System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Private Sub InitClass()
+            Me.columnID_LINEA = New System.Data.DataColumn("ID_LINEA", GetType(Decimal), Nothing, System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnID_LINEA)
+            Me.columnID_IMPUESTO = New System.Data.DataColumn("ID_IMPUESTO", GetType(Decimal), Nothing, System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnID_IMPUESTO)
+            Me.Constraints.Add(New System.Data.UniqueConstraint("Constraint1", New System.Data.DataColumn() {Me.columnID_LINEA, Me.columnID_IMPUESTO}, true))
+            Me.columnID_LINEA.AllowDBNull = false
+            Me.columnID_IMPUESTO.AllowDBNull = false
+        End Sub
+        
+        <System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public Function NewLinea_ImpuestoRow() As Linea_ImpuestoRow
+            Return CType(Me.NewRow,Linea_ImpuestoRow)
+        End Function
+        
+        <System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Protected Overrides Function NewRowFromBuilder(ByVal builder As System.Data.DataRowBuilder) As System.Data.DataRow
+            Return New Linea_ImpuestoRow(builder)
+        End Function
+        
+        <System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Protected Overrides Function GetRowType() As System.Type
+            Return GetType(Linea_ImpuestoRow)
+        End Function
+        
+        <System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Protected Overrides Sub OnRowChanged(ByVal e As System.Data.DataRowChangeEventArgs)
+            MyBase.OnRowChanged(e)
+            If (Not (Me.Linea_ImpuestoRowChangedEvent) Is Nothing) Then
+                RaiseEvent Linea_ImpuestoRowChanged(Me, New Linea_ImpuestoRowChangeEvent(CType(e.Row,Linea_ImpuestoRow), e.Action))
+            End If
+        End Sub
+        
+        <System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Protected Overrides Sub OnRowChanging(ByVal e As System.Data.DataRowChangeEventArgs)
+            MyBase.OnRowChanging(e)
+            If (Not (Me.Linea_ImpuestoRowChangingEvent) Is Nothing) Then
+                RaiseEvent Linea_ImpuestoRowChanging(Me, New Linea_ImpuestoRowChangeEvent(CType(e.Row,Linea_ImpuestoRow), e.Action))
+            End If
+        End Sub
+        
+        <System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Protected Overrides Sub OnRowDeleted(ByVal e As System.Data.DataRowChangeEventArgs)
+            MyBase.OnRowDeleted(e)
+            If (Not (Me.Linea_ImpuestoRowDeletedEvent) Is Nothing) Then
+                RaiseEvent Linea_ImpuestoRowDeleted(Me, New Linea_ImpuestoRowChangeEvent(CType(e.Row,Linea_ImpuestoRow), e.Action))
+            End If
+        End Sub
+        
+        <System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Protected Overrides Sub OnRowDeleting(ByVal e As System.Data.DataRowChangeEventArgs)
+            MyBase.OnRowDeleting(e)
+            If (Not (Me.Linea_ImpuestoRowDeletingEvent) Is Nothing) Then
+                RaiseEvent Linea_ImpuestoRowDeleting(Me, New Linea_ImpuestoRowChangeEvent(CType(e.Row,Linea_ImpuestoRow), e.Action))
+            End If
+        End Sub
+        
+        <System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public Sub RemoveLinea_ImpuestoRow(ByVal row As Linea_ImpuestoRow)
+            Me.Rows.Remove(row)
+        End Sub
+        
+        <System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public Shared Function GetTypedTableSchema(ByVal xs As System.Xml.Schema.XmlSchemaSet) As System.Xml.Schema.XmlSchemaComplexType
+            Dim type As System.Xml.Schema.XmlSchemaComplexType = New System.Xml.Schema.XmlSchemaComplexType
+            Dim sequence As System.Xml.Schema.XmlSchemaSequence = New System.Xml.Schema.XmlSchemaSequence
+            Dim ds As FarmaciaSJDataSet = New FarmaciaSJDataSet
+            xs.Add(ds.GetSchemaSerializable)
+            Dim any1 As System.Xml.Schema.XmlSchemaAny = New System.Xml.Schema.XmlSchemaAny
+            any1.Namespace = "http://www.w3.org/2001/XMLSchema"
+            any1.MinOccurs = New Decimal(0)
+            any1.MaxOccurs = Decimal.MaxValue
+            any1.ProcessContents = System.Xml.Schema.XmlSchemaContentProcessing.Lax
+            sequence.Items.Add(any1)
+            Dim any2 As System.Xml.Schema.XmlSchemaAny = New System.Xml.Schema.XmlSchemaAny
+            any2.Namespace = "urn:schemas-microsoft-com:xml-diffgram-v1"
+            any2.MinOccurs = New Decimal(1)
+            any2.ProcessContents = System.Xml.Schema.XmlSchemaContentProcessing.Lax
+            sequence.Items.Add(any2)
+            Dim attribute1 As System.Xml.Schema.XmlSchemaAttribute = New System.Xml.Schema.XmlSchemaAttribute
+            attribute1.Name = "namespace"
+            attribute1.FixedValue = ds.Namespace
+            type.Attributes.Add(attribute1)
+            Dim attribute2 As System.Xml.Schema.XmlSchemaAttribute = New System.Xml.Schema.XmlSchemaAttribute
+            attribute2.Name = "tableTypeName"
+            attribute2.FixedValue = "Linea_ImpuestoDataTable"
+            type.Attributes.Add(attribute2)
+            type.Particle = sequence
+            Return type
+        End Function
+    End Class
+    
+    <System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "2.0.0.0"),  _
+     System.Serializable(),  _
+     System.Xml.Serialization.XmlSchemaProviderAttribute("GetTypedTableSchema")>  _
+    Partial Public Class DETALLE_VENTADataTable
+        Inherits System.Data.DataTable
+        Implements System.Collections.IEnumerable
+        
+        Private columnID_DETALLE_VENTA As System.Data.DataColumn
+        
+        Private columnID_VENTA As System.Data.DataColumn
+        
+        Private columnCantidad As System.Data.DataColumn
+        
+        Private columnID_LOTE As System.Data.DataColumn
+        
+        Private columnID_PRODUCTO As System.Data.DataColumn
+        
+        <System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public Sub New()
+            MyBase.New
+            Me.TableName = "DETALLE_VENTA"
+            Me.BeginInit
+            Me.InitClass
+            Me.EndInit
+        End Sub
+        
+        <System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Friend Sub New(ByVal table As System.Data.DataTable)
+            MyBase.New
+            Me.TableName = table.TableName
+            If (table.CaseSensitive <> table.DataSet.CaseSensitive) Then
+                Me.CaseSensitive = table.CaseSensitive
+            End If
+            If (table.Locale.ToString <> table.DataSet.Locale.ToString) Then
+                Me.Locale = table.Locale
+            End If
+            If (table.Namespace <> table.DataSet.Namespace) Then
+                Me.Namespace = table.Namespace
+            End If
+            Me.Prefix = table.Prefix
+            Me.MinimumCapacity = table.MinimumCapacity
+        End Sub
+        
+        <System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Protected Sub New(ByVal info As System.Runtime.Serialization.SerializationInfo, ByVal context As System.Runtime.Serialization.StreamingContext)
+            MyBase.New(info, context)
+            Me.InitVars
+        End Sub
+        
+        <System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public ReadOnly Property ID_DETALLE_VENTAColumn() As System.Data.DataColumn
+            Get
+                Return Me.columnID_DETALLE_VENTA
+            End Get
+        End Property
+        
+        <System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public ReadOnly Property ID_VENTAColumn() As System.Data.DataColumn
+            Get
+                Return Me.columnID_VENTA
+            End Get
+        End Property
+        
+        <System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public ReadOnly Property CantidadColumn() As System.Data.DataColumn
+            Get
+                Return Me.columnCantidad
+            End Get
+        End Property
+        
+        <System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public ReadOnly Property ID_LOTEColumn() As System.Data.DataColumn
+            Get
+                Return Me.columnID_LOTE
+            End Get
+        End Property
+        
+        <System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public ReadOnly Property ID_PRODUCTOColumn() As System.Data.DataColumn
+            Get
+                Return Me.columnID_PRODUCTO
+            End Get
+        End Property
+        
+        <System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         System.ComponentModel.Browsable(false)>  _
+        Public ReadOnly Property Count() As Integer
+            Get
+                Return Me.Rows.Count
+            End Get
+        End Property
+        
+        <System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public Default ReadOnly Property Item(ByVal index As Integer) As DETALLE_VENTARow
+            Get
+                Return CType(Me.Rows(index),DETALLE_VENTARow)
+            End Get
+        End Property
+        
+        Public Event DETALLE_VENTARowChanging As DETALLE_VENTARowChangeEventHandler
+        
+        Public Event DETALLE_VENTARowChanged As DETALLE_VENTARowChangeEventHandler
+        
+        Public Event DETALLE_VENTARowDeleting As DETALLE_VENTARowChangeEventHandler
+        
+        Public Event DETALLE_VENTARowDeleted As DETALLE_VENTARowChangeEventHandler
+        
+        <System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public Overloads Sub AddDETALLE_VENTARow(ByVal row As DETALLE_VENTARow)
+            Me.Rows.Add(row)
+        End Sub
+        
+        <System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public Overloads Function AddDETALLE_VENTARow(ByVal ID_DETALLE_VENTA As Decimal, ByVal parentVENTARowByFK_DETALLE_VENTA_VENTA As VENTARow, ByVal Cantidad As Decimal, ByVal ID_LOTE As Decimal, ByVal ID_PRODUCTO As Decimal) As DETALLE_VENTARow
+            Dim rowDETALLE_VENTARow As DETALLE_VENTARow = CType(Me.NewRow,DETALLE_VENTARow)
+            rowDETALLE_VENTARow.ItemArray = New Object() {ID_DETALLE_VENTA, parentVENTARowByFK_DETALLE_VENTA_VENTA(0), Cantidad, ID_LOTE, ID_PRODUCTO}
+            Me.Rows.Add(rowDETALLE_VENTARow)
+            Return rowDETALLE_VENTARow
+        End Function
+        
+        <System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public Function FindByID_DETALLE_VENTAID_VENTA(ByVal ID_DETALLE_VENTA As Decimal, ByVal ID_VENTA As Decimal) As DETALLE_VENTARow
+            Return CType(Me.Rows.Find(New Object() {ID_DETALLE_VENTA, ID_VENTA}),DETALLE_VENTARow)
+        End Function
+        
+        <System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public Overridable Function GetEnumerator() As System.Collections.IEnumerator Implements System.Collections.IEnumerable.GetEnumerator
+            Return Me.Rows.GetEnumerator
+        End Function
+        
+        <System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public Overrides Function Clone() As System.Data.DataTable
+            Dim cln As DETALLE_VENTADataTable = CType(MyBase.Clone,DETALLE_VENTADataTable)
+            cln.InitVars
+            Return cln
+        End Function
+        
+        <System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Protected Overrides Function CreateInstance() As System.Data.DataTable
+            Return New DETALLE_VENTADataTable
+        End Function
+        
+        <System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Friend Sub InitVars()
+            Me.columnID_DETALLE_VENTA = MyBase.Columns("ID_DETALLE_VENTA")
+            Me.columnID_VENTA = MyBase.Columns("ID_VENTA")
+            Me.columnCantidad = MyBase.Columns("Cantidad")
+            Me.columnID_LOTE = MyBase.Columns("ID_LOTE")
+            Me.columnID_PRODUCTO = MyBase.Columns("ID_PRODUCTO")
+        End Sub
+        
+        <System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Private Sub InitClass()
+            Me.columnID_DETALLE_VENTA = New System.Data.DataColumn("ID_DETALLE_VENTA", GetType(Decimal), Nothing, System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnID_DETALLE_VENTA)
+            Me.columnID_VENTA = New System.Data.DataColumn("ID_VENTA", GetType(Decimal), Nothing, System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnID_VENTA)
+            Me.columnCantidad = New System.Data.DataColumn("Cantidad", GetType(Decimal), Nothing, System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnCantidad)
+            Me.columnID_LOTE = New System.Data.DataColumn("ID_LOTE", GetType(Decimal), Nothing, System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnID_LOTE)
+            Me.columnID_PRODUCTO = New System.Data.DataColumn("ID_PRODUCTO", GetType(Decimal), Nothing, System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnID_PRODUCTO)
+            Me.Constraints.Add(New System.Data.UniqueConstraint("Constraint1", New System.Data.DataColumn() {Me.columnID_DETALLE_VENTA, Me.columnID_VENTA}, true))
+            Me.columnID_DETALLE_VENTA.AllowDBNull = false
+            Me.columnID_VENTA.AllowDBNull = false
+            Me.columnCantidad.AllowDBNull = false
+            Me.columnID_LOTE.AllowDBNull = false
+            Me.columnID_PRODUCTO.AllowDBNull = false
+        End Sub
+        
+        <System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public Function NewDETALLE_VENTARow() As DETALLE_VENTARow
+            Return CType(Me.NewRow,DETALLE_VENTARow)
+        End Function
+        
+        <System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Protected Overrides Function NewRowFromBuilder(ByVal builder As System.Data.DataRowBuilder) As System.Data.DataRow
+            Return New DETALLE_VENTARow(builder)
+        End Function
+        
+        <System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Protected Overrides Function GetRowType() As System.Type
+            Return GetType(DETALLE_VENTARow)
+        End Function
+        
+        <System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Protected Overrides Sub OnRowChanged(ByVal e As System.Data.DataRowChangeEventArgs)
+            MyBase.OnRowChanged(e)
+            If (Not (Me.DETALLE_VENTARowChangedEvent) Is Nothing) Then
+                RaiseEvent DETALLE_VENTARowChanged(Me, New DETALLE_VENTARowChangeEvent(CType(e.Row,DETALLE_VENTARow), e.Action))
+            End If
+        End Sub
+        
+        <System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Protected Overrides Sub OnRowChanging(ByVal e As System.Data.DataRowChangeEventArgs)
+            MyBase.OnRowChanging(e)
+            If (Not (Me.DETALLE_VENTARowChangingEvent) Is Nothing) Then
+                RaiseEvent DETALLE_VENTARowChanging(Me, New DETALLE_VENTARowChangeEvent(CType(e.Row,DETALLE_VENTARow), e.Action))
+            End If
+        End Sub
+        
+        <System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Protected Overrides Sub OnRowDeleted(ByVal e As System.Data.DataRowChangeEventArgs)
+            MyBase.OnRowDeleted(e)
+            If (Not (Me.DETALLE_VENTARowDeletedEvent) Is Nothing) Then
+                RaiseEvent DETALLE_VENTARowDeleted(Me, New DETALLE_VENTARowChangeEvent(CType(e.Row,DETALLE_VENTARow), e.Action))
+            End If
+        End Sub
+        
+        <System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Protected Overrides Sub OnRowDeleting(ByVal e As System.Data.DataRowChangeEventArgs)
+            MyBase.OnRowDeleting(e)
+            If (Not (Me.DETALLE_VENTARowDeletingEvent) Is Nothing) Then
+                RaiseEvent DETALLE_VENTARowDeleting(Me, New DETALLE_VENTARowChangeEvent(CType(e.Row,DETALLE_VENTARow), e.Action))
+            End If
+        End Sub
+        
+        <System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public Sub RemoveDETALLE_VENTARow(ByVal row As DETALLE_VENTARow)
+            Me.Rows.Remove(row)
+        End Sub
+        
+        <System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public Shared Function GetTypedTableSchema(ByVal xs As System.Xml.Schema.XmlSchemaSet) As System.Xml.Schema.XmlSchemaComplexType
+            Dim type As System.Xml.Schema.XmlSchemaComplexType = New System.Xml.Schema.XmlSchemaComplexType
+            Dim sequence As System.Xml.Schema.XmlSchemaSequence = New System.Xml.Schema.XmlSchemaSequence
+            Dim ds As FarmaciaSJDataSet = New FarmaciaSJDataSet
+            xs.Add(ds.GetSchemaSerializable)
+            Dim any1 As System.Xml.Schema.XmlSchemaAny = New System.Xml.Schema.XmlSchemaAny
+            any1.Namespace = "http://www.w3.org/2001/XMLSchema"
+            any1.MinOccurs = New Decimal(0)
+            any1.MaxOccurs = Decimal.MaxValue
+            any1.ProcessContents = System.Xml.Schema.XmlSchemaContentProcessing.Lax
+            sequence.Items.Add(any1)
+            Dim any2 As System.Xml.Schema.XmlSchemaAny = New System.Xml.Schema.XmlSchemaAny
+            any2.Namespace = "urn:schemas-microsoft-com:xml-diffgram-v1"
+            any2.MinOccurs = New Decimal(1)
+            any2.ProcessContents = System.Xml.Schema.XmlSchemaContentProcessing.Lax
+            sequence.Items.Add(any2)
+            Dim attribute1 As System.Xml.Schema.XmlSchemaAttribute = New System.Xml.Schema.XmlSchemaAttribute
+            attribute1.Name = "namespace"
+            attribute1.FixedValue = ds.Namespace
+            type.Attributes.Add(attribute1)
+            Dim attribute2 As System.Xml.Schema.XmlSchemaAttribute = New System.Xml.Schema.XmlSchemaAttribute
+            attribute2.Name = "tableTypeName"
+            attribute2.FixedValue = "DETALLE_VENTADataTable"
+            type.Attributes.Add(attribute2)
+            type.Particle = sequence
+            Return type
+        End Function
+    End Class
+    
     <System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "2.0.0.0")>  _
     Partial Public Class CLIENTERow
         Inherits System.Data.DataRow
@@ -5744,147 +6243,6 @@ Partial Public Class FarmaciaSJDataSet
                 Me.SetParentRow(value, Me.Table.ParentRelations("FK_DETALLE_COMPRA_PRODUCTO"))
             End Set
         End Property
-    End Class
-    
-    <System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "2.0.0.0")>  _
-    Partial Public Class DETALLE_VENTARow
-        Inherits System.Data.DataRow
-        
-        Private tableDETALLE_VENTA As DETALLE_VENTADataTable
-        
-        <System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
-        Friend Sub New(ByVal rb As System.Data.DataRowBuilder)
-            MyBase.New(rb)
-            Me.tableDETALLE_VENTA = CType(Me.Table,DETALLE_VENTADataTable)
-        End Sub
-        
-        <System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
-        Public Property ID_DETALLE_VENTA() As Decimal
-            Get
-                Return CType(Me(Me.tableDETALLE_VENTA.ID_DETALLE_VENTAColumn),Decimal)
-            End Get
-            Set
-                Me(Me.tableDETALLE_VENTA.ID_DETALLE_VENTAColumn) = value
-            End Set
-        End Property
-        
-        <System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
-        Public Property ID_VENTA() As Decimal
-            Get
-                Return CType(Me(Me.tableDETALLE_VENTA.ID_VENTAColumn),Decimal)
-            End Get
-            Set
-                Me(Me.tableDETALLE_VENTA.ID_VENTAColumn) = value
-            End Set
-        End Property
-        
-        <System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
-        Public Property Cantidad() As Decimal
-            Get
-                Return CType(Me(Me.tableDETALLE_VENTA.CantidadColumn),Decimal)
-            End Get
-            Set
-                Me(Me.tableDETALLE_VENTA.CantidadColumn) = value
-            End Set
-        End Property
-        
-        <System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
-        Public Property ID_LOTE() As Decimal
-            Get
-                Return CType(Me(Me.tableDETALLE_VENTA.ID_LOTEColumn),Decimal)
-            End Get
-            Set
-                Me(Me.tableDETALLE_VENTA.ID_LOTEColumn) = value
-            End Set
-        End Property
-        
-        <System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
-        Public Property ID_IMPUESTO() As Decimal
-            Get
-                Try 
-                    Return CType(Me(Me.tableDETALLE_VENTA.ID_IMPUESTOColumn),Decimal)
-                Catch e As System.InvalidCastException
-                    Throw New System.Data.StrongTypingException("The value for column 'ID_IMPUESTO' in table 'DETALLE_VENTA' is DBNull.", e)
-                End Try
-            End Get
-            Set
-                Me(Me.tableDETALLE_VENTA.ID_IMPUESTOColumn) = value
-            End Set
-        End Property
-        
-        <System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
-        Public Property ID_HISTORICO_IMPUESTO() As Decimal
-            Get
-                Try 
-                    Return CType(Me(Me.tableDETALLE_VENTA.ID_HISTORICO_IMPUESTOColumn),Decimal)
-                Catch e As System.InvalidCastException
-                    Throw New System.Data.StrongTypingException("The value for column 'ID_HISTORICO_IMPUESTO' in table 'DETALLE_VENTA' is DBNull.", e)
-                End Try
-            End Get
-            Set
-                Me(Me.tableDETALLE_VENTA.ID_HISTORICO_IMPUESTOColumn) = value
-            End Set
-        End Property
-        
-        <System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
-        Public Property ID_PRODUCTO() As Decimal
-            Get
-                Return CType(Me(Me.tableDETALLE_VENTA.ID_PRODUCTOColumn),Decimal)
-            End Get
-            Set
-                Me(Me.tableDETALLE_VENTA.ID_PRODUCTOColumn) = value
-            End Set
-        End Property
-        
-        <System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
-        Public Property HISTORICO_IMPUESTORowParent() As HISTORICO_IMPUESTORow
-            Get
-                Return CType(Me.GetParentRow(Me.Table.ParentRelations("FK_DETALLE_VENTA_HISTORICO_IMPUESTO")),HISTORICO_IMPUESTORow)
-            End Get
-            Set
-                Me.SetParentRow(value, Me.Table.ParentRelations("FK_DETALLE_VENTA_HISTORICO_IMPUESTO"))
-            End Set
-        End Property
-        
-        <System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
-        Public Property LOTERowParent() As LOTERow
-            Get
-                Return CType(Me.GetParentRow(Me.Table.ParentRelations("FK_DETALLE_VENTA_LOTE")),LOTERow)
-            End Get
-            Set
-                Me.SetParentRow(value, Me.Table.ParentRelations("FK_DETALLE_VENTA_LOTE"))
-            End Set
-        End Property
-        
-        <System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
-        Public Property VENTARow() As VENTARow
-            Get
-                Return CType(Me.GetParentRow(Me.Table.ParentRelations("FK_DETALLE_VENTA_VENTA")),VENTARow)
-            End Get
-            Set
-                Me.SetParentRow(value, Me.Table.ParentRelations("FK_DETALLE_VENTA_VENTA"))
-            End Set
-        End Property
-        
-        <System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
-        Public Function IsID_IMPUESTONull() As Boolean
-            Return Me.IsNull(Me.tableDETALLE_VENTA.ID_IMPUESTOColumn)
-        End Function
-        
-        <System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
-        Public Sub SetID_IMPUESTONull()
-            Me(Me.tableDETALLE_VENTA.ID_IMPUESTOColumn) = System.Convert.DBNull
-        End Sub
-        
-        <System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
-        Public Function IsID_HISTORICO_IMPUESTONull() As Boolean
-            Return Me.IsNull(Me.tableDETALLE_VENTA.ID_HISTORICO_IMPUESTOColumn)
-        End Function
-        
-        <System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
-        Public Sub SetID_HISTORICO_IMPUESTONull()
-            Me(Me.tableDETALLE_VENTA.ID_HISTORICO_IMPUESTOColumn) = System.Convert.DBNull
-        End Sub
     End Class
     
     <System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "2.0.0.0")>  _
@@ -6205,11 +6563,6 @@ Partial Public Class FarmaciaSJDataSet
         Public Sub SetFECHA_FINNull()
             Me(Me.tableHISTORICO_IMPUESTO.FECHA_FINColumn) = System.Convert.DBNull
         End Sub
-        
-        <System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
-        Public Function GetDETALLE_VENTARows() As DETALLE_VENTARow()
-            Return CType(MyBase.GetChildRows(Me.Table.ChildRelations("FK_DETALLE_VENTA_HISTORICO_IMPUESTO")),DETALLE_VENTARow())
-        End Function
     End Class
     
     <System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "2.0.0.0")>  _
@@ -6257,6 +6610,11 @@ Partial Public Class FarmaciaSJDataSet
         <System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
         Public Function GetHISTORICO_IMPUESTORows() As HISTORICO_IMPUESTORow()
             Return CType(MyBase.GetChildRows(Me.Table.ChildRelations("FK_HISTORICO_IMPUESTO_IMPUESTO")),HISTORICO_IMPUESTORow())
+        End Function
+        
+        <System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public Function GetLinea_ImpuestoRows() As Linea_ImpuestoRow()
+            Return CType(MyBase.GetChildRows(Me.Table.ChildRelations("FK_Linea_Impuesto_IMPUESTO")),Linea_ImpuestoRow())
         End Function
     End Class
     
@@ -6325,6 +6683,11 @@ Partial Public Class FarmaciaSJDataSet
         <System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
         Public Function GetPRODUCTORows() As PRODUCTORow()
             Return CType(MyBase.GetChildRows(Me.Table.ChildRelations("FK_PRODUCTO_LINEA")),PRODUCTORow())
+        End Function
+        
+        <System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public Function GetLinea_ImpuestoRows() As Linea_ImpuestoRow()
+            Return CType(MyBase.GetChildRows(Me.Table.ChildRelations("FK_Linea_Impuesto_LINEA")),Linea_ImpuestoRow())
         End Function
     End Class
     
@@ -7124,6 +7487,195 @@ Partial Public Class FarmaciaSJDataSet
     End Class
     
     <System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "2.0.0.0")>  _
+    Partial Public Class IMPUESTO_DETALLE_VENTARow
+        Inherits System.Data.DataRow
+        
+        Private tableIMPUESTO_DETALLE_VENTA As IMPUESTO_DETALLE_VENTADataTable
+        
+        <System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Friend Sub New(ByVal rb As System.Data.DataRowBuilder)
+            MyBase.New(rb)
+            Me.tableIMPUESTO_DETALLE_VENTA = CType(Me.Table,IMPUESTO_DETALLE_VENTADataTable)
+        End Sub
+        
+        <System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public Property ID_HISTORICO_IMPUESTO() As Decimal
+            Get
+                Return CType(Me(Me.tableIMPUESTO_DETALLE_VENTA.ID_HISTORICO_IMPUESTOColumn),Decimal)
+            End Get
+            Set
+                Me(Me.tableIMPUESTO_DETALLE_VENTA.ID_HISTORICO_IMPUESTOColumn) = value
+            End Set
+        End Property
+        
+        <System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public Property ID_IMPUESTO() As Decimal
+            Get
+                Return CType(Me(Me.tableIMPUESTO_DETALLE_VENTA.ID_IMPUESTOColumn),Decimal)
+            End Get
+            Set
+                Me(Me.tableIMPUESTO_DETALLE_VENTA.ID_IMPUESTOColumn) = value
+            End Set
+        End Property
+        
+        <System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public Property ID_VENTA() As Decimal
+            Get
+                Return CType(Me(Me.tableIMPUESTO_DETALLE_VENTA.ID_VENTAColumn),Decimal)
+            End Get
+            Set
+                Me(Me.tableIMPUESTO_DETALLE_VENTA.ID_VENTAColumn) = value
+            End Set
+        End Property
+        
+        <System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public Property ID_DETALLE_VENTA() As Decimal
+            Get
+                Return CType(Me(Me.tableIMPUESTO_DETALLE_VENTA.ID_DETALLE_VENTAColumn),Decimal)
+            End Get
+            Set
+                Me(Me.tableIMPUESTO_DETALLE_VENTA.ID_DETALLE_VENTAColumn) = value
+            End Set
+        End Property
+    End Class
+    
+    <System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "2.0.0.0")>  _
+    Partial Public Class Linea_ImpuestoRow
+        Inherits System.Data.DataRow
+        
+        Private tableLinea_Impuesto As Linea_ImpuestoDataTable
+        
+        <System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Friend Sub New(ByVal rb As System.Data.DataRowBuilder)
+            MyBase.New(rb)
+            Me.tableLinea_Impuesto = CType(Me.Table,Linea_ImpuestoDataTable)
+        End Sub
+        
+        <System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public Property ID_LINEA() As Decimal
+            Get
+                Return CType(Me(Me.tableLinea_Impuesto.ID_LINEAColumn),Decimal)
+            End Get
+            Set
+                Me(Me.tableLinea_Impuesto.ID_LINEAColumn) = value
+            End Set
+        End Property
+        
+        <System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public Property ID_IMPUESTO() As Decimal
+            Get
+                Return CType(Me(Me.tableLinea_Impuesto.ID_IMPUESTOColumn),Decimal)
+            End Get
+            Set
+                Me(Me.tableLinea_Impuesto.ID_IMPUESTOColumn) = value
+            End Set
+        End Property
+        
+        <System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public Property IMPUESTORow() As IMPUESTORow
+            Get
+                Return CType(Me.GetParentRow(Me.Table.ParentRelations("FK_Linea_Impuesto_IMPUESTO")),IMPUESTORow)
+            End Get
+            Set
+                Me.SetParentRow(value, Me.Table.ParentRelations("FK_Linea_Impuesto_IMPUESTO"))
+            End Set
+        End Property
+        
+        <System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public Property LINEARow() As LINEARow
+            Get
+                Return CType(Me.GetParentRow(Me.Table.ParentRelations("FK_Linea_Impuesto_LINEA")),LINEARow)
+            End Get
+            Set
+                Me.SetParentRow(value, Me.Table.ParentRelations("FK_Linea_Impuesto_LINEA"))
+            End Set
+        End Property
+    End Class
+    
+    <System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "2.0.0.0")>  _
+    Partial Public Class DETALLE_VENTARow
+        Inherits System.Data.DataRow
+        
+        Private tableDETALLE_VENTA As DETALLE_VENTADataTable
+        
+        <System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Friend Sub New(ByVal rb As System.Data.DataRowBuilder)
+            MyBase.New(rb)
+            Me.tableDETALLE_VENTA = CType(Me.Table,DETALLE_VENTADataTable)
+        End Sub
+        
+        <System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public Property ID_DETALLE_VENTA() As Decimal
+            Get
+                Return CType(Me(Me.tableDETALLE_VENTA.ID_DETALLE_VENTAColumn),Decimal)
+            End Get
+            Set
+                Me(Me.tableDETALLE_VENTA.ID_DETALLE_VENTAColumn) = value
+            End Set
+        End Property
+        
+        <System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public Property ID_VENTA() As Decimal
+            Get
+                Return CType(Me(Me.tableDETALLE_VENTA.ID_VENTAColumn),Decimal)
+            End Get
+            Set
+                Me(Me.tableDETALLE_VENTA.ID_VENTAColumn) = value
+            End Set
+        End Property
+        
+        <System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public Property Cantidad() As Decimal
+            Get
+                Return CType(Me(Me.tableDETALLE_VENTA.CantidadColumn),Decimal)
+            End Get
+            Set
+                Me(Me.tableDETALLE_VENTA.CantidadColumn) = value
+            End Set
+        End Property
+        
+        <System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public Property ID_LOTE() As Decimal
+            Get
+                Return CType(Me(Me.tableDETALLE_VENTA.ID_LOTEColumn),Decimal)
+            End Get
+            Set
+                Me(Me.tableDETALLE_VENTA.ID_LOTEColumn) = value
+            End Set
+        End Property
+        
+        <System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public Property ID_PRODUCTO() As Decimal
+            Get
+                Return CType(Me(Me.tableDETALLE_VENTA.ID_PRODUCTOColumn),Decimal)
+            End Get
+            Set
+                Me(Me.tableDETALLE_VENTA.ID_PRODUCTOColumn) = value
+            End Set
+        End Property
+        
+        <System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public Property LOTERowParent() As LOTERow
+            Get
+                Return CType(Me.GetParentRow(Me.Table.ParentRelations("FK_DETALLE_VENTA_LOTE")),LOTERow)
+            End Get
+            Set
+                Me.SetParentRow(value, Me.Table.ParentRelations("FK_DETALLE_VENTA_LOTE"))
+            End Set
+        End Property
+        
+        <System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public Property VENTARow() As VENTARow
+            Get
+                Return CType(Me.GetParentRow(Me.Table.ParentRelations("FK_DETALLE_VENTA_VENTA")),VENTARow)
+            End Get
+            Set
+                Me.SetParentRow(value, Me.Table.ParentRelations("FK_DETALLE_VENTA_VENTA"))
+            End Set
+        End Property
+    End Class
+    
+    <System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "2.0.0.0")>  _
     Public Class CLIENTERowChangeEvent
         Inherits System.EventArgs
         
@@ -7200,36 +7752,6 @@ Partial Public Class FarmaciaSJDataSet
         
         <System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
         Public ReadOnly Property Row() As DETALLE_COMPRARow
-            Get
-                Return Me.eventRow
-            End Get
-        End Property
-        
-        <System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
-        Public ReadOnly Property Action() As System.Data.DataRowAction
-            Get
-                Return Me.eventAction
-            End Get
-        End Property
-    End Class
-    
-    <System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "2.0.0.0")>  _
-    Public Class DETALLE_VENTARowChangeEvent
-        Inherits System.EventArgs
-        
-        Private eventRow As DETALLE_VENTARow
-        
-        Private eventAction As System.Data.DataRowAction
-        
-        <System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
-        Public Sub New(ByVal row As DETALLE_VENTARow, ByVal action As System.Data.DataRowAction)
-            MyBase.New
-            Me.eventRow = row
-            Me.eventAction = action
-        End Sub
-        
-        <System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
-        Public ReadOnly Property Row() As DETALLE_VENTARow
             Get
                 Return Me.eventRow
             End Get
@@ -7620,6 +8142,96 @@ Partial Public Class FarmaciaSJDataSet
         
         <System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
         Public ReadOnly Property Row() As VENTARow
+            Get
+                Return Me.eventRow
+            End Get
+        End Property
+        
+        <System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public ReadOnly Property Action() As System.Data.DataRowAction
+            Get
+                Return Me.eventAction
+            End Get
+        End Property
+    End Class
+    
+    <System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "2.0.0.0")>  _
+    Public Class IMPUESTO_DETALLE_VENTARowChangeEvent
+        Inherits System.EventArgs
+        
+        Private eventRow As IMPUESTO_DETALLE_VENTARow
+        
+        Private eventAction As System.Data.DataRowAction
+        
+        <System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public Sub New(ByVal row As IMPUESTO_DETALLE_VENTARow, ByVal action As System.Data.DataRowAction)
+            MyBase.New
+            Me.eventRow = row
+            Me.eventAction = action
+        End Sub
+        
+        <System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public ReadOnly Property Row() As IMPUESTO_DETALLE_VENTARow
+            Get
+                Return Me.eventRow
+            End Get
+        End Property
+        
+        <System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public ReadOnly Property Action() As System.Data.DataRowAction
+            Get
+                Return Me.eventAction
+            End Get
+        End Property
+    End Class
+    
+    <System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "2.0.0.0")>  _
+    Public Class Linea_ImpuestoRowChangeEvent
+        Inherits System.EventArgs
+        
+        Private eventRow As Linea_ImpuestoRow
+        
+        Private eventAction As System.Data.DataRowAction
+        
+        <System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public Sub New(ByVal row As Linea_ImpuestoRow, ByVal action As System.Data.DataRowAction)
+            MyBase.New
+            Me.eventRow = row
+            Me.eventAction = action
+        End Sub
+        
+        <System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public ReadOnly Property Row() As Linea_ImpuestoRow
+            Get
+                Return Me.eventRow
+            End Get
+        End Property
+        
+        <System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public ReadOnly Property Action() As System.Data.DataRowAction
+            Get
+                Return Me.eventAction
+            End Get
+        End Property
+    End Class
+    
+    <System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "2.0.0.0")>  _
+    Public Class DETALLE_VENTARowChangeEvent
+        Inherits System.EventArgs
+        
+        Private eventRow As DETALLE_VENTARow
+        
+        Private eventAction As System.Data.DataRowAction
+        
+        <System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public Sub New(ByVal row As DETALLE_VENTARow, ByVal action As System.Data.DataRowAction)
+            MyBase.New
+            Me.eventRow = row
+            Me.eventAction = action
+        End Sub
+        
+        <System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public ReadOnly Property Row() As DETALLE_VENTARow
             Get
                 Return Me.eventRow
             End Get
@@ -8534,359 +9146,6 @@ Namespace FarmaciaSJDataSetTableAdapters
             Me.Adapter.UpdateCommand.Parameters(9).Value = CType(Original_COSTO_TOTAL,Decimal)
             Me.Adapter.UpdateCommand.Parameters(10).Value = CType(Original_ID_PRODUCTO,Decimal)
             Me.Adapter.UpdateCommand.Parameters(11).Value = CType(Original_COSTO_UNIDAD,Decimal)
-            Dim previousConnectionState As System.Data.ConnectionState = Me.Adapter.UpdateCommand.Connection.State
-            If ((Me.Adapter.UpdateCommand.Connection.State And System.Data.ConnectionState.Open)  _
-                        <> System.Data.ConnectionState.Open) Then
-                Me.Adapter.UpdateCommand.Connection.Open
-            End If
-            Try 
-                Dim returnValue As Integer = Me.Adapter.UpdateCommand.ExecuteNonQuery
-                Return returnValue
-            Finally
-                If (previousConnectionState = System.Data.ConnectionState.Closed) Then
-                    Me.Adapter.UpdateCommand.Connection.Close
-                End If
-            End Try
-        End Function
-    End Class
-    
-    <System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "2.0.0.0"),  _
-     System.ComponentModel.DesignerCategoryAttribute("code"),  _
-     System.ComponentModel.ToolboxItem(true),  _
-     System.ComponentModel.DataObjectAttribute(true),  _
-     System.ComponentModel.DesignerAttribute("Microsoft.VSDesigner.DataSource.Design.TableAdapterDesigner, Microsoft.VSDesigner"& _ 
-        ", Version=8.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a"),  _
-     System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")>  _
-    Partial Public Class DETALLE_VENTATableAdapter
-        Inherits System.ComponentModel.Component
-        
-        Private WithEvents _adapter As System.Data.SqlClient.SqlDataAdapter
-        
-        Private _connection As System.Data.SqlClient.SqlConnection
-        
-        Private _commandCollection() As System.Data.SqlClient.SqlCommand
-        
-        Private _clearBeforeFill As Boolean
-        
-        <System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
-        Public Sub New()
-            MyBase.New
-            Me.ClearBeforeFill = true
-        End Sub
-        
-        <System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
-        Private ReadOnly Property Adapter() As System.Data.SqlClient.SqlDataAdapter
-            Get
-                If (Me._adapter Is Nothing) Then
-                    Me.InitAdapter
-                End If
-                Return Me._adapter
-            End Get
-        End Property
-        
-        <System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
-        Friend Property Connection() As System.Data.SqlClient.SqlConnection
-            Get
-                If (Me._connection Is Nothing) Then
-                    Me.InitConnection
-                End If
-                Return Me._connection
-            End Get
-            Set
-                Me._connection = value
-                If (Not (Me.Adapter.InsertCommand) Is Nothing) Then
-                    Me.Adapter.InsertCommand.Connection = value
-                End If
-                If (Not (Me.Adapter.DeleteCommand) Is Nothing) Then
-                    Me.Adapter.DeleteCommand.Connection = value
-                End If
-                If (Not (Me.Adapter.UpdateCommand) Is Nothing) Then
-                    Me.Adapter.UpdateCommand.Connection = value
-                End If
-                Dim i As Integer = 0
-                Do While (i < Me.CommandCollection.Length)
-                    If (Not (Me.CommandCollection(i)) Is Nothing) Then
-                        CType(Me.CommandCollection(i),System.Data.SqlClient.SqlCommand).Connection = value
-                    End If
-                    i = (i + 1)
-                Loop
-            End Set
-        End Property
-        
-        <System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
-        Protected ReadOnly Property CommandCollection() As System.Data.SqlClient.SqlCommand()
-            Get
-                If (Me._commandCollection Is Nothing) Then
-                    Me.InitCommandCollection
-                End If
-                Return Me._commandCollection
-            End Get
-        End Property
-        
-        <System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
-        Public Property ClearBeforeFill() As Boolean
-            Get
-                Return Me._clearBeforeFill
-            End Get
-            Set
-                Me._clearBeforeFill = value
-            End Set
-        End Property
-        
-        <System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
-        Private Sub InitAdapter()
-            Me._adapter = New System.Data.SqlClient.SqlDataAdapter
-            Dim tableMapping As System.Data.Common.DataTableMapping = New System.Data.Common.DataTableMapping
-            tableMapping.SourceTable = "Table"
-            tableMapping.DataSetTable = "DETALLE_VENTA"
-            tableMapping.ColumnMappings.Add("ID_DETALLE_VENTA", "ID_DETALLE_VENTA")
-            tableMapping.ColumnMappings.Add("ID_VENTA", "ID_VENTA")
-            tableMapping.ColumnMappings.Add("Cantidad", "Cantidad")
-            tableMapping.ColumnMappings.Add("ID_LOTE", "ID_LOTE")
-            tableMapping.ColumnMappings.Add("ID_IMPUESTO", "ID_IMPUESTO")
-            tableMapping.ColumnMappings.Add("ID_HISTORICO_IMPUESTO", "ID_HISTORICO_IMPUESTO")
-            tableMapping.ColumnMappings.Add("ID_PRODUCTO", "ID_PRODUCTO")
-            Me._adapter.TableMappings.Add(tableMapping)
-            Me._adapter.DeleteCommand = New System.Data.SqlClient.SqlCommand
-            Me._adapter.DeleteCommand.Connection = Me.Connection
-            Me._adapter.DeleteCommand.CommandText = "DELETE FROM [dbo].[DETALLE_VENTA] WHERE (([ID_DETALLE_VENTA] = @Original_ID_DETAL"& _ 
-                "LE_VENTA) AND ([ID_VENTA] = @Original_ID_VENTA) AND ([Cantidad] = @Original_Cant"& _ 
-                "idad) AND ([ID_LOTE] = @Original_ID_LOTE) AND ((@IsNull_ID_IMPUESTO = 1 AND [ID_"& _ 
-                "IMPUESTO] IS NULL) OR ([ID_IMPUESTO] = @Original_ID_IMPUESTO)) AND ((@IsNull_ID_"& _ 
-                "HISTORICO_IMPUESTO = 1 AND [ID_HISTORICO_IMPUESTO] IS NULL) OR ([ID_HISTORICO_IM"& _ 
-                "PUESTO] = @Original_ID_HISTORICO_IMPUESTO)) AND ([ID_PRODUCTO] = @Original_ID_PR"& _ 
-                "ODUCTO))"
-            Me._adapter.DeleteCommand.CommandType = System.Data.CommandType.Text
-            Me._adapter.DeleteCommand.Parameters.Add(New System.Data.SqlClient.SqlParameter("@Original_ID_DETALLE_VENTA", System.Data.SqlDbType.[Decimal], 0, System.Data.ParameterDirection.Input, 18, 0, "ID_DETALLE_VENTA", System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
-            Me._adapter.DeleteCommand.Parameters.Add(New System.Data.SqlClient.SqlParameter("@Original_ID_VENTA", System.Data.SqlDbType.[Decimal], 0, System.Data.ParameterDirection.Input, 18, 0, "ID_VENTA", System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
-            Me._adapter.DeleteCommand.Parameters.Add(New System.Data.SqlClient.SqlParameter("@Original_Cantidad", System.Data.SqlDbType.[Decimal], 0, System.Data.ParameterDirection.Input, 18, 0, "Cantidad", System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
-            Me._adapter.DeleteCommand.Parameters.Add(New System.Data.SqlClient.SqlParameter("@Original_ID_LOTE", System.Data.SqlDbType.[Decimal], 0, System.Data.ParameterDirection.Input, 18, 0, "ID_LOTE", System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
-            Me._adapter.DeleteCommand.Parameters.Add(New System.Data.SqlClient.SqlParameter("@IsNull_ID_IMPUESTO", System.Data.SqlDbType.Int, 0, System.Data.ParameterDirection.Input, 0, 0, "ID_IMPUESTO", System.Data.DataRowVersion.Original, true, Nothing, "", "", ""))
-            Me._adapter.DeleteCommand.Parameters.Add(New System.Data.SqlClient.SqlParameter("@Original_ID_IMPUESTO", System.Data.SqlDbType.[Decimal], 0, System.Data.ParameterDirection.Input, 18, 0, "ID_IMPUESTO", System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
-            Me._adapter.DeleteCommand.Parameters.Add(New System.Data.SqlClient.SqlParameter("@IsNull_ID_HISTORICO_IMPUESTO", System.Data.SqlDbType.Int, 0, System.Data.ParameterDirection.Input, 0, 0, "ID_HISTORICO_IMPUESTO", System.Data.DataRowVersion.Original, true, Nothing, "", "", ""))
-            Me._adapter.DeleteCommand.Parameters.Add(New System.Data.SqlClient.SqlParameter("@Original_ID_HISTORICO_IMPUESTO", System.Data.SqlDbType.[Decimal], 0, System.Data.ParameterDirection.Input, 18, 0, "ID_HISTORICO_IMPUESTO", System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
-            Me._adapter.DeleteCommand.Parameters.Add(New System.Data.SqlClient.SqlParameter("@Original_ID_PRODUCTO", System.Data.SqlDbType.[Decimal], 0, System.Data.ParameterDirection.Input, 18, 0, "ID_PRODUCTO", System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
-            Me._adapter.InsertCommand = New System.Data.SqlClient.SqlCommand
-            Me._adapter.InsertCommand.Connection = Me.Connection
-            Me._adapter.InsertCommand.CommandText = "INSERT INTO [dbo].[DETALLE_VENTA] ([ID_DETALLE_VENTA], [ID_VENTA], [Cantidad], [I"& _ 
-                "D_LOTE], [ID_IMPUESTO], [ID_HISTORICO_IMPUESTO], [ID_PRODUCTO]) VALUES (@ID_DETA"& _ 
-                "LLE_VENTA, @ID_VENTA, @Cantidad, @ID_LOTE, @ID_IMPUESTO, @ID_HISTORICO_IMPUESTO,"& _ 
-                " @ID_PRODUCTO);"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"SELECT ID_DETALLE_VENTA, ID_VENTA, Cantidad, ID_LOTE, ID_IMPUES"& _ 
-                "TO, ID_HISTORICO_IMPUESTO, ID_PRODUCTO FROM DETALLE_VENTA WHERE (ID_DETALLE_VENT"& _ 
-                "A = @ID_DETALLE_VENTA) AND (ID_VENTA = @ID_VENTA)"
-            Me._adapter.InsertCommand.CommandType = System.Data.CommandType.Text
-            Me._adapter.InsertCommand.Parameters.Add(New System.Data.SqlClient.SqlParameter("@ID_DETALLE_VENTA", System.Data.SqlDbType.[Decimal], 0, System.Data.ParameterDirection.Input, 18, 0, "ID_DETALLE_VENTA", System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
-            Me._adapter.InsertCommand.Parameters.Add(New System.Data.SqlClient.SqlParameter("@ID_VENTA", System.Data.SqlDbType.[Decimal], 0, System.Data.ParameterDirection.Input, 18, 0, "ID_VENTA", System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
-            Me._adapter.InsertCommand.Parameters.Add(New System.Data.SqlClient.SqlParameter("@Cantidad", System.Data.SqlDbType.[Decimal], 0, System.Data.ParameterDirection.Input, 18, 0, "Cantidad", System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
-            Me._adapter.InsertCommand.Parameters.Add(New System.Data.SqlClient.SqlParameter("@ID_LOTE", System.Data.SqlDbType.[Decimal], 0, System.Data.ParameterDirection.Input, 18, 0, "ID_LOTE", System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
-            Me._adapter.InsertCommand.Parameters.Add(New System.Data.SqlClient.SqlParameter("@ID_IMPUESTO", System.Data.SqlDbType.[Decimal], 0, System.Data.ParameterDirection.Input, 18, 0, "ID_IMPUESTO", System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
-            Me._adapter.InsertCommand.Parameters.Add(New System.Data.SqlClient.SqlParameter("@ID_HISTORICO_IMPUESTO", System.Data.SqlDbType.[Decimal], 0, System.Data.ParameterDirection.Input, 18, 0, "ID_HISTORICO_IMPUESTO", System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
-            Me._adapter.InsertCommand.Parameters.Add(New System.Data.SqlClient.SqlParameter("@ID_PRODUCTO", System.Data.SqlDbType.[Decimal], 0, System.Data.ParameterDirection.Input, 18, 0, "ID_PRODUCTO", System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
-            Me._adapter.UpdateCommand = New System.Data.SqlClient.SqlCommand
-            Me._adapter.UpdateCommand.Connection = Me.Connection
-            Me._adapter.UpdateCommand.CommandText = "UPDATE [dbo].[DETALLE_VENTA] SET [ID_DETALLE_VENTA] = @ID_DETALLE_VENTA, [ID_VENT"& _ 
-                "A] = @ID_VENTA, [Cantidad] = @Cantidad, [ID_LOTE] = @ID_LOTE, [ID_IMPUESTO] = @I"& _ 
-                "D_IMPUESTO, [ID_HISTORICO_IMPUESTO] = @ID_HISTORICO_IMPUESTO, [ID_PRODUCTO] = @I"& _ 
-                "D_PRODUCTO WHERE (([ID_DETALLE_VENTA] = @Original_ID_DETALLE_VENTA) AND ([ID_VEN"& _ 
-                "TA] = @Original_ID_VENTA) AND ([Cantidad] = @Original_Cantidad) AND ([ID_LOTE] ="& _ 
-                " @Original_ID_LOTE) AND ((@IsNull_ID_IMPUESTO = 1 AND [ID_IMPUESTO] IS NULL) OR "& _ 
-                "([ID_IMPUESTO] = @Original_ID_IMPUESTO)) AND ((@IsNull_ID_HISTORICO_IMPUESTO = 1"& _ 
-                " AND [ID_HISTORICO_IMPUESTO] IS NULL) OR ([ID_HISTORICO_IMPUESTO] = @Original_ID"& _ 
-                "_HISTORICO_IMPUESTO)) AND ([ID_PRODUCTO] = @Original_ID_PRODUCTO));"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"SELECT ID_D"& _ 
-                "ETALLE_VENTA, ID_VENTA, Cantidad, ID_LOTE, ID_IMPUESTO, ID_HISTORICO_IMPUESTO, I"& _ 
-                "D_PRODUCTO FROM DETALLE_VENTA WHERE (ID_DETALLE_VENTA = @ID_DETALLE_VENTA) AND ("& _ 
-                "ID_VENTA = @ID_VENTA)"
-            Me._adapter.UpdateCommand.CommandType = System.Data.CommandType.Text
-            Me._adapter.UpdateCommand.Parameters.Add(New System.Data.SqlClient.SqlParameter("@ID_DETALLE_VENTA", System.Data.SqlDbType.[Decimal], 0, System.Data.ParameterDirection.Input, 18, 0, "ID_DETALLE_VENTA", System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
-            Me._adapter.UpdateCommand.Parameters.Add(New System.Data.SqlClient.SqlParameter("@ID_VENTA", System.Data.SqlDbType.[Decimal], 0, System.Data.ParameterDirection.Input, 18, 0, "ID_VENTA", System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
-            Me._adapter.UpdateCommand.Parameters.Add(New System.Data.SqlClient.SqlParameter("@Cantidad", System.Data.SqlDbType.[Decimal], 0, System.Data.ParameterDirection.Input, 18, 0, "Cantidad", System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
-            Me._adapter.UpdateCommand.Parameters.Add(New System.Data.SqlClient.SqlParameter("@ID_LOTE", System.Data.SqlDbType.[Decimal], 0, System.Data.ParameterDirection.Input, 18, 0, "ID_LOTE", System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
-            Me._adapter.UpdateCommand.Parameters.Add(New System.Data.SqlClient.SqlParameter("@ID_IMPUESTO", System.Data.SqlDbType.[Decimal], 0, System.Data.ParameterDirection.Input, 18, 0, "ID_IMPUESTO", System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
-            Me._adapter.UpdateCommand.Parameters.Add(New System.Data.SqlClient.SqlParameter("@ID_HISTORICO_IMPUESTO", System.Data.SqlDbType.[Decimal], 0, System.Data.ParameterDirection.Input, 18, 0, "ID_HISTORICO_IMPUESTO", System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
-            Me._adapter.UpdateCommand.Parameters.Add(New System.Data.SqlClient.SqlParameter("@ID_PRODUCTO", System.Data.SqlDbType.[Decimal], 0, System.Data.ParameterDirection.Input, 18, 0, "ID_PRODUCTO", System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
-            Me._adapter.UpdateCommand.Parameters.Add(New System.Data.SqlClient.SqlParameter("@Original_ID_DETALLE_VENTA", System.Data.SqlDbType.[Decimal], 0, System.Data.ParameterDirection.Input, 18, 0, "ID_DETALLE_VENTA", System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
-            Me._adapter.UpdateCommand.Parameters.Add(New System.Data.SqlClient.SqlParameter("@Original_ID_VENTA", System.Data.SqlDbType.[Decimal], 0, System.Data.ParameterDirection.Input, 18, 0, "ID_VENTA", System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
-            Me._adapter.UpdateCommand.Parameters.Add(New System.Data.SqlClient.SqlParameter("@Original_Cantidad", System.Data.SqlDbType.[Decimal], 0, System.Data.ParameterDirection.Input, 18, 0, "Cantidad", System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
-            Me._adapter.UpdateCommand.Parameters.Add(New System.Data.SqlClient.SqlParameter("@Original_ID_LOTE", System.Data.SqlDbType.[Decimal], 0, System.Data.ParameterDirection.Input, 18, 0, "ID_LOTE", System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
-            Me._adapter.UpdateCommand.Parameters.Add(New System.Data.SqlClient.SqlParameter("@IsNull_ID_IMPUESTO", System.Data.SqlDbType.Int, 0, System.Data.ParameterDirection.Input, 0, 0, "ID_IMPUESTO", System.Data.DataRowVersion.Original, true, Nothing, "", "", ""))
-            Me._adapter.UpdateCommand.Parameters.Add(New System.Data.SqlClient.SqlParameter("@Original_ID_IMPUESTO", System.Data.SqlDbType.[Decimal], 0, System.Data.ParameterDirection.Input, 18, 0, "ID_IMPUESTO", System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
-            Me._adapter.UpdateCommand.Parameters.Add(New System.Data.SqlClient.SqlParameter("@IsNull_ID_HISTORICO_IMPUESTO", System.Data.SqlDbType.Int, 0, System.Data.ParameterDirection.Input, 0, 0, "ID_HISTORICO_IMPUESTO", System.Data.DataRowVersion.Original, true, Nothing, "", "", ""))
-            Me._adapter.UpdateCommand.Parameters.Add(New System.Data.SqlClient.SqlParameter("@Original_ID_HISTORICO_IMPUESTO", System.Data.SqlDbType.[Decimal], 0, System.Data.ParameterDirection.Input, 18, 0, "ID_HISTORICO_IMPUESTO", System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
-            Me._adapter.UpdateCommand.Parameters.Add(New System.Data.SqlClient.SqlParameter("@Original_ID_PRODUCTO", System.Data.SqlDbType.[Decimal], 0, System.Data.ParameterDirection.Input, 18, 0, "ID_PRODUCTO", System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
-        End Sub
-        
-        <System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
-        Private Sub InitConnection()
-            Me._connection = New System.Data.SqlClient.SqlConnection
-            Me._connection.ConnectionString = Global.FARMACIASJ.My.MySettings.Default.FarmaciaSJConnectionString1
-        End Sub
-        
-        <System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
-        Private Sub InitCommandCollection()
-            Me._commandCollection = New System.Data.SqlClient.SqlCommand(0) {}
-            Me._commandCollection(0) = New System.Data.SqlClient.SqlCommand
-            Me._commandCollection(0).Connection = Me.Connection
-            Me._commandCollection(0).CommandText = "SELECT ID_DETALLE_VENTA, ID_VENTA, Cantidad, ID_LOTE, ID_IMPUESTO, ID_HISTORICO_I"& _ 
-                "MPUESTO, ID_PRODUCTO FROM dbo.DETALLE_VENTA"
-            Me._commandCollection(0).CommandType = System.Data.CommandType.Text
-        End Sub
-        
-        <System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
-         System.ComponentModel.DataObjectMethodAttribute(System.ComponentModel.DataObjectMethodType.Fill, true)>  _
-        Public Overloads Overridable Function Fill(ByVal dataTable As FarmaciaSJDataSet.DETALLE_VENTADataTable) As Integer
-            Me.Adapter.SelectCommand = Me.CommandCollection(0)
-            If (Me.ClearBeforeFill = true) Then
-                dataTable.Clear
-            End If
-            Dim returnValue As Integer = Me.Adapter.Fill(dataTable)
-            Return returnValue
-        End Function
-        
-        <System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
-         System.ComponentModel.DataObjectMethodAttribute(System.ComponentModel.DataObjectMethodType.[Select], true)>  _
-        Public Overloads Overridable Function GetData() As FarmaciaSJDataSet.DETALLE_VENTADataTable
-            Me.Adapter.SelectCommand = Me.CommandCollection(0)
-            Dim dataTable As FarmaciaSJDataSet.DETALLE_VENTADataTable = New FarmaciaSJDataSet.DETALLE_VENTADataTable
-            Me.Adapter.Fill(dataTable)
-            Return dataTable
-        End Function
-        
-        <System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")>  _
-        Public Overloads Overridable Function Update(ByVal dataTable As FarmaciaSJDataSet.DETALLE_VENTADataTable) As Integer
-            Return Me.Adapter.Update(dataTable)
-        End Function
-        
-        <System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")>  _
-        Public Overloads Overridable Function Update(ByVal dataSet As FarmaciaSJDataSet) As Integer
-            Return Me.Adapter.Update(dataSet, "DETALLE_VENTA")
-        End Function
-        
-        <System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")>  _
-        Public Overloads Overridable Function Update(ByVal dataRow As System.Data.DataRow) As Integer
-            Return Me.Adapter.Update(New System.Data.DataRow() {dataRow})
-        End Function
-        
-        <System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")>  _
-        Public Overloads Overridable Function Update(ByVal dataRows() As System.Data.DataRow) As Integer
-            Return Me.Adapter.Update(dataRows)
-        End Function
-        
-        <System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
-         System.ComponentModel.DataObjectMethodAttribute(System.ComponentModel.DataObjectMethodType.Delete, true)>  _
-        Public Overloads Overridable Function Delete(ByVal Original_ID_DETALLE_VENTA As Decimal, ByVal Original_ID_VENTA As Decimal, ByVal Original_Cantidad As Decimal, ByVal Original_ID_LOTE As Decimal, ByVal Original_ID_IMPUESTO As System.Nullable(Of Decimal), ByVal Original_ID_HISTORICO_IMPUESTO As System.Nullable(Of Decimal), ByVal Original_ID_PRODUCTO As Decimal) As Integer
-            Me.Adapter.DeleteCommand.Parameters(0).Value = CType(Original_ID_DETALLE_VENTA,Decimal)
-            Me.Adapter.DeleteCommand.Parameters(1).Value = CType(Original_ID_VENTA,Decimal)
-            Me.Adapter.DeleteCommand.Parameters(2).Value = CType(Original_Cantidad,Decimal)
-            Me.Adapter.DeleteCommand.Parameters(3).Value = CType(Original_ID_LOTE,Decimal)
-            If (Original_ID_IMPUESTO.HasValue = true) Then
-                Me.Adapter.DeleteCommand.Parameters(4).Value = CType(0,Object)
-                Me.Adapter.DeleteCommand.Parameters(5).Value = CType(Original_ID_IMPUESTO.Value,Decimal)
-            Else
-                Me.Adapter.DeleteCommand.Parameters(4).Value = CType(1,Object)
-                Me.Adapter.DeleteCommand.Parameters(5).Value = System.DBNull.Value
-            End If
-            If (Original_ID_HISTORICO_IMPUESTO.HasValue = true) Then
-                Me.Adapter.DeleteCommand.Parameters(6).Value = CType(0,Object)
-                Me.Adapter.DeleteCommand.Parameters(7).Value = CType(Original_ID_HISTORICO_IMPUESTO.Value,Decimal)
-            Else
-                Me.Adapter.DeleteCommand.Parameters(6).Value = CType(1,Object)
-                Me.Adapter.DeleteCommand.Parameters(7).Value = System.DBNull.Value
-            End If
-            Me.Adapter.DeleteCommand.Parameters(8).Value = CType(Original_ID_PRODUCTO,Decimal)
-            Dim previousConnectionState As System.Data.ConnectionState = Me.Adapter.DeleteCommand.Connection.State
-            If ((Me.Adapter.DeleteCommand.Connection.State And System.Data.ConnectionState.Open)  _
-                        <> System.Data.ConnectionState.Open) Then
-                Me.Adapter.DeleteCommand.Connection.Open
-            End If
-            Try 
-                Dim returnValue As Integer = Me.Adapter.DeleteCommand.ExecuteNonQuery
-                Return returnValue
-            Finally
-                If (previousConnectionState = System.Data.ConnectionState.Closed) Then
-                    Me.Adapter.DeleteCommand.Connection.Close
-                End If
-            End Try
-        End Function
-        
-        <System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
-         System.ComponentModel.DataObjectMethodAttribute(System.ComponentModel.DataObjectMethodType.Insert, true)>  _
-        Public Overloads Overridable Function Insert(ByVal ID_DETALLE_VENTA As Decimal, ByVal ID_VENTA As Decimal, ByVal Cantidad As Decimal, ByVal ID_LOTE As Decimal, ByVal ID_IMPUESTO As System.Nullable(Of Decimal), ByVal ID_HISTORICO_IMPUESTO As System.Nullable(Of Decimal), ByVal ID_PRODUCTO As Decimal) As Integer
-            Me.Adapter.InsertCommand.Parameters(0).Value = CType(ID_DETALLE_VENTA,Decimal)
-            Me.Adapter.InsertCommand.Parameters(1).Value = CType(ID_VENTA,Decimal)
-            Me.Adapter.InsertCommand.Parameters(2).Value = CType(Cantidad,Decimal)
-            Me.Adapter.InsertCommand.Parameters(3).Value = CType(ID_LOTE,Decimal)
-            If (ID_IMPUESTO.HasValue = true) Then
-                Me.Adapter.InsertCommand.Parameters(4).Value = CType(ID_IMPUESTO.Value,Decimal)
-            Else
-                Me.Adapter.InsertCommand.Parameters(4).Value = System.DBNull.Value
-            End If
-            If (ID_HISTORICO_IMPUESTO.HasValue = true) Then
-                Me.Adapter.InsertCommand.Parameters(5).Value = CType(ID_HISTORICO_IMPUESTO.Value,Decimal)
-            Else
-                Me.Adapter.InsertCommand.Parameters(5).Value = System.DBNull.Value
-            End If
-            Me.Adapter.InsertCommand.Parameters(6).Value = CType(ID_PRODUCTO,Decimal)
-            Dim previousConnectionState As System.Data.ConnectionState = Me.Adapter.InsertCommand.Connection.State
-            If ((Me.Adapter.InsertCommand.Connection.State And System.Data.ConnectionState.Open)  _
-                        <> System.Data.ConnectionState.Open) Then
-                Me.Adapter.InsertCommand.Connection.Open
-            End If
-            Try 
-                Dim returnValue As Integer = Me.Adapter.InsertCommand.ExecuteNonQuery
-                Return returnValue
-            Finally
-                If (previousConnectionState = System.Data.ConnectionState.Closed) Then
-                    Me.Adapter.InsertCommand.Connection.Close
-                End If
-            End Try
-        End Function
-        
-        <System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
-         System.ComponentModel.DataObjectMethodAttribute(System.ComponentModel.DataObjectMethodType.Update, true)>  _
-        Public Overloads Overridable Function Update(ByVal ID_DETALLE_VENTA As Decimal, ByVal ID_VENTA As Decimal, ByVal Cantidad As Decimal, ByVal ID_LOTE As Decimal, ByVal ID_IMPUESTO As System.Nullable(Of Decimal), ByVal ID_HISTORICO_IMPUESTO As System.Nullable(Of Decimal), ByVal ID_PRODUCTO As Decimal, ByVal Original_ID_DETALLE_VENTA As Decimal, ByVal Original_ID_VENTA As Decimal, ByVal Original_Cantidad As Decimal, ByVal Original_ID_LOTE As Decimal, ByVal Original_ID_IMPUESTO As System.Nullable(Of Decimal), ByVal Original_ID_HISTORICO_IMPUESTO As System.Nullable(Of Decimal), ByVal Original_ID_PRODUCTO As Decimal) As Integer
-            Me.Adapter.UpdateCommand.Parameters(0).Value = CType(ID_DETALLE_VENTA,Decimal)
-            Me.Adapter.UpdateCommand.Parameters(1).Value = CType(ID_VENTA,Decimal)
-            Me.Adapter.UpdateCommand.Parameters(2).Value = CType(Cantidad,Decimal)
-            Me.Adapter.UpdateCommand.Parameters(3).Value = CType(ID_LOTE,Decimal)
-            If (ID_IMPUESTO.HasValue = true) Then
-                Me.Adapter.UpdateCommand.Parameters(4).Value = CType(ID_IMPUESTO.Value,Decimal)
-            Else
-                Me.Adapter.UpdateCommand.Parameters(4).Value = System.DBNull.Value
-            End If
-            If (ID_HISTORICO_IMPUESTO.HasValue = true) Then
-                Me.Adapter.UpdateCommand.Parameters(5).Value = CType(ID_HISTORICO_IMPUESTO.Value,Decimal)
-            Else
-                Me.Adapter.UpdateCommand.Parameters(5).Value = System.DBNull.Value
-            End If
-            Me.Adapter.UpdateCommand.Parameters(6).Value = CType(ID_PRODUCTO,Decimal)
-            Me.Adapter.UpdateCommand.Parameters(7).Value = CType(Original_ID_DETALLE_VENTA,Decimal)
-            Me.Adapter.UpdateCommand.Parameters(8).Value = CType(Original_ID_VENTA,Decimal)
-            Me.Adapter.UpdateCommand.Parameters(9).Value = CType(Original_Cantidad,Decimal)
-            Me.Adapter.UpdateCommand.Parameters(10).Value = CType(Original_ID_LOTE,Decimal)
-            If (Original_ID_IMPUESTO.HasValue = true) Then
-                Me.Adapter.UpdateCommand.Parameters(11).Value = CType(0,Object)
-                Me.Adapter.UpdateCommand.Parameters(12).Value = CType(Original_ID_IMPUESTO.Value,Decimal)
-            Else
-                Me.Adapter.UpdateCommand.Parameters(11).Value = CType(1,Object)
-                Me.Adapter.UpdateCommand.Parameters(12).Value = System.DBNull.Value
-            End If
-            If (Original_ID_HISTORICO_IMPUESTO.HasValue = true) Then
-                Me.Adapter.UpdateCommand.Parameters(13).Value = CType(0,Object)
-                Me.Adapter.UpdateCommand.Parameters(14).Value = CType(Original_ID_HISTORICO_IMPUESTO.Value,Decimal)
-            Else
-                Me.Adapter.UpdateCommand.Parameters(13).Value = CType(1,Object)
-                Me.Adapter.UpdateCommand.Parameters(14).Value = System.DBNull.Value
-            End If
-            Me.Adapter.UpdateCommand.Parameters(15).Value = CType(Original_ID_PRODUCTO,Decimal)
             Dim previousConnectionState As System.Data.ConnectionState = Me.Adapter.UpdateCommand.Connection.State
             If ((Me.Adapter.UpdateCommand.Connection.State And System.Data.ConnectionState.Open)  _
                         <> System.Data.ConnectionState.Open) Then
@@ -12766,6 +13025,811 @@ Namespace FarmaciaSJDataSetTableAdapters
             End If
             Me.Adapter.UpdateCommand.Parameters(12).Value = CType(Original_ID_CLIENTE,Decimal)
             Me.Adapter.UpdateCommand.Parameters(13).Value = CType(ID_VENTA,Decimal)
+            Dim previousConnectionState As System.Data.ConnectionState = Me.Adapter.UpdateCommand.Connection.State
+            If ((Me.Adapter.UpdateCommand.Connection.State And System.Data.ConnectionState.Open)  _
+                        <> System.Data.ConnectionState.Open) Then
+                Me.Adapter.UpdateCommand.Connection.Open
+            End If
+            Try 
+                Dim returnValue As Integer = Me.Adapter.UpdateCommand.ExecuteNonQuery
+                Return returnValue
+            Finally
+                If (previousConnectionState = System.Data.ConnectionState.Closed) Then
+                    Me.Adapter.UpdateCommand.Connection.Close
+                End If
+            End Try
+        End Function
+    End Class
+    
+    <System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "2.0.0.0"),  _
+     System.ComponentModel.DesignerCategoryAttribute("code"),  _
+     System.ComponentModel.ToolboxItem(true),  _
+     System.ComponentModel.DataObjectAttribute(true),  _
+     System.ComponentModel.DesignerAttribute("Microsoft.VSDesigner.DataSource.Design.TableAdapterDesigner, Microsoft.VSDesigner"& _ 
+        ", Version=8.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a"),  _
+     System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")>  _
+    Partial Public Class IMPUESTO_DETALLE_VENTATableAdapter
+        Inherits System.ComponentModel.Component
+        
+        Private WithEvents _adapter As System.Data.SqlClient.SqlDataAdapter
+        
+        Private _connection As System.Data.SqlClient.SqlConnection
+        
+        Private _commandCollection() As System.Data.SqlClient.SqlCommand
+        
+        Private _clearBeforeFill As Boolean
+        
+        <System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public Sub New()
+            MyBase.New
+            Me.ClearBeforeFill = true
+        End Sub
+        
+        <System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Private ReadOnly Property Adapter() As System.Data.SqlClient.SqlDataAdapter
+            Get
+                If (Me._adapter Is Nothing) Then
+                    Me.InitAdapter
+                End If
+                Return Me._adapter
+            End Get
+        End Property
+        
+        <System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Friend Property Connection() As System.Data.SqlClient.SqlConnection
+            Get
+                If (Me._connection Is Nothing) Then
+                    Me.InitConnection
+                End If
+                Return Me._connection
+            End Get
+            Set
+                Me._connection = value
+                If (Not (Me.Adapter.InsertCommand) Is Nothing) Then
+                    Me.Adapter.InsertCommand.Connection = value
+                End If
+                If (Not (Me.Adapter.DeleteCommand) Is Nothing) Then
+                    Me.Adapter.DeleteCommand.Connection = value
+                End If
+                If (Not (Me.Adapter.UpdateCommand) Is Nothing) Then
+                    Me.Adapter.UpdateCommand.Connection = value
+                End If
+                Dim i As Integer = 0
+                Do While (i < Me.CommandCollection.Length)
+                    If (Not (Me.CommandCollection(i)) Is Nothing) Then
+                        CType(Me.CommandCollection(i),System.Data.SqlClient.SqlCommand).Connection = value
+                    End If
+                    i = (i + 1)
+                Loop
+            End Set
+        End Property
+        
+        <System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Protected ReadOnly Property CommandCollection() As System.Data.SqlClient.SqlCommand()
+            Get
+                If (Me._commandCollection Is Nothing) Then
+                    Me.InitCommandCollection
+                End If
+                Return Me._commandCollection
+            End Get
+        End Property
+        
+        <System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public Property ClearBeforeFill() As Boolean
+            Get
+                Return Me._clearBeforeFill
+            End Get
+            Set
+                Me._clearBeforeFill = value
+            End Set
+        End Property
+        
+        <System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Private Sub InitAdapter()
+            Me._adapter = New System.Data.SqlClient.SqlDataAdapter
+            Dim tableMapping As System.Data.Common.DataTableMapping = New System.Data.Common.DataTableMapping
+            tableMapping.SourceTable = "Table"
+            tableMapping.DataSetTable = "IMPUESTO_DETALLE_VENTA"
+            tableMapping.ColumnMappings.Add("ID_HISTORICO_IMPUESTO", "ID_HISTORICO_IMPUESTO")
+            tableMapping.ColumnMappings.Add("ID_IMPUESTO", "ID_IMPUESTO")
+            tableMapping.ColumnMappings.Add("ID_VENTA", "ID_VENTA")
+            tableMapping.ColumnMappings.Add("ID_DETALLE_VENTA", "ID_DETALLE_VENTA")
+            Me._adapter.TableMappings.Add(tableMapping)
+            Me._adapter.DeleteCommand = New System.Data.SqlClient.SqlCommand
+            Me._adapter.DeleteCommand.Connection = Me.Connection
+            Me._adapter.DeleteCommand.CommandText = "DELETE FROM [dbo].[IMPUESTO_DETALLE_VENTA] WHERE (([ID_HISTORICO_IMPUESTO] = @Ori"& _ 
+                "ginal_ID_HISTORICO_IMPUESTO) AND ([ID_IMPUESTO] = @Original_ID_IMPUESTO) AND ([I"& _ 
+                "D_VENTA] = @Original_ID_VENTA) AND ([ID_DETALLE_VENTA] = @Original_ID_DETALLE_VE"& _ 
+                "NTA))"
+            Me._adapter.DeleteCommand.CommandType = System.Data.CommandType.Text
+            Me._adapter.DeleteCommand.Parameters.Add(New System.Data.SqlClient.SqlParameter("@Original_ID_HISTORICO_IMPUESTO", System.Data.SqlDbType.[Decimal], 0, System.Data.ParameterDirection.Input, 18, 0, "ID_HISTORICO_IMPUESTO", System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
+            Me._adapter.DeleteCommand.Parameters.Add(New System.Data.SqlClient.SqlParameter("@Original_ID_IMPUESTO", System.Data.SqlDbType.[Decimal], 0, System.Data.ParameterDirection.Input, 18, 0, "ID_IMPUESTO", System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
+            Me._adapter.DeleteCommand.Parameters.Add(New System.Data.SqlClient.SqlParameter("@Original_ID_VENTA", System.Data.SqlDbType.[Decimal], 0, System.Data.ParameterDirection.Input, 18, 0, "ID_VENTA", System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
+            Me._adapter.DeleteCommand.Parameters.Add(New System.Data.SqlClient.SqlParameter("@Original_ID_DETALLE_VENTA", System.Data.SqlDbType.[Decimal], 0, System.Data.ParameterDirection.Input, 18, 0, "ID_DETALLE_VENTA", System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
+            Me._adapter.InsertCommand = New System.Data.SqlClient.SqlCommand
+            Me._adapter.InsertCommand.Connection = Me.Connection
+            Me._adapter.InsertCommand.CommandText = "INSERT INTO [dbo].[IMPUESTO_DETALLE_VENTA] ([ID_HISTORICO_IMPUESTO], [ID_IMPUESTO"& _ 
+                "], [ID_VENTA], [ID_DETALLE_VENTA]) VALUES (@ID_HISTORICO_IMPUESTO, @ID_IMPUESTO,"& _ 
+                " @ID_VENTA, @ID_DETALLE_VENTA);"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"SELECT ID_HISTORICO_IMPUESTO, ID_IMPUESTO, ID_V"& _ 
+                "ENTA, ID_DETALLE_VENTA FROM IMPUESTO_DETALLE_VENTA WHERE (ID_DETALLE_VENTA = @ID"& _ 
+                "_DETALLE_VENTA) AND (ID_HISTORICO_IMPUESTO = @ID_HISTORICO_IMPUESTO) AND (ID_IMP"& _ 
+                "UESTO = @ID_IMPUESTO) AND (ID_VENTA = @ID_VENTA)"
+            Me._adapter.InsertCommand.CommandType = System.Data.CommandType.Text
+            Me._adapter.InsertCommand.Parameters.Add(New System.Data.SqlClient.SqlParameter("@ID_HISTORICO_IMPUESTO", System.Data.SqlDbType.[Decimal], 0, System.Data.ParameterDirection.Input, 18, 0, "ID_HISTORICO_IMPUESTO", System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.InsertCommand.Parameters.Add(New System.Data.SqlClient.SqlParameter("@ID_IMPUESTO", System.Data.SqlDbType.[Decimal], 0, System.Data.ParameterDirection.Input, 18, 0, "ID_IMPUESTO", System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.InsertCommand.Parameters.Add(New System.Data.SqlClient.SqlParameter("@ID_VENTA", System.Data.SqlDbType.[Decimal], 0, System.Data.ParameterDirection.Input, 18, 0, "ID_VENTA", System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.InsertCommand.Parameters.Add(New System.Data.SqlClient.SqlParameter("@ID_DETALLE_VENTA", System.Data.SqlDbType.[Decimal], 0, System.Data.ParameterDirection.Input, 18, 0, "ID_DETALLE_VENTA", System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand = New System.Data.SqlClient.SqlCommand
+            Me._adapter.UpdateCommand.Connection = Me.Connection
+            Me._adapter.UpdateCommand.CommandText = "UPDATE [dbo].[IMPUESTO_DETALLE_VENTA] SET [ID_HISTORICO_IMPUESTO] = @ID_HISTORICO"& _ 
+                "_IMPUESTO, [ID_IMPUESTO] = @ID_IMPUESTO, [ID_VENTA] = @ID_VENTA, [ID_DETALLE_VEN"& _ 
+                "TA] = @ID_DETALLE_VENTA WHERE (([ID_HISTORICO_IMPUESTO] = @Original_ID_HISTORICO"& _ 
+                "_IMPUESTO) AND ([ID_IMPUESTO] = @Original_ID_IMPUESTO) AND ([ID_VENTA] = @Origin"& _ 
+                "al_ID_VENTA) AND ([ID_DETALLE_VENTA] = @Original_ID_DETALLE_VENTA));"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"SELECT ID_"& _ 
+                "HISTORICO_IMPUESTO, ID_IMPUESTO, ID_VENTA, ID_DETALLE_VENTA FROM IMPUESTO_DETALL"& _ 
+                "E_VENTA WHERE (ID_DETALLE_VENTA = @ID_DETALLE_VENTA) AND (ID_HISTORICO_IMPUESTO "& _ 
+                "= @ID_HISTORICO_IMPUESTO) AND (ID_IMPUESTO = @ID_IMPUESTO) AND (ID_VENTA = @ID_V"& _ 
+                "ENTA)"
+            Me._adapter.UpdateCommand.CommandType = System.Data.CommandType.Text
+            Me._adapter.UpdateCommand.Parameters.Add(New System.Data.SqlClient.SqlParameter("@ID_HISTORICO_IMPUESTO", System.Data.SqlDbType.[Decimal], 0, System.Data.ParameterDirection.Input, 18, 0, "ID_HISTORICO_IMPUESTO", System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New System.Data.SqlClient.SqlParameter("@ID_IMPUESTO", System.Data.SqlDbType.[Decimal], 0, System.Data.ParameterDirection.Input, 18, 0, "ID_IMPUESTO", System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New System.Data.SqlClient.SqlParameter("@ID_VENTA", System.Data.SqlDbType.[Decimal], 0, System.Data.ParameterDirection.Input, 18, 0, "ID_VENTA", System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New System.Data.SqlClient.SqlParameter("@ID_DETALLE_VENTA", System.Data.SqlDbType.[Decimal], 0, System.Data.ParameterDirection.Input, 18, 0, "ID_DETALLE_VENTA", System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New System.Data.SqlClient.SqlParameter("@Original_ID_HISTORICO_IMPUESTO", System.Data.SqlDbType.[Decimal], 0, System.Data.ParameterDirection.Input, 18, 0, "ID_HISTORICO_IMPUESTO", System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New System.Data.SqlClient.SqlParameter("@Original_ID_IMPUESTO", System.Data.SqlDbType.[Decimal], 0, System.Data.ParameterDirection.Input, 18, 0, "ID_IMPUESTO", System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New System.Data.SqlClient.SqlParameter("@Original_ID_VENTA", System.Data.SqlDbType.[Decimal], 0, System.Data.ParameterDirection.Input, 18, 0, "ID_VENTA", System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New System.Data.SqlClient.SqlParameter("@Original_ID_DETALLE_VENTA", System.Data.SqlDbType.[Decimal], 0, System.Data.ParameterDirection.Input, 18, 0, "ID_DETALLE_VENTA", System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
+        End Sub
+        
+        <System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Private Sub InitConnection()
+            Me._connection = New System.Data.SqlClient.SqlConnection
+            Me._connection.ConnectionString = Global.FARMACIASJ.My.MySettings.Default.FarmaciaSJConnectionString1
+        End Sub
+        
+        <System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Private Sub InitCommandCollection()
+            Me._commandCollection = New System.Data.SqlClient.SqlCommand(0) {}
+            Me._commandCollection(0) = New System.Data.SqlClient.SqlCommand
+            Me._commandCollection(0).Connection = Me.Connection
+            Me._commandCollection(0).CommandText = "SELECT ID_HISTORICO_IMPUESTO, ID_IMPUESTO, ID_VENTA, ID_DETALLE_VENTA FROM dbo.IM"& _ 
+                "PUESTO_DETALLE_VENTA"
+            Me._commandCollection(0).CommandType = System.Data.CommandType.Text
+        End Sub
+        
+        <System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
+         System.ComponentModel.DataObjectMethodAttribute(System.ComponentModel.DataObjectMethodType.Fill, true)>  _
+        Public Overloads Overridable Function Fill(ByVal dataTable As FarmaciaSJDataSet.IMPUESTO_DETALLE_VENTADataTable) As Integer
+            Me.Adapter.SelectCommand = Me.CommandCollection(0)
+            If (Me.ClearBeforeFill = true) Then
+                dataTable.Clear
+            End If
+            Dim returnValue As Integer = Me.Adapter.Fill(dataTable)
+            Return returnValue
+        End Function
+        
+        <System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
+         System.ComponentModel.DataObjectMethodAttribute(System.ComponentModel.DataObjectMethodType.[Select], true)>  _
+        Public Overloads Overridable Function GetData() As FarmaciaSJDataSet.IMPUESTO_DETALLE_VENTADataTable
+            Me.Adapter.SelectCommand = Me.CommandCollection(0)
+            Dim dataTable As FarmaciaSJDataSet.IMPUESTO_DETALLE_VENTADataTable = New FarmaciaSJDataSet.IMPUESTO_DETALLE_VENTADataTable
+            Me.Adapter.Fill(dataTable)
+            Return dataTable
+        End Function
+        
+        <System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")>  _
+        Public Overloads Overridable Function Update(ByVal dataTable As FarmaciaSJDataSet.IMPUESTO_DETALLE_VENTADataTable) As Integer
+            Return Me.Adapter.Update(dataTable)
+        End Function
+        
+        <System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")>  _
+        Public Overloads Overridable Function Update(ByVal dataSet As FarmaciaSJDataSet) As Integer
+            Return Me.Adapter.Update(dataSet, "IMPUESTO_DETALLE_VENTA")
+        End Function
+        
+        <System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")>  _
+        Public Overloads Overridable Function Update(ByVal dataRow As System.Data.DataRow) As Integer
+            Return Me.Adapter.Update(New System.Data.DataRow() {dataRow})
+        End Function
+        
+        <System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")>  _
+        Public Overloads Overridable Function Update(ByVal dataRows() As System.Data.DataRow) As Integer
+            Return Me.Adapter.Update(dataRows)
+        End Function
+        
+        <System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
+         System.ComponentModel.DataObjectMethodAttribute(System.ComponentModel.DataObjectMethodType.Delete, true)>  _
+        Public Overloads Overridable Function Delete(ByVal Original_ID_HISTORICO_IMPUESTO As Decimal, ByVal Original_ID_IMPUESTO As Decimal, ByVal Original_ID_VENTA As Decimal, ByVal Original_ID_DETALLE_VENTA As Decimal) As Integer
+            Me.Adapter.DeleteCommand.Parameters(0).Value = CType(Original_ID_HISTORICO_IMPUESTO,Decimal)
+            Me.Adapter.DeleteCommand.Parameters(1).Value = CType(Original_ID_IMPUESTO,Decimal)
+            Me.Adapter.DeleteCommand.Parameters(2).Value = CType(Original_ID_VENTA,Decimal)
+            Me.Adapter.DeleteCommand.Parameters(3).Value = CType(Original_ID_DETALLE_VENTA,Decimal)
+            Dim previousConnectionState As System.Data.ConnectionState = Me.Adapter.DeleteCommand.Connection.State
+            If ((Me.Adapter.DeleteCommand.Connection.State And System.Data.ConnectionState.Open)  _
+                        <> System.Data.ConnectionState.Open) Then
+                Me.Adapter.DeleteCommand.Connection.Open
+            End If
+            Try 
+                Dim returnValue As Integer = Me.Adapter.DeleteCommand.ExecuteNonQuery
+                Return returnValue
+            Finally
+                If (previousConnectionState = System.Data.ConnectionState.Closed) Then
+                    Me.Adapter.DeleteCommand.Connection.Close
+                End If
+            End Try
+        End Function
+        
+        <System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
+         System.ComponentModel.DataObjectMethodAttribute(System.ComponentModel.DataObjectMethodType.Insert, true)>  _
+        Public Overloads Overridable Function Insert(ByVal ID_HISTORICO_IMPUESTO As Decimal, ByVal ID_IMPUESTO As Decimal, ByVal ID_VENTA As Decimal, ByVal ID_DETALLE_VENTA As Decimal) As Integer
+            Me.Adapter.InsertCommand.Parameters(0).Value = CType(ID_HISTORICO_IMPUESTO,Decimal)
+            Me.Adapter.InsertCommand.Parameters(1).Value = CType(ID_IMPUESTO,Decimal)
+            Me.Adapter.InsertCommand.Parameters(2).Value = CType(ID_VENTA,Decimal)
+            Me.Adapter.InsertCommand.Parameters(3).Value = CType(ID_DETALLE_VENTA,Decimal)
+            Dim previousConnectionState As System.Data.ConnectionState = Me.Adapter.InsertCommand.Connection.State
+            If ((Me.Adapter.InsertCommand.Connection.State And System.Data.ConnectionState.Open)  _
+                        <> System.Data.ConnectionState.Open) Then
+                Me.Adapter.InsertCommand.Connection.Open
+            End If
+            Try 
+                Dim returnValue As Integer = Me.Adapter.InsertCommand.ExecuteNonQuery
+                Return returnValue
+            Finally
+                If (previousConnectionState = System.Data.ConnectionState.Closed) Then
+                    Me.Adapter.InsertCommand.Connection.Close
+                End If
+            End Try
+        End Function
+        
+        <System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
+         System.ComponentModel.DataObjectMethodAttribute(System.ComponentModel.DataObjectMethodType.Update, true)>  _
+        Public Overloads Overridable Function Update(ByVal ID_HISTORICO_IMPUESTO As Decimal, ByVal ID_IMPUESTO As Decimal, ByVal ID_VENTA As Decimal, ByVal ID_DETALLE_VENTA As Decimal, ByVal Original_ID_HISTORICO_IMPUESTO As Decimal, ByVal Original_ID_IMPUESTO As Decimal, ByVal Original_ID_VENTA As Decimal, ByVal Original_ID_DETALLE_VENTA As Decimal) As Integer
+            Me.Adapter.UpdateCommand.Parameters(0).Value = CType(ID_HISTORICO_IMPUESTO,Decimal)
+            Me.Adapter.UpdateCommand.Parameters(1).Value = CType(ID_IMPUESTO,Decimal)
+            Me.Adapter.UpdateCommand.Parameters(2).Value = CType(ID_VENTA,Decimal)
+            Me.Adapter.UpdateCommand.Parameters(3).Value = CType(ID_DETALLE_VENTA,Decimal)
+            Me.Adapter.UpdateCommand.Parameters(4).Value = CType(Original_ID_HISTORICO_IMPUESTO,Decimal)
+            Me.Adapter.UpdateCommand.Parameters(5).Value = CType(Original_ID_IMPUESTO,Decimal)
+            Me.Adapter.UpdateCommand.Parameters(6).Value = CType(Original_ID_VENTA,Decimal)
+            Me.Adapter.UpdateCommand.Parameters(7).Value = CType(Original_ID_DETALLE_VENTA,Decimal)
+            Dim previousConnectionState As System.Data.ConnectionState = Me.Adapter.UpdateCommand.Connection.State
+            If ((Me.Adapter.UpdateCommand.Connection.State And System.Data.ConnectionState.Open)  _
+                        <> System.Data.ConnectionState.Open) Then
+                Me.Adapter.UpdateCommand.Connection.Open
+            End If
+            Try 
+                Dim returnValue As Integer = Me.Adapter.UpdateCommand.ExecuteNonQuery
+                Return returnValue
+            Finally
+                If (previousConnectionState = System.Data.ConnectionState.Closed) Then
+                    Me.Adapter.UpdateCommand.Connection.Close
+                End If
+            End Try
+        End Function
+    End Class
+    
+    <System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "2.0.0.0"),  _
+     System.ComponentModel.DesignerCategoryAttribute("code"),  _
+     System.ComponentModel.ToolboxItem(true),  _
+     System.ComponentModel.DataObjectAttribute(true),  _
+     System.ComponentModel.DesignerAttribute("Microsoft.VSDesigner.DataSource.Design.TableAdapterDesigner, Microsoft.VSDesigner"& _ 
+        ", Version=8.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a"),  _
+     System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")>  _
+    Partial Public Class Linea_ImpuestoTableAdapter
+        Inherits System.ComponentModel.Component
+        
+        Private WithEvents _adapter As System.Data.SqlClient.SqlDataAdapter
+        
+        Private _connection As System.Data.SqlClient.SqlConnection
+        
+        Private _commandCollection() As System.Data.SqlClient.SqlCommand
+        
+        Private _clearBeforeFill As Boolean
+        
+        <System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public Sub New()
+            MyBase.New
+            Me.ClearBeforeFill = true
+        End Sub
+        
+        <System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Private ReadOnly Property Adapter() As System.Data.SqlClient.SqlDataAdapter
+            Get
+                If (Me._adapter Is Nothing) Then
+                    Me.InitAdapter
+                End If
+                Return Me._adapter
+            End Get
+        End Property
+        
+        <System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Friend Property Connection() As System.Data.SqlClient.SqlConnection
+            Get
+                If (Me._connection Is Nothing) Then
+                    Me.InitConnection
+                End If
+                Return Me._connection
+            End Get
+            Set
+                Me._connection = value
+                If (Not (Me.Adapter.InsertCommand) Is Nothing) Then
+                    Me.Adapter.InsertCommand.Connection = value
+                End If
+                If (Not (Me.Adapter.DeleteCommand) Is Nothing) Then
+                    Me.Adapter.DeleteCommand.Connection = value
+                End If
+                If (Not (Me.Adapter.UpdateCommand) Is Nothing) Then
+                    Me.Adapter.UpdateCommand.Connection = value
+                End If
+                Dim i As Integer = 0
+                Do While (i < Me.CommandCollection.Length)
+                    If (Not (Me.CommandCollection(i)) Is Nothing) Then
+                        CType(Me.CommandCollection(i),System.Data.SqlClient.SqlCommand).Connection = value
+                    End If
+                    i = (i + 1)
+                Loop
+            End Set
+        End Property
+        
+        <System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Protected ReadOnly Property CommandCollection() As System.Data.SqlClient.SqlCommand()
+            Get
+                If (Me._commandCollection Is Nothing) Then
+                    Me.InitCommandCollection
+                End If
+                Return Me._commandCollection
+            End Get
+        End Property
+        
+        <System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public Property ClearBeforeFill() As Boolean
+            Get
+                Return Me._clearBeforeFill
+            End Get
+            Set
+                Me._clearBeforeFill = value
+            End Set
+        End Property
+        
+        <System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Private Sub InitAdapter()
+            Me._adapter = New System.Data.SqlClient.SqlDataAdapter
+            Dim tableMapping As System.Data.Common.DataTableMapping = New System.Data.Common.DataTableMapping
+            tableMapping.SourceTable = "Table"
+            tableMapping.DataSetTable = "Linea_Impuesto"
+            tableMapping.ColumnMappings.Add("ID_LINEA", "ID_LINEA")
+            tableMapping.ColumnMappings.Add("ID_IMPUESTO", "ID_IMPUESTO")
+            Me._adapter.TableMappings.Add(tableMapping)
+            Me._adapter.DeleteCommand = New System.Data.SqlClient.SqlCommand
+            Me._adapter.DeleteCommand.Connection = Me.Connection
+            Me._adapter.DeleteCommand.CommandText = "DELETE FROM [dbo].[Linea_Impuesto] WHERE (([ID_LINEA] = @Original_ID_LINEA) AND ("& _ 
+                "[ID_IMPUESTO] = @Original_ID_IMPUESTO))"
+            Me._adapter.DeleteCommand.CommandType = System.Data.CommandType.Text
+            Me._adapter.DeleteCommand.Parameters.Add(New System.Data.SqlClient.SqlParameter("@Original_ID_LINEA", System.Data.SqlDbType.[Decimal], 0, System.Data.ParameterDirection.Input, 18, 0, "ID_LINEA", System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
+            Me._adapter.DeleteCommand.Parameters.Add(New System.Data.SqlClient.SqlParameter("@Original_ID_IMPUESTO", System.Data.SqlDbType.[Decimal], 0, System.Data.ParameterDirection.Input, 18, 0, "ID_IMPUESTO", System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
+            Me._adapter.InsertCommand = New System.Data.SqlClient.SqlCommand
+            Me._adapter.InsertCommand.Connection = Me.Connection
+            Me._adapter.InsertCommand.CommandText = "INSERT INTO [dbo].[Linea_Impuesto] ([ID_LINEA], [ID_IMPUESTO]) VALUES (@ID_LINEA,"& _ 
+                " @ID_IMPUESTO);"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"SELECT ID_LINEA, ID_IMPUESTO FROM Linea_Impuesto WHERE (ID_IMPU"& _ 
+                "ESTO = @ID_IMPUESTO) AND (ID_LINEA = @ID_LINEA)"
+            Me._adapter.InsertCommand.CommandType = System.Data.CommandType.Text
+            Me._adapter.InsertCommand.Parameters.Add(New System.Data.SqlClient.SqlParameter("@ID_LINEA", System.Data.SqlDbType.[Decimal], 0, System.Data.ParameterDirection.Input, 18, 0, "ID_LINEA", System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.InsertCommand.Parameters.Add(New System.Data.SqlClient.SqlParameter("@ID_IMPUESTO", System.Data.SqlDbType.[Decimal], 0, System.Data.ParameterDirection.Input, 18, 0, "ID_IMPUESTO", System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand = New System.Data.SqlClient.SqlCommand
+            Me._adapter.UpdateCommand.Connection = Me.Connection
+            Me._adapter.UpdateCommand.CommandText = "UPDATE [dbo].[Linea_Impuesto] SET [ID_LINEA] = @ID_LINEA, [ID_IMPUESTO] = @ID_IMP"& _ 
+                "UESTO WHERE (([ID_LINEA] = @Original_ID_LINEA) AND ([ID_IMPUESTO] = @Original_ID"& _ 
+                "_IMPUESTO));"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"SELECT ID_LINEA, ID_IMPUESTO FROM Linea_Impuesto WHERE (ID_IMPUEST"& _ 
+                "O = @ID_IMPUESTO) AND (ID_LINEA = @ID_LINEA)"
+            Me._adapter.UpdateCommand.CommandType = System.Data.CommandType.Text
+            Me._adapter.UpdateCommand.Parameters.Add(New System.Data.SqlClient.SqlParameter("@ID_LINEA", System.Data.SqlDbType.[Decimal], 0, System.Data.ParameterDirection.Input, 18, 0, "ID_LINEA", System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New System.Data.SqlClient.SqlParameter("@ID_IMPUESTO", System.Data.SqlDbType.[Decimal], 0, System.Data.ParameterDirection.Input, 18, 0, "ID_IMPUESTO", System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New System.Data.SqlClient.SqlParameter("@Original_ID_LINEA", System.Data.SqlDbType.[Decimal], 0, System.Data.ParameterDirection.Input, 18, 0, "ID_LINEA", System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New System.Data.SqlClient.SqlParameter("@Original_ID_IMPUESTO", System.Data.SqlDbType.[Decimal], 0, System.Data.ParameterDirection.Input, 18, 0, "ID_IMPUESTO", System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
+        End Sub
+        
+        <System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Private Sub InitConnection()
+            Me._connection = New System.Data.SqlClient.SqlConnection
+            Me._connection.ConnectionString = Global.FARMACIASJ.My.MySettings.Default.FarmaciaSJConnectionString1
+        End Sub
+        
+        <System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Private Sub InitCommandCollection()
+            Me._commandCollection = New System.Data.SqlClient.SqlCommand(0) {}
+            Me._commandCollection(0) = New System.Data.SqlClient.SqlCommand
+            Me._commandCollection(0).Connection = Me.Connection
+            Me._commandCollection(0).CommandText = "SELECT ID_LINEA, ID_IMPUESTO FROM dbo.Linea_Impuesto"
+            Me._commandCollection(0).CommandType = System.Data.CommandType.Text
+        End Sub
+        
+        <System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
+         System.ComponentModel.DataObjectMethodAttribute(System.ComponentModel.DataObjectMethodType.Fill, true)>  _
+        Public Overloads Overridable Function Fill(ByVal dataTable As FarmaciaSJDataSet.Linea_ImpuestoDataTable) As Integer
+            Me.Adapter.SelectCommand = Me.CommandCollection(0)
+            If (Me.ClearBeforeFill = true) Then
+                dataTable.Clear
+            End If
+            Dim returnValue As Integer = Me.Adapter.Fill(dataTable)
+            Return returnValue
+        End Function
+        
+        <System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
+         System.ComponentModel.DataObjectMethodAttribute(System.ComponentModel.DataObjectMethodType.[Select], true)>  _
+        Public Overloads Overridable Function GetData() As FarmaciaSJDataSet.Linea_ImpuestoDataTable
+            Me.Adapter.SelectCommand = Me.CommandCollection(0)
+            Dim dataTable As FarmaciaSJDataSet.Linea_ImpuestoDataTable = New FarmaciaSJDataSet.Linea_ImpuestoDataTable
+            Me.Adapter.Fill(dataTable)
+            Return dataTable
+        End Function
+        
+        <System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")>  _
+        Public Overloads Overridable Function Update(ByVal dataTable As FarmaciaSJDataSet.Linea_ImpuestoDataTable) As Integer
+            Return Me.Adapter.Update(dataTable)
+        End Function
+        
+        <System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")>  _
+        Public Overloads Overridable Function Update(ByVal dataSet As FarmaciaSJDataSet) As Integer
+            Return Me.Adapter.Update(dataSet, "Linea_Impuesto")
+        End Function
+        
+        <System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")>  _
+        Public Overloads Overridable Function Update(ByVal dataRow As System.Data.DataRow) As Integer
+            Return Me.Adapter.Update(New System.Data.DataRow() {dataRow})
+        End Function
+        
+        <System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")>  _
+        Public Overloads Overridable Function Update(ByVal dataRows() As System.Data.DataRow) As Integer
+            Return Me.Adapter.Update(dataRows)
+        End Function
+        
+        <System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
+         System.ComponentModel.DataObjectMethodAttribute(System.ComponentModel.DataObjectMethodType.Delete, true)>  _
+        Public Overloads Overridable Function Delete(ByVal Original_ID_LINEA As Decimal, ByVal Original_ID_IMPUESTO As Decimal) As Integer
+            Me.Adapter.DeleteCommand.Parameters(0).Value = CType(Original_ID_LINEA,Decimal)
+            Me.Adapter.DeleteCommand.Parameters(1).Value = CType(Original_ID_IMPUESTO,Decimal)
+            Dim previousConnectionState As System.Data.ConnectionState = Me.Adapter.DeleteCommand.Connection.State
+            If ((Me.Adapter.DeleteCommand.Connection.State And System.Data.ConnectionState.Open)  _
+                        <> System.Data.ConnectionState.Open) Then
+                Me.Adapter.DeleteCommand.Connection.Open
+            End If
+            Try 
+                Dim returnValue As Integer = Me.Adapter.DeleteCommand.ExecuteNonQuery
+                Return returnValue
+            Finally
+                If (previousConnectionState = System.Data.ConnectionState.Closed) Then
+                    Me.Adapter.DeleteCommand.Connection.Close
+                End If
+            End Try
+        End Function
+        
+        <System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
+         System.ComponentModel.DataObjectMethodAttribute(System.ComponentModel.DataObjectMethodType.Insert, true)>  _
+        Public Overloads Overridable Function Insert(ByVal ID_LINEA As Decimal, ByVal ID_IMPUESTO As Decimal) As Integer
+            Me.Adapter.InsertCommand.Parameters(0).Value = CType(ID_LINEA,Decimal)
+            Me.Adapter.InsertCommand.Parameters(1).Value = CType(ID_IMPUESTO,Decimal)
+            Dim previousConnectionState As System.Data.ConnectionState = Me.Adapter.InsertCommand.Connection.State
+            If ((Me.Adapter.InsertCommand.Connection.State And System.Data.ConnectionState.Open)  _
+                        <> System.Data.ConnectionState.Open) Then
+                Me.Adapter.InsertCommand.Connection.Open
+            End If
+            Try 
+                Dim returnValue As Integer = Me.Adapter.InsertCommand.ExecuteNonQuery
+                Return returnValue
+            Finally
+                If (previousConnectionState = System.Data.ConnectionState.Closed) Then
+                    Me.Adapter.InsertCommand.Connection.Close
+                End If
+            End Try
+        End Function
+        
+        <System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
+         System.ComponentModel.DataObjectMethodAttribute(System.ComponentModel.DataObjectMethodType.Update, true)>  _
+        Public Overloads Overridable Function Update(ByVal ID_LINEA As Decimal, ByVal ID_IMPUESTO As Decimal, ByVal Original_ID_LINEA As Decimal, ByVal Original_ID_IMPUESTO As Decimal) As Integer
+            Me.Adapter.UpdateCommand.Parameters(0).Value = CType(ID_LINEA,Decimal)
+            Me.Adapter.UpdateCommand.Parameters(1).Value = CType(ID_IMPUESTO,Decimal)
+            Me.Adapter.UpdateCommand.Parameters(2).Value = CType(Original_ID_LINEA,Decimal)
+            Me.Adapter.UpdateCommand.Parameters(3).Value = CType(Original_ID_IMPUESTO,Decimal)
+            Dim previousConnectionState As System.Data.ConnectionState = Me.Adapter.UpdateCommand.Connection.State
+            If ((Me.Adapter.UpdateCommand.Connection.State And System.Data.ConnectionState.Open)  _
+                        <> System.Data.ConnectionState.Open) Then
+                Me.Adapter.UpdateCommand.Connection.Open
+            End If
+            Try 
+                Dim returnValue As Integer = Me.Adapter.UpdateCommand.ExecuteNonQuery
+                Return returnValue
+            Finally
+                If (previousConnectionState = System.Data.ConnectionState.Closed) Then
+                    Me.Adapter.UpdateCommand.Connection.Close
+                End If
+            End Try
+        End Function
+    End Class
+    
+    <System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "2.0.0.0"),  _
+     System.ComponentModel.DesignerCategoryAttribute("code"),  _
+     System.ComponentModel.ToolboxItem(true),  _
+     System.ComponentModel.DataObjectAttribute(true),  _
+     System.ComponentModel.DesignerAttribute("Microsoft.VSDesigner.DataSource.Design.TableAdapterDesigner, Microsoft.VSDesigner"& _ 
+        ", Version=8.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a"),  _
+     System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")>  _
+    Partial Public Class DETALLE_VENTATableAdapter
+        Inherits System.ComponentModel.Component
+        
+        Private WithEvents _adapter As System.Data.SqlClient.SqlDataAdapter
+        
+        Private _connection As System.Data.SqlClient.SqlConnection
+        
+        Private _commandCollection() As System.Data.SqlClient.SqlCommand
+        
+        Private _clearBeforeFill As Boolean
+        
+        <System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public Sub New()
+            MyBase.New
+            Me.ClearBeforeFill = true
+        End Sub
+        
+        <System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Private ReadOnly Property Adapter() As System.Data.SqlClient.SqlDataAdapter
+            Get
+                If (Me._adapter Is Nothing) Then
+                    Me.InitAdapter
+                End If
+                Return Me._adapter
+            End Get
+        End Property
+        
+        <System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Friend Property Connection() As System.Data.SqlClient.SqlConnection
+            Get
+                If (Me._connection Is Nothing) Then
+                    Me.InitConnection
+                End If
+                Return Me._connection
+            End Get
+            Set
+                Me._connection = value
+                If (Not (Me.Adapter.InsertCommand) Is Nothing) Then
+                    Me.Adapter.InsertCommand.Connection = value
+                End If
+                If (Not (Me.Adapter.DeleteCommand) Is Nothing) Then
+                    Me.Adapter.DeleteCommand.Connection = value
+                End If
+                If (Not (Me.Adapter.UpdateCommand) Is Nothing) Then
+                    Me.Adapter.UpdateCommand.Connection = value
+                End If
+                Dim i As Integer = 0
+                Do While (i < Me.CommandCollection.Length)
+                    If (Not (Me.CommandCollection(i)) Is Nothing) Then
+                        CType(Me.CommandCollection(i),System.Data.SqlClient.SqlCommand).Connection = value
+                    End If
+                    i = (i + 1)
+                Loop
+            End Set
+        End Property
+        
+        <System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Protected ReadOnly Property CommandCollection() As System.Data.SqlClient.SqlCommand()
+            Get
+                If (Me._commandCollection Is Nothing) Then
+                    Me.InitCommandCollection
+                End If
+                Return Me._commandCollection
+            End Get
+        End Property
+        
+        <System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public Property ClearBeforeFill() As Boolean
+            Get
+                Return Me._clearBeforeFill
+            End Get
+            Set
+                Me._clearBeforeFill = value
+            End Set
+        End Property
+        
+        <System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Private Sub InitAdapter()
+            Me._adapter = New System.Data.SqlClient.SqlDataAdapter
+            Dim tableMapping As System.Data.Common.DataTableMapping = New System.Data.Common.DataTableMapping
+            tableMapping.SourceTable = "Table"
+            tableMapping.DataSetTable = "DETALLE_VENTA"
+            tableMapping.ColumnMappings.Add("ID_DETALLE_VENTA", "ID_DETALLE_VENTA")
+            tableMapping.ColumnMappings.Add("ID_VENTA", "ID_VENTA")
+            tableMapping.ColumnMappings.Add("Cantidad", "Cantidad")
+            tableMapping.ColumnMappings.Add("ID_LOTE", "ID_LOTE")
+            tableMapping.ColumnMappings.Add("ID_PRODUCTO", "ID_PRODUCTO")
+            Me._adapter.TableMappings.Add(tableMapping)
+            Me._adapter.DeleteCommand = New System.Data.SqlClient.SqlCommand
+            Me._adapter.DeleteCommand.Connection = Me.Connection
+            Me._adapter.DeleteCommand.CommandText = "DELETE FROM [dbo].[DETALLE_VENTA] WHERE (([ID_DETALLE_VENTA] = @Original_ID_DETAL"& _ 
+                "LE_VENTA) AND ([ID_VENTA] = @Original_ID_VENTA) AND ([Cantidad] = @Original_Cant"& _ 
+                "idad) AND ([ID_LOTE] = @Original_ID_LOTE) AND ([ID_PRODUCTO] = @Original_ID_PROD"& _ 
+                "UCTO))"
+            Me._adapter.DeleteCommand.CommandType = System.Data.CommandType.Text
+            Me._adapter.DeleteCommand.Parameters.Add(New System.Data.SqlClient.SqlParameter("@Original_ID_DETALLE_VENTA", System.Data.SqlDbType.[Decimal], 0, System.Data.ParameterDirection.Input, 18, 0, "ID_DETALLE_VENTA", System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
+            Me._adapter.DeleteCommand.Parameters.Add(New System.Data.SqlClient.SqlParameter("@Original_ID_VENTA", System.Data.SqlDbType.[Decimal], 0, System.Data.ParameterDirection.Input, 18, 0, "ID_VENTA", System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
+            Me._adapter.DeleteCommand.Parameters.Add(New System.Data.SqlClient.SqlParameter("@Original_Cantidad", System.Data.SqlDbType.[Decimal], 0, System.Data.ParameterDirection.Input, 18, 0, "Cantidad", System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
+            Me._adapter.DeleteCommand.Parameters.Add(New System.Data.SqlClient.SqlParameter("@Original_ID_LOTE", System.Data.SqlDbType.[Decimal], 0, System.Data.ParameterDirection.Input, 18, 0, "ID_LOTE", System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
+            Me._adapter.DeleteCommand.Parameters.Add(New System.Data.SqlClient.SqlParameter("@Original_ID_PRODUCTO", System.Data.SqlDbType.[Decimal], 0, System.Data.ParameterDirection.Input, 18, 0, "ID_PRODUCTO", System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
+            Me._adapter.InsertCommand = New System.Data.SqlClient.SqlCommand
+            Me._adapter.InsertCommand.Connection = Me.Connection
+            Me._adapter.InsertCommand.CommandText = "INSERT INTO [dbo].[DETALLE_VENTA] ([ID_DETALLE_VENTA], [ID_VENTA], [Cantidad], [I"& _ 
+                "D_LOTE], [ID_PRODUCTO]) VALUES (@ID_DETALLE_VENTA, @ID_VENTA, @Cantidad, @ID_LOT"& _ 
+                "E, @ID_PRODUCTO);"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"SELECT ID_DETALLE_VENTA, ID_VENTA, Cantidad, ID_LOTE, ID_PROD"& _ 
+                "UCTO FROM DETALLE_VENTA WHERE (ID_DETALLE_VENTA = @ID_DETALLE_VENTA) AND (ID_VEN"& _ 
+                "TA = @ID_VENTA)"
+            Me._adapter.InsertCommand.CommandType = System.Data.CommandType.Text
+            Me._adapter.InsertCommand.Parameters.Add(New System.Data.SqlClient.SqlParameter("@ID_DETALLE_VENTA", System.Data.SqlDbType.[Decimal], 0, System.Data.ParameterDirection.Input, 18, 0, "ID_DETALLE_VENTA", System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.InsertCommand.Parameters.Add(New System.Data.SqlClient.SqlParameter("@ID_VENTA", System.Data.SqlDbType.[Decimal], 0, System.Data.ParameterDirection.Input, 18, 0, "ID_VENTA", System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.InsertCommand.Parameters.Add(New System.Data.SqlClient.SqlParameter("@Cantidad", System.Data.SqlDbType.[Decimal], 0, System.Data.ParameterDirection.Input, 18, 0, "Cantidad", System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.InsertCommand.Parameters.Add(New System.Data.SqlClient.SqlParameter("@ID_LOTE", System.Data.SqlDbType.[Decimal], 0, System.Data.ParameterDirection.Input, 18, 0, "ID_LOTE", System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.InsertCommand.Parameters.Add(New System.Data.SqlClient.SqlParameter("@ID_PRODUCTO", System.Data.SqlDbType.[Decimal], 0, System.Data.ParameterDirection.Input, 18, 0, "ID_PRODUCTO", System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand = New System.Data.SqlClient.SqlCommand
+            Me._adapter.UpdateCommand.Connection = Me.Connection
+            Me._adapter.UpdateCommand.CommandText = "UPDATE [dbo].[DETALLE_VENTA] SET [ID_DETALLE_VENTA] = @ID_DETALLE_VENTA, [ID_VENT"& _ 
+                "A] = @ID_VENTA, [Cantidad] = @Cantidad, [ID_LOTE] = @ID_LOTE, [ID_PRODUCTO] = @I"& _ 
+                "D_PRODUCTO WHERE (([ID_DETALLE_VENTA] = @Original_ID_DETALLE_VENTA) AND ([ID_VEN"& _ 
+                "TA] = @Original_ID_VENTA) AND ([Cantidad] = @Original_Cantidad) AND ([ID_LOTE] ="& _ 
+                " @Original_ID_LOTE) AND ([ID_PRODUCTO] = @Original_ID_PRODUCTO));"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"SELECT ID_DET"& _ 
+                "ALLE_VENTA, ID_VENTA, Cantidad, ID_LOTE, ID_PRODUCTO FROM DETALLE_VENTA WHERE (I"& _ 
+                "D_DETALLE_VENTA = @ID_DETALLE_VENTA) AND (ID_VENTA = @ID_VENTA)"
+            Me._adapter.UpdateCommand.CommandType = System.Data.CommandType.Text
+            Me._adapter.UpdateCommand.Parameters.Add(New System.Data.SqlClient.SqlParameter("@ID_DETALLE_VENTA", System.Data.SqlDbType.[Decimal], 0, System.Data.ParameterDirection.Input, 18, 0, "ID_DETALLE_VENTA", System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New System.Data.SqlClient.SqlParameter("@ID_VENTA", System.Data.SqlDbType.[Decimal], 0, System.Data.ParameterDirection.Input, 18, 0, "ID_VENTA", System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New System.Data.SqlClient.SqlParameter("@Cantidad", System.Data.SqlDbType.[Decimal], 0, System.Data.ParameterDirection.Input, 18, 0, "Cantidad", System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New System.Data.SqlClient.SqlParameter("@ID_LOTE", System.Data.SqlDbType.[Decimal], 0, System.Data.ParameterDirection.Input, 18, 0, "ID_LOTE", System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New System.Data.SqlClient.SqlParameter("@ID_PRODUCTO", System.Data.SqlDbType.[Decimal], 0, System.Data.ParameterDirection.Input, 18, 0, "ID_PRODUCTO", System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New System.Data.SqlClient.SqlParameter("@Original_ID_DETALLE_VENTA", System.Data.SqlDbType.[Decimal], 0, System.Data.ParameterDirection.Input, 18, 0, "ID_DETALLE_VENTA", System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New System.Data.SqlClient.SqlParameter("@Original_ID_VENTA", System.Data.SqlDbType.[Decimal], 0, System.Data.ParameterDirection.Input, 18, 0, "ID_VENTA", System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New System.Data.SqlClient.SqlParameter("@Original_Cantidad", System.Data.SqlDbType.[Decimal], 0, System.Data.ParameterDirection.Input, 18, 0, "Cantidad", System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New System.Data.SqlClient.SqlParameter("@Original_ID_LOTE", System.Data.SqlDbType.[Decimal], 0, System.Data.ParameterDirection.Input, 18, 0, "ID_LOTE", System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New System.Data.SqlClient.SqlParameter("@Original_ID_PRODUCTO", System.Data.SqlDbType.[Decimal], 0, System.Data.ParameterDirection.Input, 18, 0, "ID_PRODUCTO", System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
+        End Sub
+        
+        <System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Private Sub InitConnection()
+            Me._connection = New System.Data.SqlClient.SqlConnection
+            Me._connection.ConnectionString = Global.FARMACIASJ.My.MySettings.Default.FarmaciaSJConnectionString1
+        End Sub
+        
+        <System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Private Sub InitCommandCollection()
+            Me._commandCollection = New System.Data.SqlClient.SqlCommand(0) {}
+            Me._commandCollection(0) = New System.Data.SqlClient.SqlCommand
+            Me._commandCollection(0).Connection = Me.Connection
+            Me._commandCollection(0).CommandText = "SELECT ID_DETALLE_VENTA, ID_VENTA, Cantidad, ID_LOTE, ID_PRODUCTO FROM dbo.DETALL"& _ 
+                "E_VENTA"
+            Me._commandCollection(0).CommandType = System.Data.CommandType.Text
+        End Sub
+        
+        <System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
+         System.ComponentModel.DataObjectMethodAttribute(System.ComponentModel.DataObjectMethodType.Fill, true)>  _
+        Public Overloads Overridable Function Fill(ByVal dataTable As FarmaciaSJDataSet.DETALLE_VENTADataTable) As Integer
+            Me.Adapter.SelectCommand = Me.CommandCollection(0)
+            If (Me.ClearBeforeFill = true) Then
+                dataTable.Clear
+            End If
+            Dim returnValue As Integer = Me.Adapter.Fill(dataTable)
+            Return returnValue
+        End Function
+        
+        <System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
+         System.ComponentModel.DataObjectMethodAttribute(System.ComponentModel.DataObjectMethodType.[Select], true)>  _
+        Public Overloads Overridable Function GetData() As FarmaciaSJDataSet.DETALLE_VENTADataTable
+            Me.Adapter.SelectCommand = Me.CommandCollection(0)
+            Dim dataTable As FarmaciaSJDataSet.DETALLE_VENTADataTable = New FarmaciaSJDataSet.DETALLE_VENTADataTable
+            Me.Adapter.Fill(dataTable)
+            Return dataTable
+        End Function
+        
+        <System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")>  _
+        Public Overloads Overridable Function Update(ByVal dataTable As FarmaciaSJDataSet.DETALLE_VENTADataTable) As Integer
+            Return Me.Adapter.Update(dataTable)
+        End Function
+        
+        <System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")>  _
+        Public Overloads Overridable Function Update(ByVal dataSet As FarmaciaSJDataSet) As Integer
+            Return Me.Adapter.Update(dataSet, "DETALLE_VENTA")
+        End Function
+        
+        <System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")>  _
+        Public Overloads Overridable Function Update(ByVal dataRow As System.Data.DataRow) As Integer
+            Return Me.Adapter.Update(New System.Data.DataRow() {dataRow})
+        End Function
+        
+        <System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")>  _
+        Public Overloads Overridable Function Update(ByVal dataRows() As System.Data.DataRow) As Integer
+            Return Me.Adapter.Update(dataRows)
+        End Function
+        
+        <System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
+         System.ComponentModel.DataObjectMethodAttribute(System.ComponentModel.DataObjectMethodType.Delete, true)>  _
+        Public Overloads Overridable Function Delete(ByVal Original_ID_DETALLE_VENTA As Decimal, ByVal Original_ID_VENTA As Decimal, ByVal Original_Cantidad As Decimal, ByVal Original_ID_LOTE As Decimal, ByVal Original_ID_PRODUCTO As Decimal) As Integer
+            Me.Adapter.DeleteCommand.Parameters(0).Value = CType(Original_ID_DETALLE_VENTA,Decimal)
+            Me.Adapter.DeleteCommand.Parameters(1).Value = CType(Original_ID_VENTA,Decimal)
+            Me.Adapter.DeleteCommand.Parameters(2).Value = CType(Original_Cantidad,Decimal)
+            Me.Adapter.DeleteCommand.Parameters(3).Value = CType(Original_ID_LOTE,Decimal)
+            Me.Adapter.DeleteCommand.Parameters(4).Value = CType(Original_ID_PRODUCTO,Decimal)
+            Dim previousConnectionState As System.Data.ConnectionState = Me.Adapter.DeleteCommand.Connection.State
+            If ((Me.Adapter.DeleteCommand.Connection.State And System.Data.ConnectionState.Open)  _
+                        <> System.Data.ConnectionState.Open) Then
+                Me.Adapter.DeleteCommand.Connection.Open
+            End If
+            Try 
+                Dim returnValue As Integer = Me.Adapter.DeleteCommand.ExecuteNonQuery
+                Return returnValue
+            Finally
+                If (previousConnectionState = System.Data.ConnectionState.Closed) Then
+                    Me.Adapter.DeleteCommand.Connection.Close
+                End If
+            End Try
+        End Function
+        
+        <System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
+         System.ComponentModel.DataObjectMethodAttribute(System.ComponentModel.DataObjectMethodType.Insert, true)>  _
+        Public Overloads Overridable Function Insert(ByVal ID_DETALLE_VENTA As Decimal, ByVal ID_VENTA As Decimal, ByVal Cantidad As Decimal, ByVal ID_LOTE As Decimal, ByVal ID_PRODUCTO As Decimal) As Integer
+            Me.Adapter.InsertCommand.Parameters(0).Value = CType(ID_DETALLE_VENTA,Decimal)
+            Me.Adapter.InsertCommand.Parameters(1).Value = CType(ID_VENTA,Decimal)
+            Me.Adapter.InsertCommand.Parameters(2).Value = CType(Cantidad,Decimal)
+            Me.Adapter.InsertCommand.Parameters(3).Value = CType(ID_LOTE,Decimal)
+            Me.Adapter.InsertCommand.Parameters(4).Value = CType(ID_PRODUCTO,Decimal)
+            Dim previousConnectionState As System.Data.ConnectionState = Me.Adapter.InsertCommand.Connection.State
+            If ((Me.Adapter.InsertCommand.Connection.State And System.Data.ConnectionState.Open)  _
+                        <> System.Data.ConnectionState.Open) Then
+                Me.Adapter.InsertCommand.Connection.Open
+            End If
+            Try 
+                Dim returnValue As Integer = Me.Adapter.InsertCommand.ExecuteNonQuery
+                Return returnValue
+            Finally
+                If (previousConnectionState = System.Data.ConnectionState.Closed) Then
+                    Me.Adapter.InsertCommand.Connection.Close
+                End If
+            End Try
+        End Function
+        
+        <System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
+         System.ComponentModel.DataObjectMethodAttribute(System.ComponentModel.DataObjectMethodType.Update, true)>  _
+        Public Overloads Overridable Function Update(ByVal ID_DETALLE_VENTA As Decimal, ByVal ID_VENTA As Decimal, ByVal Cantidad As Decimal, ByVal ID_LOTE As Decimal, ByVal ID_PRODUCTO As Decimal, ByVal Original_ID_DETALLE_VENTA As Decimal, ByVal Original_ID_VENTA As Decimal, ByVal Original_Cantidad As Decimal, ByVal Original_ID_LOTE As Decimal, ByVal Original_ID_PRODUCTO As Decimal) As Integer
+            Me.Adapter.UpdateCommand.Parameters(0).Value = CType(ID_DETALLE_VENTA,Decimal)
+            Me.Adapter.UpdateCommand.Parameters(1).Value = CType(ID_VENTA,Decimal)
+            Me.Adapter.UpdateCommand.Parameters(2).Value = CType(Cantidad,Decimal)
+            Me.Adapter.UpdateCommand.Parameters(3).Value = CType(ID_LOTE,Decimal)
+            Me.Adapter.UpdateCommand.Parameters(4).Value = CType(ID_PRODUCTO,Decimal)
+            Me.Adapter.UpdateCommand.Parameters(5).Value = CType(Original_ID_DETALLE_VENTA,Decimal)
+            Me.Adapter.UpdateCommand.Parameters(6).Value = CType(Original_ID_VENTA,Decimal)
+            Me.Adapter.UpdateCommand.Parameters(7).Value = CType(Original_Cantidad,Decimal)
+            Me.Adapter.UpdateCommand.Parameters(8).Value = CType(Original_ID_LOTE,Decimal)
+            Me.Adapter.UpdateCommand.Parameters(9).Value = CType(Original_ID_PRODUCTO,Decimal)
             Dim previousConnectionState As System.Data.ConnectionState = Me.Adapter.UpdateCommand.Connection.State
             If ((Me.Adapter.UpdateCommand.Connection.State And System.Data.ConnectionState.Open)  _
                         <> System.Data.ConnectionState.Open) Then

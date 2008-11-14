@@ -41,8 +41,6 @@ Partial Class Realizar_Venta
         Me.Numero = New System.Windows.Forms.TextBox
         Me.Numero_Factura = New System.Windows.Forms.Label
         Me.Detalle_Venta = New System.Windows.Forms.DataGridView
-        Me.FarmaciaSJDataSetBindingSource = New System.Windows.Forms.BindingSource(Me.components)
-        Me.FarmaciaSJDataSet = New FARMACIASJ.FarmaciaSJDataSet
         Me.GroupBox3 = New System.Windows.Forms.GroupBox
         Me.Cantidad = New System.Windows.Forms.TextBox
         Me.Label18 = New System.Windows.Forms.Label
@@ -67,13 +65,16 @@ Partial Class Realizar_Venta
         Me.Sub_Total = New System.Windows.Forms.TextBox
         Me.Label8 = New System.Windows.Forms.Label
         Me.Button2 = New System.Windows.Forms.Button
+        Me.Button3 = New System.Windows.Forms.Button
+        Me.FarmaciaSJDataSetBindingSource = New System.Windows.Forms.BindingSource(Me.components)
+        Me.FarmaciaSJDataSet = New FARMACIASJ.FarmaciaSJDataSet
         Me.GroupBox1.SuspendLayout()
         Me.GroupBox2.SuspendLayout()
         CType(Me.Detalle_Venta, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.FarmaciaSJDataSetBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.FarmaciaSJDataSet, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.GroupBox3.SuspendLayout()
         Me.GroupBox4.SuspendLayout()
+        CType(Me.FarmaciaSJDataSetBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.FarmaciaSJDataSet, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'GroupBox1
@@ -281,16 +282,6 @@ Partial Class Realizar_Venta
         Me.Detalle_Venta.Size = New System.Drawing.Size(660, 125)
         Me.Detalle_Venta.TabIndex = 2
         '
-        'FarmaciaSJDataSetBindingSource
-        '
-        Me.FarmaciaSJDataSetBindingSource.DataSource = Me.FarmaciaSJDataSet
-        Me.FarmaciaSJDataSetBindingSource.Position = 0
-        '
-        'FarmaciaSJDataSet
-        '
-        Me.FarmaciaSJDataSet.DataSetName = "FarmaciaSJDataSet"
-        Me.FarmaciaSJDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema
-        '
         'GroupBox3
         '
         Me.GroupBox3.Controls.Add(Me.Cantidad)
@@ -333,7 +324,7 @@ Partial Class Realizar_Venta
         '
         'Button1
         '
-        Me.Button1.Location = New System.Drawing.Point(228, 93)
+        Me.Button1.Location = New System.Drawing.Point(367, 92)
         Me.Button1.Name = "Button1"
         Me.Button1.Size = New System.Drawing.Size(106, 23)
         Me.Button1.TabIndex = 12
@@ -342,7 +333,8 @@ Partial Class Realizar_Venta
         '
         'SubtotalP
         '
-        Me.SubtotalP.Location = New System.Drawing.Point(393, 67)
+        Me.SubtotalP.Enabled = False
+        Me.SubtotalP.Location = New System.Drawing.Point(393, 66)
         Me.SubtotalP.Name = "SubtotalP"
         Me.SubtotalP.Size = New System.Drawing.Size(90, 20)
         Me.SubtotalP.TabIndex = 11
@@ -350,7 +342,7 @@ Partial Class Realizar_Venta
         'Label16
         '
         Me.Label16.AutoSize = True
-        Me.Label16.Location = New System.Drawing.Point(340, 70)
+        Me.Label16.Location = New System.Drawing.Point(340, 69)
         Me.Label16.Name = "Label16"
         Me.Label16.Size = New System.Drawing.Size(49, 13)
         Me.Label16.TabIndex = 10
@@ -358,6 +350,7 @@ Partial Class Realizar_Venta
         '
         'Descuento
         '
+        Me.Descuento.Enabled = False
         Me.Descuento.Location = New System.Drawing.Point(97, 95)
         Me.Descuento.Name = "Descuento"
         Me.Descuento.Size = New System.Drawing.Size(90, 20)
@@ -374,6 +367,7 @@ Partial Class Realizar_Venta
         '
         'Descripcion
         '
+        Me.Descripcion.Enabled = False
         Me.Descripcion.Location = New System.Drawing.Point(266, 18)
         Me.Descripcion.Name = "Descripcion"
         Me.Descripcion.Size = New System.Drawing.Size(217, 39)
@@ -391,6 +385,7 @@ Partial Class Realizar_Venta
         '
         'Punitario
         '
+        Me.Punitario.Enabled = False
         Me.Punitario.Location = New System.Drawing.Point(97, 70)
         Me.Punitario.Name = "Punitario"
         Me.Punitario.Size = New System.Drawing.Size(90, 20)
@@ -407,6 +402,7 @@ Partial Class Realizar_Venta
         '
         'NombreP
         '
+        Me.NombreP.Enabled = False
         Me.NombreP.Location = New System.Drawing.Point(97, 44)
         Me.NombreP.Name = "NombreP"
         Me.NombreP.Size = New System.Drawing.Size(90, 20)
@@ -426,9 +422,9 @@ Partial Class Realizar_Venta
         Me.Label11.AutoSize = True
         Me.Label11.Location = New System.Drawing.Point(15, 21)
         Me.Label11.Name = "Label11"
-        Me.Label11.Size = New System.Drawing.Size(76, 13)
+        Me.Label11.Size = New System.Drawing.Size(40, 13)
         Me.Label11.TabIndex = 1
-        Me.Label11.Text = "Codigo_Barras"
+        Me.Label11.Text = "Codigo"
         '
         'Codigo_Barras
         '
@@ -454,10 +450,12 @@ Partial Class Realizar_Venta
         '
         'Total
         '
+        Me.Total.Enabled = False
         Me.Total.Location = New System.Drawing.Point(71, 80)
         Me.Total.Name = "Total"
         Me.Total.Size = New System.Drawing.Size(83, 20)
         Me.Total.TabIndex = 5
+        Me.Total.Text = "0,0"
         '
         'Label10
         '
@@ -470,10 +468,12 @@ Partial Class Realizar_Venta
         '
         'Impuesto
         '
+        Me.Impuesto.Enabled = False
         Me.Impuesto.Location = New System.Drawing.Point(71, 54)
         Me.Impuesto.Name = "Impuesto"
         Me.Impuesto.Size = New System.Drawing.Size(83, 20)
         Me.Impuesto.TabIndex = 3
+        Me.Impuesto.Text = "0,0"
         '
         'Label9
         '
@@ -486,10 +486,12 @@ Partial Class Realizar_Venta
         '
         'Sub_Total
         '
+        Me.Sub_Total.Enabled = False
         Me.Sub_Total.Location = New System.Drawing.Point(71, 28)
         Me.Sub_Total.Name = "Sub_Total"
         Me.Sub_Total.Size = New System.Drawing.Size(83, 20)
         Me.Sub_Total.TabIndex = 1
+        Me.Sub_Total.Text = "0,0"
         '
         'Label8
         '
@@ -502,18 +504,38 @@ Partial Class Realizar_Venta
         '
         'Button2
         '
-        Me.Button2.Location = New System.Drawing.Point(298, 480)
+        Me.Button2.Location = New System.Drawing.Point(457, 480)
         Me.Button2.Name = "Button2"
         Me.Button2.Size = New System.Drawing.Size(110, 23)
         Me.Button2.TabIndex = 5
         Me.Button2.Text = "Procesar"
         Me.Button2.UseVisualStyleBackColor = True
         '
+        'Button3
+        '
+        Me.Button3.Location = New System.Drawing.Point(573, 480)
+        Me.Button3.Name = "Button3"
+        Me.Button3.Size = New System.Drawing.Size(110, 23)
+        Me.Button3.TabIndex = 6
+        Me.Button3.Text = "Cancelar"
+        Me.Button3.UseVisualStyleBackColor = True
+        '
+        'FarmaciaSJDataSetBindingSource
+        '
+        Me.FarmaciaSJDataSetBindingSource.DataSource = Me.FarmaciaSJDataSet
+        Me.FarmaciaSJDataSetBindingSource.Position = 0
+        '
+        'FarmaciaSJDataSet
+        '
+        Me.FarmaciaSJDataSet.DataSetName = "FarmaciaSJDataSet"
+        Me.FarmaciaSJDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema
+        '
         'Realizar_Venta
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(692, 535)
+        Me.ClientSize = New System.Drawing.Size(692, 505)
+        Me.Controls.Add(Me.Button3)
         Me.Controls.Add(Me.Button2)
         Me.Controls.Add(Me.GroupBox4)
         Me.Controls.Add(Me.GroupBox3)
@@ -527,12 +549,12 @@ Partial Class Realizar_Venta
         Me.GroupBox2.ResumeLayout(False)
         Me.GroupBox2.PerformLayout()
         CType(Me.Detalle_Venta, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.FarmaciaSJDataSetBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.FarmaciaSJDataSet, System.ComponentModel.ISupportInitialize).EndInit()
         Me.GroupBox3.ResumeLayout(False)
         Me.GroupBox3.PerformLayout()
         Me.GroupBox4.ResumeLayout(False)
         Me.GroupBox4.PerformLayout()
+        CType(Me.FarmaciaSJDataSetBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.FarmaciaSJDataSet, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
 
     End Sub
@@ -583,4 +605,5 @@ Partial Class Realizar_Venta
     Friend WithEvents Label17 As System.Windows.Forms.Label
     Friend WithEvents Cantidad As System.Windows.Forms.TextBox
     Friend WithEvents Label18 As System.Windows.Forms.Label
+    Friend WithEvents Button3 As System.Windows.Forms.Button
 End Class

@@ -11,6 +11,8 @@ Public Class Controlador_Producto
     Public Function Buscar_CodigoBarras(ByVal Codigo As String, ByVal Venta As Realizar_Venta) As Boolean
         Dim Producto As Producto
         Dim Lotes As Data.SqlClient.SqlDataReader
+        Dim Impuestos As Data.SqlClient.SqlDataReader
+        Dim CImpuestos As Integer
         Dim ELotes As Elegir_Lote
         Dim Cadena As String
         Producto = New Producto
@@ -18,6 +20,8 @@ Public Class Controlador_Producto
         Dim filas As Integer
         Lotes = Producto.Buscar_CodigoBarras(Codigo, Venta)
         filas = Producto.Cantidad_Filas(Codigo)
+        Impuestos = Producto.Impuestos(Codigo)
+        CImpuestos = Producto.Cantidad_Impuestos(Codigo)
         If (filas = 1) Then
             If (Lotes.Read = True) Then
                 Venta.ID_Producto = Lotes.Item(0).ToString
@@ -29,6 +33,17 @@ Public Class Controlador_Producto
                 Venta.Descuento.Text = Lotes.Item(7).ToString
                 Venta.Cantidad.Text = 0.0
                 Venta.SubtotalP.Text = 0.0
+                Venta.ImpuestoP = 0.0
+                If (CImpuestos > 0) Then
+                    i = 0
+                    Do While (Impuestos.Read() = True)
+                        Venta.ID_Impuesto(i) = Impuestos.Item(1).ToString
+                        Venta.ID_Historico_Impuesto(i) = Impuestos.Item(0).ToString
+                        Venta.ValorI(i) = Impuestos.Item(2).ToString
+                        i = i + 1
+                    Loop
+                    Venta.CImpuestos = CImpuestos
+                End If
                 Return True
             End If
         ElseIf (filas > 1) Then
@@ -48,6 +63,16 @@ Public Class Controlador_Producto
                 Descuentos(i) = Lotes.Item(7).ToString
                 i = i + 1
             Loop
+            If (CImpuestos > 0) Then
+                i = 0
+                Do While (Impuestos.Read() = True)
+                    Venta.ID_Impuesto(i) = Impuestos.Item(1).ToString
+                    Venta.ID_Historico_Impuesto(i) = Impuestos.Item(0).ToString
+                    Venta.ValorI(i) = Impuestos.Item(2).ToString
+                    i = i + 1
+                Loop
+                Venta.CImpuestos = CImpuestos
+            End If
             ELotes.ControladorP = Me
             ELotes.Show()
             Return True
