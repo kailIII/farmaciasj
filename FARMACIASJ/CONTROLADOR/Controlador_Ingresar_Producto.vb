@@ -115,7 +115,7 @@ Public Class Controlador_Ingresar_Producto
             Consulta.CommandText = "select id_proveedor from proveedor where nombre = '" & proveedor & "'"
             mars = Consulta.ExecuteReader()
             codigoproveedor = Integer.Parse(mars.Item(0).ToString)
-            Consulta.CommandText = "INSERT INTO PRODUCTO (NOMBRE,CODIGO_DE_BARRAS,CODIGO,DESCRIPCION,GRAVADO_EXENTO,UNIDADES_POR_PAQUETE,ID_LINEA) VALUES ('" & codigo_barras & "','" & codigo & "','" & nombre_producto & "','" & desc_producto & "','" & ge_producto & "','" & u_producto & "','" & proveedor & "')"
+            Consulta.CommandText = "INSERT INTO PRODUCTO (NOMBRE,CODIGO_DE_BARRAS,CODIGO,DESCRIPCION,GRAVADO_EXENTO,UNIDADES_POR_PAQUETE,ID_LINEA) VALUES ('" & codigo_barras & "','" & codigo & "','" & nombre_producto & "','" & desc_producto & "','" & ge_producto & "','" & u_producto & "')"
             Consulta.ExecuteReader()
             Consulta.CommandText = "select id_producto from producto where codigo = '" & codigo & "'"
             mars = Consulta.ExecuteReader()
