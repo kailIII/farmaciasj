@@ -20,6 +20,11 @@ Partial Class Ingresar_Proveedor
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
         Me.GroupBox1 = New System.Windows.Forms.GroupBox
+        Me.Label9 = New System.Windows.Forms.Label
+        Me.Cod_producto = New System.Windows.Forms.TextBox
+        Me.Label8 = New System.Windows.Forms.Label
+        Me.Productos_asociados = New System.Windows.Forms.DataGridView
+        Me.FarmaciaSJDataSet = New FARMACIASJ.FarmaciaSJDataSet
         Me.Boton_Registrar = New System.Windows.Forms.Button
         Me.Saldo = New System.Windows.Forms.TextBox
         Me.Ciudad = New System.Windows.Forms.TextBox
@@ -35,11 +40,18 @@ Partial Class Ingresar_Proveedor
         Me.Label3 = New System.Windows.Forms.Label
         Me.Label2 = New System.Windows.Forms.Label
         Me.Label1 = New System.Windows.Forms.Label
+        Me.PRODUCTOTableAdapter = New FARMACIASJ.FarmaciaSJDataSetTableAdapters.PRODUCTOTableAdapter
         Me.GroupBox1.SuspendLayout()
+        CType(Me.Productos_asociados, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.FarmaciaSJDataSet, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'GroupBox1
         '
+        Me.GroupBox1.Controls.Add(Me.Label9)
+        Me.GroupBox1.Controls.Add(Me.Cod_producto)
+        Me.GroupBox1.Controls.Add(Me.Label8)
+        Me.GroupBox1.Controls.Add(Me.Productos_asociados)
         Me.GroupBox1.Controls.Add(Me.Boton_Registrar)
         Me.GroupBox1.Controls.Add(Me.Saldo)
         Me.GroupBox1.Controls.Add(Me.Ciudad)
@@ -55,16 +67,54 @@ Partial Class Ingresar_Proveedor
         Me.GroupBox1.Controls.Add(Me.Label3)
         Me.GroupBox1.Controls.Add(Me.Label2)
         Me.GroupBox1.Controls.Add(Me.Label1)
-        Me.GroupBox1.Location = New System.Drawing.Point(13, 13)
+        Me.GroupBox1.Location = New System.Drawing.Point(12, 12)
         Me.GroupBox1.Name = "GroupBox1"
-        Me.GroupBox1.Size = New System.Drawing.Size(347, 296)
+        Me.GroupBox1.Size = New System.Drawing.Size(347, 514)
         Me.GroupBox1.TabIndex = 0
         Me.GroupBox1.TabStop = False
         Me.GroupBox1.Text = "Registrar Proveedor"
         '
+        'Label9
+        '
+        Me.Label9.AutoSize = True
+        Me.Label9.Location = New System.Drawing.Point(6, 289)
+        Me.Label9.Name = "Label9"
+        Me.Label9.Size = New System.Drawing.Size(100, 13)
+        Me.Label9.TabIndex = 18
+        Me.Label9.Text = "Código de producto"
+        '
+        'Cod_producto
+        '
+        Me.Cod_producto.Location = New System.Drawing.Point(112, 286)
+        Me.Cod_producto.Name = "Cod_producto"
+        Me.Cod_producto.Size = New System.Drawing.Size(212, 20)
+        Me.Cod_producto.TabIndex = 17
+        '
+        'Label8
+        '
+        Me.Label8.AutoSize = True
+        Me.Label8.Location = New System.Drawing.Point(4, 315)
+        Me.Label8.Name = "Label8"
+        Me.Label8.Size = New System.Drawing.Size(106, 13)
+        Me.Label8.TabIndex = 16
+        Me.Label8.Text = "Productos asociados"
+        '
+        'Productos_asociados
+        '
+        Me.Productos_asociados.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
+        Me.Productos_asociados.Location = New System.Drawing.Point(7, 331)
+        Me.Productos_asociados.Name = "Productos_asociados"
+        Me.Productos_asociados.Size = New System.Drawing.Size(334, 145)
+        Me.Productos_asociados.TabIndex = 15
+        '
+        'FarmaciaSJDataSet
+        '
+        Me.FarmaciaSJDataSet.DataSetName = "FarmaciaSJDataSet"
+        Me.FarmaciaSJDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema
+        '
         'Boton_Registrar
         '
-        Me.Boton_Registrar.Location = New System.Drawing.Point(248, 256)
+        Me.Boton_Registrar.Location = New System.Drawing.Point(266, 482)
         Me.Boton_Registrar.Name = "Boton_Registrar"
         Me.Boton_Registrar.Size = New System.Drawing.Size(75, 23)
         Me.Boton_Registrar.TabIndex = 14
@@ -184,16 +234,22 @@ Partial Class Ingresar_Proveedor
         Me.Label1.TabIndex = 0
         Me.Label1.Text = "Código"
         '
+        'PRODUCTOTableAdapter
+        '
+        Me.PRODUCTOTableAdapter.ClearBeforeFill = True
+        '
         'Ingresar_Proveedor
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(372, 321)
+        Me.ClientSize = New System.Drawing.Size(372, 541)
         Me.Controls.Add(Me.GroupBox1)
         Me.Name = "Ingresar_Proveedor"
         Me.Text = "Proveedor"
         Me.GroupBox1.ResumeLayout(False)
         Me.GroupBox1.PerformLayout()
+        CType(Me.Productos_asociados, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.FarmaciaSJDataSet, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
 
     End Sub
@@ -213,4 +269,10 @@ Partial Class Ingresar_Proveedor
     Friend WithEvents Dir As System.Windows.Forms.RichTextBox
     Friend WithEvents Correo As System.Windows.Forms.TextBox
     Friend WithEvents Boton_Registrar As System.Windows.Forms.Button
+    Friend WithEvents Productos_asociados As System.Windows.Forms.DataGridView
+    Friend WithEvents Label8 As System.Windows.Forms.Label
+    Friend WithEvents Label9 As System.Windows.Forms.Label
+    Friend WithEvents Cod_producto As System.Windows.Forms.TextBox
+    Friend WithEvents FarmaciaSJDataSet As FARMACIASJ.FarmaciaSJDataSet
+    Friend WithEvents PRODUCTOTableAdapter As FARMACIASJ.FarmaciaSJDataSetTableAdapters.PRODUCTOTableAdapter
 End Class

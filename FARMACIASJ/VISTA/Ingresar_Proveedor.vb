@@ -6,6 +6,30 @@ Public Class Ingresar_Proveedor
         'Acá pensé ponerle la parte del boton modificar cuando lo accionamos para habilitar los campos
         'pero a la final lo coloqué en controlador
         Controlador_Proveedor.Ingresando_Proveedor(Me, Codigo.Text, Rif.Text, Nombre.Text, Correo.Text, Dir.Text, Ciudad.Text, Saldo.Text)
+        'Registrando los productos_proveedor
+        '
         ''Me.Close()
     End Sub
+
+    Private Sub Ingresar_Proveedor_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
+        'TODO: esta línea de código carga datos en la tabla 'FarmaciaSJDataSet.PRODUCTO' Puede moverla o quitarla según sea necesario.
+        Me.PRODUCTOTableAdapter.Fill(Me.FarmaciaSJDataSet.PRODUCTO)
+        'TODO: esta línea de código carga datos en la tabla 'FarmaciaSJDataSet.PRODUCTO' Puede moverla o quitarla según sea necesario.
+        '        Me.PRODUCTOTableAdapter.Fill(Me.FarmaciaSJDataSet.PRODUCTO)
+
+    End Sub
+
+
+
+    Private Sub Cod_producto_TextChanged(ByVal sender As System.Object, ByVal e As Windows.Forms.KeyPressEventArgs) Handles Cod_producto.KeyPress
+        Dim Proveedor_x As Controlador_Proveedor = New Controlador_Proveedor
+
+        If (e.KeyChar = Char.ConvertFromUtf32(13)) Then
+            ' Si existe el codigo de barras lo deberia insertar en el datagrid
+            If (Proveedor_x.Productos_Relacionados(Me.Cod_producto.Text)) Then
+                Proveedor_x.Actualizar_Datagrid(Me)
+            End If
+        End If
+    End Sub
+
 End Class

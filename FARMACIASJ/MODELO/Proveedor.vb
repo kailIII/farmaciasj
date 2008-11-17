@@ -1,13 +1,33 @@
 Public Class Proveedor
     Public BasedeDatos As FarmaciaSJDataSet
 
+    Public Function Ingresar_Proveedor_Producto(ByVal Arreglo As Array) As Boolean
+
+        Dim Adaptador As FarmaciaSJDataSetTableAdapters.PROVEEDORTableAdapter
+        Try
+            BasedeDatos = New FarmaciaSJDataSet
+            Adaptador = New FarmaciaSJDataSetTableAdapters.PROVEEDORTableAdapter
+            ' Insert BD
+            'Adaptador.Insert(Codigo, Rif, Nombre, Correo, Ciudad, Dir, Saldo, "Activa")
+            ' Commit
+            Adaptador.Update(BasedeDatos.PROVEEDOR)
+            Return True
+        Catch ex As ArgumentNullException
+            Return False
+        End Try
+
+
+        Return False
+
+    End Function
+
     Public Function Ingresar_Proveedor(ByVal Codigo As String, ByVal Rif As String, ByVal Nombre As String, ByVal Correo As String, ByVal Dir As String, ByVal Ciudad As String, ByVal Saldo As Double) As Boolean
 
         Dim Adaptador As FarmaciaSJDataSetTableAdapters.PROVEEDORTableAdapter
         Try
             BasedeDatos = New FarmaciaSJDataSet
             Adaptador = New FarmaciaSJDataSetTableAdapters.PROVEEDORTableAdapter
-            'insert bd
+            ' Insert BD
             Adaptador.Insert(Codigo, Rif, Nombre, Correo, Ciudad, Dir, Saldo, "Activa")
             ' Commit
             Adaptador.Update(BasedeDatos.PROVEEDOR)
@@ -32,7 +52,7 @@ Public Class Proveedor
 
             Dim Reder As Data.SqlClient.SqlDataReader = Consulta.ExecuteReader()
             If (Reder.Read = True) Then
-                Return Reder.Item(0).ToString
+                Return CInt(Reder.Item(0).ToString())
             Else
                 Return 0
             End If
@@ -57,7 +77,7 @@ Public Class Proveedor
 
                 Dim Reder As Data.SqlClient.SqlDataReader = Consulta.ExecuteReader()
                 If (Reder.Read = True) Then
-                    Ventana_Modificar_Proveedor.Codigo.Text = Reder.Item(0).ToString
+                    Ventana_Modificar_Proveedor.Codigo.Text = Reder.Item(0).ToString()
                     Ventana_Modificar_Proveedor.Rif.Text = Reder.Item(1).ToString()
                     Ventana_Modificar_Proveedor.Nombre.Text = Reder.Item(2).ToString()
                     Ventana_Modificar_Proveedor.Correo.Text = Reder.Item(3).ToString()
@@ -70,6 +90,55 @@ Public Class Proveedor
         End If
 
     End Sub
+
+
+
+    Public Function Arreglo_Productos(ByVal Arreglo As Array) As String
+        Dim myEnumerator As System.Collections.IEnumerator = Arreglo.GetEnumerator()
+        Dim Cadena As String
+        Dim i As Integer = 0
+        Dim cols As Integer = Arreglo.GetLength((Arreglo.Rank - 1))
+        While myEnumerator.MoveNext() And Arreglo.GetValue(i) <> 0
+
+
+
+            If i < cols Then
+                If (i <> 0) Then
+                    Cadena = Cadena & CStr(Arreglo.GetValue(i)) & ","
+                Else
+                    Cadena = CStr(Arreglo.GetValue(i))
+                End If
+
+            Else
+                Cadena = CStr(Arreglo.GetValue(i))
+
+                i = 1
+            End If
+                i += 1
+        End While
+
+
+        Return Cadena
+    End Function
+
+
+
+    Public Function Mostrar_datagrid(ByVal Arreglo As Array) As Data.DataTable
+
+
+
+
+        Dim Bd As FarmaciaSJDataSet = New FarmaciaSJDataSet
+        Dim Detalle As FarmaciaSJDataSetTableAdapters.DETALLE_VENTATableAdapter = New FarmaciaSJDataSetTableAdapters.DETALLE_VENTATableAdapter
+        Dim cn As Data.SqlClient.SqlConnection = New Data.SqlClient.SqlConnection(Detalle.Connection.ConnectionString)
+        Dim sql As String = "SELECT CODIGO_DE_BARRAS as CODIGO, NOMBRE, DESCRIPCION FROM PRODUCTO WHERE ID_PRODUCTO IN ('" & Arreglo_Productos(Arreglo) & "')"
+        Dim da As Data.SqlClient.SqlDataAdapter = New Data.SqlClient.SqlDataAdapter(sql, cn)
+        Dim Table As Data.DataTable = New Data.DataTable("Detalle_Factura")
+        da.Fill(Table)
+        Return Table
+
+    End Function
+
 
 
 End Class
