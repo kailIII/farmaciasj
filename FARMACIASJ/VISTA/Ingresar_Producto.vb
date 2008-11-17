@@ -12,7 +12,7 @@ Public Class Ingresar_Producto
                     Me.Cod_Barras.Text = ""
                 Else
                     Controlador_Ingresar_Producto.ActivarCampos(Me, False)
-                    Controlador_Ingresar_Producto.llenar_proveedores(Me, "")
+                    'Controlador_Ingresar_Producto.llenar_proveedores(Me, "") NO SIRVE ESTOOO!!!1
                 End If
             End If
         End If
@@ -60,13 +60,49 @@ Public Class Ingresar_Producto
         validar = New Validaciones_Generales
         If ((validar.comillas(Cod_Producto.Text, Label2.Text) = True) And (validar.espacio_blanco(Cod_Producto.Text, Label2.Text) = True) And (validar.nulo(Cod_Producto.Text, Label2.Text)) And (validar.comillas(Nom_Producto.Text, Label3.Text) = True) And (validar.nulo(Nom_Producto.Text, Label3.Text)) And (validar.comillas(Nom_Producto.Text, Label3.Text) = True) And (validar.nulo(Nom_Producto.Text, Label3.Text)) And (validar.comillas(Desc_Producto.Text, Label4.Text) = True) And (validar.nulo(Desc_Producto.Text, Label4.Text))) Then
             Dim ingresar As Controlador_Ingresar_Producto = New Controlador_Ingresar_Producto
-            ingresar.Ingresar_Producto(Me.Cod_Barras.Text, Me.Cod_Producto.Text, Me.Nom_Producto.Text, Me.Desc_Producto.Text, Me.GE_Producto.Text, Integer.Parse(Me.Unidades_Producto.Text), Me.Proveedores.SelectedText)
+            ingresar.Ingresar_Producto(Me.Cod_Barras.Text, Me.Cod_Producto.Text, Me.Nom_Producto.Text, Me.Desc_Producto.Text, Me.GE_Producto.Text, Integer.Parse(Me.Unidades_Producto.Text), Integer.Parse(Me.Riff.Text), Me.Linea.Text)
         End If
         Me.Close()
     End Sub
 
     Private Sub Button2_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Button2.Click
         Me.Close()
+    End Sub
+    Private Sub Riff_TextChanged(ByVal sender As System.Object, ByVal e As Windows.Forms.KeyPressEventArgs) Handles Riff.KeyPress
+        Dim validar As Validaciones_Generales
+        If (e.KeyChar = Char.ConvertFromUtf32(13)) Then
+            validar = New Validaciones_Generales
+            If ((validar.comillas(Riff.Text, "Riff") = True) And (validar.espacio_blanco(Riff.Text, "Riff") = True) And (validar.nulo(Riff.Text, "Riff"))) Then
+                Dim Controlador_Ingresar_Producto As Controlador_Ingresar_Producto = New Controlador_Ingresar_Producto
+                If (Controlador_Ingresar_Producto.BuscarRiff(Me.Riff.Text) = False) Then
+                    MsgBox("Error. No existe un Proveedor con ese Riff. Cree un nuevo Proveedor", MsgBoxStyle.OkOnly, "Error")
+                    Me.Riff.Text = ""
+                End If
+            End If
+        End If
+    End Sub
+
+    Private Sub Crear_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Crear.Click
+        Dim proveedor As Ingresar_Proveedor = New Ingresar_Proveedor
+        proveedor.Show()
+    End Sub
+    Private Sub Linea_TextChanged(ByVal sender As System.Object, ByVal e As Windows.Forms.KeyPressEventArgs) Handles Linea.KeyPress
+        Dim validar As Validaciones_Generales
+        If (e.KeyChar = Char.ConvertFromUtf32(13)) Then
+            validar = New Validaciones_Generales
+            If ((validar.comillas(Linea.Text, "Linea de Producto") = True) And (validar.nulo(Linea.Text, "Linea de Producto"))) Then
+                Dim Controlador_Ingresar_Producto As Controlador_Ingresar_Producto = New Controlador_Ingresar_Producto
+                If (Controlador_Ingresar_Producto.BuscarLinea(Me.Linea.Text) = False) Then
+                    MsgBox("Error. No existe una Linea de producto con ese nombre. Cree una nueva linea", MsgBoxStyle.OkOnly, "Error")
+                    Me.Riff.Text = ""
+                End If
+            End If
+        End If
+    End Sub
+
+    Private Sub CrearLinea_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles CrearLinea.Click
+        Dim linea As Ingresar_Linea = New Ingresar_Linea
+        linea.Show()
     End Sub
 End Class
 
