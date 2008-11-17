@@ -33,3 +33,4 @@ obj\Debug\FARMACIASJ.Ingresar_Proveedor.resources
 obj\Debug\FARMACIASJ.Pago.resources
 obj\Debug\FARMACIASJ.FACTURA.rpt
 obj\Debug\FARMACIASJ.Configuracion.resources
+obj\Debug\FARMACIASJ.Reporte.resources

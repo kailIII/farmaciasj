@@ -149,7 +149,14 @@ Public Class Venta
             Monto = Monto1(0) & "." & Monto1(1)
             Vuelto1 = Vuelto.Split(",")
             Vuelto = Vuelto1(0) & "." & Vuelto1(1)
-            Consulta.CommandText = "UPDATE [FarmaciaSJ].[dbo].[VENTA] SET [SUB-TOTAL] = " & Stotal & " ,[IMPUESTO] = " & Impuestos & ",[TOTAL] = " & Total & " ,[MONTO] = " & Monto & " ,[VUELTO] = " & Vuelto & " ,[TIPO_PAGO] = '" & TIPO_PAGO & "' ,[NUMERO_T_CHEQ] = '" & NCT & "', [FVENCIMIENTO_T]=convert(datetime,'" & Vencimiento & "',102) WHERE ID_VENTA=" & ID_Factura
+            If (TIPO_PAGO = "EFECTIVO") Then
+                Consulta.CommandText = "UPDATE [FarmaciaSJ].[dbo].[VENTA] SET [SUB-TOTAL] = " & Stotal & " ,[IMPUESTO] = " & Impuestos & ",[TOTAL] = " & Total & " ,[MONTO] = " & Monto & " ,[VUELTO] = " & Vuelto & " ,[TIPO_PAGO] = '" & TIPO_PAGO & "' ,[NUMERO_T_CHEQ] = null, [FVENCIMIENTO_T]=null WHERE ID_VENTA=" & ID_Factura
+            ElseIf (TIPO_PAGO = "CHEKE") Then
+                Consulta.CommandText = "UPDATE [FarmaciaSJ].[dbo].[VENTA] SET [SUB-TOTAL] = " & Stotal & " ,[IMPUESTO] = " & Impuestos & ",[TOTAL] = " & Total & " ,[MONTO] = " & Monto & " ,[VUELTO] = " & Vuelto & " ,[TIPO_PAGO] = '" & TIPO_PAGO & "' ,[NUMERO_T_CHEQ] = '" & NCT & "', [FVENCIMIENTO_T]=null WHERE ID_VENTA=" & ID_Factura
+            Else
+                Consulta.CommandText = "UPDATE [FarmaciaSJ].[dbo].[VENTA] SET [SUB-TOTAL] = " & Stotal & " ,[IMPUESTO] = " & Impuestos & ",[TOTAL] = " & Total & " ,[MONTO] = " & Monto & " ,[VUELTO] = " & Vuelto & " ,[TIPO_PAGO] = '" & TIPO_PAGO & "' ,[NUMERO_T_CHEQ] = '" & NCT & "', [FVENCIMIENTO_T]=convert(datetime,'" & Vencimiento & "',102) WHERE ID_VENTA=" & ID_Factura
+            End If
+
             Consulta.ExecuteNonQuery()
         Catch e As Data.SqlClient.SqlException
             MsgBox(e.Message, MsgBoxStyle.OkOnly, "Alert")
@@ -172,5 +179,38 @@ Public Class Venta
             C = Reder.Item(0).ToString
         End If
         Return C
+    End Function
+
+    Public Function Cargar_Reporte(ByVal ID_Factura As Integer) As FarmaciaSJDataSet
+        Dim FarmaciaSJ As FarmaciaSJDataSet = New FarmaciaSJDataSet
+        Dim Detalle As FarmaciaSJDataSetTableAdapters.DETALLE_VENTATableAdapter = New FarmaciaSJDataSetTableAdapters.DETALLE_VENTATableAdapter
+        Dim Connection As Data.SqlClient.SqlConnection = New Data.SqlClient.SqlConnection
+        Dim Command As Data.SqlClient.SqlCommand = New Data.SqlClient.SqlCommand
+        Dim Control2 As New Data.DataSet
+        Dim Factura As Factura = New Factura
+        Dim BD As Data.SqlClient.SqlDataAdapter
+        Connection = Detalle.Connection
+        Command.Connection = Connection
+        Command.CommandText = "SELECT     ID_Farmacia, Razon_Social, RIF, Telefono, Direccion, Logo FROM         FARMACIA WHERE     (ID_Farmacia = 1)"
+        BD = New Data.SqlClient.SqlDataAdapter(Command)
+        BD.Fill(FarmaciaSJ, "FARMACIA")
+        Command.CommandText = "SELECT     ID_VENTA, NUMERO_FACTURA, FECHA, VENCE, DESCUENTO, [SUB-TOTAL], TOTAL, IMPUESTO, MONTO, TIPO_PAGO, VUELTO, NUMERO_T_CHEQ, FVENCIMIENTO_T, ID_CLIENTE FROM         VENTA WHERE     (ID_VENTA = " & ID_Factura & ")"
+        BD = New Data.SqlClient.SqlDataAdapter(Command)
+        BD.Fill(FarmaciaSJ, "VENTA")
+        Command.CommandText = "SELECT     ID_DETALLE_VENTA, Cantidad, ID_VENTA, ID_LOTE, ID_PRODUCTO FROM         DETALLE_VENTA WHERE     (ID_VENTA = " & ID_Factura & ")"
+        BD = New Data.SqlClient.SqlDataAdapter(Command)
+        BD.Fill(FarmaciaSJ, "DETALLE_VENTA")
+        Command.CommandText = "SELECT     ID_LOTE, CANTIDAD, FECHA_VENCIMIENTO, PVP, DESCUENTO, ID_PRODUCTO FROM         LOTE"
+        BD = New Data.SqlClient.SqlDataAdapter(Command)
+        BD.Fill(FarmaciaSJ, "LOTE")
+        Command.CommandText = "SELECT     ID_PRODUCTO, NOMBRE, CODIGO_DE_BARRAS, CODIGO, DESCRIPCION, GRAVADO_EXENTO, UNIDADES_POR_PAQUETE, ID_LINEA FROM         PRODUCTO"
+        BD = New Data.SqlClient.SqlDataAdapter(Command)
+        BD.Fill(FarmaciaSJ, "PRODUCTO")
+        Command.CommandText = "SELECT     ID_CLIENTE, TIPO_IDENTIDAD, DOCUMENTO_IDENTIDAD, NOMBRE, APELLIDO, TELEFONO, DIRECCION FROM         CLIENTE"
+        BD = New Data.SqlClient.SqlDataAdapter(Command)
+        BD.Fill(FarmaciaSJ, "CLIENTE")
+        Factura.SetDataSource(FarmaciaSJ)
+        Factura.PrintToPrinter(1, True, 1, 2)
+        Return FarmaciaSJ
     End Function
 End Class

@@ -18,7 +18,7 @@ Imports System
 Imports System.ComponentModel
 
 
-Public Class FACTURA
+Public Class Factura
     Inherits ReportClass
     
     Public Sub New()
@@ -27,7 +27,7 @@ Public Class FACTURA
     
     Public Overrides Property ResourceName() As String
         Get
-            Return "FACTURA.rpt"
+            Return "Factura.rpt"
         End Get
         Set
             'Do nothing
@@ -73,18 +73,10 @@ Public Class FACTURA
             Return Me.ReportDefinition.Sections(4)
         End Get
     End Property
-    
-    <Browsable(false),  _
-     DesignerSerializationVisibilityAttribute(System.ComponentModel.DesignerSerializationVisibility.Hidden)>  _
-    Public ReadOnly Property Parameter_FACTURA() As CrystalDecisions.[Shared].IParameterField
-        Get
-            Return Me.DataDefinition.ParameterFields(0)
-        End Get
-    End Property
 End Class
 
 <System.Drawing.ToolboxBitmapAttribute(GetType(CrystalDecisions.[Shared].ExportOptions), "report.bmp")>  _
-Public Class CachedFACTURA
+Public Class CachedFactura
     Inherits Component
     Implements ICachedReport
     
@@ -126,7 +118,7 @@ Public Class CachedFACTURA
     End Property
     
     Public Overridable Function CreateReport() As CrystalDecisions.CrystalReports.Engine.ReportDocument Implements CrystalDecisions.ReportSource.ICachedReport.CreateReport
-        Dim rpt As FACTURA = New FACTURA
+        Dim rpt As Factura = New Factura
         rpt.Site = Me.Site
         Return rpt
     End Function

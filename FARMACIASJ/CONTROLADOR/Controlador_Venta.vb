@@ -69,10 +69,16 @@ Public Class Controlador_Venta
     Public Sub Actualizar_Pago(ByVal ID_Factura As Integer, ByVal Stotal As String, ByVal Impuestos As String, ByVal Total As String, ByVal Tipo_Pago As String, ByVal Monto As String, ByVal Vuelto As String, ByVal NCT As String, ByVal Vencimiento As String, ByVal Pago As Pago)
         Dim Venta As Venta
         Dim Realizar_Venta As Realizar_Venta
+        Dim Factura As FACTURA
+        Dim FarmaciaSJ As FarmaciaSJDataSet
         Venta = New Venta
         Venta.Pago(ID_Factura, Stotal, Impuestos, Total, Tipo_Pago, Monto, Vuelto, NCT, Vencimiento)
         Realizar_Venta = New Realizar_Venta
         Realizar_Venta.MdiParent = Pago.MdiParent
+        FarmaciaSJ = Venta.Cargar_Reporte(ID_Factura)
+        'Factura = New FACTURA
+        'Factura.SetDataSource(FarmaciaSJ)
+        'Factura.PrintToPrinter(1, True, 1, 2)
         Pago.Close()
         Realizar_Venta.Show()
     End Sub

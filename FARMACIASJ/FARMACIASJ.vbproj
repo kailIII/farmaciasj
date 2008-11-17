@@ -10,7 +10,7 @@
     <RootNamespace>FARMACIASJ</RootNamespace>
     <AssemblyName>FARMACIASJ</AssemblyName>
     <MyType>Empty</MyType>
-    <StartupObject>FARMACIASJ.Ingresar_Producto</StartupObject>
+    <StartupObject>FARMACIASJ.Vendedor</StartupObject>
     <PublishUrl>publish\</PublishUrl>
     <Install>true</Install>
     <InstallFrom>Disk</InstallFrom>
@@ -82,17 +82,17 @@
     <Compile Include="VISTA\Configuracion.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="VISTA\FACTURA.vb">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>FACTURA.rpt</DependentUpon>
-      <SubType>Component</SubType>
-    </Compile>
     <Compile Include="VISTA\Elegir_Lote.Designer.vb">
       <DependentUpon>Elegir_Lote.vb</DependentUpon>
     </Compile>
     <Compile Include="VISTA\Elegir_Lote.vb">
       <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="VISTA\Factura.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Factura.rpt</DependentUpon>
+      <SubType>Component</SubType>
     </Compile>
     <Compile Include="VISTA\FARMACIASJ_INICIO.Designer.vb">
       <DependentUpon>FARMACIASJ_INICIO.vb</DependentUpon>
@@ -148,6 +148,12 @@
     <Compile Include="VISTA\Realizar_Venta.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="VISTA\Reporte.Designer.vb">
+      <DependentUpon>Reporte.vb</DependentUpon>
+    </Compile>
+    <Compile Include="VISTA\Reporte.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="VISTA\Vendedor.Designer.vb">
       <DependentUpon>Vendedor.vb</DependentUpon>
     </Compile>
@@ -164,13 +170,13 @@
       <SubType>Designer</SubType>
       <DependentUpon>Configuracion.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="VISTA\FACTURA.rpt">
-      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
-      <LastGenOutput>FACTURA.vb</LastGenOutput>
-    </EmbeddedResource>
     <EmbeddedResource Include="VISTA\Elegir_Lote.resx">
       <DependentUpon>Elegir_Lote.vb</DependentUpon>
       <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="VISTA\Factura.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>Factura.vb</LastGenOutput>
     </EmbeddedResource>
     <EmbeddedResource Include="VISTA\FARMACIASJ_INICIO.resx">
       <SubType>Designer</SubType>
@@ -208,6 +214,10 @@
       <SubType>Designer</SubType>
       <DependentUpon>Realizar_Venta.vb</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="VISTA\Reporte.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>Reporte.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="VISTA\Vendedor.resx">
       <SubType>Designer</SubType>
       <DependentUpon>Vendedor.vb</DependentUpon>
@@ -219,12 +229,18 @@
     <Reference Include="CrystalDecisions.Enterprise.InfoStore, Version=10.2.3600.0, Culture=neutral, PublicKeyToken=692fbea5521e1304" />
     <Reference Include="CrystalDecisions.ReportSource, Version=10.2.3600.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL" />
     <Reference Include="CrystalDecisions.Shared, Version=10.2.3600.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL" />
+    <Reference Include="CrystalDecisions.Windows.Forms, Version=10.2.3600.0, Culture=neutral, PublicKeyToken=692fbea5521e1304" />
     <Reference Include="System" />
     <Reference Include="System.Data, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=x86">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\..\..\..\..\WINDOWS\assembly\GAC_32\System.Data\2.0.0.0__b77a5c561934e089\System.Data.dll</HintPath>
     </Reference>
     <Reference Include="System.Drawing" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Services, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\..\WINDOWS\assembly\GAC_MSIL\System.Web.Services\2.0.0.0__b03f5f7f11d50a3a\System.Web.Services.dll</HintPath>
+    </Reference>
     <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
