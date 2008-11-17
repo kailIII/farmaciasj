@@ -74,6 +74,7 @@ Public Class Controlador_Producto
                 Venta.CImpuestos = CImpuestos
             End If
             ELotes.ControladorP = Me
+            ELotes.MdiParent = Venta.MdiParent
             ELotes.Show()
             Return True
         Else

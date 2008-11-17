@@ -37,6 +37,7 @@ Public Class FARMACIASJ_SESION
     End Sub
 
     Private Sub Cancel_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Cancel.Click
+        Me.Finalize()
         Me.Close()
     End Sub
 

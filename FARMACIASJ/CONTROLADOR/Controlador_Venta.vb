@@ -25,12 +25,68 @@ Public Class Controlador_Venta
         Venta = New Venta
         Return Venta.traer_detalle(Id_Factura)
     End Function
-    Public Sub Borrar_Factura(ByVal ID_Factura As String)
+    Public Sub Borrar_Factura(ByVal ID_Factura As String, ByVal RVenta As Realizar_Venta)
         Dim Venta As Venta
         Dim Factura As Realizar_Venta
         Venta = New Venta()
         Venta.Borrar_Factura(ID_Factura)
         Factura = New Realizar_Venta()
+        Factura.MdiParent = RVenta.MdiParent
         Factura.Show()
+        RVenta.Close()
     End Sub
+
+    Public Function CantidadF() As Integer
+        Dim Venta As Venta
+        Venta = New Venta
+        Return Venta.CantidadF()
+    End Function
+    Public Sub Abrir_Venta(ByVal Padre As Vendedor)
+        Dim Realizar_Venta As Realizar_Venta
+        Realizar_Venta = New Realizar_Venta
+        Realizar_Venta.MdiParent = Padre
+        Realizar_Venta.Show()
+    End Sub
+    Public Sub Descontar_Inventario(ByVal ID_Venta As Integer)
+        Dim Venta As Venta
+        Venta = New Venta
+        Venta.Descontar_Inventario(ID_Venta)
+    End Sub
+    Public Sub Procesar_Venta(ByVal ID_FACTURA As Integer, ByVal Venta As Realizar_Venta)
+        Dim Pago As Pago
+        Pago = New Pago
+        Pago.ID_Factura = ID_FACTURA
+        Pago.Numero_Factura.Text = Venta.Numero_Factura.Text
+        Pago.TIPO_ID.Text = Venta.Tipo_Identidad.Text
+        Pago.Numero_ID.Text = Venta.Identidad.Text
+        Pago.Stotal.Text = Venta.Sub_Total.Text
+        Pago.Impuestos.Text = Venta.Impuesto.Text
+        Pago.Total.Text = Venta.Total.Text
+        Pago.MdiParent = Venta.MdiParent
+        Venta.Close()
+        Pago.Show()
+    End Sub
+    Public Sub Actualizar_Pago(ByVal ID_Factura As Integer, ByVal Stotal As String, ByVal Impuestos As String, ByVal Total As String, ByVal Tipo_Pago As String, ByVal Monto As String, ByVal Vuelto As String, ByVal NCT As String, ByVal Vencimiento As String, ByVal Pago As Pago)
+        Dim Venta As Venta
+        Dim Realizar_Venta As Realizar_Venta
+        Venta = New Venta
+        Venta.Pago(ID_Factura, Stotal, Impuestos, Total, Tipo_Pago, Monto, Vuelto, NCT, Vencimiento)
+        Realizar_Venta = New Realizar_Venta
+        Realizar_Venta.MdiParent = Pago.MdiParent
+        Pago.Close()
+        Realizar_Venta.Show()
+    End Sub
+    Public Function combrobarcantidad(ByVal ID_Lote As Integer, ByVal ID_Producto As Integer, ByVal Cantidad As Integer) As Boolean
+        Dim Venta As Venta
+        Dim C As Integer
+        Venta = New Venta
+        C = Venta.combrobarcantidad(ID_Lote, ID_Producto)
+        If (Cantidad <= C) Then
+            Return True
+        Else
+            Return False
+
+        End If
+    End Function
+
 End Class

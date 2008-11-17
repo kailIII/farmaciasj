@@ -10,7 +10,7 @@
     <RootNamespace>FARMACIASJ</RootNamespace>
     <AssemblyName>FARMACIASJ</AssemblyName>
     <MyType>Empty</MyType>
-    <StartupObject>FARMACIASJ.Ingresar_Producto</StartupObject>
+    <StartupObject>FARMACIASJ.Vendedor</StartupObject>
     <PublishUrl>publish\</PublishUrl>
     <Install>true</Install>
     <InstallFrom>Disk</InstallFrom>
@@ -76,6 +76,18 @@
     <Compile Include="VISTA\Buscar_Proveedor.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="VISTA\Configuracion.Designer.vb">
+      <DependentUpon>Configuracion.vb</DependentUpon>
+    </Compile>
+    <Compile Include="VISTA\Configuracion.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="VISTA\FACTURA.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>FACTURA.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="VISTA\Elegir_Lote.Designer.vb">
       <DependentUpon>Elegir_Lote.vb</DependentUpon>
     </Compile>
@@ -124,6 +136,12 @@
     <Compile Include="VISTA\Ingresar_Proveedor.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="VISTA\Pago.Designer.vb">
+      <DependentUpon>Pago.vb</DependentUpon>
+    </Compile>
+    <Compile Include="VISTA\Pago.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="VISTA\Realizar_Venta.Designer.vb">
       <DependentUpon>Realizar_Venta.vb</DependentUpon>
     </Compile>
@@ -141,6 +159,14 @@
     <EmbeddedResource Include="VISTA\Buscar_Proveedor.resx">
       <SubType>Designer</SubType>
       <DependentUpon>Buscar_Proveedor.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="VISTA\Configuracion.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>Configuracion.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="VISTA\FACTURA.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>FACTURA.vb</LastGenOutput>
     </EmbeddedResource>
     <EmbeddedResource Include="VISTA\Elegir_Lote.resx">
       <DependentUpon>Elegir_Lote.vb</DependentUpon>
@@ -174,6 +200,10 @@
       <SubType>Designer</SubType>
       <DependentUpon>Ingresar_Proveedor.vb</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="VISTA\Pago.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>Pago.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="VISTA\Realizar_Venta.resx">
       <SubType>Designer</SubType>
       <DependentUpon>Realizar_Venta.vb</DependentUpon>
@@ -184,6 +214,11 @@
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
+    <Reference Include="CrystalDecisions.CrystalReports.Engine, Version=10.2.3600.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL" />
+    <Reference Include="CrystalDecisions.Enterprise.Framework, Version=10.2.3600.0, Culture=neutral, PublicKeyToken=692fbea5521e1304" />
+    <Reference Include="CrystalDecisions.Enterprise.InfoStore, Version=10.2.3600.0, Culture=neutral, PublicKeyToken=692fbea5521e1304" />
+    <Reference Include="CrystalDecisions.ReportSource, Version=10.2.3600.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL" />
+    <Reference Include="CrystalDecisions.Shared, Version=10.2.3600.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL" />
     <Reference Include="System" />
     <Reference Include="System.Data, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=x86">
       <SpecificVersion>False</SpecificVersion>
@@ -231,6 +266,9 @@
       <ProductName>Windows Installer 3.1</ProductName>
       <Install>true</Install>
     </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{967B4E0D-AD0C-4609-AB67-0FA40C0206D8}" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.VisualBasic.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

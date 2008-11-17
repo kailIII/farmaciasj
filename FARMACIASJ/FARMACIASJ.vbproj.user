@@ -13,5 +13,6 @@
     <ApplicationRevision>0</ApplicationRevision>
     <FallbackCulture>es-ES</FallbackCulture>
     <VerifyUploadedFiles>false</VerifyUploadedFiles>
+    <ReferencePath>C:\Archivos de programa\Archivos comunes\Business Objects\2.7\Managed\</ReferencePath>
   </PropertyGroup>
 </Project>

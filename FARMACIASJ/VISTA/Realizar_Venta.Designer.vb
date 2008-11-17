@@ -526,6 +526,7 @@ Partial Class Realizar_Venta
         Me.Controls.Add(Me.GroupBox2)
         Me.Controls.Add(Me.GroupBox1)
         Me.Name = "Realizar_Venta"
+        Me.StartPosition = System.Windows.Forms.FormStartPosition.Manual
         Me.Text = "RealizarVenta"
         Me.GroupBox1.ResumeLayout(False)
         Me.GroupBox1.PerformLayout()
