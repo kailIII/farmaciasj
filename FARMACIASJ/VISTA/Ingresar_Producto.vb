@@ -77,6 +77,7 @@ Public Class Ingresar_Producto
                 If (Controlador_Ingresar_Producto.BuscarRiff(Me.Riff.Text) = False) Then
                     MsgBox("Error. No existe un Proveedor con ese Riff. Cree un nuevo Proveedor", MsgBoxStyle.OkOnly, "Error")
                     Me.Riff.Text = ""
+                    Me.Crear.Enabled = True
                 End If
             End If
         End If
@@ -94,7 +95,8 @@ Public Class Ingresar_Producto
                 Dim Controlador_Ingresar_Producto As Controlador_Ingresar_Producto = New Controlador_Ingresar_Producto
                 If (Controlador_Ingresar_Producto.BuscarLinea(Me.Linea.Text) = False) Then
                     MsgBox("Error. No existe una Linea de producto con ese nombre. Cree una nueva linea", MsgBoxStyle.OkOnly, "Error")
-                    Me.Riff.Text = ""
+                    Me.Linea.Text = ""
+                    Me.CrearLinea.Enabled = True
                 End If
             End If
         End If
