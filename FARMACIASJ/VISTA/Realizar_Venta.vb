@@ -69,6 +69,13 @@ Public Class Realizar_Venta
             Me.Impuesto.Text = impuesto
             Total = Math.Round(subt + impuesto, 2)
             Me.Total.Text = Total
+            Me.Codigo_Barras.Text = ""
+            Me.NombreP.Text = ""
+            Me.Punitario.Text = ""
+            Me.Descuento.Text = ""
+            Me.Cantidad.Text = ""
+            Me.Descripcion.Text = ""
+            Me.SubtotalP.Text = ""
         End If
     End Sub
 

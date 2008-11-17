@@ -85,6 +85,23 @@ Public Class Controlador_Proveedor
             End If
         End If
     End Sub
+    Public Sub Buscar_Rif(ByVal RIF As String, ByVal Compra As Registrar_Compra)
+        Dim Proveedor As Proveedor
+        Dim Reder As Data.SqlClient.SqlDataReader
+        Proveedor = New Proveedor
+        Reder = Proveedor.Buscar_RIF(RIF)
+        If (Reder.HasRows = True) Then
+            If (Reder.Read = True) Then
+                Compra.ID_Proveedor()
+                Compra.RIF_PROVEEDOR.Text
+                Compra.CODIGO.Text
+                Compra.NOMBRE_PROVEEDOR.Text
+                Compra.Direccion.Text
+                Compra.CIUDAD.Text
 
+
+            End If
+        End If
+    End Sub
 
 End Class

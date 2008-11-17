@@ -91,7 +91,20 @@ Public Class Proveedor
 
     End Sub
 
-
+    Public Function Buscar_Rif(ByVal RIF As String) As Data.SqlClient.SqlDataReader
+        Dim Proveedor As FarmaciaSJDataSetTableAdapters.PROVEEDORTableAdapter
+        Dim Conextion As Data.SqlClient.SqlConnection
+        Dim Consulta As Data.SqlClient.SqlCommand
+        Dim Reder As Data.SqlClient.SqlDataReader
+        Proveedor = New FarmaciaSJDataSetTableAdapters.PROVEEDORTableAdapter
+        Conextion = Proveedor.Connection
+        Conextion.Open()
+        Consulta = New Data.SqlClient.SqlCommand
+        Consulta.Connection = Conextion
+        Consulta.CommandText = "SELECT     ID_PROVEEDOR,Codigo, RIF, Nombre, Mail, Ciudad, Direccion FROM         PROVEEDOR WHERE     (Estatus = 'ACTIVO') AND (RIF = '" & RIF & "')"
+        Reder = Consulta.ExecuteReader
+        Return Reder
+    End Function
 
     Public Function Arreglo_Productos(ByVal Arreglo As Array) As String
         Dim myEnumerator As System.Collections.IEnumerator = Arreglo.GetEnumerator()
