@@ -182,6 +182,51 @@ Public Class Proveedor
         Reder = Consulta.ExecuteReader
         Return Reder
     End Function
+    Public Function BuscarRiff(ByVal nombre As String) As Boolean
+        Dim Proveedor As FarmaciaSJDataSetTableAdapters.PROVEEDORTableAdapter
+        Dim Conextion As Data.SqlClient.SqlConnection
+        Dim Consulta As Data.SqlClient.SqlCommand
+        Dim Reder As Data.SqlClient.SqlDataReader
+
+        Try
+            Proveedor = New FarmaciaSJDataSetTableAdapters.PROVEEDORTableAdapter
+            Conextion = Proveedor.Connection
+            Consulta = New Data.SqlClient.SqlCommand
+            Conextion.Open()
+            Consulta.Connection = Conextion
+            Consulta.CommandText = "SELECT RIF FROM PROVEEDOR WHERE ('" & nombre & "' = RIF)"
+            Reder = Consulta.ExecuteReader()
+            If (Reder.Read = True) Then
+                If (Reder.HasRows = True) Then
+                    Return True
+                Else
+                    Return (False)
+                End If
+            End If
+        Catch e As Data.SqlClient.SqlException
+        End Try
+    End Function
+    Public Sub llenar_proveedores(ByVal ventana As Ingresar_Producto, ByVal proveedordado As String)
+        'If (proveedordado = "") Then
+        'Dim Proveedor As FarmaciaSJDataSetTableAdapters.PROVEEDORTableAdapter
+        'Dim Conextion As Data.SqlClient.SqlConnection
+        'Dim Consulta As Data.SqlClient.SqlCommand
+        'Dim Reder As Data.SqlClient.SqlDataReader
+        'Proveedor = New FarmaciaSJDataSetTableAdapters.PROVEEDORTableAdapter
+        'Conextion = Proveedor.Connection
+        'Consulta = New Data.SqlClient.SqlCommand
+        'Conextion.Open()
+        'Consulta.Connection = Conextion
+        'Consulta.CommandText = "select nombre from proveedor"
+        'Reder = Consulta.ExecuteReader()
+        'ventana.Riff.Items.Add(Reder)
+        'else
+        'ventana.Proveedores.Items.Add(proveedordado)
+        'ventana.Proveedores.Enabled = False
+        'End If
+    End Sub
+
+
 
 
 End Class

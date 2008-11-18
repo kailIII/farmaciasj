@@ -94,4 +94,104 @@ Public Class Producto
         Reder.Read()
         Return CInt(Reder.Item(0).ToString)
     End Function
+    Public Function BuscarCodigoBarras(ByVal Codigo As String) As Boolean
+        Dim Producto As FarmaciaSJDataSetTableAdapters.PRODUCTOTableAdapter
+        Dim Conextion As Data.SqlClient.SqlConnection
+        Dim Consulta As Data.SqlClient.SqlCommand
+        Dim Reder As Data.SqlClient.SqlDataReader
+        Try
+            Producto = New FarmaciaSJDataSetTableAdapters.PRODUCTOTableAdapter
+            Conextion = Producto.Connection
+            Consulta = New Data.SqlClient.SqlCommand
+            Conextion.Open()
+            Consulta.Connection = Conextion
+            Consulta.CommandText = "SELECT CODIGO_DE_BARRAS FROM PRODUCTO WHERE ('" & Codigo & "' = CODIGO_DE_BARRAS)"
+            Reder = Consulta.ExecuteReader()
+            If (Reder.Read = True) Then
+                If (Reder.HasRows = True) Then
+                    Return True
+                Else
+                    Return (False)
+                End If
+            End If
+        Catch e As Data.SqlClient.SqlException
+        End Try
+    End Function
+    Public Function BuscarNombreProducto(ByVal nombre As String) As Boolean
+        Dim Producto As FarmaciaSJDataSetTableAdapters.PRODUCTOTableAdapter
+        Dim Conextion As Data.SqlClient.SqlConnection
+        Dim Consulta As Data.SqlClient.SqlCommand
+        Dim Reder As Data.SqlClient.SqlDataReader
+
+        Try
+            Producto = New FarmaciaSJDataSetTableAdapters.PRODUCTOTableAdapter
+            Conextion = Producto.Connection
+            Consulta = New Data.SqlClient.SqlCommand
+            Conextion.Open()
+            Consulta.Connection = Conextion
+            Consulta.CommandText = "SELECT NOMBRE FROM PRODUCTO WHERE ('" & nombre & "' = NOMBRE)"
+            Reder = Consulta.ExecuteReader()
+            If (Reder.Read = True) Then
+                If (Reder.HasRows = True) Then
+                    Return True
+                Else
+                    Return (False)
+                End If
+            End If
+        Catch e As Data.SqlClient.SqlException
+        End Try
+    End Function
+    Public Function BuscarCodigoProducto(ByVal codigo As String) As Boolean
+        Dim Producto As FarmaciaSJDataSetTableAdapters.PRODUCTOTableAdapter
+        Dim Conextion As Data.SqlClient.SqlConnection
+        Dim Consulta As Data.SqlClient.SqlCommand
+        Dim Reder As Data.SqlClient.SqlDataReader
+
+        Try
+            Producto = New FarmaciaSJDataSetTableAdapters.PRODUCTOTableAdapter
+            Conextion = Producto.Connection
+            Consulta = New Data.SqlClient.SqlCommand
+            Conextion.Open()
+            Consulta.Connection = Conextion
+            Consulta.CommandText = "SELECT Codigo FROM PRODUCTO WHERE ('" & codigo & "' = codigo)"
+            Reder = Consulta.ExecuteReader()
+            If (Reder.Read = True) Then
+                If (Reder.HasRows = True) Then
+                    Return True
+                Else
+                    Return (False)
+                End If
+            End If
+        Catch e As Data.SqlClient.SqlException
+        End Try
+    End Function
+
+    Public Sub Ingresar_Producto(ByVal codigo_barras As String, ByVal codigo As String, ByVal nombre_producto As String, ByVal desc_producto As String, ByVal ge_producto As String, ByVal u_producto As Integer, ByVal proveedor As Integer, ByVal linea As String)
+        Dim Producto As FarmaciaSJDataSetTableAdapters.PRODUCTOTableAdapter
+        Dim Conextion As Data.SqlClient.SqlConnection
+        Dim Consulta As Data.SqlClient.SqlCommand
+        Dim mars As Data.SqlClient.SqlDataReader
+        Dim codigoproducto, codigoproveedor, codigolinea As Integer
+        Try
+            Producto = New FarmaciaSJDataSetTableAdapters.PRODUCTOTableAdapter
+            Conextion = Producto.Connection
+            Consulta = New Data.SqlClient.SqlCommand
+            Conextion.Open()
+            Consulta.Connection = Conextion
+            Consulta.CommandText = "select id_proveedor from proveedor where riff = '" & proveedor & "'"
+            mars = Consulta.ExecuteReader()
+            codigoproveedor = Integer.Parse(mars.Item(0).ToString)
+            Consulta.CommandText = "select id_linea from linea where id_linea = '" & linea & "'"
+            mars = Consulta.ExecuteReader()
+            codigolinea = Integer.Parse(mars.Item(0).ToString)
+            Consulta.CommandText = "INSERT INTO PRODUCTO (NOMBRE,CODIGO_DE_BARRAS,CODIGO,DESCRIPCION,GRAVADO_EXENTO,UNIDADES_POR_PAQUETE,ID_LINEA) VALUES ('" & codigo_barras & "','" & codigo & "','" & nombre_producto & "','" & desc_producto & "','" & ge_producto & "','" & u_producto & "','" & codigolinea & "')"
+            Consulta.ExecuteReader()
+            Consulta.CommandText = "select id_producto from producto where codigo = '" & codigo & "'"
+            mars = Consulta.ExecuteReader()
+            codigoproducto = Integer.Parse(mars.Item(0).ToString)
+            Consulta.CommandText = "insert into proveedor_producto (id_proveedor,id_producto) values '" & codigoproveedor & "','" & codigoproducto & "'"
+            Consulta.ExecuteReader()
+        Catch e As Data.SqlClient.SqlException
+        End Try
+    End Sub
 End Class

@@ -45,5 +45,28 @@ Public Class Cliente
             Return 2
         End Try
     End Function
+    Public Function BuscarCliente(ByVal Codigo As String) As Boolean
+        Dim cliente As FarmaciaSJDataSetTableAdapters.CLIENTETableAdapter
+        Dim Conextion As Data.SqlClient.SqlConnection
+        Dim Consulta As Data.SqlClient.SqlCommand
+        Dim Reder As Data.SqlClient.SqlDataReader
+        Try
+            cliente = New FarmaciaSJDataSetTableAdapters.CLIENTETableAdapter
+            Conextion = cliente.Connection
+            Consulta = New Data.SqlClient.SqlCommand
+            Conextion.Open()
+            Consulta.Connection = Conextion
+            Consulta.CommandText = "SELECT documento_identidad FROM cliente WHERE ('" & Codigo & "' = documento_identidad)"
+            Reder = Consulta.ExecuteReader()
+            If (Reder.Read = True) Then
+                If (Reder.HasRows = True) Then
+                    Return True
+                Else
+                    Return (False)
+                End If
+            End If
+        Catch e As Data.SqlClient.SqlException
+        End Try
+    End Function
 
 End Class

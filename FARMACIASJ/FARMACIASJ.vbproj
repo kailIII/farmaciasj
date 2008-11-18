@@ -50,6 +50,7 @@
   <ItemGroup>
     <Compile Include="CONTROLADOR\Controlador_Ingresar_Producto.vb" />
     <Compile Include="CONTROLADOR\Controlador_Linea.vb" />
+    <Compile Include="CONTROLADOR\Controlador_Pedido_Frecuente.vb" />
     <Compile Include="CONTROLADOR\Controlador_Producto.vb" />
     <Compile Include="CONTROLADOR\Controlador_Proveedor.vb" />
     <Compile Include="CONTROLADOR\Controlador_Venta.vb" />
@@ -62,6 +63,7 @@
     <Compile Include="CONTROLADOR\Controlador_Cliente.vb" />
     <Compile Include="CONTROLADOR\Validaciones_Generales.vb" />
     <Compile Include="MODELO\Linea.vb" />
+    <Compile Include="MODELO\Pedido_Frecuente.vb" />
     <Compile Include="MODELO\Producto.vb" />
     <Compile Include="MODELO\Proveedor.vb" />
     <Compile Include="MODELO\Venta.vb" />
@@ -154,6 +156,12 @@
     <Compile Include="VISTA\Registrar_Compra.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="VISTA\Registrar_Pedido.Designer.vb">
+      <DependentUpon>Registrar_Pedido.vb</DependentUpon>
+    </Compile>
+    <Compile Include="VISTA\Registrar_Pedido.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="VISTA\Reporte.Designer.vb">
       <DependentUpon>Reporte.vb</DependentUpon>
     </Compile>
@@ -223,6 +231,10 @@
     <EmbeddedResource Include="VISTA\Registrar_Compra.resx">
       <SubType>Designer</SubType>
       <DependentUpon>Registrar_Compra.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="VISTA\Registrar_Pedido.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>Registrar_Pedido.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="VISTA\Reporte.resx">
       <SubType>Designer</SubType>
