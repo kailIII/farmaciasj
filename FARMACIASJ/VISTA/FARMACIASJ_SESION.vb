@@ -12,7 +12,7 @@ Public Class FARMACIASJ_SESION
         Dim Admin As Administrador
         Dim Ven As Vendedor
         If (UsernameTextBox.Text = "VENDEDOR") Then
-            If (PasswordTextBox.Text = "123456789") Then
+            If (PasswordTextBox.Text = "123") Then
                 Ven = New Vendedor
                 Ven.Activate()
                 Ven.Show()
@@ -22,7 +22,7 @@ Public Class FARMACIASJ_SESION
                 MsgBox("EL Login o Password es incorrecto", MsgBoxStyle.OkOnly, "FarmaciaSJ-ERROR")
             End If
         Else If (UsernameTextBox.Text = "ADMINISTRADOR") Then
-            If (PasswordTextBox.Text = "123456789") Then
+            If (PasswordTextBox.Text = "123") Then
                 Admin = New Administrador
                 Admin.Activate()
                 Admin.Show()

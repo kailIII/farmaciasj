@@ -1,6 +1,6 @@
 Public Class Venta
     Public BasedeDatos As FarmaciaSJDataSet
-    Public Function Ingresar_Venta(ByVal Numero As String, ByVal Fecha As Date, ByVal Vence As Date, ByVal Id_Cliente As String) As Integer
+    Public Function Ingresar_Venta(ByVal Numero As String, ByVal Fecha As Date, ByVal Vence As Date, ByVal Id_Cliente As Integer) As Integer
         Dim VentaTablaAdapter As FarmaciaSJDataSetTableAdapters.VENTATableAdapter = New FarmaciaSJDataSetTableAdapters.VENTATableAdapter
         Dim ID As Integer
         Dim Conextion As Data.SqlClient.SqlConnection = VentaTablaAdapter.Connection
@@ -15,14 +15,14 @@ Public Class Venta
             Conextion.Open()
             Reder = Consulta.ExecuteReader
             If (Reder.Read = True) Then
-                ID = Reder.Item(0).ToString
+                ID = Integer.Parse(Reder.Item(0).ToString)
             End If
             Return ID
         Catch err As ArgumentNullException
             Return -1
         End Try
     End Function
-    Public Function Ingresar_Detalle(ByVal ID_Detalle As String, ByVal ID_Venta As String, ByVal ID_Producto As String, ByVal ID_LOTE As String, ByVal ID_Impuesto() As String, ByVal ID_Historico_Impuesto() As String, ByVal Cantidad As String, ByVal N As Integer) As Integer
+    Public Function Ingresar_Detalle(ByVal ID_Detalle As Integer, ByVal ID_Venta As Integer, ByVal ID_Producto As Integer, ByVal ID_LOTE As Integer, ByVal ID_Impuesto() As Integer, ByVal ID_Historico_Impuesto() As Integer, ByVal Cantidad As Integer, ByVal N As Integer) As Integer
         Dim Detalle As FarmaciaSJDataSetTableAdapters.DETALLE_VENTATableAdapter
         Dim Impuesto As FarmaciaSJDataSetTableAdapters.IMPUESTO_DETALLE_VENTATableAdapter
         Dim I As Integer
@@ -43,7 +43,7 @@ Public Class Venta
 
     End Function
 
-    Public Function Traer_Detalle(ByVal ID_Venta As String) As Data.DataTable
+    Public Function Traer_Detalle(ByVal ID_Venta As Integer) As Data.DataTable
         Dim Bd As FarmaciaSJDataSet
         Bd = New FarmaciaSJDataSet
         Dim Detalle As FarmaciaSJDataSetTableAdapters.DETALLE_VENTATableAdapter = New FarmaciaSJDataSetTableAdapters.DETALLE_VENTATableAdapter
@@ -55,7 +55,7 @@ Public Class Venta
         Return Table
     End Function
 
-    Public Sub Borrar_Factura(ByVal Id_Factura As String)
+    Public Sub Borrar_Factura(ByVal Id_Factura As Integer)
         Dim VentaTablaAdapter As FarmaciaSJDataSetTableAdapters.VENTATableAdapter = New FarmaciaSJDataSetTableAdapters.VENTATableAdapter
         Dim Conextion As Data.SqlClient.SqlConnection = VentaTablaAdapter.Connection
         Dim Consulta As Data.SqlClient.SqlCommand = New Data.SqlClient.SqlCommand("DELETE FROM [FarmaciaSJ].[dbo].[IMPUESTO_DETALLE_VENTA]WHERE ID_VENTA=" & Id_Factura, Conextion)
@@ -81,7 +81,7 @@ Public Class Venta
         Consulta.CommandText = "SELECT     COUNT(ID_VENTA) AS Cantidad FROM         VENTA"
         Reder = Consulta.ExecuteReader()
         If (Reder.Read = True) Then
-            C = Reder.Item(0).ToString
+            C = Integer.Parse(Reder.Item(0).ToString)
         End If
         Return C
     End Function
@@ -106,9 +106,9 @@ Public Class Venta
         Reder = Consulta.ExecuteReader()
         I = 0
         Do While (Reder.Read = True)
-            ID_Lote(I) = Reder.Item(1).ToString
-            ID_Producto(I) = Reder.Item(2).ToString
-            Cantidad(I) = Reder.Item(0).ToString
+            ID_Lote(I) = Integer.Parse(Reder.Item(1).ToString)
+            ID_Producto(I) = Integer.Parse(Reder.Item(2).ToString)
+            Cantidad(I) = Integer.Parse(Reder.Item(0).ToString)
             I = I + 1
         Loop
         Reder.Close()
@@ -139,15 +139,15 @@ Public Class Venta
             Consulta = New Data.SqlClient.SqlCommand
             Conextion.Open()
             Consulta.Connection = Conextion
-            Stotal1 = Stotal.Split(",")
+            Stotal1 = Stotal.Split(Char.Parse(","))
             Stotal = Stotal1(0) & "." & Stotal1(1)
-            Impuesto1 = Impuestos.Split(",")
+            Impuesto1 = Impuestos.Split(Char.Parse(","))
             Impuestos = Impuesto1(0) & "." & Impuesto1(1)
-            Total1 = Total.Split(",")
+            Total1 = Total.Split(Char.Parse(","))
             Total = Total1(0) & "." & Total1(1)
-            Monto1 = Monto.Split(",")
+            Monto1 = Monto.Split(Char.Parse(","))
             Monto = Monto1(0) & "." & Monto1(1)
-            Vuelto1 = Vuelto.Split(",")
+            Vuelto1 = Vuelto.Split(Char.Parse(","))
             Vuelto = Vuelto1(0) & "." & Vuelto1(1)
             If (TIPO_PAGO = "EFECTIVO") Then
                 Consulta.CommandText = "UPDATE [FarmaciaSJ].[dbo].[VENTA] SET [SUB-TOTAL] = " & Stotal & " ,[IMPUESTO] = " & Impuestos & ",[TOTAL] = " & Total & " ,[MONTO] = " & Monto & " ,[VUELTO] = " & Vuelto & " ,[TIPO_PAGO] = '" & TIPO_PAGO & "' ,[NUMERO_T_CHEQ] = null, [FVENCIMIENTO_T]=null WHERE ID_VENTA=" & ID_Factura
@@ -176,7 +176,7 @@ Public Class Venta
         Consulta.CommandText = "SELECT     CANTIDAD, ID_LOTE, ID_PRODUCTO FROM         LOTE WHERE     (ID_LOTE = " & ID_Lote & ") AND (ID_PRODUCTO = " & ID_Producto & ")"
         Reder = Consulta.ExecuteReader()
         If (Reder.Read = True) Then
-            C = Reder.Item(0).ToString
+            C = Integer.Parse(Reder.Item(0).ToString)
         End If
         Return C
     End Function

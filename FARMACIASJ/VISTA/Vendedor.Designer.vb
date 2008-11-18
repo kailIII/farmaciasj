@@ -24,6 +24,7 @@ Partial Class Vendedor
         Me.VentaToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem
         Me.PuntoDeVentaToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem
         Me.DeToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem
+        Me.RegToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem
         Me.ClienteToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem
         Me.IngresarClienteToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem
         Me.ConsultarClienteToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem
@@ -31,12 +32,12 @@ Partial Class Vendedor
         Me.ConfiguracionToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem
         Me.PasswordUsuarioToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem
         Me.FacturaToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem
+        Me.DatosFarmaciaToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem
         Me.SalirToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem
         Me.CerrarSesionToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem
         Me.CerrarProgramaToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem
         Me.StatusStrip = New System.Windows.Forms.StatusStrip
         Me.ToolStripStatusLabel = New System.Windows.Forms.ToolStripStatusLabel
-        Me.DatosFarmaciaToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem
         Me.MenuStrip.SuspendLayout()
         Me.StatusStrip.SuspendLayout()
         Me.SuspendLayout()
@@ -52,7 +53,7 @@ Partial Class Vendedor
         '
         'VentaToolStripMenuItem
         '
-        Me.VentaToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.PuntoDeVentaToolStripMenuItem, Me.DeToolStripMenuItem})
+        Me.VentaToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.PuntoDeVentaToolStripMenuItem, Me.DeToolStripMenuItem, Me.RegToolStripMenuItem})
         Me.VentaToolStripMenuItem.Name = "VentaToolStripMenuItem"
         Me.VentaToolStripMenuItem.Size = New System.Drawing.Size(47, 20)
         Me.VentaToolStripMenuItem.Text = "&Venta"
@@ -70,6 +71,12 @@ Partial Class Vendedor
         Me.DeToolStripMenuItem.ShortcutKeys = CType((System.Windows.Forms.Keys.Control Or System.Windows.Forms.Keys.D), System.Windows.Forms.Keys)
         Me.DeToolStripMenuItem.Size = New System.Drawing.Size(210, 22)
         Me.DeToolStripMenuItem.Text = "&Devolucion_Venta"
+        '
+        'RegToolStripMenuItem
+        '
+        Me.RegToolStripMenuItem.Name = "RegToolStripMenuItem"
+        Me.RegToolStripMenuItem.Size = New System.Drawing.Size(210, 22)
+        Me.RegToolStripMenuItem.Text = "Registrar Pedidos"
         '
         'ClienteToolStripMenuItem
         '
@@ -120,6 +127,12 @@ Partial Class Vendedor
         Me.FacturaToolStripMenuItem.Size = New System.Drawing.Size(211, 22)
         Me.FacturaToolStripMenuItem.Text = "Factura"
         '
+        'DatosFarmaciaToolStripMenuItem
+        '
+        Me.DatosFarmaciaToolStripMenuItem.Name = "DatosFarmaciaToolStripMenuItem"
+        Me.DatosFarmaciaToolStripMenuItem.Size = New System.Drawing.Size(211, 22)
+        Me.DatosFarmaciaToolStripMenuItem.Text = "Datos_Farmacia"
+        '
         'SalirToolStripMenuItem
         '
         Me.SalirToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.CerrarSesionToolStripMenuItem, Me.CerrarProgramaToolStripMenuItem})
@@ -156,12 +169,6 @@ Partial Class Vendedor
         Me.ToolStripStatusLabel.Size = New System.Drawing.Size(38, 17)
         Me.ToolStripStatusLabel.Text = "Status"
         '
-        'DatosFarmaciaToolStripMenuItem
-        '
-        Me.DatosFarmaciaToolStripMenuItem.Name = "DatosFarmaciaToolStripMenuItem"
-        Me.DatosFarmaciaToolStripMenuItem.Size = New System.Drawing.Size(211, 22)
-        Me.DatosFarmaciaToolStripMenuItem.Text = "Datos_Farmacia"
-        '
         'Vendedor
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -172,7 +179,7 @@ Partial Class Vendedor
         Me.IsMdiContainer = True
         Me.MainMenuStrip = Me.MenuStrip
         Me.Name = "Vendedor"
-        Me.Text = "MDIParent1"
+        Me.Text = "VENDEDOR"
         Me.WindowState = System.Windows.Forms.FormWindowState.Maximized
         Me.MenuStrip.ResumeLayout(False)
         Me.MenuStrip.PerformLayout()
@@ -199,5 +206,6 @@ Partial Class Vendedor
     Friend WithEvents CerrarSesionToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
     Friend WithEvents CerrarProgramaToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
     Friend WithEvents DatosFarmaciaToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
+    Friend WithEvents RegToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
 
 End Class

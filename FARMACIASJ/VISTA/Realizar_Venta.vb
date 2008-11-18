@@ -4,8 +4,8 @@ Public Class Realizar_Venta
     Public ID_Detalle As Integer = 0
     Public ID_Producto As Integer
     Public ID_Lote As Integer
-    Public ID_Historico_Impuesto(1000) As String
-    Public ID_Impuesto(1000) As String
+    Public ID_Historico_Impuesto(1000) As Integer
+    Public ID_Impuesto(1000) As Integer
     Public ValorI(1000) As Double
     Public CImpuestos As Integer
     Public ImpuestoP As Double
@@ -30,15 +30,10 @@ Public Class Realizar_Venta
     Private Sub Button1_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Button1.Click
         Dim ControladorF As Controlador_Venta
         Dim ControladorC As Controlador_Cliente
-        Dim Detalle As FarmaciaSJDataSetTableAdapters.DETALLE_VENTATableAdapter
         Dim a As Boolean
         Dim subt As Double
         Dim Total As Double
         Dim impuesto As Double
-        Dim conection As Data.SqlClient.SqlConnection
-        Dim Consulta As Data.SqlClient.SqlCommand
-        Dim Reder As Data.SqlClient.SqlDataReader
-        Dim Coman As Data.SqlClient.SqlDataAdapter
 
         ControladorF = New Controlador_Venta
         ControladorC = New Controlador_Cliente
@@ -58,17 +53,17 @@ Public Class Realizar_Venta
         End If
         If (ID_Factura <> -1) Then
             ID_Detalle = ID_Detalle + 1
-            ControladorF.Ingresar_Detalle(ID_Detalle, ID_Factura, ID_Producto, ID_Lote, Cantidad.Text, ID_Impuesto, ID_Historico_Impuesto, CImpuestos)
+            ControladorF.Ingresar_Detalle(ID_Detalle, ID_Factura, ID_Producto, ID_Lote, Integer.Parse(Cantidad.Text), ID_Impuesto, ID_Historico_Impuesto, CImpuestos)
             Me.DETALLE_VENTA.DataSource = ControladorF.Traer_Detalle(ID_Factura)
             Me.DETALLE_VENTA.Update()
-            subt = Me.Sub_Total.Text
-            subt = Math.Round(subt + Me.SubtotalP.Text, 2)
-            Me.Sub_Total.Text = subt
-            impuesto = Me.Impuesto.Text
+            subt = Double.Parse(Me.Sub_Total.Text)
+            subt = Math.Round(subt + Double.Parse(Me.SubtotalP.Text), 2)
+            Me.Sub_Total.Text = CStr(subt)
+            impuesto = Double.Parse(Me.Impuesto.Text)
             impuesto = Math.Round(impuesto + ImpuestoP, 2)
-            Me.Impuesto.Text = impuesto
+            Me.Impuesto.Text = CStr(impuesto)
             Total = Math.Round(subt + impuesto, 2)
-            Me.Total.Text = Total
+            Me.Total.Text = CStr(Total)
             Me.Codigo_Barras.Text = ""
             Me.NombreP.Text = ""
             Me.Punitario.Text = ""
@@ -90,10 +85,10 @@ Public Class Realizar_Venta
         Dim i As Integer
         If (e.KeyChar = Char.ConvertFromUtf32(13)) Then
             Controladorf = New Controlador_Venta
-            If (Controladorf.combrobarcantidad(ID_Lote, ID_Producto, Me.Cantidad.Text) = True) Then
-                Pu = Me.Punitario.Text
-                Descuento = Me.Descuento.Text
-                Cantidad = Me.Cantidad.Text
+            If (Controladorf.combrobarcantidad(ID_Lote, ID_Producto, Integer.Parse(Me.Cantidad.Text)) = True) Then
+                Pu = Double.Parse(Me.Punitario.Text)
+                Descuento = Double.Parse(Me.Descuento.Text)
+                Cantidad = Integer.Parse(Me.Cantidad.Text)
                 Subtotal = Pu * Cantidad
                 Descuento = Descuento / 100
                 Descuento = 1 - Descuento
@@ -105,7 +100,7 @@ Public Class Realizar_Venta
                     Impuesto = Math.Round(Impuesto + Impuesto1, 2)
                     i = i + 1
                 Loop
-                Me.SubtotalP.Text = Subtotal
+                Me.SubtotalP.Text = CStr(Subtotal)
                 ImpuestoP = Impuesto
             Else
                 MsgBox("La Cantidad supera la cantidad disponible", MsgBoxStyle.OkOnly, "Alert")

@@ -61,7 +61,7 @@ Public Class Ingresar_Producto
         validar = New Validaciones_Generales
         If ((validar.comillas(Cod_Producto.Text, Label2.Text) = True) And (validar.espacio_blanco(Cod_Producto.Text, Label2.Text) = True) And (validar.nulo(Cod_Producto.Text, Label2.Text)) And (validar.comillas(Nom_Producto.Text, Label3.Text) = True) And (validar.nulo(Nom_Producto.Text, Label3.Text)) And (validar.comillas(Nom_Producto.Text, Label3.Text) = True) And (validar.nulo(Nom_Producto.Text, Label3.Text)) And (validar.comillas(Desc_Producto.Text, Label4.Text) = True) And (validar.nulo(Desc_Producto.Text, Label4.Text))) Then
             Dim ingresar As Producto = New Producto
-            ingresar.Ingresar_Producto(Me.Cod_Barras.Text, Me.Cod_Producto.Text, Me.Nom_Producto.Text, Me.Desc_Producto.Text, Me.GE_Producto.Text, Integer.Parse(Me.Unidades_Producto.Text), Integer.Parse(Me.Riff.Text), Me.Linea.Text)
+            ingresar.Ingresar_Producto(Me.Cod_Barras.Text, Me.Cod_Producto.Text, Me.Nom_Producto.Text, Me.Desc_Producto.Text, Me.GE_Producto.Text, Integer.Parse(Me.Unidades_Producto.Text), Me.Riff.Text, Me.Linea.Text)
         End If
         Me.Close()
     End Sub

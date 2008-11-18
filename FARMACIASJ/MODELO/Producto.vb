@@ -166,7 +166,7 @@ Public Class Producto
         End Try
     End Function
 
-    Public Sub Ingresar_Producto(ByVal codigo_barras As String, ByVal codigo As String, ByVal nombre_producto As String, ByVal desc_producto As String, ByVal ge_producto As String, ByVal u_producto As Integer, ByVal proveedor As Integer, ByVal linea As String)
+    Public Sub Ingresar_Producto(ByVal codigo_barras As String, ByVal codigo As String, ByVal nombre_producto As String, ByVal desc_producto As String, ByVal ge_producto As String, ByVal u_producto As Integer, ByVal proveedor As String, ByVal linea As String)
         Dim Producto As FarmaciaSJDataSetTableAdapters.PRODUCTOTableAdapter
         Dim Conextion As Data.SqlClient.SqlConnection
         Dim Consulta As Data.SqlClient.SqlCommand
@@ -178,20 +178,84 @@ Public Class Producto
             Consulta = New Data.SqlClient.SqlCommand
             Conextion.Open()
             Consulta.Connection = Conextion
-            Consulta.CommandText = "select id_proveedor from proveedor where riff = '" & proveedor & "'"
+            Consulta.CommandText = "select id_proveedor from proveedor where RIF = '" & proveedor & "'"
             mars = Consulta.ExecuteReader()
-            codigoproveedor = Integer.Parse(mars.Item(0).ToString)
-            Consulta.CommandText = "select id_linea from linea where id_linea = '" & linea & "'"
+            If (mars.Read = True) Then
+                codigoproveedor = Integer.Parse(mars.Item(0).ToString)
+            End If
+            mars.Close()
+            Consulta.CommandText = "select id_linea from linea where NOMBRE = '" & linea & "'"
             mars = Consulta.ExecuteReader()
-            codigolinea = Integer.Parse(mars.Item(0).ToString)
-            Consulta.CommandText = "INSERT INTO PRODUCTO (NOMBRE,CODIGO_DE_BARRAS,CODIGO,DESCRIPCION,GRAVADO_EXENTO,UNIDADES_POR_PAQUETE,ID_LINEA) VALUES ('" & codigo_barras & "','" & codigo & "','" & nombre_producto & "','" & desc_producto & "','" & ge_producto & "','" & u_producto & "','" & codigolinea & "')"
-            Consulta.ExecuteReader()
+            If (mars.Read = True) Then
+                codigolinea = Integer.Parse(mars.Item(0).ToString)
+            End If
+            mars.Close()
+            Consulta.CommandText = "INSERT INTO PRODUCTO (NOMBRE,CODIGO_DE_BARRAS,CODIGO,DESCRIPCION,GRAVADO_EXENTO,UNIDADES_POR_PAQUETE,ID_LINEA) VALUES ('" & nombre_producto & "','" & codigo_barras & "','" & codigo & "','" & desc_producto & "','" & ge_producto & "','" & u_producto & "','" & codigolinea & "')"
+            Consulta.ExecuteNonQuery()
             Consulta.CommandText = "select id_producto from producto where codigo = '" & codigo & "'"
             mars = Consulta.ExecuteReader()
-            codigoproducto = Integer.Parse(mars.Item(0).ToString)
-            Consulta.CommandText = "insert into proveedor_producto (id_proveedor,id_producto) values '" & codigoproveedor & "','" & codigoproducto & "'"
-            Consulta.ExecuteReader()
+            If (mars.Read = True) Then
+                codigoproducto = Integer.Parse(mars.Item(0).ToString)
+            End If
+            mars.Close
+            Consulta.CommandText = "insert into proveedor_producto (id_proveedor,id_producto) values (" & codigoproveedor & "," & codigoproducto & ")"
+            Consulta.ExecuteNonQuery()
         Catch e As Data.SqlClient.SqlException
         End Try
+    End Sub
+    Public Function Buscar_CodigoBarras_IDPROVEEDOR(ByVal CODIGO_BARRAS As String, ByVal ID_Proveedor As Integer) As Data.SqlClient.SqlDataReader
+        Dim Producto As FarmaciaSJDataSetTableAdapters.PRODUCTOTableAdapter
+        Dim Lote As FarmaciaSJDataSetTableAdapters.LOTETableAdapter
+        Dim Conextion As Data.SqlClient.SqlConnection
+        Dim Consulta As Data.SqlClient.SqlCommand
+        Dim Reder As Data.SqlClient.SqlDataReader
+
+        Producto = New FarmaciaSJDataSetTableAdapters.PRODUCTOTableAdapter
+        Lote = New FarmaciaSJDataSetTableAdapters.LOTETableAdapter
+        Conextion = Producto.Connection
+        Consulta = New Data.SqlClient.SqlCommand
+        Conextion.Open()
+        Consulta.Connection = Conextion
+        Consulta.CommandText = "SELECT     PRODUCTO.ID_PRODUCTO, PRODUCTO.CODIGO, PRODUCTO.NOMBRE, PRODUCTO.DESCRIPCION, PRODUCTO.GRAVADO_EXENTO, PRODUCTO.UNIDADES_POR_PAQUETE, LINEA.ID_LINEA, LINEA.NOMBRE AS LINEA, LINEA.DESCRIPCION AS LDESCRIPCION, LINEA.DESCUENTO_MAXIMO, LINEA.MARGEN_UTIL FROM         PRODUCTO INNER JOIN LINEA ON PRODUCTO.ID_LINEA = LINEA.ID_LINEA INNER JOIN PROVEEDOR_PRODUCTO ON PRODUCTO.ID_PRODUCTO = PROVEEDOR_PRODUCTO.ID_PRODUCTO WHERE     (PROVEEDOR_PRODUCTO.ID_PROVEEDOR = " & ID_Proveedor & ") AND (PRODUCTO.CODIGO_DE_BARRAS = '" & CODIGO_BARRAS & "')"
+        Reder = Consulta.ExecuteReader()
+        Return Reder
+    End Function
+    Public Function Buscar_CodigoBarras2(ByVal CODIGO_BARRAS As String) As Data.SqlClient.SqlDataReader
+        Dim Producto As FarmaciaSJDataSetTableAdapters.PRODUCTOTableAdapter
+        Dim Lote As FarmaciaSJDataSetTableAdapters.LOTETableAdapter
+        Dim Conextion As Data.SqlClient.SqlConnection
+        Dim Consulta As Data.SqlClient.SqlCommand
+        Dim Reder As Data.SqlClient.SqlDataReader
+
+        Producto = New FarmaciaSJDataSetTableAdapters.PRODUCTOTableAdapter
+        Lote = New FarmaciaSJDataSetTableAdapters.LOTETableAdapter
+        Conextion = Producto.Connection
+        Consulta = New Data.SqlClient.SqlCommand
+        Conextion.Open()
+        Consulta.Connection = Conextion
+        Consulta.CommandText = "SELECT     PRODUCTO.ID_PRODUCTO, PRODUCTO.CODIGO, PRODUCTO.NOMBRE, PRODUCTO.DESCRIPCION, PRODUCTO.GRAVADO_EXENTO, PRODUCTO.UNIDADES_POR_PAQUETE, LINEA.ID_LINEA, LINEA.NOMBRE AS LINEA, LINEA.DESCRIPCION AS LDESCRIPCION, LINEA.DESCUENTO_MAXIMO, LINEA.MARGEN_UTIL FROM         PRODUCTO INNER JOIN LINEA ON PRODUCTO.ID_LINEA = LINEA.ID_LINEA WHERE     (PRODUCTO.CODIGO_DE_BARRAS = '" & CODIGO_BARRAS & "')"
+        Reder = Consulta.ExecuteReader()
+        Return Reder
+    End Function
+    Public Sub Ingresar_Proveedor_Producto(ByVal ID_PRODUCTO As Integer, ByVal ID_Proveedor As Integer)
+        Dim BasedeDatos As New FarmaciaSJDataSet
+        Dim ProductoProveedorTableAdapter As New FarmaciaSJDataSetTableAdapters.PROVEEDOR_PRODUCTOTableAdapter
+        ProductoProveedorTableAdapter.Insert(ID_Proveedor, ID_PRODUCTO)
+        ProductoProveedorTableAdapter.Update(BasedeDatos.PROVEEDOR_PRODUCTO)
+        BasedeDatos.AcceptChanges()
+    End Sub
+    Public Sub Ingresar_Producto2(ByVal Codigo_Barras As String, ByVal Codigo As String, ByVal NOMBRE_PRODUCTO As String, ByVal DESCRIPCION_PRODUCTO As String, ByVal GRABADO As String, ByVal UPAQUETE As Integer, ByVal ID_LINEA As Integer)
+        Dim BasedeDatos As New FarmaciaSJDataSet
+        Dim ProductoTableAdapter As New FarmaciaSJDataSetTableAdapters.PRODUCTOTableAdapter
+        ProductoTableAdapter.Insert(NOMBRE_PRODUCTO, Codigo_Barras, Codigo, DESCRIPCION_PRODUCTO, GRABADO, UPAQUETE, ID_LINEA)
+        ProductoTableAdapter.Update(BasedeDatos.PRODUCTO)
+        BasedeDatos.AcceptChanges()
+    End Sub
+    Public Sub Ingresar_Lote(ByVal Cantidad As Integer, ByVal Fecha As Date, ByVal PVP As Double, ByVal Descuento As Double, ByVal ID_PRODUCTO As Integer)
+        Dim BasedeDatos As New FarmaciaSJDataSet
+        Dim LOTETableAdapter As New FarmaciaSJDataSetTableAdapters.LOTETableAdapter
+        LOTETableAdapter.Insert(CANTIDAD, FECHA, PVP, DESCUENTO, ID_PRODUCTO)
+        LOTETableAdapter.Update(BasedeDatos.LOTE)
+        BasedeDatos.AcceptChanges()
     End Sub
 End Class

@@ -39,4 +39,19 @@ Public Class Linea
         Catch e As Data.SqlClient.SqlException
         End Try
     End Function
+    Public Function BuscarLinea2(ByVal NOMBRE As String) As Data.SqlClient.SqlDataReader
+        Dim Linea As FarmaciaSJDataSetTableAdapters.LINEATableAdapter
+        Dim Conextion As Data.SqlClient.SqlConnection
+        Dim Consulta As Data.SqlClient.SqlCommand
+        Dim Reder As Data.SqlClient.SqlDataReader
+        Linea = New FarmaciaSJDataSetTableAdapters.LINEATableAdapter
+        Conextion = Linea.Connection
+        Conextion.Open()
+        Consulta = New Data.SqlClient.SqlCommand
+        Consulta.Connection = Conextion
+        Consulta.CommandText = "SELECT     ID_LINEA, NOMBRE, DESCRIPCION, DESCUENTO_MAXIMO, MARGEN_UTIL FROM         LINEA WHERE     (NOMBRE = '" & NOMBRE & "')"
+        Reder = Consulta.ExecuteReader
+        Return Reder
+    End Function
+ 
 End Class

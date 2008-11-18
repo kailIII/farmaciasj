@@ -1,6 +1,6 @@
 Public Class Registrar_Pedido
 
-    Private Sub Numero_TextChanged(ByVal sender As System.Object, ByVal e As Windows.Forms.KeyPressEventArgs) Handles Numero.KeyPress, Numero.TextChanged
+    Private Sub Numero_TextChanged(ByVal sender As System.Object, ByVal e As Windows.Forms.KeyPressEventArgs) Handles Numero.KeyPress
         Dim validar As Validaciones_Generales
         If (e.KeyChar = Char.ConvertFromUtf32(13)) Then
             validar = New Validaciones_Generales
@@ -18,6 +18,7 @@ Public Class Registrar_Pedido
         End If
     End Sub
 
+   
     Private Sub RichTextBox1_TextChanged(ByVal sender As System.Object, ByVal e As Windows.Forms.KeyPressEventArgs) Handles Descripcion.KeyPress
         Dim validar As Validaciones_Generales
         If (e.KeyChar = Char.ConvertFromUtf32(13)) Then
@@ -47,7 +48,7 @@ Public Class Registrar_Pedido
         validar = New Validaciones_Generales
         If ((validar.comillas(Descripcion.Text, Label4.Text) = True) And (validar.nulo(Descripcion.Text, Label4.Text))) Then
             Dim ingresar As Pedido_Frecuente = New Pedido_Frecuente
-            ingresar.Ingresar_Pedido(Me.Numero.Text, Me.Finicio.Value, Me.Fin.Value, Me.Descripcion.Text, Integer.Parse(Me.Cantidad.Text), Me.nombreproducto.Text)
+            ingresar.Ingresar_Pedido(Me.Numero.Text, Me.Finicio.Value, Me.Fin.Value, Me.Descripcion.Text, Integer.Parse(Me.Cantidad.Text), Me.nombreproducto.Text, Me.TIPO.Text, Me.NombreCliente.Text)
         End If
         Me.Close()
     End Sub
@@ -71,5 +72,19 @@ Public Class Registrar_Pedido
 
     Private Sub Cerrar_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Cerrar.Click
 
+    End Sub
+
+    Private Sub NombreCliente_TextChanged(ByVal sender As System.Object, ByVal e As Windows.Forms.KeyPressEventArgs) Handles NombreCliente.KeyPress
+        Dim validar As Validaciones_Generales
+        If (e.KeyChar = Char.ConvertFromUtf32(13)) Then
+            validar = New Validaciones_Generales
+            If ((validar.comillas(NombreCliente.Text, Label1.Text) = True) And (validar.espacio_blanco(NombreCliente.Text, Label1.Text) = True) And (validar.nulo(NombreCliente.Text, Label1.Text))) Then
+                Dim Cliente As Cliente = New Cliente
+                If (Cliente.BuscarCliente(NombreCliente.Text, TIPO.Text) = False) Then
+                    MsgBox("Error. El cliente no existe.", MsgBoxStyle.OkOnly, "Error")
+                    NombreCliente.Text = ""
+                End If
+            End If
+        End If
     End Sub
 End Class

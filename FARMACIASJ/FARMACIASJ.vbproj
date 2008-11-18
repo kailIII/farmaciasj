@@ -10,7 +10,7 @@
     <RootNamespace>FARMACIASJ</RootNamespace>
     <AssemblyName>FARMACIASJ</AssemblyName>
     <MyType>Empty</MyType>
-    <StartupObject>FARMACIASJ.Vendedor</StartupObject>
+    <StartupObject>FARMACIASJ.FARMACIASJ_SESION</StartupObject>
     <PublishUrl>publish\</PublishUrl>
     <Install>true</Install>
     <InstallFrom>Disk</InstallFrom>
@@ -48,12 +48,14 @@
     <Import Include="System" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="CONTROLADOR\Controlador_Compra.vb" />
     <Compile Include="CONTROLADOR\Controlador_Ingresar_Producto.vb" />
     <Compile Include="CONTROLADOR\Controlador_Linea.vb" />
     <Compile Include="CONTROLADOR\Controlador_Pedido_Frecuente.vb" />
     <Compile Include="CONTROLADOR\Controlador_Producto.vb" />
     <Compile Include="CONTROLADOR\Controlador_Proveedor.vb" />
     <Compile Include="CONTROLADOR\Controlador_Venta.vb" />
+    <Compile Include="MODELO\Compra.vb" />
     <Compile Include="MODELO\FarmaciaSJDataSet.Designer.vb">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -76,6 +78,12 @@
       <DependentUpon>Buscar_Proveedor.vb</DependentUpon>
     </Compile>
     <Compile Include="VISTA\Buscar_Proveedor.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="VISTA\Compra2.Designer.vb">
+      <DependentUpon>Compra2.vb</DependentUpon>
+    </Compile>
+    <Compile Include="VISTA\Compra2.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="VISTA\Configuracion.Designer.vb">
@@ -179,6 +187,10 @@
     <EmbeddedResource Include="VISTA\Buscar_Proveedor.resx">
       <SubType>Designer</SubType>
       <DependentUpon>Buscar_Proveedor.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="VISTA\Compra2.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>Compra2.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="VISTA\Configuracion.resx">
       <SubType>Designer</SubType>

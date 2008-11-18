@@ -146,7 +146,7 @@ Partial Class Ingresar_Producto
         Me.Unidades_Producto.Enabled = False
         Me.Unidades_Producto.Location = New System.Drawing.Point(122, 195)
         Me.Unidades_Producto.Name = "Unidades_Producto"
-        Me.Unidades_Producto.Size = New System.Drawing.Size(63, 20)
+        Me.Unidades_Producto.Size = New System.Drawing.Size(125, 20)
         Me.Unidades_Producto.TabIndex = 9
         '
         'Label6
@@ -162,10 +162,10 @@ Partial Class Ingresar_Producto
         '
         Me.GE_Producto.Enabled = False
         Me.GE_Producto.FormattingEnabled = True
-        Me.GE_Producto.Items.AddRange(New Object() {"Si", "No"})
+        Me.GE_Producto.Items.AddRange(New Object() {"EXENTO", "GRAVADO"})
         Me.GE_Producto.Location = New System.Drawing.Point(122, 159)
         Me.GE_Producto.Name = "GE_Producto"
-        Me.GE_Producto.Size = New System.Drawing.Size(63, 21)
+        Me.GE_Producto.Size = New System.Drawing.Size(125, 21)
         Me.GE_Producto.TabIndex = 7
         '
         'Label5

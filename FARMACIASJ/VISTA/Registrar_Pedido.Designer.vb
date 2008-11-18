@@ -38,12 +38,15 @@ Partial Class Registrar_Pedido
         Me.Label2 = New System.Windows.Forms.Label
         Me.Numero = New System.Windows.Forms.TextBox
         Me.Label1 = New System.Windows.Forms.Label
+        Me.TIPO = New System.Windows.Forms.ComboBox
+        Me.Label8 = New System.Windows.Forms.Label
+        Me.Label9 = New System.Windows.Forms.Label
         Me.GroupBox1.SuspendLayout()
         Me.SuspendLayout()
         '
         'Cerrar
         '
-        Me.Cerrar.Location = New System.Drawing.Point(175, 304)
+        Me.Cerrar.Location = New System.Drawing.Point(173, 358)
         Me.Cerrar.Name = "Cerrar"
         Me.Cerrar.Size = New System.Drawing.Size(109, 23)
         Me.Cerrar.TabIndex = 17
@@ -53,7 +56,7 @@ Partial Class Registrar_Pedido
         'ingresar
         '
         Me.ingresar.Enabled = False
-        Me.ingresar.Location = New System.Drawing.Point(62, 304)
+        Me.ingresar.Location = New System.Drawing.Point(60, 358)
         Me.ingresar.Name = "ingresar"
         Me.ingresar.Size = New System.Drawing.Size(107, 23)
         Me.ingresar.TabIndex = 16
@@ -62,6 +65,9 @@ Partial Class Registrar_Pedido
         '
         'GroupBox1
         '
+        Me.GroupBox1.Controls.Add(Me.Label9)
+        Me.GroupBox1.Controls.Add(Me.Label8)
+        Me.GroupBox1.Controls.Add(Me.TIPO)
         Me.GroupBox1.Controls.Add(Me.Crearproducto)
         Me.GroupBox1.Controls.Add(Me.nombreproducto)
         Me.GroupBox1.Controls.Add(Me.Label7)
@@ -78,7 +84,7 @@ Partial Class Registrar_Pedido
         Me.GroupBox1.Controls.Add(Me.Label2)
         Me.GroupBox1.Location = New System.Drawing.Point(12, 37)
         Me.GroupBox1.Name = "GroupBox1"
-        Me.GroupBox1.Size = New System.Drawing.Size(324, 261)
+        Me.GroupBox1.Size = New System.Drawing.Size(324, 315)
         Me.GroupBox1.TabIndex = 15
         Me.GroupBox1.TabStop = False
         Me.GroupBox1.Text = "Datos del Pedido"
@@ -86,7 +92,7 @@ Partial Class Registrar_Pedido
         'Crearproducto
         '
         Me.Crearproducto.Enabled = False
-        Me.Crearproducto.Location = New System.Drawing.Point(247, 231)
+        Me.Crearproducto.Location = New System.Drawing.Point(247, 289)
         Me.Crearproducto.Name = "Crearproducto"
         Me.Crearproducto.Size = New System.Drawing.Size(63, 20)
         Me.Crearproducto.TabIndex = 15
@@ -96,7 +102,7 @@ Partial Class Registrar_Pedido
         'nombreproducto
         '
         Me.nombreproducto.Enabled = False
-        Me.nombreproducto.Location = New System.Drawing.Point(100, 231)
+        Me.nombreproducto.Location = New System.Drawing.Point(100, 289)
         Me.nombreproducto.Name = "nombreproducto"
         Me.nombreproducto.Size = New System.Drawing.Size(141, 20)
         Me.nombreproducto.TabIndex = 14
@@ -104,7 +110,7 @@ Partial Class Registrar_Pedido
         'Label7
         '
         Me.Label7.AutoSize = True
-        Me.Label7.Location = New System.Drawing.Point(13, 234)
+        Me.Label7.Location = New System.Drawing.Point(13, 292)
         Me.Label7.Name = "Label7"
         Me.Label7.Size = New System.Drawing.Size(53, 13)
         Me.Label7.TabIndex = 13
@@ -113,7 +119,7 @@ Partial Class Registrar_Pedido
         'Crearcliente
         '
         Me.Crearcliente.Enabled = False
-        Me.Crearcliente.Location = New System.Drawing.Point(248, 201)
+        Me.Crearcliente.Location = New System.Drawing.Point(247, 252)
         Me.Crearcliente.Name = "Crearcliente"
         Me.Crearcliente.Size = New System.Drawing.Size(62, 21)
         Me.Crearcliente.TabIndex = 12
@@ -123,9 +129,9 @@ Partial Class Registrar_Pedido
         'NombreCliente
         '
         Me.NombreCliente.Enabled = False
-        Me.NombreCliente.Location = New System.Drawing.Point(100, 202)
+        Me.NombreCliente.Location = New System.Drawing.Point(138, 253)
         Me.NombreCliente.Name = "NombreCliente"
-        Me.NombreCliente.Size = New System.Drawing.Size(142, 20)
+        Me.NombreCliente.Size = New System.Drawing.Size(103, 20)
         Me.NombreCliente.TabIndex = 11
         '
         'label6
@@ -222,11 +228,40 @@ Partial Class Registrar_Pedido
         Me.Label1.TabIndex = 13
         Me.Label1.Text = "Número del Pedido:"
         '
+        'TIPO
+        '
+        Me.TIPO.Enabled = False
+        Me.TIPO.FormattingEnabled = True
+        Me.TIPO.Items.AddRange(New Object() {"CEDULA", "RIF", "PASAPORTE"})
+        Me.TIPO.Location = New System.Drawing.Point(138, 221)
+        Me.TIPO.Name = "TIPO"
+        Me.TIPO.Size = New System.Drawing.Size(103, 21)
+        Me.TIPO.TabIndex = 16
+        Me.TIPO.Text = "CEDULA"
+        '
+        'Label8
+        '
+        Me.Label8.AutoSize = True
+        Me.Label8.Location = New System.Drawing.Point(45, 224)
+        Me.Label8.Name = "Label8"
+        Me.Label8.Size = New System.Drawing.Size(78, 13)
+        Me.Label8.TabIndex = 17
+        Me.Label8.Text = "Tipo_Identidad"
+        '
+        'Label9
+        '
+        Me.Label9.AutoSize = True
+        Me.Label9.Location = New System.Drawing.Point(45, 256)
+        Me.Label9.Name = "Label9"
+        Me.Label9.Size = New System.Drawing.Size(44, 13)
+        Me.Label9.TabIndex = 18
+        Me.Label9.Text = "Numero"
+        '
         'Registrar_Pedido
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(346, 337)
+        Me.ClientSize = New System.Drawing.Size(346, 393)
         Me.Controls.Add(Me.Cerrar)
         Me.Controls.Add(Me.ingresar)
         Me.Controls.Add(Me.GroupBox1)
@@ -259,4 +294,7 @@ Partial Class Registrar_Pedido
     Friend WithEvents Label2 As System.Windows.Forms.Label
     Friend WithEvents Numero As System.Windows.Forms.TextBox
     Friend WithEvents Label1 As System.Windows.Forms.Label
+    Friend WithEvents Label9 As System.Windows.Forms.Label
+    Friend WithEvents Label8 As System.Windows.Forms.Label
+    Friend WithEvents TIPO As System.Windows.Forms.ComboBox
 End Class

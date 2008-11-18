@@ -30,7 +30,7 @@ Public Class Cliente
             Consulta.CommandText = "SELECT     ID_CLIENTE, TIPO_IDENTIDAD, DOCUMENTO_IDENTIDAD, NOMBRE, APELLIDO, TELEFONO, DIRECCION FROM         CLIENTE WHERE     (TIPO_IDENTIDAD = '" & Tipo & "') AND (DOCUMENTO_IDENTIDAD = '" & Numero & "')"
             Reder = Consulta.ExecuteReader()
             If (Reder.Read = True) Then
-                Venta.ID_Cliente = Reder.Item(0).ToString
+                Venta.ID_Cliente = Integer.Parse(Reder.Item(0).ToString)
                 Venta.Tipo_Identidad.Text = Reder.Item(1).ToString()
                 Venta.Identidad.Text = Reder.Item(2).ToString()
                 Venta.Nombre.Text = Reder.Item(3).ToString()
@@ -45,7 +45,7 @@ Public Class Cliente
             Return 2
         End Try
     End Function
-    Public Function BuscarCliente(ByVal Codigo As String) As Boolean
+    Public Function BuscarCliente(ByVal Codigo As String, ByVal Tipo As String) As Boolean
         Dim cliente As FarmaciaSJDataSetTableAdapters.CLIENTETableAdapter
         Dim Conextion As Data.SqlClient.SqlConnection
         Dim Consulta As Data.SqlClient.SqlCommand
@@ -56,7 +56,7 @@ Public Class Cliente
             Consulta = New Data.SqlClient.SqlCommand
             Conextion.Open()
             Consulta.Connection = Conextion
-            Consulta.CommandText = "SELECT documento_identidad FROM cliente WHERE ('" & Codigo & "' = documento_identidad)"
+            Consulta.CommandText = "SELECT documento_identidad FROM cliente WHERE ('" & Codigo & "' = documento_identidad and '" & TIPO & "'= TIPO_IDENTIDAD)"
             Reder = Consulta.ExecuteReader()
             If (Reder.Read = True) Then
                 If (Reder.HasRows = True) Then

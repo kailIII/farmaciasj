@@ -4,9 +4,9 @@ Public Class Pago
     Private Sub ComboBox1_SelectedIndexChanged(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles ComboBox1.SelectedIndexChanged
         If (ComboBox1.SelectedIndex = 0) Then
             LMonto.Visible = True
-            Monto.Text = 0
+            Monto.Text = CStr(0)
             Monto.Visible = True
-            Vuelto.Text = 0
+            Vuelto.Text = CStr(0)
             LNCT.Visible = False
             NCT.Visible = False
             Vuelto.Visible = True
@@ -18,7 +18,7 @@ Public Class Pago
             Monto.Visible = False
             Monto.Text = Total.Text
             LNCT.Visible = True
-            Vuelto.Text = 0
+            Vuelto.Text = CStr(0)
             LNCT.Text = "Numero de Cheke"
             NCT.Visible = True
             Vuelto.Visible = False
@@ -29,7 +29,7 @@ Public Class Pago
             LMonto.Visible = False
             Monto.Visible = False
             Monto.Text = Total.Text
-            Vuelto.Text = 0
+            Vuelto.Text = CStr(0)
             LNCT.Visible = True
             LNCT.Text = "Numero de Tarjeta"
             NCT.Visible = True
@@ -68,11 +68,11 @@ Public Class Pago
         Dim Monto2 As Double
         Dim Vuelto2 As Double
         If (e.KeyChar = Char.ConvertFromUtf32(13)) Then
-            Total2 = Total.Text
-            Monto2 = Monto.Text
+            Total2 = Double.Parse(Total.Text)
+            Monto2 = Double.Parse(Monto.Text)
             Vuelto2 = Math.Round(Monto2 - Total2, 2)
-            Monto.Text = Monto2
-            Vuelto.Text = Vuelto2
+            Monto.Text = CStr(Monto2)
+            Vuelto.Text = CStr(Vuelto2)
         End If
     End Sub
 

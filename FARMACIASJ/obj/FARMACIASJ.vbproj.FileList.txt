@@ -34,3 +34,6 @@ obj\Debug\FARMACIASJ.Pago.resources
 obj\Debug\FARMACIASJ.FACTURA.rpt
 obj\Debug\FARMACIASJ.Configuracion.resources
 obj\Debug\FARMACIASJ.Reporte.resources
+obj\Debug\FARMACIASJ.Registrar_Compra.resources
+obj\Debug\FARMACIASJ.Registrar_Pedido.resources
+obj\Debug\FARMACIASJ.Compra2.resources

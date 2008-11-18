@@ -1,6 +1,6 @@
 Public Class Controlador_Venta
 
-    Public Function Ingresar_Factura(ByVal Numero As String, ByVal Fecha As Date, ByVal Vence As Date, ByVal ID_Cliente As String) As Integer
+    Public Function Ingresar_Factura(ByVal Numero As String, ByVal Fecha As Date, ByVal Vence As Date, ByVal ID_Cliente As Integer) As Integer
         Dim Venta As Venta
         Dim ID As Integer
         Venta = New Venta
@@ -13,19 +13,19 @@ Public Class Controlador_Venta
         End If
     End Function
 
-    Public Sub Ingresar_Detalle(ByVal ID_Detalle As String, ByVal ID_VENTA As String, ByVal ID_Producto As String, ByVal ID_Lote As String, ByVal Cantidad As String, ByVal ID_Impuesto() As String, ByVal Id_Historico_Impuesto() As String, ByVal N As Integer)
+    Public Sub Ingresar_Detalle(ByVal ID_Detalle As Integer, ByVal ID_VENTA As Integer, ByVal ID_Producto As Integer, ByVal ID_Lote As Integer, ByVal Cantidad As Integer, ByVal ID_Impuesto() As Integer, ByVal Id_Historico_Impuesto() As Integer, ByVal N As Integer)
         Dim Venta As Venta
 
         Venta = New Venta
         Venta.Ingresar_Detalle(ID_Detalle, ID_VENTA, ID_Producto, ID_Lote, ID_Impuesto, Id_Historico_Impuesto, Cantidad, N)
 
     End Sub
-    Public Function Traer_Detalle(ByVal Id_Factura As String) As Data.DataTable
+    Public Function Traer_Detalle(ByVal Id_Factura As Integer) As Data.DataTable
         Dim Venta As Venta
         Venta = New Venta
-        Return Venta.traer_detalle(Id_Factura)
+        Return Venta.Traer_Detalle(Id_Factura)
     End Function
-    Public Sub Borrar_Factura(ByVal ID_Factura As String, ByVal RVenta As Realizar_Venta)
+    Public Sub Borrar_Factura(ByVal ID_Factura As Integer, ByVal RVenta As Realizar_Venta)
         Dim Venta As Venta
         Dim Factura As Realizar_Venta
         Venta = New Venta()
@@ -41,7 +41,7 @@ Public Class Controlador_Venta
         Venta = New Venta
         Return Venta.CantidadF()
     End Function
-    Public Sub Abrir_Venta(ByVal Padre As Vendedor)
+    Public Sub Abrir_Venta(ByVal Padre As Windows.Forms.Form)
         Dim Realizar_Venta As Realizar_Venta
         Realizar_Venta = New Realizar_Venta
         Realizar_Venta.MdiParent = Padre
@@ -69,16 +69,12 @@ Public Class Controlador_Venta
     Public Sub Actualizar_Pago(ByVal ID_Factura As Integer, ByVal Stotal As String, ByVal Impuestos As String, ByVal Total As String, ByVal Tipo_Pago As String, ByVal Monto As String, ByVal Vuelto As String, ByVal NCT As String, ByVal Vencimiento As String, ByVal Pago As Pago)
         Dim Venta As Venta
         Dim Realizar_Venta As Realizar_Venta
-        Dim Factura As FACTURA
         Dim FarmaciaSJ As FarmaciaSJDataSet
         Venta = New Venta
         Venta.Pago(ID_Factura, Stotal, Impuestos, Total, Tipo_Pago, Monto, Vuelto, NCT, Vencimiento)
         Realizar_Venta = New Realizar_Venta
         Realizar_Venta.MdiParent = Pago.MdiParent
         FarmaciaSJ = Venta.Cargar_Reporte(ID_Factura)
-        'Factura = New FACTURA
-        'Factura.SetDataSource(FarmaciaSJ)
-        'Factura.PrintToPrinter(1, True, 1, 2)
         Pago.Close()
         Realizar_Venta.Show()
     End Sub

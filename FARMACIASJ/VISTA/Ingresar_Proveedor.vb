@@ -7,7 +7,7 @@ Public Class Ingresar_Proveedor
         ' ATENCION
         'Acá pensé ponerle la parte del boton modificar cuando lo accionamos para habilitar los campos
         'pero a la final lo coloqué en controlador
-        Controlador_Proveedor.Ingresando_Proveedor(Arreglo, Me, Codigo.Text, Rif.Text, Nombre.Text, Correo.Text, Dir.Text, Ciudad.Text, Saldo.Text)
+        Controlador_Proveedor.Ingresando_Proveedor(Arreglo, Me, Codigo.Text, Rif.Text, Nombre.Text, Correo.Text, Dir.Text, Ciudad.Text, Double.Parse(Saldo.Text))
         'Registrando los productos_proveedor
 
     End Sub

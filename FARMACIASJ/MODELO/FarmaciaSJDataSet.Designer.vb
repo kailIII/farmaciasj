@@ -1230,6 +1230,8 @@ Partial Public Class FarmaciaSJDataSet
         
         Private columnID_PROVEEDOR As System.Data.DataColumn
         
+        Private columnIMPUESTO As System.Data.DataColumn
+        
         <System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
         Public Sub New()
             MyBase.New
@@ -1311,6 +1313,13 @@ Partial Public Class FarmaciaSJDataSet
             End Get
         End Property
         
+        <System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public ReadOnly Property IMPUESTOColumn() As System.Data.DataColumn
+            Get
+                Return Me.columnIMPUESTO
+            End Get
+        End Property
+        
         <System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          System.ComponentModel.Browsable(false)>  _
         Public ReadOnly Property Count() As Integer
@@ -1340,9 +1349,9 @@ Partial Public Class FarmaciaSJDataSet
         End Sub
         
         <System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
-        Public Overloads Function AddCOMPRARow(ByVal FECHA_COMPRA As Date, ByVal VENCE As Date, ByVal MONTO As Double, ByVal DESCUENTO_GLOBAL As Double, ByVal NUMERO_FACTURA_COMPRA As String, ByVal parentPROVEEDORRowByFK_COMPRA_PROVEEDOR As PROVEEDORRow) As COMPRARow
+        Public Overloads Function AddCOMPRARow(ByVal FECHA_COMPRA As Date, ByVal VENCE As Date, ByVal MONTO As Double, ByVal DESCUENTO_GLOBAL As Double, ByVal NUMERO_FACTURA_COMPRA As String, ByVal parentPROVEEDORRowByFK_COMPRA_PROVEEDOR As PROVEEDORRow, ByVal IMPUESTO As Double) As COMPRARow
             Dim rowCOMPRARow As COMPRARow = CType(Me.NewRow,COMPRARow)
-            rowCOMPRARow.ItemArray = New Object() {Nothing, FECHA_COMPRA, VENCE, MONTO, DESCUENTO_GLOBAL, NUMERO_FACTURA_COMPRA, parentPROVEEDORRowByFK_COMPRA_PROVEEDOR(0)}
+            rowCOMPRARow.ItemArray = New Object() {Nothing, FECHA_COMPRA, VENCE, MONTO, DESCUENTO_GLOBAL, NUMERO_FACTURA_COMPRA, parentPROVEEDORRowByFK_COMPRA_PROVEEDOR(0), IMPUESTO}
             Me.Rows.Add(rowCOMPRARow)
             Return rowCOMPRARow
         End Function
@@ -1378,6 +1387,7 @@ Partial Public Class FarmaciaSJDataSet
             Me.columnDESCUENTO_GLOBAL = MyBase.Columns("DESCUENTO_GLOBAL")
             Me.columnNUMERO_FACTURA_COMPRA = MyBase.Columns("NUMERO_FACTURA_COMPRA")
             Me.columnID_PROVEEDOR = MyBase.Columns("ID_PROVEEDOR")
+            Me.columnIMPUESTO = MyBase.Columns("IMPUESTO")
         End Sub
         
         <System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
@@ -1396,6 +1406,8 @@ Partial Public Class FarmaciaSJDataSet
             MyBase.Columns.Add(Me.columnNUMERO_FACTURA_COMPRA)
             Me.columnID_PROVEEDOR = New System.Data.DataColumn("ID_PROVEEDOR", GetType(Decimal), Nothing, System.Data.MappingType.Element)
             MyBase.Columns.Add(Me.columnID_PROVEEDOR)
+            Me.columnIMPUESTO = New System.Data.DataColumn("IMPUESTO", GetType(Double), Nothing, System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnIMPUESTO)
             Me.Constraints.Add(New System.Data.UniqueConstraint("Constraint1", New System.Data.DataColumn() {Me.columnID_COMPRA}, true))
             Me.columnID_COMPRA.AutoIncrement = true
             Me.columnID_COMPRA.AllowDBNull = false
@@ -1408,6 +1420,7 @@ Partial Public Class FarmaciaSJDataSet
             Me.columnNUMERO_FACTURA_COMPRA.AllowDBNull = false
             Me.columnNUMERO_FACTURA_COMPRA.MaxLength = 2147483647
             Me.columnID_PROVEEDOR.AllowDBNull = false
+            Me.columnIMPUESTO.AllowDBNull = false
         End Sub
         
         <System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
@@ -6529,6 +6542,16 @@ Partial Public Class FarmaciaSJDataSet
         End Property
         
         <System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public Property IMPUESTO() As Double
+            Get
+                Return CType(Me(Me.tableCOMPRA.IMPUESTOColumn),Double)
+            End Get
+            Set
+                Me(Me.tableCOMPRA.IMPUESTOColumn) = value
+            End Set
+        End Property
+        
+        <System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
         Public Property PROVEEDORRow() As PROVEEDORRow
             Get
                 Return CType(Me.GetParentRow(Me.Table.ParentRelations("FK_COMPRA_PROVEEDOR")),PROVEEDORRow)
@@ -9330,13 +9353,14 @@ Namespace FarmaciaSJDataSetTableAdapters
             tableMapping.ColumnMappings.Add("DESCUENTO_GLOBAL", "DESCUENTO_GLOBAL")
             tableMapping.ColumnMappings.Add("NUMERO_FACTURA_COMPRA", "NUMERO_FACTURA_COMPRA")
             tableMapping.ColumnMappings.Add("ID_PROVEEDOR", "ID_PROVEEDOR")
+            tableMapping.ColumnMappings.Add("IMPUESTO", "IMPUESTO")
             Me._adapter.TableMappings.Add(tableMapping)
             Me._adapter.DeleteCommand = New System.Data.SqlClient.SqlCommand
             Me._adapter.DeleteCommand.Connection = Me.Connection
-            Me._adapter.DeleteCommand.CommandText = "DELETE FROM [dbo].[COMPRA] WHERE (([ID_COMPRA] = @Original_ID_COMPRA) AND ([FECHA"& _ 
-                "_COMPRA] = @Original_FECHA_COMPRA) AND ([VENCE] = @Original_VENCE) AND ([MONTO] "& _ 
-                "= @Original_MONTO) AND ([DESCUENTO_GLOBAL] = @Original_DESCUENTO_GLOBAL) AND ([I"& _ 
-                "D_PROVEEDOR] = @Original_ID_PROVEEDOR))"
+            Me._adapter.DeleteCommand.CommandText = "DELETE FROM [COMPRA] WHERE (([ID_COMPRA] = @Original_ID_COMPRA) AND ([FECHA_COMPR"& _ 
+                "A] = @Original_FECHA_COMPRA) AND ([VENCE] = @Original_VENCE) AND ([MONTO] = @Ori"& _ 
+                "ginal_MONTO) AND ([DESCUENTO_GLOBAL] = @Original_DESCUENTO_GLOBAL) AND ([ID_PROV"& _ 
+                "EEDOR] = @Original_ID_PROVEEDOR) AND ([IMPUESTO] = @Original_IMPUESTO))"
             Me._adapter.DeleteCommand.CommandType = System.Data.CommandType.Text
             Me._adapter.DeleteCommand.Parameters.Add(New System.Data.SqlClient.SqlParameter("@Original_ID_COMPRA", System.Data.SqlDbType.[Decimal], 0, System.Data.ParameterDirection.Input, 18, 0, "ID_COMPRA", System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
             Me._adapter.DeleteCommand.Parameters.Add(New System.Data.SqlClient.SqlParameter("@Original_FECHA_COMPRA", System.Data.SqlDbType.DateTime, 0, System.Data.ParameterDirection.Input, 0, 0, "FECHA_COMPRA", System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
@@ -9344,13 +9368,14 @@ Namespace FarmaciaSJDataSetTableAdapters
             Me._adapter.DeleteCommand.Parameters.Add(New System.Data.SqlClient.SqlParameter("@Original_MONTO", System.Data.SqlDbType.Float, 0, System.Data.ParameterDirection.Input, 0, 0, "MONTO", System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
             Me._adapter.DeleteCommand.Parameters.Add(New System.Data.SqlClient.SqlParameter("@Original_DESCUENTO_GLOBAL", System.Data.SqlDbType.Float, 0, System.Data.ParameterDirection.Input, 0, 0, "DESCUENTO_GLOBAL", System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
             Me._adapter.DeleteCommand.Parameters.Add(New System.Data.SqlClient.SqlParameter("@Original_ID_PROVEEDOR", System.Data.SqlDbType.[Decimal], 0, System.Data.ParameterDirection.Input, 18, 0, "ID_PROVEEDOR", System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
+            Me._adapter.DeleteCommand.Parameters.Add(New System.Data.SqlClient.SqlParameter("@Original_IMPUESTO", System.Data.SqlDbType.Float, 0, System.Data.ParameterDirection.Input, 0, 0, "IMPUESTO", System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
             Me._adapter.InsertCommand = New System.Data.SqlClient.SqlCommand
             Me._adapter.InsertCommand.Connection = Me.Connection
-            Me._adapter.InsertCommand.CommandText = "INSERT INTO [dbo].[COMPRA] ([FECHA_COMPRA], [VENCE], [MONTO], [DESCUENTO_GLOBAL],"& _ 
-                " [NUMERO_FACTURA_COMPRA], [ID_PROVEEDOR]) VALUES (@FECHA_COMPRA, @VENCE, @MONTO,"& _ 
-                " @DESCUENTO_GLOBAL, @NUMERO_FACTURA_COMPRA, @ID_PROVEEDOR);"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"SELECT ID_COMPRA, F"& _ 
-                "ECHA_COMPRA, VENCE, MONTO, DESCUENTO_GLOBAL, NUMERO_FACTURA_COMPRA, ID_PROVEEDOR"& _ 
-                " FROM COMPRA WHERE (ID_COMPRA = SCOPE_IDENTITY())"
+            Me._adapter.InsertCommand.CommandText = "INSERT INTO [COMPRA] ([FECHA_COMPRA], [VENCE], [MONTO], [DESCUENTO_GLOBAL], [NUME"& _ 
+                "RO_FACTURA_COMPRA], [ID_PROVEEDOR], [IMPUESTO]) VALUES (@FECHA_COMPRA, @VENCE, @"& _ 
+                "MONTO, @DESCUENTO_GLOBAL, @NUMERO_FACTURA_COMPRA, @ID_PROVEEDOR, @IMPUESTO);"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"SE"& _ 
+                "LECT ID_COMPRA, FECHA_COMPRA, VENCE, MONTO, DESCUENTO_GLOBAL, NUMERO_FACTURA_COM"& _ 
+                "PRA, ID_PROVEEDOR, IMPUESTO FROM COMPRA WHERE (ID_COMPRA = SCOPE_IDENTITY())"
             Me._adapter.InsertCommand.CommandType = System.Data.CommandType.Text
             Me._adapter.InsertCommand.Parameters.Add(New System.Data.SqlClient.SqlParameter("@FECHA_COMPRA", System.Data.SqlDbType.DateTime, 0, System.Data.ParameterDirection.Input, 0, 0, "FECHA_COMPRA", System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
             Me._adapter.InsertCommand.Parameters.Add(New System.Data.SqlClient.SqlParameter("@VENCE", System.Data.SqlDbType.DateTime, 0, System.Data.ParameterDirection.Input, 0, 0, "VENCE", System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
@@ -9358,16 +9383,18 @@ Namespace FarmaciaSJDataSetTableAdapters
             Me._adapter.InsertCommand.Parameters.Add(New System.Data.SqlClient.SqlParameter("@DESCUENTO_GLOBAL", System.Data.SqlDbType.Float, 0, System.Data.ParameterDirection.Input, 0, 0, "DESCUENTO_GLOBAL", System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
             Me._adapter.InsertCommand.Parameters.Add(New System.Data.SqlClient.SqlParameter("@NUMERO_FACTURA_COMPRA", System.Data.SqlDbType.VarChar, 0, System.Data.ParameterDirection.Input, 0, 0, "NUMERO_FACTURA_COMPRA", System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
             Me._adapter.InsertCommand.Parameters.Add(New System.Data.SqlClient.SqlParameter("@ID_PROVEEDOR", System.Data.SqlDbType.[Decimal], 0, System.Data.ParameterDirection.Input, 18, 0, "ID_PROVEEDOR", System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.InsertCommand.Parameters.Add(New System.Data.SqlClient.SqlParameter("@IMPUESTO", System.Data.SqlDbType.Float, 0, System.Data.ParameterDirection.Input, 0, 0, "IMPUESTO", System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
             Me._adapter.UpdateCommand = New System.Data.SqlClient.SqlCommand
             Me._adapter.UpdateCommand.Connection = Me.Connection
-            Me._adapter.UpdateCommand.CommandText = "UPDATE [dbo].[COMPRA] SET [FECHA_COMPRA] = @FECHA_COMPRA, [VENCE] = @VENCE, [MONT"& _ 
-                "O] = @MONTO, [DESCUENTO_GLOBAL] = @DESCUENTO_GLOBAL, [NUMERO_FACTURA_COMPRA] = @"& _ 
-                "NUMERO_FACTURA_COMPRA, [ID_PROVEEDOR] = @ID_PROVEEDOR WHERE (([ID_COMPRA] = @Ori"& _ 
-                "ginal_ID_COMPRA) AND ([FECHA_COMPRA] = @Original_FECHA_COMPRA) AND ([VENCE] = @O"& _ 
-                "riginal_VENCE) AND ([MONTO] = @Original_MONTO) AND ([DESCUENTO_GLOBAL] = @Origin"& _ 
-                "al_DESCUENTO_GLOBAL) AND ([ID_PROVEEDOR] = @Original_ID_PROVEEDOR));"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"SELECT ID_"& _ 
-                "COMPRA, FECHA_COMPRA, VENCE, MONTO, DESCUENTO_GLOBAL, NUMERO_FACTURA_COMPRA, ID_"& _ 
-                "PROVEEDOR FROM COMPRA WHERE (ID_COMPRA = @ID_COMPRA)"
+            Me._adapter.UpdateCommand.CommandText = "UPDATE [COMPRA] SET [FECHA_COMPRA] = @FECHA_COMPRA, [VENCE] = @VENCE, [MONTO] = @"& _ 
+                "MONTO, [DESCUENTO_GLOBAL] = @DESCUENTO_GLOBAL, [NUMERO_FACTURA_COMPRA] = @NUMERO"& _ 
+                "_FACTURA_COMPRA, [ID_PROVEEDOR] = @ID_PROVEEDOR, [IMPUESTO] = @IMPUESTO WHERE (("& _ 
+                "[ID_COMPRA] = @Original_ID_COMPRA) AND ([FECHA_COMPRA] = @Original_FECHA_COMPRA)"& _ 
+                " AND ([VENCE] = @Original_VENCE) AND ([MONTO] = @Original_MONTO) AND ([DESCUENTO"& _ 
+                "_GLOBAL] = @Original_DESCUENTO_GLOBAL) AND ([ID_PROVEEDOR] = @Original_ID_PROVEE"& _ 
+                "DOR) AND ([IMPUESTO] = @Original_IMPUESTO));"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"SELECT ID_COMPRA, FECHA_COMPRA, VE"& _ 
+                "NCE, MONTO, DESCUENTO_GLOBAL, NUMERO_FACTURA_COMPRA, ID_PROVEEDOR, IMPUESTO FROM"& _ 
+                " COMPRA WHERE (ID_COMPRA = @ID_COMPRA)"
             Me._adapter.UpdateCommand.CommandType = System.Data.CommandType.Text
             Me._adapter.UpdateCommand.Parameters.Add(New System.Data.SqlClient.SqlParameter("@FECHA_COMPRA", System.Data.SqlDbType.DateTime, 0, System.Data.ParameterDirection.Input, 0, 0, "FECHA_COMPRA", System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
             Me._adapter.UpdateCommand.Parameters.Add(New System.Data.SqlClient.SqlParameter("@VENCE", System.Data.SqlDbType.DateTime, 0, System.Data.ParameterDirection.Input, 0, 0, "VENCE", System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
@@ -9375,12 +9402,14 @@ Namespace FarmaciaSJDataSetTableAdapters
             Me._adapter.UpdateCommand.Parameters.Add(New System.Data.SqlClient.SqlParameter("@DESCUENTO_GLOBAL", System.Data.SqlDbType.Float, 0, System.Data.ParameterDirection.Input, 0, 0, "DESCUENTO_GLOBAL", System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
             Me._adapter.UpdateCommand.Parameters.Add(New System.Data.SqlClient.SqlParameter("@NUMERO_FACTURA_COMPRA", System.Data.SqlDbType.VarChar, 0, System.Data.ParameterDirection.Input, 0, 0, "NUMERO_FACTURA_COMPRA", System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
             Me._adapter.UpdateCommand.Parameters.Add(New System.Data.SqlClient.SqlParameter("@ID_PROVEEDOR", System.Data.SqlDbType.[Decimal], 0, System.Data.ParameterDirection.Input, 18, 0, "ID_PROVEEDOR", System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New System.Data.SqlClient.SqlParameter("@IMPUESTO", System.Data.SqlDbType.Float, 0, System.Data.ParameterDirection.Input, 0, 0, "IMPUESTO", System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
             Me._adapter.UpdateCommand.Parameters.Add(New System.Data.SqlClient.SqlParameter("@Original_ID_COMPRA", System.Data.SqlDbType.[Decimal], 0, System.Data.ParameterDirection.Input, 18, 0, "ID_COMPRA", System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
             Me._adapter.UpdateCommand.Parameters.Add(New System.Data.SqlClient.SqlParameter("@Original_FECHA_COMPRA", System.Data.SqlDbType.DateTime, 0, System.Data.ParameterDirection.Input, 0, 0, "FECHA_COMPRA", System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
             Me._adapter.UpdateCommand.Parameters.Add(New System.Data.SqlClient.SqlParameter("@Original_VENCE", System.Data.SqlDbType.DateTime, 0, System.Data.ParameterDirection.Input, 0, 0, "VENCE", System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
             Me._adapter.UpdateCommand.Parameters.Add(New System.Data.SqlClient.SqlParameter("@Original_MONTO", System.Data.SqlDbType.Float, 0, System.Data.ParameterDirection.Input, 0, 0, "MONTO", System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
             Me._adapter.UpdateCommand.Parameters.Add(New System.Data.SqlClient.SqlParameter("@Original_DESCUENTO_GLOBAL", System.Data.SqlDbType.Float, 0, System.Data.ParameterDirection.Input, 0, 0, "DESCUENTO_GLOBAL", System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
             Me._adapter.UpdateCommand.Parameters.Add(New System.Data.SqlClient.SqlParameter("@Original_ID_PROVEEDOR", System.Data.SqlDbType.[Decimal], 0, System.Data.ParameterDirection.Input, 18, 0, "ID_PROVEEDOR", System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New System.Data.SqlClient.SqlParameter("@Original_IMPUESTO", System.Data.SqlDbType.Float, 0, System.Data.ParameterDirection.Input, 0, 0, "IMPUESTO", System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
             Me._adapter.UpdateCommand.Parameters.Add(New System.Data.SqlClient.SqlParameter("@ID_COMPRA", System.Data.SqlDbType.[Decimal], 9, System.Data.ParameterDirection.Input, 18, 0, "ID_COMPRA", System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
         End Sub
         
@@ -9396,7 +9425,7 @@ Namespace FarmaciaSJDataSetTableAdapters
             Me._commandCollection(0) = New System.Data.SqlClient.SqlCommand
             Me._commandCollection(0).Connection = Me.Connection
             Me._commandCollection(0).CommandText = "SELECT ID_COMPRA, FECHA_COMPRA, VENCE, MONTO, DESCUENTO_GLOBAL, NUMERO_FACTURA_CO"& _ 
-                "MPRA, ID_PROVEEDOR FROM dbo.COMPRA"
+                "MPRA, ID_PROVEEDOR, IMPUESTO FROM COMPRA"
             Me._commandCollection(0).CommandType = System.Data.CommandType.Text
         End Sub
         
@@ -9449,13 +9478,14 @@ Namespace FarmaciaSJDataSetTableAdapters
         <System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
          System.ComponentModel.DataObjectMethodAttribute(System.ComponentModel.DataObjectMethodType.Delete, true)>  _
-        Public Overloads Overridable Function Delete(ByVal Original_ID_COMPRA As Decimal, ByVal Original_FECHA_COMPRA As Date, ByVal Original_VENCE As Date, ByVal Original_MONTO As Double, ByVal Original_DESCUENTO_GLOBAL As Double, ByVal Original_ID_PROVEEDOR As Decimal) As Integer
+        Public Overloads Overridable Function Delete(ByVal Original_ID_COMPRA As Decimal, ByVal Original_FECHA_COMPRA As Date, ByVal Original_VENCE As Date, ByVal Original_MONTO As Double, ByVal Original_DESCUENTO_GLOBAL As Double, ByVal Original_ID_PROVEEDOR As Decimal, ByVal Original_IMPUESTO As Double) As Integer
             Me.Adapter.DeleteCommand.Parameters(0).Value = CType(Original_ID_COMPRA,Decimal)
             Me.Adapter.DeleteCommand.Parameters(1).Value = CType(Original_FECHA_COMPRA,Date)
             Me.Adapter.DeleteCommand.Parameters(2).Value = CType(Original_VENCE,Date)
             Me.Adapter.DeleteCommand.Parameters(3).Value = CType(Original_MONTO,Double)
             Me.Adapter.DeleteCommand.Parameters(4).Value = CType(Original_DESCUENTO_GLOBAL,Double)
             Me.Adapter.DeleteCommand.Parameters(5).Value = CType(Original_ID_PROVEEDOR,Decimal)
+            Me.Adapter.DeleteCommand.Parameters(6).Value = CType(Original_IMPUESTO,Double)
             Dim previousConnectionState As System.Data.ConnectionState = Me.Adapter.DeleteCommand.Connection.State
             If ((Me.Adapter.DeleteCommand.Connection.State And System.Data.ConnectionState.Open)  _
                         <> System.Data.ConnectionState.Open) Then
@@ -9474,7 +9504,7 @@ Namespace FarmaciaSJDataSetTableAdapters
         <System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
          System.ComponentModel.DataObjectMethodAttribute(System.ComponentModel.DataObjectMethodType.Insert, true)>  _
-        Public Overloads Overridable Function Insert(ByVal FECHA_COMPRA As Date, ByVal VENCE As Date, ByVal MONTO As Double, ByVal DESCUENTO_GLOBAL As Double, ByVal NUMERO_FACTURA_COMPRA As String, ByVal ID_PROVEEDOR As Decimal) As Integer
+        Public Overloads Overridable Function Insert(ByVal FECHA_COMPRA As Date, ByVal VENCE As Date, ByVal MONTO As Double, ByVal DESCUENTO_GLOBAL As Double, ByVal NUMERO_FACTURA_COMPRA As String, ByVal ID_PROVEEDOR As Decimal, ByVal IMPUESTO As Double) As Integer
             Me.Adapter.InsertCommand.Parameters(0).Value = CType(FECHA_COMPRA,Date)
             Me.Adapter.InsertCommand.Parameters(1).Value = CType(VENCE,Date)
             Me.Adapter.InsertCommand.Parameters(2).Value = CType(MONTO,Double)
@@ -9485,6 +9515,7 @@ Namespace FarmaciaSJDataSetTableAdapters
                 Me.Adapter.InsertCommand.Parameters(4).Value = CType(NUMERO_FACTURA_COMPRA,String)
             End If
             Me.Adapter.InsertCommand.Parameters(5).Value = CType(ID_PROVEEDOR,Decimal)
+            Me.Adapter.InsertCommand.Parameters(6).Value = CType(IMPUESTO,Double)
             Dim previousConnectionState As System.Data.ConnectionState = Me.Adapter.InsertCommand.Connection.State
             If ((Me.Adapter.InsertCommand.Connection.State And System.Data.ConnectionState.Open)  _
                         <> System.Data.ConnectionState.Open) Then
@@ -9503,7 +9534,7 @@ Namespace FarmaciaSJDataSetTableAdapters
         <System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
          System.ComponentModel.DataObjectMethodAttribute(System.ComponentModel.DataObjectMethodType.Update, true)>  _
-        Public Overloads Overridable Function Update(ByVal FECHA_COMPRA As Date, ByVal VENCE As Date, ByVal MONTO As Double, ByVal DESCUENTO_GLOBAL As Double, ByVal NUMERO_FACTURA_COMPRA As String, ByVal ID_PROVEEDOR As Decimal, ByVal Original_ID_COMPRA As Decimal, ByVal Original_FECHA_COMPRA As Date, ByVal Original_VENCE As Date, ByVal Original_MONTO As Double, ByVal Original_DESCUENTO_GLOBAL As Double, ByVal Original_ID_PROVEEDOR As Decimal, ByVal ID_COMPRA As Decimal) As Integer
+        Public Overloads Overridable Function Update(ByVal FECHA_COMPRA As Date, ByVal VENCE As Date, ByVal MONTO As Double, ByVal DESCUENTO_GLOBAL As Double, ByVal NUMERO_FACTURA_COMPRA As String, ByVal ID_PROVEEDOR As Decimal, ByVal IMPUESTO As Double, ByVal Original_ID_COMPRA As Decimal, ByVal Original_FECHA_COMPRA As Date, ByVal Original_VENCE As Date, ByVal Original_MONTO As Double, ByVal Original_DESCUENTO_GLOBAL As Double, ByVal Original_ID_PROVEEDOR As Decimal, ByVal Original_IMPUESTO As Double, ByVal ID_COMPRA As Decimal) As Integer
             Me.Adapter.UpdateCommand.Parameters(0).Value = CType(FECHA_COMPRA,Date)
             Me.Adapter.UpdateCommand.Parameters(1).Value = CType(VENCE,Date)
             Me.Adapter.UpdateCommand.Parameters(2).Value = CType(MONTO,Double)
@@ -9514,13 +9545,15 @@ Namespace FarmaciaSJDataSetTableAdapters
                 Me.Adapter.UpdateCommand.Parameters(4).Value = CType(NUMERO_FACTURA_COMPRA,String)
             End If
             Me.Adapter.UpdateCommand.Parameters(5).Value = CType(ID_PROVEEDOR,Decimal)
-            Me.Adapter.UpdateCommand.Parameters(6).Value = CType(Original_ID_COMPRA,Decimal)
-            Me.Adapter.UpdateCommand.Parameters(7).Value = CType(Original_FECHA_COMPRA,Date)
-            Me.Adapter.UpdateCommand.Parameters(8).Value = CType(Original_VENCE,Date)
-            Me.Adapter.UpdateCommand.Parameters(9).Value = CType(Original_MONTO,Double)
-            Me.Adapter.UpdateCommand.Parameters(10).Value = CType(Original_DESCUENTO_GLOBAL,Double)
-            Me.Adapter.UpdateCommand.Parameters(11).Value = CType(Original_ID_PROVEEDOR,Decimal)
-            Me.Adapter.UpdateCommand.Parameters(12).Value = CType(ID_COMPRA,Decimal)
+            Me.Adapter.UpdateCommand.Parameters(6).Value = CType(IMPUESTO,Double)
+            Me.Adapter.UpdateCommand.Parameters(7).Value = CType(Original_ID_COMPRA,Decimal)
+            Me.Adapter.UpdateCommand.Parameters(8).Value = CType(Original_FECHA_COMPRA,Date)
+            Me.Adapter.UpdateCommand.Parameters(9).Value = CType(Original_VENCE,Date)
+            Me.Adapter.UpdateCommand.Parameters(10).Value = CType(Original_MONTO,Double)
+            Me.Adapter.UpdateCommand.Parameters(11).Value = CType(Original_DESCUENTO_GLOBAL,Double)
+            Me.Adapter.UpdateCommand.Parameters(12).Value = CType(Original_ID_PROVEEDOR,Decimal)
+            Me.Adapter.UpdateCommand.Parameters(13).Value = CType(Original_IMPUESTO,Double)
+            Me.Adapter.UpdateCommand.Parameters(14).Value = CType(ID_COMPRA,Decimal)
             Dim previousConnectionState As System.Data.ConnectionState = Me.Adapter.UpdateCommand.Connection.State
             If ((Me.Adapter.UpdateCommand.Connection.State And System.Data.ConnectionState.Open)  _
                         <> System.Data.ConnectionState.Open) Then

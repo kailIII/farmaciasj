@@ -27,6 +27,14 @@ Partial Class Registrar_Compra
         Me.Label1 = New System.Windows.Forms.Label
         Me.Fecha = New System.Windows.Forms.DateTimePicker
         Me.GroupBox2 = New System.Windows.Forms.GroupBox
+        Me.LNtelefono = New System.Windows.Forms.Label
+        Me.LCArea = New System.Windows.Forms.Label
+        Me.CArea = New System.Windows.Forms.TextBox
+        Me.Label28 = New System.Windows.Forms.Label
+        Me.BATelefono = New System.Windows.Forms.Button
+        Me.NTelefono = New System.Windows.Forms.TextBox
+        Me.Label6 = New System.Windows.Forms.Label
+        Me.Telefonos = New System.Windows.Forms.ListBox
         Me.Label10 = New System.Windows.Forms.Label
         Me.CODIGO = New System.Windows.Forms.TextBox
         Me.Label9 = New System.Windows.Forms.Label
@@ -35,13 +43,11 @@ Partial Class Registrar_Compra
         Me.Direccion = New System.Windows.Forms.RichTextBox
         Me.Label7 = New System.Windows.Forms.Label
         Me.CIUDAD = New System.Windows.Forms.TextBox
-        Me.TELEFONO = New System.Windows.Forms.TextBox
-        Me.Label6 = New System.Windows.Forms.Label
         Me.Label5 = New System.Windows.Forms.Label
         Me.NOMBRE_PROVEEDOR = New System.Windows.Forms.TextBox
         Me.RIF_PROVEEDOR = New System.Windows.Forms.TextBox
         Me.Label4 = New System.Windows.Forms.Label
-        Me.DataGridView1 = New System.Windows.Forms.DataGridView
+        Me.DETALLE_COMPRA = New System.Windows.Forms.DataGridView
         Me.GroupBox3 = New System.Windows.Forms.GroupBox
         Me.Label15 = New System.Windows.Forms.Label
         Me.DESCRIPCION_PRODUCTO = New System.Windows.Forms.RichTextBox
@@ -78,13 +84,11 @@ Partial Class Registrar_Compra
         Me.Label20 = New System.Windows.Forms.Label
         Me.Button2 = New System.Windows.Forms.Button
         Me.Button3 = New System.Windows.Forms.Button
-        Me.TextBox1 = New System.Windows.Forms.TextBox
+        Me.Subtotal = New System.Windows.Forms.TextBox
         Me.Label26 = New System.Windows.Forms.Label
-        Me.TextBox2 = New System.Windows.Forms.TextBox
-        Me.Label27 = New System.Windows.Forms.Label
         Me.GroupBox1.SuspendLayout()
         Me.GroupBox2.SuspendLayout()
-        CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.DETALLE_COMPRA, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.GroupBox3.SuspendLayout()
         Me.GroupBox4.SuspendLayout()
         Me.GroupBox5.SuspendLayout()
@@ -159,6 +163,14 @@ Partial Class Registrar_Compra
         '
         'GroupBox2
         '
+        Me.GroupBox2.Controls.Add(Me.LNtelefono)
+        Me.GroupBox2.Controls.Add(Me.LCArea)
+        Me.GroupBox2.Controls.Add(Me.CArea)
+        Me.GroupBox2.Controls.Add(Me.Label28)
+        Me.GroupBox2.Controls.Add(Me.BATelefono)
+        Me.GroupBox2.Controls.Add(Me.NTelefono)
+        Me.GroupBox2.Controls.Add(Me.Label6)
+        Me.GroupBox2.Controls.Add(Me.Telefonos)
         Me.GroupBox2.Controls.Add(Me.Label10)
         Me.GroupBox2.Controls.Add(Me.CODIGO)
         Me.GroupBox2.Controls.Add(Me.Label9)
@@ -167,23 +179,94 @@ Partial Class Registrar_Compra
         Me.GroupBox2.Controls.Add(Me.Direccion)
         Me.GroupBox2.Controls.Add(Me.Label7)
         Me.GroupBox2.Controls.Add(Me.CIUDAD)
-        Me.GroupBox2.Controls.Add(Me.TELEFONO)
-        Me.GroupBox2.Controls.Add(Me.Label6)
         Me.GroupBox2.Controls.Add(Me.Label5)
         Me.GroupBox2.Controls.Add(Me.NOMBRE_PROVEEDOR)
         Me.GroupBox2.Controls.Add(Me.RIF_PROVEEDOR)
         Me.GroupBox2.Controls.Add(Me.Label4)
         Me.GroupBox2.Location = New System.Drawing.Point(13, 76)
         Me.GroupBox2.Name = "GroupBox2"
-        Me.GroupBox2.Size = New System.Drawing.Size(561, 187)
+        Me.GroupBox2.Size = New System.Drawing.Size(561, 157)
         Me.GroupBox2.TabIndex = 1
         Me.GroupBox2.TabStop = False
         Me.GroupBox2.Text = "Proveedor"
         '
+        'LNtelefono
+        '
+        Me.LNtelefono.AutoSize = True
+        Me.LNtelefono.Location = New System.Drawing.Point(341, 116)
+        Me.LNtelefono.Name = "LNtelefono"
+        Me.LNtelefono.Size = New System.Drawing.Size(44, 13)
+        Me.LNtelefono.TabIndex = 21
+        Me.LNtelefono.Text = "Numero"
+        Me.LNtelefono.Visible = False
+        '
+        'LCArea
+        '
+        Me.LCArea.AutoSize = True
+        Me.LCArea.Location = New System.Drawing.Point(251, 115)
+        Me.LCArea.Name = "LCArea"
+        Me.LCArea.Size = New System.Drawing.Size(51, 13)
+        Me.LCArea.TabIndex = 20
+        Me.LCArea.Text = "Cod-Area"
+        Me.LCArea.Visible = False
+        '
+        'CArea
+        '
+        Me.CArea.Location = New System.Drawing.Point(248, 131)
+        Me.CArea.Name = "CArea"
+        Me.CArea.Size = New System.Drawing.Size(56, 20)
+        Me.CArea.TabIndex = 19
+        Me.CArea.Visible = False
+        '
+        'Label28
+        '
+        Me.Label28.AutoSize = True
+        Me.Label28.Location = New System.Drawing.Point(310, 135)
+        Me.Label28.Name = "Label28"
+        Me.Label28.Size = New System.Drawing.Size(10, 13)
+        Me.Label28.TabIndex = 18
+        Me.Label28.Text = "-"
+        '
+        'BATelefono
+        '
+        Me.BATelefono.Location = New System.Drawing.Point(448, 131)
+        Me.BATelefono.Name = "BATelefono"
+        Me.BATelefono.Size = New System.Drawing.Size(103, 20)
+        Me.BATelefono.TabIndex = 17
+        Me.BATelefono.Text = "Agregar_Telefono"
+        Me.BATelefono.UseVisualStyleBackColor = True
+        Me.BATelefono.Visible = False
+        '
+        'NTelefono
+        '
+        Me.NTelefono.Location = New System.Drawing.Point(326, 132)
+        Me.NTelefono.Name = "NTelefono"
+        Me.NTelefono.Size = New System.Drawing.Size(116, 20)
+        Me.NTelefono.TabIndex = 16
+        Me.NTelefono.Visible = False
+        '
+        'Label6
+        '
+        Me.Label6.AutoSize = True
+        Me.Label6.Location = New System.Drawing.Point(190, 83)
+        Me.Label6.Name = "Label6"
+        Me.Label6.Size = New System.Drawing.Size(54, 13)
+        Me.Label6.TabIndex = 15
+        Me.Label6.Text = "Telefonos"
+        '
+        'Telefonos
+        '
+        Me.Telefonos.Enabled = False
+        Me.Telefonos.FormattingEnabled = True
+        Me.Telefonos.Location = New System.Drawing.Point(248, 81)
+        Me.Telefonos.Name = "Telefonos"
+        Me.Telefonos.Size = New System.Drawing.Size(301, 30)
+        Me.Telefonos.TabIndex = 14
+        '
         'Label10
         '
         Me.Label10.AutoSize = True
-        Me.Label10.Location = New System.Drawing.Point(10, 159)
+        Me.Label10.Location = New System.Drawing.Point(10, 132)
         Me.Label10.Name = "Label10"
         Me.Label10.Size = New System.Drawing.Size(40, 13)
         Me.Label10.TabIndex = 13
@@ -192,7 +275,7 @@ Partial Class Registrar_Compra
         'CODIGO
         '
         Me.CODIGO.Enabled = False
-        Me.CODIGO.Location = New System.Drawing.Point(65, 156)
+        Me.CODIGO.Location = New System.Drawing.Point(65, 129)
         Me.CODIGO.Name = "CODIGO"
         Me.CODIGO.Size = New System.Drawing.Size(100, 20)
         Me.CODIGO.TabIndex = 12
@@ -200,7 +283,7 @@ Partial Class Registrar_Compra
         'Label9
         '
         Me.Label9.AutoSize = True
-        Me.Label9.Location = New System.Drawing.Point(10, 133)
+        Me.Label9.Location = New System.Drawing.Point(10, 106)
         Me.Label9.Name = "Label9"
         Me.Label9.Size = New System.Drawing.Size(26, 13)
         Me.Label9.TabIndex = 11
@@ -209,7 +292,7 @@ Partial Class Registrar_Compra
         'MAIL
         '
         Me.MAIL.Enabled = False
-        Me.MAIL.Location = New System.Drawing.Point(65, 130)
+        Me.MAIL.Location = New System.Drawing.Point(65, 103)
         Me.MAIL.Name = "MAIL"
         Me.MAIL.Size = New System.Drawing.Size(100, 20)
         Me.MAIL.TabIndex = 10
@@ -228,14 +311,14 @@ Partial Class Registrar_Compra
         Me.Direccion.Enabled = False
         Me.Direccion.Location = New System.Drawing.Point(248, 23)
         Me.Direccion.Name = "Direccion"
-        Me.Direccion.Size = New System.Drawing.Size(303, 123)
+        Me.Direccion.Size = New System.Drawing.Size(303, 47)
         Me.Direccion.TabIndex = 8
         Me.Direccion.Text = ""
         '
         'Label7
         '
         Me.Label7.AutoSize = True
-        Me.Label7.Location = New System.Drawing.Point(10, 106)
+        Me.Label7.Location = New System.Drawing.Point(10, 79)
         Me.Label7.Name = "Label7"
         Me.Label7.Size = New System.Drawing.Size(40, 13)
         Me.Label7.TabIndex = 7
@@ -244,27 +327,10 @@ Partial Class Registrar_Compra
         'CIUDAD
         '
         Me.CIUDAD.Enabled = False
-        Me.CIUDAD.Location = New System.Drawing.Point(65, 103)
+        Me.CIUDAD.Location = New System.Drawing.Point(65, 76)
         Me.CIUDAD.Name = "CIUDAD"
         Me.CIUDAD.Size = New System.Drawing.Size(100, 20)
         Me.CIUDAD.TabIndex = 6
-        '
-        'TELEFONO
-        '
-        Me.TELEFONO.Enabled = False
-        Me.TELEFONO.Location = New System.Drawing.Point(65, 76)
-        Me.TELEFONO.Name = "TELEFONO"
-        Me.TELEFONO.Size = New System.Drawing.Size(100, 20)
-        Me.TELEFONO.TabIndex = 5
-        '
-        'Label6
-        '
-        Me.Label6.AutoSize = True
-        Me.Label6.Location = New System.Drawing.Point(10, 79)
-        Me.Label6.Name = "Label6"
-        Me.Label6.Size = New System.Drawing.Size(49, 13)
-        Me.Label6.TabIndex = 4
-        Me.Label6.Text = "Telefono"
         '
         'Label5
         '
@@ -299,13 +365,13 @@ Partial Class Registrar_Compra
         Me.Label4.TabIndex = 0
         Me.Label4.Text = "RIF"
         '
-        'DataGridView1
+        'DETALLE_COMPRA
         '
-        Me.DataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.DataGridView1.Location = New System.Drawing.Point(13, 269)
-        Me.DataGridView1.Name = "DataGridView1"
-        Me.DataGridView1.Size = New System.Drawing.Size(561, 68)
-        Me.DataGridView1.TabIndex = 2
+        Me.DETALLE_COMPRA.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
+        Me.DETALLE_COMPRA.Location = New System.Drawing.Point(13, 239)
+        Me.DETALLE_COMPRA.Name = "DETALLE_COMPRA"
+        Me.DETALLE_COMPRA.Size = New System.Drawing.Size(561, 98)
+        Me.DETALLE_COMPRA.TabIndex = 2
         '
         'GroupBox3
         '
@@ -536,15 +602,17 @@ Partial Class Registrar_Compra
         Me.DESCUENTO.Name = "DESCUENTO"
         Me.DESCUENTO.Size = New System.Drawing.Size(134, 20)
         Me.DESCUENTO.TabIndex = 13
+        Me.DESCUENTO.Text = "0"
+        Me.DESCUENTO.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
         '
         'Label25
         '
         Me.Label25.AutoSize = True
         Me.Label25.Location = New System.Drawing.Point(204, 73)
         Me.Label25.Name = "Label25"
-        Me.Label25.Size = New System.Drawing.Size(59, 13)
+        Me.Label25.Size = New System.Drawing.Size(70, 13)
         Me.Label25.TabIndex = 12
-        Me.Label25.Text = "Descuento"
+        Me.Label25.Text = "Descuento %"
         '
         'PVP
         '
@@ -552,6 +620,8 @@ Partial Class Registrar_Compra
         Me.PVP.Name = "PVP"
         Me.PVP.Size = New System.Drawing.Size(134, 20)
         Me.PVP.TabIndex = 11
+        Me.PVP.Text = "0"
+        Me.PVP.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
         '
         'Label24
         '
@@ -587,6 +657,8 @@ Partial Class Registrar_Compra
         Me.CTotal.Name = "CTotal"
         Me.CTotal.Size = New System.Drawing.Size(100, 20)
         Me.CTotal.TabIndex = 7
+        Me.CTotal.Text = "0"
+        Me.CTotal.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
         '
         'Label22
         '
@@ -603,6 +675,8 @@ Partial Class Registrar_Compra
         Me.CUnidad.Name = "CUnidad"
         Me.CUnidad.Size = New System.Drawing.Size(100, 20)
         Me.CUnidad.TabIndex = 5
+        Me.CUnidad.Text = "0"
+        Me.CUnidad.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
         '
         'Label21
         '
@@ -619,6 +693,8 @@ Partial Class Registrar_Compra
         Me.Cantidad.Name = "Cantidad"
         Me.Cantidad.Size = New System.Drawing.Size(100, 20)
         Me.Cantidad.TabIndex = 3
+        Me.Cantidad.Text = "0"
+        Me.Cantidad.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
         '
         'Label20
         '
@@ -647,12 +723,14 @@ Partial Class Registrar_Compra
         Me.Button3.Text = "Cancelar"
         Me.Button3.UseVisualStyleBackColor = True
         '
-        'TextBox1
+        'Subtotal
         '
-        Me.TextBox1.Location = New System.Drawing.Point(105, 706)
-        Me.TextBox1.Name = "TextBox1"
-        Me.TextBox1.Size = New System.Drawing.Size(100, 20)
-        Me.TextBox1.TabIndex = 9
+        Me.Subtotal.Location = New System.Drawing.Point(105, 706)
+        Me.Subtotal.Name = "Subtotal"
+        Me.Subtotal.Size = New System.Drawing.Size(100, 20)
+        Me.Subtotal.TabIndex = 9
+        Me.Subtotal.Text = "0"
+        Me.Subtotal.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
         '
         'Label26
         '
@@ -663,41 +741,21 @@ Partial Class Registrar_Compra
         Me.Label26.TabIndex = 8
         Me.Label26.Text = "Sub-Total"
         '
-        'TextBox2
-        '
-        Me.TextBox2.Enabled = False
-        Me.TextBox2.Location = New System.Drawing.Point(267, 706)
-        Me.TextBox2.Name = "TextBox2"
-        Me.TextBox2.Size = New System.Drawing.Size(100, 20)
-        Me.TextBox2.TabIndex = 11
-        '
-        'Label27
-        '
-        Me.Label27.AutoSize = True
-        Me.Label27.Location = New System.Drawing.Point(218, 709)
-        Me.Label27.Name = "Label27"
-        Me.Label27.Size = New System.Drawing.Size(31, 13)
-        Me.Label27.TabIndex = 10
-        Me.Label27.Text = "Total"
-        '
         'Registrar_Compra
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(590, 746)
-        Me.Controls.Add(Me.TextBox2)
-        Me.Controls.Add(Me.Label27)
-        Me.Controls.Add(Me.TextBox1)
+        Me.Controls.Add(Me.Subtotal)
         Me.Controls.Add(Me.Label26)
         Me.Controls.Add(Me.Button3)
         Me.Controls.Add(Me.Button2)
         Me.Controls.Add(Me.GroupBox5)
         Me.Controls.Add(Me.GroupBox4)
         Me.Controls.Add(Me.GroupBox3)
-        Me.Controls.Add(Me.DataGridView1)
+        Me.Controls.Add(Me.DETALLE_COMPRA)
         Me.Controls.Add(Me.GroupBox2)
         Me.Controls.Add(Me.GroupBox1)
-        Me.Enabled = False
         Me.Name = "Registrar_Compra"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.Manual
         Me.Text = "Registrar_Compra"
@@ -705,7 +763,7 @@ Partial Class Registrar_Compra
         Me.GroupBox1.PerformLayout()
         Me.GroupBox2.ResumeLayout(False)
         Me.GroupBox2.PerformLayout()
-        CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.DETALLE_COMPRA, System.ComponentModel.ISupportInitialize).EndInit()
         Me.GroupBox3.ResumeLayout(False)
         Me.GroupBox3.PerformLayout()
         Me.GroupBox4.ResumeLayout(False)
@@ -731,14 +789,12 @@ Partial Class Registrar_Compra
     Friend WithEvents Direccion As System.Windows.Forms.RichTextBox
     Friend WithEvents Label7 As System.Windows.Forms.Label
     Friend WithEvents CIUDAD As System.Windows.Forms.TextBox
-    Friend WithEvents TELEFONO As System.Windows.Forms.TextBox
-    Friend WithEvents Label6 As System.Windows.Forms.Label
     Friend WithEvents Label5 As System.Windows.Forms.Label
     Friend WithEvents NOMBRE_PROVEEDOR As System.Windows.Forms.TextBox
     Friend WithEvents RIF_PROVEEDOR As System.Windows.Forms.TextBox
     Friend WithEvents Label10 As System.Windows.Forms.Label
     Friend WithEvents CODIGO As System.Windows.Forms.TextBox
-    Friend WithEvents DataGridView1 As System.Windows.Forms.DataGridView
+    Friend WithEvents DETALLE_COMPRA As System.Windows.Forms.DataGridView
     Friend WithEvents GroupBox3 As System.Windows.Forms.GroupBox
     Friend WithEvents CODIGO_BARRAS As System.Windows.Forms.TextBox
     Friend WithEvents Label11 As System.Windows.Forms.Label
@@ -775,8 +831,14 @@ Partial Class Registrar_Compra
     Friend WithEvents FVENCE As System.Windows.Forms.DateTimePicker
     Friend WithEvents Button2 As System.Windows.Forms.Button
     Friend WithEvents Button3 As System.Windows.Forms.Button
-    Friend WithEvents TextBox1 As System.Windows.Forms.TextBox
+    Friend WithEvents Subtotal As System.Windows.Forms.TextBox
     Friend WithEvents Label26 As System.Windows.Forms.Label
-    Friend WithEvents TextBox2 As System.Windows.Forms.TextBox
-    Friend WithEvents Label27 As System.Windows.Forms.Label
+    Friend WithEvents BATelefono As System.Windows.Forms.Button
+    Friend WithEvents NTelefono As System.Windows.Forms.TextBox
+    Friend WithEvents Label6 As System.Windows.Forms.Label
+    Friend WithEvents Telefonos As System.Windows.Forms.ListBox
+    Friend WithEvents LNtelefono As System.Windows.Forms.Label
+    Friend WithEvents LCArea As System.Windows.Forms.Label
+    Friend WithEvents CArea As System.Windows.Forms.TextBox
+    Friend WithEvents Label28 As System.Windows.Forms.Label
 End Class
