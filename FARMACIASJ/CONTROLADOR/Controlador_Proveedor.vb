@@ -137,12 +137,12 @@ Public Class Controlador_Proveedor
 
         Dim Proveedor_x As Proveedor = New Proveedor
         Dim Ventana_Modificar_Proveedor As Ingresar_Proveedor = New Ingresar_Proveedor
-
+        Ventana_Modificar_Proveedor.MdiParent=Ventana.MdiParent
         If (CBool(Proveedor_x.Existe_Proveedor(Cadena, Codigo))) Then
             Ventana_Modificar_Proveedor.Show()
             Proveedor_x.Buscar_Proveedor(Cadena, Codigo, Ventana_Modificar_Proveedor)
             Estado_modificar(Ventana_Modificar_Proveedor, False, False)
-            Actualizar_Datagrid(Ventana_Modificar_Proveedor, Proveedor_x.Existe_Proveedor(Cadena, True))
+            Actualizar_Datagrid(Ventana_Modificar_Proveedor, Proveedor_x.Existe_Proveedor(Cadena, Codigo))
             'Ventana.Close()
         Else
             If Codigo = True Then
@@ -153,26 +153,77 @@ Public Class Controlador_Proveedor
         End If
     End Sub
 
+    Public Sub Abrir_VentaI(ByVal Padre As Windows.Forms.Form)
+        Dim Ingresar As Ingresar_Proveedor
+        Ingresar = New Ingresar_Proveedor
+        Ingresar.MdiParent = Padre
+        Ingresar.Show()
+    End Sub
+    Public Sub Abrir_VentaC(ByVal Padre As Windows.Forms.Form)
+        Dim Consultar As Buscar_Proveedor
+        Consultar = New Buscar_Proveedor
+        Consultar.MdiParent = Padre
+        Consultar.Show()
+    End Sub
 
     Public Sub Buscar_Rif(ByVal RIF As String, ByVal Compra As Registrar_Compra)
         Dim Proveedor As Proveedor
         Dim Reder As Data.SqlClient.SqlDataReader
+        Dim Reder2 As Data.SqlClient.SqlDataReader
+        Dim Telefono As String
         Proveedor = New Proveedor
         Reder = Proveedor.Buscar_Rif(RIF)
+
+        Reder = Proveedor.Buscar_Rif(RIF)
+
         If (Reder.HasRows = True) Then
             If (Reder.Read = True) Then
 
-                'Compra.ID_Proveedor()
-                'Compra.RIF_PROVEEDOR.Text()
-                'Compra.CODIGO.Text()
-                'Compra.NOMBRE_PROVEEDOR.Text()
-                'Compra.Direccion.Text()
-                'Compra.CIUDAD.Text()
+                Compra.ID_Proveedor = Integer.Parse(Reder.Item(0).ToString)
+                Compra.RIF_PROVEEDOR.Text = Reder.Item(1).ToString
+                Compra.CODIGO.Text = Reder.Item(2).ToString
+                Compra.NOMBRE_PROVEEDOR.Text = Reder.Item(3).ToString
+                Compra.MAIL.Text = Reder.Item(4).ToString
+                Compra.Direccion.Text = Reder.Item(6).ToString
+                Compra.CIUDAD.Text = Reder.Item(5).ToString
 
 
             End If
+            Reder2 = Proveedor.Buscar_Rif_Telefono(RIF)
+            If (Reder2.HasRows = True) Then
+                Do While (Reder2.Read = True)
+                    Telefono = Reder2.Item(1).ToString & "-" & Reder2.Item(2).ToString
+                    Compra.Telefonos.Items.Add(Telefono)
+                Loop
+            End If
+        Else
+            If (MsgBox(" El Proveedor No existe ¿Desea Agregarlo?", MsgBoxStyle.YesNo, "Alert") = MsgBoxResult.Yes) Then
+                Compra.ID_Proveedor = -1
+                Compra.RIF_PROVEEDOR.Enabled = True
+                Compra.CODIGO.Enabled = True
+                Compra.NOMBRE_PROVEEDOR.Enabled = True
+                Compra.Direccion.Enabled = True
+                Compra.CIUDAD.Enabled = True
+                Compra.LCArea.Visible = True
+                Compra.LNtelefono.Visible = True
+                Compra.CArea.Visible = True
+                Compra.NTelefono.Visible = True
+                Compra.BATelefono.Visible = True
+                Compra.MAIL.Enabled = True
+            End If
         End If
+
+
     End Sub
-
-
+    Public Function Ingresando_Proveedor2(ByVal RIF As String, ByVal NOMBRE As String, ByVal CIUDAD As String, ByVal Direccion As String, ByVal Telefonos As System.Windows.Forms.ListBox, ByVal Codigo As String, ByVal Mail As String, ByVal Compra As Registrar_Compra) As Integer
+        Dim Proveedor As Proveedor
+        Dim Reder As Data.SqlClient.SqlDataReader
+        Proveedor = New Proveedor
+        Proveedor.Ingresar_Proveedor(Codigo, RIF, NOMBRE, Mail, Direccion, CIUDAD, 0)
+        Reder = Proveedor.Buscar_Rif(RIF)
+        If (Reder.Read = True) Then
+            Proveedor.Ingresar_Telefonos(Integer.Parse(Reder.Item(0).ToString), Telefonos)
+            Return Integer.Parse(Reder.Item(0).ToString)
+        End If
+    End Function
 End Class
