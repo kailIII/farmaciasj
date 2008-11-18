@@ -91,65 +91,40 @@ Public Class Proveedor
 
     End Sub
 
-    Public Function Buscar_Rif(ByVal RIF As String) As Data.SqlClient.SqlDataReader
-        Dim Proveedor As FarmaciaSJDataSetTableAdapters.PROVEEDORTableAdapter
-        Dim Conextion As Data.SqlClient.SqlConnection
-        Dim Consulta As Data.SqlClient.SqlCommand
-        Dim Reder As Data.SqlClient.SqlDataReader
-        Proveedor = New FarmaciaSJDataSetTableAdapters.PROVEEDORTableAdapter
-        Conextion = Proveedor.Connection
-        Conextion.Open()
-        Consulta = New Data.SqlClient.SqlCommand
-        Consulta.Connection = Conextion
-        Consulta.CommandText = "SELECT     ID_PROVEEDOR,Codigo, RIF, Nombre, Mail, Ciudad, Direccion FROM         PROVEEDOR WHERE     (Estatus = 'ACTIVO') AND (RIF = '" & RIF & "')"
-        Reder = Consulta.ExecuteReader
-        Return Reder
-    End Function
+
 
     Public Function Arreglo_Productos(ByVal Arreglo As Array) As String
         Dim myEnumerator As System.Collections.IEnumerator = Arreglo.GetEnumerator()
-        Dim Cadena As String
+        Dim Cadena As String = ""
         Dim i As Integer = 0
         Dim cols As Integer = Arreglo.GetLength((Arreglo.Rank - 1))
         While myEnumerator.MoveNext() And Arreglo.GetValue(i) <> 0
 
-
-
             If i < cols Then
                 If (i <> 0) Then
-                    Cadena = Cadena & CStr(Arreglo.GetValue(i)) & ","
+                    Cadena = Cadena & "," & CStr(Arreglo.GetValue(i))
                 Else
                     Cadena = CStr(Arreglo.GetValue(i))
                 End If
-
             Else
                 Cadena = CStr(Arreglo.GetValue(i))
-
-                i = 1
             End If
-                i += 1
+            i += 1
         End While
-
-
         Return Cadena
     End Function
 
 
 
     Public Function Mostrar_datagrid(ByVal Arreglo As Array) As Data.DataTable
-
-
-
-
         Dim Bd As FarmaciaSJDataSet = New FarmaciaSJDataSet
         Dim Detalle As FarmaciaSJDataSetTableAdapters.DETALLE_VENTATableAdapter = New FarmaciaSJDataSetTableAdapters.DETALLE_VENTATableAdapter
         Dim cn As Data.SqlClient.SqlConnection = New Data.SqlClient.SqlConnection(Detalle.Connection.ConnectionString)
-        Dim sql As String = "SELECT CODIGO_DE_BARRAS as CODIGO, NOMBRE, DESCRIPCION FROM PRODUCTO WHERE ID_PRODUCTO IN ('" & Arreglo_Productos(Arreglo) & "')"
+        Dim sql As String = "SELECT CODIGO_DE_BARRAS as CODIGO, NOMBRE, DESCRIPCION FROM PRODUCTO WHERE ID_PRODUCTO IN (" & Arreglo_Productos(Arreglo) & ")"
         Dim da As Data.SqlClient.SqlDataAdapter = New Data.SqlClient.SqlDataAdapter(sql, cn)
-        Dim Table As Data.DataTable = New Data.DataTable("Detalle_Factura")
+        Dim Table As Data.DataTable = New Data.DataTable("Productos_asociados")
         da.Fill(Table)
         Return Table
-
     End Function
 
 

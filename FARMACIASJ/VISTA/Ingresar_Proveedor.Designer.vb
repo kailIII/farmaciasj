@@ -24,7 +24,6 @@ Partial Class Ingresar_Proveedor
         Me.Cod_producto = New System.Windows.Forms.TextBox
         Me.Label8 = New System.Windows.Forms.Label
         Me.Productos_asociados = New System.Windows.Forms.DataGridView
-        Me.FarmaciaSJDataSet = New FARMACIASJ.FarmaciaSJDataSet
         Me.Boton_Registrar = New System.Windows.Forms.Button
         Me.Saldo = New System.Windows.Forms.TextBox
         Me.Ciudad = New System.Windows.Forms.TextBox
@@ -40,6 +39,7 @@ Partial Class Ingresar_Proveedor
         Me.Label3 = New System.Windows.Forms.Label
         Me.Label2 = New System.Windows.Forms.Label
         Me.Label1 = New System.Windows.Forms.Label
+        Me.FarmaciaSJDataSet = New FARMACIASJ.FarmaciaSJDataSet
         Me.PRODUCTOTableAdapter = New FARMACIASJ.FarmaciaSJDataSetTableAdapters.PRODUCTOTableAdapter
         Me.GroupBox1.SuspendLayout()
         CType(Me.Productos_asociados, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -106,11 +106,6 @@ Partial Class Ingresar_Proveedor
         Me.Productos_asociados.Name = "Productos_asociados"
         Me.Productos_asociados.Size = New System.Drawing.Size(334, 145)
         Me.Productos_asociados.TabIndex = 15
-        '
-        'FarmaciaSJDataSet
-        '
-        Me.FarmaciaSJDataSet.DataSetName = "FarmaciaSJDataSet"
-        Me.FarmaciaSJDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema
         '
         'Boton_Registrar
         '
@@ -233,6 +228,11 @@ Partial Class Ingresar_Proveedor
         Me.Label1.Size = New System.Drawing.Size(40, 13)
         Me.Label1.TabIndex = 0
         Me.Label1.Text = "Código"
+        '
+        'FarmaciaSJDataSet
+        '
+        Me.FarmaciaSJDataSet.DataSetName = "FarmaciaSJDataSet"
+        Me.FarmaciaSJDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema
         '
         'PRODUCTOTableAdapter
         '

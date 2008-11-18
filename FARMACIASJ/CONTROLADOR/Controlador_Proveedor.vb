@@ -1,9 +1,6 @@
 Public Class Controlador_Proveedor
 
-    Public Arreglo As Array = Array.CreateInstance(GetType(Int32), 10)
-    Public Contador As Integer = 0
-
-    Public Sub Ingresando_Proveedor(ByVal Ventana As Ingresar_Proveedor, ByVal Codigo As String, ByVal Rif As String, ByVal Nombre As String, ByVal Correo As String, ByVal Dir As String, ByVal Ciudad As String, ByVal Saldo As Double)
+    Public Sub Ingresando_Proveedor(ByVal Arreglo As Array, ByVal Ventana As Ingresar_Proveedor, ByVal Codigo As String, ByVal Rif As String, ByVal Nombre As String, ByVal Correo As String, ByVal Dir As String, ByVal Ciudad As String, ByVal Saldo As Double)
 
         Dim Proveedor_x As Proveedor = New Proveedor
 
@@ -21,21 +18,40 @@ Public Class Controlador_Proveedor
         End If
     End Sub
 
-    Public Sub Actualizar_Datagrid(ByVal Ventana As Ingresar_Proveedor)
+    Public Sub Actualizar_Datagrid(ByVal Ventana As Ingresar_Proveedor, ByVal Arreglo As Array)
         Dim Proveedor_x As Proveedor = New Proveedor
         Ventana.Productos_asociados.DataSource = Proveedor_x.Mostrar_datagrid(Arreglo)
         Ventana.Productos_asociados.Update()
     End Sub
 
-    Public Function Productos_Relacionados(ByVal Codigo As String) As Boolean
+    Public Function Actualiza_Arreglo(ByVal Numero As Integer, ByVal Arreglo As Array) As Array
+
+        Dim myEnumerator As System.Collections.IEnumerator = Arreglo.GetEnumerator()
+        Dim Cadena As String = ""
+        Dim i As Integer = 0
+        Dim cols As Integer = Arreglo.GetLength((Arreglo.Rank - 1))
+        If CInt(Arreglo.GetValue(i)) = 0 Then
+            Arreglo.SetValue(Numero, 0)
+        Else
+            While myEnumerator.MoveNext()
+                If (CInt(Arreglo.GetValue(i)) = 0) Then
+                    Arreglo.SetValue(Numero, i)
+                    Return Arreglo
+                End If
+                i += 1
+            End While
+        End If
+        Return Arreglo
+    End Function
+
+
+
+
+    Public Function Productos_Relacionados(ByVal Codigo As String, ByVal Arreglo As Array) As Boolean
 
         Dim Producto_x As Producto = New Producto
-
-        Dim Numero As Integer = Producto_x.idProductos(Codigo)
-        If Numero > 0 Then
-
-            Arreglo.SetValue(Numero, Contador)
-            Contador = Contador + 1
+        If (Producto_x.idProductos(Codigo) > 0) Then
+            Actualiza_Arreglo(Producto_x.idProductos(Codigo), Arreglo)
             Return True
         Else
             MsgBox("El código suministrado es inválido", MsgBoxStyle.OkOnly, "Error")
@@ -85,6 +101,8 @@ Public Class Controlador_Proveedor
             End If
         End If
     End Sub
+
+
     Public Sub Buscar_Rif(ByVal RIF As String, ByVal Compra As Registrar_Compra)
         Dim Proveedor As Proveedor
         Dim Reder As Data.SqlClient.SqlDataReader
@@ -93,15 +111,16 @@ Public Class Controlador_Proveedor
         If (Reder.HasRows = True) Then
             If (Reder.Read = True) Then
                 Compra.ID_Proveedor()
-                Compra.RIF_PROVEEDOR.Text
-                Compra.CODIGO.Text
-                Compra.NOMBRE_PROVEEDOR.Text
-                Compra.Direccion.Text
-                Compra.CIUDAD.Text
+                Compra.RIF_PROVEEDOR.Text()
+                Compra.CODIGO.Text()
+                Compra.NOMBRE_PROVEEDOR.Text()
+                Compra.Direccion.Text()
+                Compra.CIUDAD.Text()
 
 
             End If
         End If
     End Sub
+
 
 End Class
