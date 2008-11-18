@@ -88,12 +88,12 @@ Partial Class Ingresar_Proveedor
         Me.Cod_producto.Location = New System.Drawing.Point(112, 286)
         Me.Cod_producto.Name = "Cod_producto"
         Me.Cod_producto.Size = New System.Drawing.Size(212, 20)
-        Me.Cod_producto.TabIndex = 17
+        Me.Cod_producto.TabIndex = 14
         '
         'Label8
         '
         Me.Label8.AutoSize = True
-        Me.Label8.Location = New System.Drawing.Point(4, 315)
+        Me.Label8.Location = New System.Drawing.Point(4, 313)
         Me.Label8.Name = "Label8"
         Me.Label8.Size = New System.Drawing.Size(106, 13)
         Me.Label8.TabIndex = 16
@@ -112,7 +112,7 @@ Partial Class Ingresar_Proveedor
         Me.Boton_Registrar.Location = New System.Drawing.Point(266, 482)
         Me.Boton_Registrar.Name = "Boton_Registrar"
         Me.Boton_Registrar.Size = New System.Drawing.Size(75, 23)
-        Me.Boton_Registrar.TabIndex = 14
+        Me.Boton_Registrar.TabIndex = 15
         Me.Boton_Registrar.Text = "Registrar"
         Me.Boton_Registrar.UseVisualStyleBackColor = True
         '

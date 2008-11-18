@@ -18,7 +18,7 @@ Public Class Controlador_Producto
         Producto = New Producto
         Dim i As Integer
         Dim filas As Integer
-        Lotes = Producto.Buscar_CodigoBarras(Codigo, Venta)
+        Lotes = Producto.Buscar_CodigoBarras(Codigo)
         filas = Producto.Cantidad_Filas(Codigo)
         Impuestos = Producto.Impuestos(Codigo)
         CImpuestos = Producto.Cantidad_Impuestos(Codigo)

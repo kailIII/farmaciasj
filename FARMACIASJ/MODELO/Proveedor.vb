@@ -1,24 +1,63 @@
 Public Class Proveedor
     Public BasedeDatos As FarmaciaSJDataSet
 
-    Public Function Ingresar_Proveedor_Producto(ByVal Arreglo As Array) As Boolean
+    Public Function Id_Ultimo_Proveedor() As Integer
 
-        Dim Adaptador As FarmaciaSJDataSetTableAdapters.PROVEEDORTableAdapter
+        Try
+            Dim Proveedor_x As FarmaciaSJDataSetTableAdapters.PROVEEDORTableAdapter = New FarmaciaSJDataSetTableAdapters.PROVEEDORTableAdapter
+            Dim Conextion As Data.SqlClient.SqlConnection = Proveedor_x.Connection
+            Dim Consulta As Data.SqlClient.SqlCommand = New Data.SqlClient.SqlCommand
+            Conextion.Open()
+            Consulta.Connection = Conextion
+            Consulta.CommandText = "SELECT ID_PROVEEDOR FROM PROVEEDOR ORDER BY ID_PROVEEDOR DESC"
+            Dim Reder As Data.SqlClient.SqlDataReader = Consulta.ExecuteReader()
+            If (Reder.Read = True) Then
+                Return CInt(Reder.Item(0).ToString())
+            Else
+                Return 0
+            End If
+        Catch e As Data.SqlClient.SqlException
+            Return 0
+        End Try
+    End Function
+
+    Public Function Ingresar_Proveedor_Producto(ByVal Arreglo As Array) As Boolean
+        Dim myEnumerator As System.Collections.IEnumerator = Arreglo.GetEnumerator()
+        Dim i As Integer = 0
+
+        Dim Adaptador As FarmaciaSJDataSetTableAdapters.PROVEEDOR_PRODUCTOTableAdapter
         Try
             BasedeDatos = New FarmaciaSJDataSet
-            Adaptador = New FarmaciaSJDataSetTableAdapters.PROVEEDORTableAdapter
-            ' Insert BD
-            'Adaptador.Insert(Codigo, Rif, Nombre, Correo, Ciudad, Dir, Saldo, "Activa")
-            ' Commit
-            Adaptador.Update(BasedeDatos.PROVEEDOR)
+            Adaptador = New FarmaciaSJDataSetTableAdapters.PROVEEDOR_PRODUCTOTableAdapter()
+            While myEnumerator.MoveNext() And CInt(Arreglo.GetValue(i)) <> 0
+                ' Insert BD
+                Dim Numero As Integer = Id_Ultimo_Proveedor()
+                Adaptador.Insert(Numero, CInt(Arreglo.GetValue(i)))
+                ' Commit
+                Adaptador.Update(BasedeDatos.PROVEEDOR_PRODUCTO)
+                i += 1
+            End While
             Return True
         Catch ex As ArgumentNullException
             Return False
         End Try
+    End Function
 
 
-        Return False
 
+    Public Function Actualizar_Proveedor(ByVal Codigo As String, ByVal Rif As String, ByVal Nombre As String, ByVal Correo As String, ByVal Dir As String, ByVal Ciudad As String, ByVal Saldo As Double) As Boolean
+        Dim Adaptador As FarmaciaSJDataSetTableAdapters.PROVEEDORTableAdapter
+        Try
+            BasedeDatos = New FarmaciaSJDataSet
+            Adaptador = New FarmaciaSJDataSetTableAdapters.PROVEEDORTableAdapter()
+            ' Commit
+            Dim Id_proveedor As Integer = Existe_Proveedor(Codigo, True)
+            Adaptador.Update(Codigo, Rif, Nombre, Correo, Ciudad, Dir, Saldo, "Activa", Id_proveedor, Saldo)
+
+            Return True
+        Catch ex As ArgumentNullException
+            Return False
+        End Try
     End Function
 
     Public Function Ingresar_Proveedor(ByVal Codigo As String, ByVal Rif As String, ByVal Nombre As String, ByVal Correo As String, ByVal Dir As String, ByVal Ciudad As String, ByVal Saldo As Double) As Boolean
@@ -98,7 +137,7 @@ Public Class Proveedor
         Dim Cadena As String = ""
         Dim i As Integer = 0
         Dim cols As Integer = Arreglo.GetLength((Arreglo.Rank - 1))
-        While myEnumerator.MoveNext() And Arreglo.GetValue(i) <> 0
+        While myEnumerator.MoveNext() And CInt(Arreglo.GetValue(i)) <> 0
 
             If i < cols Then
                 If (i <> 0) Then
@@ -129,8 +168,20 @@ Public Class Proveedor
 
 
 
+    Public Function Buscar_Rif(ByVal RIF As String) As Data.SqlClient.SqlDataReader
+        Dim Proveedor As FarmaciaSJDataSetTableAdapters.PROVEEDORTableAdapter
+        Dim Conextion As Data.SqlClient.SqlConnection
+        Dim Consulta As Data.SqlClient.SqlCommand
+        Dim Reder As Data.SqlClient.SqlDataReader
+        Proveedor = New FarmaciaSJDataSetTableAdapters.PROVEEDORTableAdapter
+        Conextion = Proveedor.Connection
+        Conextion.Open()
+        Consulta = New Data.SqlClient.SqlCommand
+        Consulta.Connection = Conextion
+        Consulta.CommandText = "SELECT     ID_PROVEEDOR,Codigo, RIF, Nombre, Mail, Ciudad, Direccion FROM         PROVEEDOR WHERE     (Estatus = 'ACTIVO') AND (RIF = '" & RIF & "')"
+        Reder = Consulta.ExecuteReader
+        Return Reder
+    End Function
+
+
 End Class
-
-
-
-
