@@ -45,6 +45,7 @@ Partial Class Compra2
         '
         'Numero_Factura
         '
+        Me.Numero_Factura.Enabled = False
         Me.Numero_Factura.Location = New System.Drawing.Point(126, 10)
         Me.Numero_Factura.Name = "Numero_Factura"
         Me.Numero_Factura.Size = New System.Drawing.Size(100, 20)
@@ -52,6 +53,7 @@ Partial Class Compra2
         '
         'RIF_PROVEEDOR
         '
+        Me.RIF_PROVEEDOR.Enabled = False
         Me.RIF_PROVEEDOR.Location = New System.Drawing.Point(126, 36)
         Me.RIF_PROVEEDOR.Name = "RIF_PROVEEDOR"
         Me.RIF_PROVEEDOR.Size = New System.Drawing.Size(100, 20)

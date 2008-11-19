@@ -53,13 +53,16 @@ Partial Class Administrador
         Me.StatusStrip = New System.Windows.Forms.StatusStrip
         Me.ToolStripStatusLabel = New System.Windows.Forms.ToolStripStatusLabel
         Me.ToolTip = New System.Windows.Forms.ToolTip(Me.components)
+        Me.SALIRToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem
+        Me.CERRARSESIONToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem
+        Me.CERRARPROGRAMAToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem
         Me.MenuStrip.SuspendLayout()
         Me.StatusStrip.SuspendLayout()
         Me.SuspendLayout()
         '
         'MenuStrip
         '
-        Me.MenuStrip.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.VentaToolStripMenuItem, Me.InventarioToolStripMenuItem, Me.CompraToolStripMenuItem, Me.ReportesToolStripMenuItem, Me.ConfiguracionToolStripMenuItem})
+        Me.MenuStrip.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.VentaToolStripMenuItem, Me.InventarioToolStripMenuItem, Me.CompraToolStripMenuItem, Me.ReportesToolStripMenuItem, Me.ConfiguracionToolStripMenuItem, Me.SALIRToolStripMenuItem})
         Me.MenuStrip.Location = New System.Drawing.Point(0, 0)
         Me.MenuStrip.Name = "MenuStrip"
         Me.MenuStrip.Size = New System.Drawing.Size(632, 24)
@@ -257,6 +260,25 @@ Partial Class Administrador
         Me.ToolStripStatusLabel.Size = New System.Drawing.Size(38, 17)
         Me.ToolStripStatusLabel.Text = "Status"
         '
+        'SALIRToolStripMenuItem
+        '
+        Me.SALIRToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.CERRARSESIONToolStripMenuItem, Me.CERRARPROGRAMAToolStripMenuItem})
+        Me.SALIRToolStripMenuItem.Name = "SALIRToolStripMenuItem"
+        Me.SALIRToolStripMenuItem.Size = New System.Drawing.Size(48, 20)
+        Me.SALIRToolStripMenuItem.Text = "SALIR"
+        '
+        'CERRARSESIONToolStripMenuItem
+        '
+        Me.CERRARSESIONToolStripMenuItem.Name = "CERRARSESIONToolStripMenuItem"
+        Me.CERRARSESIONToolStripMenuItem.Size = New System.Drawing.Size(186, 22)
+        Me.CERRARSESIONToolStripMenuItem.Text = "CERRAR SESION"
+        '
+        'CERRARPROGRAMAToolStripMenuItem
+        '
+        Me.CERRARPROGRAMAToolStripMenuItem.Name = "CERRARPROGRAMAToolStripMenuItem"
+        Me.CERRARPROGRAMAToolStripMenuItem.Size = New System.Drawing.Size(186, 22)
+        Me.CERRARPROGRAMAToolStripMenuItem.Text = "CERRAR PROGRAMA"
+        '
         'Administrador
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -309,5 +331,8 @@ Partial Class Administrador
     Friend WithEvents LineaToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
     Friend WithEvents IngresarToolStripMenuItem2 As System.Windows.Forms.ToolStripMenuItem
     Friend WithEvents ModificarToolStripMenuItem2 As System.Windows.Forms.ToolStripMenuItem
+    Friend WithEvents SALIRToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
+    Friend WithEvents CERRARSESIONToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
+    Friend WithEvents CERRARPROGRAMAToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
 
 End Class

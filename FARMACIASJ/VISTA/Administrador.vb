@@ -38,4 +38,18 @@ Public Class Administrador
         Dim ControladorC As New Controlador_Compra
         ControladorC.Abrir_Venta(Me)
     End Sub
+
+    Private Sub CERRARSESIONToolStripMenuItem_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles CERRARSESIONToolStripMenuItem.Click
+        Dim Ven As FARMACIASJ_SESION
+        Ven = New FARMACIASJ_SESION
+        Ven.Activate()
+        Ven.Show()
+        Me.Finalize()
+        Me.Close()
+    End Sub
+
+    Private Sub CERRARPROGRAMAToolStripMenuItem_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles CERRARPROGRAMAToolStripMenuItem.Click
+        Me.Finalize()
+        Me.Close()
+    End Sub
 End Class

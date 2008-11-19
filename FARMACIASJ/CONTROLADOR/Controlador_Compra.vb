@@ -20,6 +20,7 @@ Public Class Controlador_Compra
     Public Sub Procesar_COMPRA(ByVal ID_Factura As Integer, ByVal Compra As Registrar_Compra)
         Dim Compra2 As New Compra2
         Compra2.Numero_Factura.Text = Compra.Numero.Text
+        Compra2.RIF_PROVEEDOR.Text = Compra.RIF_PROVEEDOR.Text
         Compra2.SUB_TOTAL.Text = Compra.Subtotal.Text
         Compra2.Total.Text = Compra.Subtotal.Text
         Compra2.ID_FACTURA = Compra.ID_Factura
