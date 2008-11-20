@@ -23,4 +23,13 @@ Public Class Validaciones_Generales
             Return True
         End If
     End Function
+
+    Public Function Tamano_Aceptable_Cadena(ByVal Cadena As String, ByVal Tamano_Permitido As Integer, ByVal Mensaje_Error As String) As Boolean
+        If Cadena.Length() > Tamano_Permitido Then
+            MsgBox(Mensaje_Error, MsgBoxStyle.OkOnly, "Error")
+            Return False
+        End If
+        Return True
+    End Function
+
 End Class

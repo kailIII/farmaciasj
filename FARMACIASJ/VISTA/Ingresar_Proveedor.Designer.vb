@@ -118,6 +118,7 @@ Partial Class Ingresar_Proveedor
         '
         'Saldo
         '
+        Me.Saldo.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper
         Me.Saldo.Location = New System.Drawing.Point(89, 229)
         Me.Saldo.Name = "Saldo"
         Me.Saldo.Size = New System.Drawing.Size(235, 20)
