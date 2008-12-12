@@ -251,10 +251,10 @@ Public Class Producto
         ProductoTableAdapter.Update(BasedeDatos.PRODUCTO)
         BasedeDatos.AcceptChanges()
     End Sub
-    Public Sub Ingresar_Lote(ByVal Cantidad As Integer, ByVal Fecha As Date, ByVal PVP As Double, ByVal Descuento As Double, ByVal ID_PRODUCTO As Integer)
+    Public Sub Ingresar_Lote(ByVal Cantidad As Integer, ByVal Fecha As Date, ByVal PVP As Decimal, ByVal Descuento As Decimal, ByVal ID_PRODUCTO As Integer, ByVal ID_COMPRA As Integer, ByVal ID_DETALLE_COMPRA As Integer)
         Dim BasedeDatos As New FarmaciaSJDataSet
         Dim LOTETableAdapter As New FarmaciaSJDataSetTableAdapters.LOTETableAdapter
-        LOTETableAdapter.Insert(CANTIDAD, FECHA, PVP, DESCUENTO, ID_PRODUCTO)
+        LOTETableAdapter.Insert(Cantidad, Fecha, PVP, Descuento, ID_PRODUCTO, ID_DETALLE_COMPRA, ID_COMPRA)
         LOTETableAdapter.Update(BasedeDatos.LOTE)
         BasedeDatos.AcceptChanges()
     End Sub

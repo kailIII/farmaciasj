@@ -6,7 +6,7 @@ Public Class Cliente
         Try
             BasedeDatos = New FarmaciaSJDataSet
             ClienteTableAdapter = New FarmaciaSJDataSetTableAdapters.CLIENTETableAdapter
-            ClienteTableAdapter.Insert(Tipo_Identidad, Documento_Identidad, Nombre, Apellido, Telefono, Direccion)
+            ClienteTableAdapter.Insert(Documento_Identidad, Nombre, Apellido, Telefono, Direccion)
             ClienteTableAdapter.Update(BasedeDatos.CLIENTE)
             BasedeDatos.AcceptChanges()
             Return True

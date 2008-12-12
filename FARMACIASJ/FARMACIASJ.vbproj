@@ -55,12 +55,12 @@
     <Compile Include="CONTROLADOR\Controlador_Producto.vb" />
     <Compile Include="CONTROLADOR\Controlador_Proveedor.vb" />
     <Compile Include="CONTROLADOR\Controlador_Venta.vb" />
-    <Compile Include="MODELO\Compra.vb" />
     <Compile Include="MODELO\FarmaciaSJDataSet.Designer.vb">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>FarmaciaSJDataSet.xsd</DependentUpon>
     </Compile>
+    <Compile Include="MODELO\Compra.vb" />
     <Compile Include="MODELO\Cliente.vb" />
     <Compile Include="CONTROLADOR\Controlador_Cliente.vb" />
     <Compile Include="CONTROLADOR\Validaciones_Generales.vb" />

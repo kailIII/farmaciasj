@@ -209,9 +209,9 @@ Public Class Controlador_Producto
         Dim Producto As New Producto
         Producto.Ingresar_Proveedor_Producto(ID_Producto, ID_Proveedor)
     End Sub
-    Public Sub Ingresar_Lote(ByVal Cantidad As Integer, ByVal Fecha As Date, ByVal PVP As Double, ByVal Descuento As Double, ByVal ID_PRODUCTO As Integer)
+    Public Sub Ingresar_Lote(ByVal Cantidad As Integer, ByVal Fecha As Date, ByVal PVP As Decimal, ByVal Descuento As Decimal, ByVal ID_PRODUCTO As Integer, ByVal ID_COMPRA As Integer, ByVal ID_DETALLE_COMPRA As Integer)
         Dim Producto As New Producto
-        Producto.Ingresar_Lote(Cantidad, Fecha, PVP, Descuento, ID_PRODUCTO)
+        Producto.Ingresar_Lote(Cantidad, Fecha, PVP, Descuento, ID_PRODUCTO, ID_COMPRA, ID_DETALLE_COMPRA)
     End Sub
     Public Sub Abrir_Venta(ByVal Padre As Windows.Forms.Form)
         Dim Producto As Ingresar_Producto

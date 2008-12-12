@@ -137,7 +137,7 @@ Public Class Registrar_Compra
                 If (ID_Factura <> -1) Then
                     ID_DETALLE = ID_DETALLE + 1
                     ControladorC.Ingresar_Detalle(ID_DETALLE, ID_Factura, Integer.Parse(Me.Cantidad.Text), Double.Parse(Me.CTotal.Text), ID_Producto, Double.Parse(Me.CUnidad.Text))
-                    ControladorPT.Ingresar_Lote(Integer.Parse(Me.Cantidad.Text), Me.FVENCE.Value, Double.Parse(Me.PVP.Text), Double.Parse(Me.DESCUENTO.Text), ID_Producto)
+                    ControladorPT.Ingresar_Lote(Integer.Parse(Me.Cantidad.Text), Me.FVENCE.Value, Decimal.Parse(Me.PVP.Text), Decimal.Parse(Me.DESCUENTO.Text), ID_Producto, ID_Factura, 1)
                     Me.DETALLE_COMPRA.DataSource = ControladorC.Traer_Detalle(ID_Factura)
                     Me.DETALLE_COMPRA.Update()
                     Ctotal = Double.Parse(Me.CTotal.Text)

@@ -9,7 +9,7 @@ Public Class Venta
         Try
             BasedeDatos = New FarmaciaSJDataSet
             'VentaTablaAdapter()
-            VentaTablaAdapter.Insert(Numero, Fecha, Vence, 0, "", "", Id_Cliente, 0, 0, 0, 0, 0, Vence)
+            VentaTablaAdapter.Insert(Numero, Fecha, Vence, 0, 0, 0, 0, 0, 0, "", "", Vence, Id_Cliente)
             ' Commit
             VentaTablaAdapter.Update(BasedeDatos.VENTA)
             Conextion.Open()

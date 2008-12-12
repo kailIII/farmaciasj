@@ -3,7 +3,7 @@ Public Class Compra
     Public Sub Ingresar_Compra(ByVal Numero As String, ByVal Fecha As Date, ByVal Vence As Date, ByVal ID_proveedor As Integer)
         Dim BasedeDatos As New FarmaciaSJDataSet
         Dim CompraTableAdapter As New FarmaciaSJDataSetTableAdapters.COMPRATableAdapter
-        CompraTableAdapter.Insert(Fecha, Vence, 0, 0, Numero, ID_proveedor, 0)
+        CompraTableAdapter.Insert(Fecha, Vence, 0, Double.Parse(Numero), 0, Numero, ID_proveedor)
         CompraTableAdapter.Update(BasedeDatos.COMPRA)
         BasedeDatos.AcceptChanges()
     End Sub
