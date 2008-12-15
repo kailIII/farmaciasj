@@ -11,7 +11,7 @@ Public Class Realizar_Venta
     Public ImpuestoP As Double
 
 
-    Private Sub Identidad_TextChanged(ByVal sender As System.Object, ByVal e As Windows.Forms.KeyPressEventArgs) Handles Identidad.KeyPress
+    Private Sub Identidad_TextChanged(ByVal sender As System.Object, ByVal e As Windows.Forms.KeyPressEventArgs)
         Dim Controlador As Controlador_Cliente
         If (e.KeyChar = Char.ConvertFromUtf32(13)) Then
             Controlador = New Controlador_Cliente
@@ -108,7 +108,7 @@ Public Class Realizar_Venta
         End If
     End Sub
 
-    Private Sub Button3_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Button3.Click
+    Private Sub Button3_Click(ByVal sender As System.Object, ByVal e As System.EventArgs)
         Dim ControladorF As Controlador_Venta
 
         ControladorF = New Controlador_Venta
