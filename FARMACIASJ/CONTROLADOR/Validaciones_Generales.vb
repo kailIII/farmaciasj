@@ -52,7 +52,21 @@ Public Class Validaciones_Generales
         End If
     End Function
 
-    Public Sub Validar_Ingresar_Producto(ByVal codigo_barras As String, ByVal codigo As String, ByVal nombre_producto As String, ByVal desc_producto As String, ByVal ge_producto As String, ByVal u_producto As Integer, ByVal proveedor As String, ByVal linea As String)
-
-    End Sub
+    Public Function Validar_Ingresar_Producto(ByVal codigo_barras As String, ByVal codigo As String, ByVal nombre_producto As String, ByVal desc_producto As String, ByVal ge_producto As String, ByVal u_producto As Integer, ByVal proveedor As Windows.Forms.ListBox, ByVal linea As String) As Boolean
+        If ((comillas(codigo_barras, "Codigo de barras") = True) And (espacio_blanco(codigo_barras, "Codigo de barras") = True) And (nulo(codigo_barras, "Codigo_barras") = True)) Then
+            If ((comillas(nombre_producto, "Nombre del producto") = True) And (espacio_blanco(nombre_producto, "Nombre del producto") = True) And (nulo(nombre_producto, "Nombre del producto") = True)) Then
+                If ((comillas(desc_producto, "Descripcion del producto") = True) And (espacio_blanco(desc_producto, "Descripcion del producto") = True) And (nulo(desc_producto, "Descripcion del producto") = True)) Then
+                    If ((comillas(ge_producto, "Gravado/Exento") = True) And (espacio_blanco(ge_producto, "Gravado/Exento") = True) And (nulo(ge_producto, "Gravado/Exento") = True)) Then
+                        If ((comillas(linea, "Linea") = True) And (espacio_blanco(linea, "linea") = True) And (nulo(linea, "linea") = True)) Then
+                            If ((comillas(u_producto.ToString, "Unidades por paquete") = True) And (espacio_blanco(u_producto.ToString, "Unidades por paquete") = True) And (nulo(u_producto.ToString, "Unidades por paquete") = True)) Then
+                                If ((Validar_Codigo_Barras(codigo_barras) = False) And (Validar_Nombre_Producto(nombre_producto) = False)) Then
+                                    Return True
+                                End If
+                            End If
+                        End If
+                    End If
+                End If
+            End If
+        End If
+    End Function
 End Class

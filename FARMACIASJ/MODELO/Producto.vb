@@ -258,4 +258,24 @@ Public Class Producto
         LOTETableAdapter.Update(BasedeDatos.LOTE)
         BasedeDatos.AcceptChanges()
     End Sub
+    Public Function total_productos() As Integer
+        Dim Producto As FarmaciaSJDataSetTableAdapters.PRODUCTOTableAdapter
+        Dim Conextion As Data.SqlClient.SqlConnection
+        Dim Consulta As Data.SqlClient.SqlCommand
+        Dim Reder As Data.SqlClient.SqlDataReader
+
+        Try
+            Producto = New FarmaciaSJDataSetTableAdapters.PRODUCTOTableAdapter
+            Conextion = Producto.Connection
+            Consulta = New Data.SqlClient.SqlCommand
+            Conextion.Open()
+            Consulta.Connection = Conextion
+            Consulta.CommandText = "select count(*) from producto"
+            Reder = Consulta.ExecuteReader()
+            If (Reder.Read = True) Then
+                Return Integer.Parse(Reder.Item(0).ToString)
+            End If
+        Catch e As Data.SqlClient.SqlException
+        End Try
+    End Function
 End Class

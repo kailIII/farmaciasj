@@ -37,3 +37,7 @@ C:\Documents and Settings\Administrador\Mis documentos\Ucab\FARMACIASJ\FARMACIAS
 C:\Documents and Settings\Administrador\Mis documentos\Ucab\FARMACIASJ\FARMACIASJ\obj\Debug\FARMACIASJ.FACTURA.rpt
 C:\Documents and Settings\Administrador\Mis documentos\Ucab\FARMACIASJ\FARMACIASJ\obj\Debug\FARMACIASJ.Configuracion.resources
 C:\Documents and Settings\Administrador\Mis documentos\Ucab\FARMACIASJ\FARMACIASJ\obj\Debug\FARMACIASJ.Pago.resources
+C:\Documents and Settings\Administrador\Mis documentos\Ucab\FARMACIASJ\FARMACIASJ\obj\Debug\FARMACIASJ.Compra2.resources
+C:\Documents and Settings\Administrador\Mis documentos\Ucab\FARMACIASJ\FARMACIASJ\obj\Debug\FARMACIASJ.Registrar_Compra.resources
+C:\Documents and Settings\Administrador\Mis documentos\Ucab\FARMACIASJ\FARMACIASJ\obj\Debug\FARMACIASJ.Registrar_Pedido.resources
+C:\Documents and Settings\Administrador\Mis documentos\Ucab\FARMACIASJ\FARMACIASJ\obj\Debug\FARMACIASJ.Reporte.resources
