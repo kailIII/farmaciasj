@@ -52,8 +52,10 @@ Partial Class Registrar_Devolucion
         Me.GroupBox2 = New System.Windows.Forms.GroupBox
         Me.DETALLE_VENTA = New System.Windows.Forms.DataGridView
         Me.GroupBox1 = New System.Windows.Forms.GroupBox
-        Me.Label1 = New System.Windows.Forms.Label
+        Me.Fecha_Compra = New System.Windows.Forms.DateTimePicker
+        Me.Vence1 = New System.Windows.Forms.DateTimePicker
         Me.Numero_Control = New System.Windows.Forms.TextBox
+        Me.Label1 = New System.Windows.Forms.Label
         Me.GroupBox4.SuspendLayout()
         Me.GroupBox3.SuspendLayout()
         Me.GroupBox5.SuspendLayout()
@@ -65,6 +67,7 @@ Partial Class Registrar_Devolucion
         '
         'Procesar
         '
+        Me.Procesar.Enabled = False
         Me.Procesar.Location = New System.Drawing.Point(507, 467)
         Me.Procesar.Name = "Procesar"
         Me.Procesar.Size = New System.Drawing.Size(165, 23)
@@ -159,14 +162,15 @@ Partial Class Registrar_Devolucion
         Me.GroupBox3.Controls.Add(Me.Codigo_Barras)
         Me.GroupBox3.Location = New System.Drawing.Point(12, 357)
         Me.GroupBox3.Name = "GroupBox3"
-        Me.GroupBox3.Size = New System.Drawing.Size(489, 129)
+        Me.GroupBox3.Size = New System.Drawing.Size(489, 104)
         Me.GroupBox3.TabIndex = 9
         Me.GroupBox3.TabStop = False
         Me.GroupBox3.Text = "Producto"
         '
         'Devolver
         '
-        Me.Devolver.Location = New System.Drawing.Point(371, 97)
+        Me.Devolver.Enabled = False
+        Me.Devolver.Location = New System.Drawing.Point(371, 71)
         Me.Devolver.Name = "Devolver"
         Me.Devolver.Size = New System.Drawing.Size(112, 23)
         Me.Devolver.TabIndex = 15
@@ -175,17 +179,17 @@ Partial Class Registrar_Devolucion
         '
         'Cantidad
         '
-        Me.Cantidad.Location = New System.Drawing.Point(371, 71)
+        Me.Cantidad.Enabled = False
+        Me.Cantidad.Location = New System.Drawing.Point(371, 45)
         Me.Cantidad.Name = "Cantidad"
         Me.Cantidad.Size = New System.Drawing.Size(112, 20)
         Me.Cantidad.TabIndex = 14
-        Me.Cantidad.Text = "5"
         Me.Cantidad.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
         '
         'Label18
         '
         Me.Label18.AutoSize = True
-        Me.Label18.Location = New System.Drawing.Point(302, 48)
+        Me.Label18.Location = New System.Drawing.Point(6, 74)
         Me.Label18.Name = "Label18"
         Me.Label18.Size = New System.Drawing.Size(62, 13)
         Me.Label18.TabIndex = 13
@@ -194,16 +198,16 @@ Partial Class Registrar_Devolucion
         'Descuento
         '
         Me.Descuento.Enabled = False
-        Me.Descuento.Location = New System.Drawing.Point(371, 45)
+        Me.Descuento.Location = New System.Drawing.Point(71, 71)
         Me.Descuento.Name = "Descuento"
-        Me.Descuento.Size = New System.Drawing.Size(112, 20)
+        Me.Descuento.Size = New System.Drawing.Size(116, 20)
         Me.Descuento.TabIndex = 9
         Me.Descuento.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
         '
         'Label15
         '
         Me.Label15.AutoSize = True
-        Me.Label15.Location = New System.Drawing.Point(312, 74)
+        Me.Label15.Location = New System.Drawing.Point(312, 48)
         Me.Label15.Name = "Label15"
         Me.Label15.Size = New System.Drawing.Size(52, 13)
         Me.Label15.TabIndex = 8
@@ -379,6 +383,8 @@ Partial Class Registrar_Devolucion
         '
         'GroupBox1
         '
+        Me.GroupBox1.Controls.Add(Me.Fecha_Compra)
+        Me.GroupBox1.Controls.Add(Me.Vence1)
         Me.GroupBox1.Controls.Add(Me.Numero_Control)
         Me.GroupBox1.Controls.Add(Me.Label1)
         Me.GroupBox1.Location = New System.Drawing.Point(12, 12)
@@ -388,6 +394,34 @@ Partial Class Registrar_Devolucion
         Me.GroupBox1.TabStop = False
         Me.GroupBox1.Text = "Factura"
         '
+        'Fecha_Compra
+        '
+        Me.Fecha_Compra.CustomFormat = "dd/MM/yyyy HH:MM:ss"
+        Me.Fecha_Compra.Format = System.Windows.Forms.DateTimePickerFormat.Custom
+        Me.Fecha_Compra.Location = New System.Drawing.Point(16, 13)
+        Me.Fecha_Compra.Name = "Fecha_Compra"
+        Me.Fecha_Compra.Size = New System.Drawing.Size(139, 20)
+        Me.Fecha_Compra.TabIndex = 16
+        Me.Fecha_Compra.Visible = False
+        '
+        'Vence1
+        '
+        Me.Vence1.CustomFormat = "dd/MM/yyyy HH:MM:ss"
+        Me.Vence1.Enabled = False
+        Me.Vence1.Format = System.Windows.Forms.DateTimePickerFormat.Custom
+        Me.Vence1.Location = New System.Drawing.Point(161, 12)
+        Me.Vence1.Name = "Vence1"
+        Me.Vence1.Size = New System.Drawing.Size(139, 20)
+        Me.Vence1.TabIndex = 15
+        Me.Vence1.Visible = False
+        '
+        'Numero_Control
+        '
+        Me.Numero_Control.Location = New System.Drawing.Point(515, 13)
+        Me.Numero_Control.Name = "Numero_Control"
+        Me.Numero_Control.Size = New System.Drawing.Size(140, 20)
+        Me.Numero_Control.TabIndex = 1
+        '
         'Label1
         '
         Me.Label1.AutoSize = True
@@ -396,13 +430,6 @@ Partial Class Registrar_Devolucion
         Me.Label1.Size = New System.Drawing.Size(97, 13)
         Me.Label1.TabIndex = 0
         Me.Label1.Text = "Número de control:"
-        '
-        'Numero_Control
-        '
-        Me.Numero_Control.Location = New System.Drawing.Point(515, 13)
-        Me.Numero_Control.Name = "Numero_Control"
-        Me.Numero_Control.Size = New System.Drawing.Size(140, 20)
-        Me.Numero_Control.TabIndex = 1
         '
         'Registrar_Devolucion
         '
@@ -466,4 +493,6 @@ Partial Class Registrar_Devolucion
     Friend WithEvents GroupBox1 As System.Windows.Forms.GroupBox
     Friend WithEvents Numero_Control As System.Windows.Forms.TextBox
     Friend WithEvents Label1 As System.Windows.Forms.Label
+    Friend WithEvents Fecha_Compra As System.Windows.Forms.DateTimePicker
+    Friend WithEvents Vence1 As System.Windows.Forms.DateTimePicker
 End Class

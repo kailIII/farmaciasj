@@ -90,6 +90,19 @@ Public Class Controlador_Venta
         End If
     End Function
 
+    Public Function combrobarcantidaddetalle(ByVal ID_detalle_venta As Integer, ByVal ID_factura As Integer, ByVal Cantidad As Integer) As Boolean
+        Dim Venta As Venta
+        Dim C As Integer
+        Venta = New Venta
+        C = Venta.combrobarcantidaddetalle(ID_detalle_venta, ID_factura)
+        If (Cantidad <= C) Then
+            Return True
+        Else
+            Return False
+
+        End If
+    End Function
+
 
 
     'LZ
@@ -102,6 +115,8 @@ Public Class Controlador_Venta
             Venta_x.Buscar_Info_Cliente(Id_Cliente, Ventana)
             Ventana.DETALLE_VENTA.DataSource = ControladorF.Traer_Detalle(Venta_x.Buscar_Id_Venta_Factura(Control_Numero))
             Ventana.DETALLE_VENTA.Update()
+            Ventana.Codigo_Barras.Focus()
+
         Else
             MsgBox("Número de factura inválido", MsgBoxStyle.OkOnly, "Error")
             Ventana.Razon_Social.Text = ""
@@ -121,18 +136,42 @@ Public Class Controlador_Venta
 
     Public Sub Devolucion_Productos(ByVal Control_Numero As String, ByVal Codigo_Barras As String, ByVal Ventana As Registrar_Devolucion)
         Dim Producto_x As Producto = New Producto
-        Dim Id_Producto As Integer = Producto_x.idProductos(Codigo_Barras)
+
         Dim Venta_x As Venta = New Venta
         Dim ControladorF As Controlador_Venta = New Controlador_Venta
+        Dim Id_Venta As Integer = Venta_x.Buscar_Id_Venta_Factura(Control_Numero)
+        Dim Id_Producto As Integer = Producto_x.idProductos(Codigo_Barras)
 
+        If Venta_x.Existe_Producto_Venta(Id_Venta, Codigo_Barras) Then
 
-        If Id_Producto > 0 Then
-            ' Falta llamar al llenado de la parte de producto
-            ' o Mostrado de datos
+            Venta_x.Consulta_Producto_Venta(Id_Venta, Codigo_Barras, Ventana)
+            Venta_x.Calculo_Impuesto_Devolucion(Id_Venta, Ventana.ID_Detalle_Publico)
             'Insert de devoluciones
+            Dim Id_Venta_Devolucion As Integer = Venta_x.Id_Venta_Devolucion(Id_Venta)
+            If Not (Id_Venta_Devolucion > 0) Then
 
+                If Not (Venta_x.Crear_Devolucion(Id_Venta, Ventana.Id_Cliente_Publico, Ventana)) Then
+                    MsgBox("El producto no se pudo procesar", MsgBoxStyle.OkOnly, "Error")
+                Else
+
+                    Id_Venta_Devolucion = Venta_x.Ultima_Devolucion((Venta_x.Buscar_Id_Venta_Factura(Control_Numero)))
+                End If
+
+            End If
+
+            If Not Venta_x.Ingresar_Det_Venta(Id_Venta_Devolucion, Ventana, Id_Producto) Then
+                MsgBox("El producto no se pudo procesar", MsgBoxStyle.OkOnly, "Error")
+            End If
+
+            Ventana.Cantidad.Enabled = True
+            Ventana.Cantidad.Focus()
+            Ventana.Devolver.Enabled = True
             Ventana.Detalle_DEV.DataSource = ControladorF.Traer_Detalle_Devolucion(Venta_x.Ultima_Devolucion(Venta_x.Buscar_Id_Venta_Factura(Control_Numero)))
             Ventana.Detalle_DEV.Update()
+            ' Calcular el total a devolver....
+        Else
+            MsgBox("El producto no está en la venta", MsgBoxStyle.OkOnly, "Error")
+            Ventana.Devolver.Enabled = False
 
         End If
 
