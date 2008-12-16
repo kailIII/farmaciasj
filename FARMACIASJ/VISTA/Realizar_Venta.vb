@@ -38,40 +38,35 @@ Public Class Realizar_Venta
         ControladorF = New Controlador_Venta
         ControladorC = New Controlador_Cliente
         If (ID_Factura = -1) Then
-            If (ID_Cliente = -1) Then
-                '                a = ControladorC.Ingresar_Cliente(Identidad.Text, Nombre.Text, Apellido.Text, Telefono.Text, Direccion.Text)
-                If (a = True) Then
-                    ControladorC.Buscar_Cliente(Identidad.Text, Me)
-                End If
-
-            End If
             If (ID_Cliente <> -1) Then
                 If (ID_Factura = -1) Then
-                    '                    ID_Factura = ControladorF.Ingresar_Factura(Numero.Text, Fecha_Compra.Value, Vence.Value, ID_Cliente)
+                    ID_Factura = ControladorF.Ingresar_Factura(Numero.Text, Fecha_Compra.Value, Vence.Value, ID_Cliente)
                 End If
+            Else
+                MsgBox("Se debe seleccionar cliente para la venta", MsgBoxStyle.OkOnly, "Error")
             End If
         End If
-        If (ID_Factura <> -1) Then
-            ID_Detalle = ID_Detalle + 1
-            ControladorF.Ingresar_Detalle(ID_Detalle, ID_Factura, ID_Producto, ID_Lote, Integer.Parse(Cantidad.Text), ID_Impuesto, ID_Historico_Impuesto, CImpuestos)
-            Me.DETALLE_VENTA.DataSource = ControladorF.Traer_Detalle(ID_Factura)
-            Me.DETALLE_VENTA.Update()
-            subt = Double.Parse(Me.Sub_Total.Text)
-            subt = Math.Round(subt + Double.Parse(Me.SubtotalP.Text), 2)
-            Me.Sub_Total.Text = CStr(subt)
-            impuesto = Double.Parse(Me.Impuesto.Text)
-            impuesto = Math.Round(impuesto + ImpuestoP, 2)
-            Me.Impuesto.Text = CStr(impuesto)
-            Total = Math.Round(subt + impuesto, 2)
-            Me.Total.Text = CStr(Total)
-            Me.Codigo_Barras.Text = ""
-            Me.NombreP.Text = ""
-            Me.Punitario.Text = ""
-            Me.Descuento.Text = ""
-            Me.Cantidad.Text = ""
-            Me.Descripcion.Text = ""
-            Me.SubtotalP.Text = ""
-        End If
+            If (ID_Factura <> -1) Then
+                ID_Detalle = ID_Detalle + 1
+                ControladorF.Ingresar_Detalle(ID_Detalle, ID_Factura, ID_Producto, ID_Lote, Integer.Parse(Cantidad.Text), ID_Impuesto, ID_Historico_Impuesto, CImpuestos)
+                Me.DETALLE_VENTA.DataSource = ControladorF.Traer_Detalle(ID_Factura)
+                Me.DETALLE_VENTA.Update()
+                subt = Double.Parse(Me.Sub_Total.Text)
+                subt = Math.Round(subt + Double.Parse(Me.SubtotalP.Text), 2)
+                Me.Sub_Total.Text = CStr(subt)
+                impuesto = Double.Parse(Me.Impuesto.Text)
+                impuesto = Math.Round(impuesto + ImpuestoP, 2)
+                Me.Impuesto.Text = CStr(impuesto)
+                Total = Math.Round(subt + impuesto, 2)
+                Me.Total.Text = CStr(Total)
+                Me.Codigo_Barras.Text = ""
+                Me.NombreP.Text = ""
+                Me.Punitario.Text = ""
+                Me.Descuento.Text = ""
+                Me.Cantidad.Text = ""
+                Me.Descripcion.Text = ""
+                Me.SubtotalP.Text = ""
+            End If
     End Sub
 
     Private Sub Cantidad_TextChanged(ByVal sender As System.Object, ByVal e As Windows.Forms.KeyPressEventArgs) Handles Cantidad.KeyPress
@@ -126,15 +121,37 @@ Public Class Realizar_Venta
     Private Sub Realizar_Venta_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
         Dim ControladorF As Controlador_Venta
         ControladorF = New Controlador_Venta
+        Fecha_Compra.Value = Date.Today()
+        Vence.Value = Date.Today()
         Dim C As Integer
         C = ControladorF.CantidadF()
         C = C + 1
         If (C < 10) Then
-            '            Numero.Text = "F00" & C
+            Numero.Text = "F00" & C
         ElseIf (C < 100) Then
-            '           Numero.Text = "F0" & C
+            Numero.Text = "F0" & C
         Else
-            '          Numero.Text = "F" & C
+            Numero.Text = "F" & C
+        End If
+    End Sub
+
+    Private Sub Identidad_TextChanged(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Identidad.TextChanged
+        If (Identidad.Text.Length = 1) Then
+            If (Identidad.Text(0) = Char.Parse("J")) Then
+                Identidad.MaxLength = 10
+            ElseIf (Identidad.Text(0) = Char.Parse("V") Or Identidad.Text(0) = Char.Parse("E")) Then
+                Identidad.MaxLength = 9
+            ElseIf (Identidad.Text(0) = Char.Parse("P")) Then
+                Identidad.MaxLength = 12
+            Else
+                Identidad.Text = ""
+            End If
+        ElseIf (Identidad.Text.Length > 1) Then
+            Dim count As Integer
+            count = Identidad.Text.Length - 1
+            If (Char.IsDigit(Identidad.Text(count)) = False) Then
+                Identidad.TabIndex = Identidad.Text.Length - 1
+            End If
         End If
     End Sub
 End Class

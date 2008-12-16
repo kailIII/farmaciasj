@@ -1,15 +1,33 @@
 Public Class Cliente
     Public BasedeDatos As FarmaciaSJDataSet
 
-    Public Function Ingresar(ByVal Nombre As String, ByVal Apellido As String, ByVal Tipo_Identidad As String, ByVal Documento_Identidad As String, ByVal Telefono As String, ByVal Direccion As String) As Boolean
+    Public Function Ingresar(ByVal Nombre As String, ByVal Apellido As String, ByVal Documento_Identidad As String, ByVal Telefono As String, ByVal Direccion As String) As Boolean
         Dim ClienteTableAdapter As FarmaciaSJDataSetTableAdapters.CLIENTETableAdapter
         Try
             BasedeDatos = New FarmaciaSJDataSet
             ClienteTableAdapter = New FarmaciaSJDataSetTableAdapters.CLIENTETableAdapter
-            'ClienteTableAdapter.Insert(Documento_Identidad, Nombre, Apellido, Telefono, Direccion)
-
+            ClienteTableAdapter.Insert(Documento_Identidad, Nombre, Apellido, Telefono, Direccion)
             ClienteTableAdapter.Update(BasedeDatos.CLIENTE)
             BasedeDatos.AcceptChanges()
+            Return True
+        Catch err As ArgumentNullException
+            Return False
+        End Try
+    End Function
+
+    Public Function Ingresar(ByVal Nombre As String, ByVal Documento_Identidad As String, ByVal Telefono As String, ByVal Direccion As String) As Boolean
+        Dim cliente As FarmaciaSJDataSetTableAdapters.CLIENTETableAdapter
+        Dim Conextion As Data.SqlClient.SqlConnection
+        Dim Consulta As Data.SqlClient.SqlCommand
+        Dim Reder As Data.SqlClient.SqlDataReader
+        Try
+            Cliente = New FarmaciaSJDataSetTableAdapters.CLIENTETableAdapter
+            Conextion = Cliente.Connection
+            Consulta = New Data.SqlClient.SqlCommand
+            Conextion.Open()
+            Consulta.Connection = Conextion
+            Consulta.CommandText = "INSERT INTO [FarmaciaSJ].[dbo].[CLIENTE] ([IDENTIDAD] ,[NOMBRE] ,[TELEFONO] ,[DIRECCION]) VALUES (" & Documento_Identidad & "," & Nombre & " ," & Telefono & " ," & Direccion & ")"
+            Reder = Consulta.ExecuteReader()
             Return True
         Catch err As ArgumentNullException
             Return False
@@ -31,13 +49,9 @@ Public Class Cliente
             Consulta.CommandText = "SELECT     ID_CLIENTE, ID_CLIENTE, IDENTIDAD, NOMBRE, APELLIDO, TELEFONO, DIRECCION FROM         CLIENTE WHERE     (DOCUMENTO_IDENTIDAD = '" & Numero & "')"
             Reder = Consulta.ExecuteReader()
             If (Reder.Read = True) Then
-                '        Venta.ID_Cliente = Integer.Parse(Reder.Item(0).ToString)
-                'Venta.Tipo_Identidad.Text = Reder.Item(1).ToString()
+                Venta.ID_Cliente = Integer.Parse(Reder.Item(0).ToString)
                 Venta.Identidad.Text = Reder.Item(2).ToString()
                 Venta.Nombre.Text = Reder.Item(3).ToString()
-                Venta.Direccion.Text = Reder.Item(4).ToString()
-                Venta.Telefono.Text = Reder.Item(5).ToString()
-                Venta.Direccion.Text = Reder.Item(6).ToString()
                 Return 0
             Else
                 Return 1

@@ -24,11 +24,9 @@ Partial Class Realizar_Venta
         Me.Label1 = New System.Windows.Forms.Label
         Me.Nombre = New System.Windows.Forms.TextBox
         Me.Label3 = New System.Windows.Forms.Label
-        Me.Label7 = New System.Windows.Forms.Label
-        Me.Label6 = New System.Windows.Forms.Label
-        Me.Telefono = New System.Windows.Forms.TextBox
-        Me.Direccion = New System.Windows.Forms.TextBox
         Me.GroupBox2 = New System.Windows.Forms.GroupBox
+        Me.Label2 = New System.Windows.Forms.Label
+        Me.Numero = New System.Windows.Forms.TextBox
         Me.Vence = New System.Windows.Forms.DateTimePicker
         Me.Label17 = New System.Windows.Forms.Label
         Me.GroupBox3 = New System.Windows.Forms.GroupBox
@@ -56,8 +54,7 @@ Partial Class Realizar_Venta
         Me.Label8 = New System.Windows.Forms.Label
         Me.Button2 = New System.Windows.Forms.Button
         Me.DETALLE_VENTA = New System.Windows.Forms.DataGridView
-        Me.Numero = New System.Windows.Forms.TextBox
-        Me.Label2 = New System.Windows.Forms.Label
+        Me.Fecha_Compra = New System.Windows.Forms.DateTimePicker
         Me.GroupBox1.SuspendLayout()
         Me.GroupBox2.SuspendLayout()
         Me.GroupBox3.SuspendLayout()
@@ -71,20 +68,16 @@ Partial Class Realizar_Venta
         Me.GroupBox1.Controls.Add(Me.Label1)
         Me.GroupBox1.Controls.Add(Me.Nombre)
         Me.GroupBox1.Controls.Add(Me.Label3)
-        Me.GroupBox1.Controls.Add(Me.Label7)
-        Me.GroupBox1.Controls.Add(Me.Label6)
-        Me.GroupBox1.Controls.Add(Me.Telefono)
-        Me.GroupBox1.Controls.Add(Me.Direccion)
         Me.GroupBox1.Location = New System.Drawing.Point(12, 64)
         Me.GroupBox1.Name = "GroupBox1"
-        Me.GroupBox1.Size = New System.Drawing.Size(661, 70)
+        Me.GroupBox1.Size = New System.Drawing.Size(661, 49)
         Me.GroupBox1.TabIndex = 0
         Me.GroupBox1.TabStop = False
         Me.GroupBox1.Text = "Cliente"
         '
         'Identidad
         '
-        Me.Identidad.Location = New System.Drawing.Point(454, 13)
+        Me.Identidad.Location = New System.Drawing.Point(48, 18)
         Me.Identidad.Name = "Identidad"
         Me.Identidad.Size = New System.Drawing.Size(200, 20)
         Me.Identidad.TabIndex = 1
@@ -92,7 +85,7 @@ Partial Class Realizar_Venta
         'Label1
         '
         Me.Label1.AutoSize = True
-        Me.Label1.Location = New System.Drawing.Point(415, 16)
+        Me.Label1.Location = New System.Drawing.Point(9, 21)
         Me.Label1.Name = "Label1"
         Me.Label1.Size = New System.Drawing.Size(33, 13)
         Me.Label1.TabIndex = 14
@@ -101,56 +94,23 @@ Partial Class Realizar_Venta
         'Nombre
         '
         Me.Nombre.Enabled = False
-        Me.Nombre.Location = New System.Drawing.Point(80, 13)
+        Me.Nombre.Location = New System.Drawing.Point(331, 18)
         Me.Nombre.Name = "Nombre"
-        Me.Nombre.Size = New System.Drawing.Size(329, 20)
+        Me.Nombre.Size = New System.Drawing.Size(317, 20)
         Me.Nombre.TabIndex = 13
         '
         'Label3
         '
         Me.Label3.AutoSize = True
-        Me.Label3.Location = New System.Drawing.Point(6, 16)
+        Me.Label3.Location = New System.Drawing.Point(257, 21)
         Me.Label3.Name = "Label3"
         Me.Label3.Size = New System.Drawing.Size(71, 13)
         Me.Label3.TabIndex = 12
         Me.Label3.Text = "Razón social:"
         '
-        'Label7
-        '
-        Me.Label7.AutoSize = True
-        Me.Label7.Location = New System.Drawing.Point(212, 42)
-        Me.Label7.Name = "Label7"
-        Me.Label7.Size = New System.Drawing.Size(52, 13)
-        Me.Label7.TabIndex = 11
-        Me.Label7.Text = "Dirección"
-        '
-        'Label6
-        '
-        Me.Label6.AutoSize = True
-        Me.Label6.Location = New System.Drawing.Point(6, 42)
-        Me.Label6.Name = "Label6"
-        Me.Label6.Size = New System.Drawing.Size(49, 13)
-        Me.Label6.TabIndex = 9
-        Me.Label6.Text = "Teléfono"
-        '
-        'Telefono
-        '
-        Me.Telefono.Enabled = False
-        Me.Telefono.Location = New System.Drawing.Point(80, 39)
-        Me.Telefono.Name = "Telefono"
-        Me.Telefono.Size = New System.Drawing.Size(126, 20)
-        Me.Telefono.TabIndex = 8
-        '
-        'Direccion
-        '
-        Me.Direccion.Enabled = False
-        Me.Direccion.Location = New System.Drawing.Point(270, 39)
-        Me.Direccion.Name = "Direccion"
-        Me.Direccion.Size = New System.Drawing.Size(384, 20)
-        Me.Direccion.TabIndex = 6
-        '
         'GroupBox2
         '
+        Me.GroupBox2.Controls.Add(Me.Fecha_Compra)
         Me.GroupBox2.Controls.Add(Me.Label2)
         Me.GroupBox2.Controls.Add(Me.Numero)
         Me.GroupBox2.Controls.Add(Me.Vence)
@@ -161,6 +121,22 @@ Partial Class Realizar_Venta
         Me.GroupBox2.TabIndex = 1
         Me.GroupBox2.TabStop = False
         Me.GroupBox2.Text = "Factura"
+        '
+        'Label2
+        '
+        Me.Label2.AutoSize = True
+        Me.Label2.Location = New System.Drawing.Point(491, 22)
+        Me.Label2.Name = "Label2"
+        Me.Label2.Size = New System.Drawing.Size(44, 13)
+        Me.Label2.TabIndex = 7
+        Me.Label2.Text = "Numero"
+        '
+        'Numero
+        '
+        Me.Numero.Location = New System.Drawing.Point(554, 19)
+        Me.Numero.Name = "Numero"
+        Me.Numero.Size = New System.Drawing.Size(94, 20)
+        Me.Numero.TabIndex = 6
         '
         'Vence
         '
@@ -197,7 +173,7 @@ Partial Class Realizar_Venta
         Me.GroupBox3.Controls.Add(Me.Label12)
         Me.GroupBox3.Controls.Add(Me.Label11)
         Me.GroupBox3.Controls.Add(Me.Codigo_Barras)
-        Me.GroupBox3.Location = New System.Drawing.Point(12, 290)
+        Me.GroupBox3.Location = New System.Drawing.Point(12, 269)
         Me.GroupBox3.Name = "GroupBox3"
         Me.GroupBox3.Size = New System.Drawing.Size(489, 122)
         Me.GroupBox3.TabIndex = 3
@@ -339,7 +315,7 @@ Partial Class Realizar_Venta
         Me.GroupBox4.Controls.Add(Me.Label9)
         Me.GroupBox4.Controls.Add(Me.Sub_Total)
         Me.GroupBox4.Controls.Add(Me.Label8)
-        Me.GroupBox4.Location = New System.Drawing.Point(506, 290)
+        Me.GroupBox4.Location = New System.Drawing.Point(506, 269)
         Me.GroupBox4.Name = "GroupBox4"
         Me.GroupBox4.Size = New System.Drawing.Size(167, 122)
         Me.GroupBox4.TabIndex = 4
@@ -402,7 +378,7 @@ Partial Class Realizar_Venta
         '
         'Button2
         '
-        Me.Button2.Location = New System.Drawing.Point(521, 418)
+        Me.Button2.Location = New System.Drawing.Point(521, 397)
         Me.Button2.Name = "Button2"
         Me.Button2.Size = New System.Drawing.Size(152, 23)
         Me.Button2.TabIndex = 5
@@ -412,32 +388,26 @@ Partial Class Realizar_Venta
         'DETALLE_VENTA
         '
         Me.DETALLE_VENTA.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.DETALLE_VENTA.Location = New System.Drawing.Point(12, 140)
+        Me.DETALLE_VENTA.Location = New System.Drawing.Point(12, 119)
         Me.DETALLE_VENTA.Name = "DETALLE_VENTA"
         Me.DETALLE_VENTA.Size = New System.Drawing.Size(660, 144)
         Me.DETALLE_VENTA.TabIndex = 7
         '
-        'Numero
+        'Fecha_Compra
         '
-        Me.Numero.Location = New System.Drawing.Point(554, 19)
-        Me.Numero.Name = "Numero"
-        Me.Numero.Size = New System.Drawing.Size(94, 20)
-        Me.Numero.TabIndex = 6
-        '
-        'Label2
-        '
-        Me.Label2.AutoSize = True
-        Me.Label2.Location = New System.Drawing.Point(477, 22)
-        Me.Label2.Name = "Label2"
-        Me.Label2.Size = New System.Drawing.Size(44, 13)
-        Me.Label2.TabIndex = 7
-        Me.Label2.Text = "Numero"
+        Me.Fecha_Compra.CustomFormat = "dd/MM/yyyy HH:MM:ss"
+        Me.Fecha_Compra.Format = System.Windows.Forms.DateTimePickerFormat.Custom
+        Me.Fecha_Compra.Location = New System.Drawing.Point(30, 19)
+        Me.Fecha_Compra.Name = "Fecha_Compra"
+        Me.Fecha_Compra.Size = New System.Drawing.Size(139, 20)
+        Me.Fecha_Compra.TabIndex = 8
+        Me.Fecha_Compra.Visible = False
         '
         'Realizar_Venta
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(685, 448)
+        Me.ClientSize = New System.Drawing.Size(685, 423)
         Me.Controls.Add(Me.DETALLE_VENTA)
         Me.Controls.Add(Me.Button2)
         Me.Controls.Add(Me.GroupBox4)
@@ -461,10 +431,6 @@ Partial Class Realizar_Venta
     End Sub
     Friend WithEvents GroupBox1 As System.Windows.Forms.GroupBox
     Friend WithEvents GroupBox2 As System.Windows.Forms.GroupBox
-    Friend WithEvents Direccion As System.Windows.Forms.TextBox
-    Friend WithEvents Label6 As System.Windows.Forms.Label
-    Friend WithEvents Telefono As System.Windows.Forms.TextBox
-    Friend WithEvents Label7 As System.Windows.Forms.Label
     Friend WithEvents GroupBox3 As System.Windows.Forms.GroupBox
     Friend WithEvents GroupBox4 As System.Windows.Forms.GroupBox
     Friend WithEvents Label8 As System.Windows.Forms.Label
@@ -498,4 +464,5 @@ Partial Class Realizar_Venta
     Friend WithEvents Label3 As System.Windows.Forms.Label
     Friend WithEvents Label2 As System.Windows.Forms.Label
     Friend WithEvents Numero As System.Windows.Forms.TextBox
+    Friend WithEvents Fecha_Compra As System.Windows.Forms.DateTimePicker
 End Class

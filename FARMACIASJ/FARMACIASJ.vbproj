@@ -122,10 +122,10 @@
     <Compile Include="VISTA\FARMACIASJ_SESION.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="VISTA\Form1.Designer.vb">
-      <DependentUpon>Form1.vb</DependentUpon>
+    <Compile Include="VISTA\IngresarCliente.Designer.vb">
+      <DependentUpon>IngresarCliente.vb</DependentUpon>
     </Compile>
-    <Compile Include="VISTA\Form1.vb">
+    <Compile Include="VISTA\IngresarCliente.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="VISTA\Ingresar_Linea.Designer.vb">
@@ -162,6 +162,12 @@
       <DependentUpon>Registrar_Compra.vb</DependentUpon>
     </Compile>
     <Compile Include="VISTA\Registrar_Compra.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="VISTA\Registrar_Devolucion.Designer.vb">
+      <DependentUpon>Registrar_Devolucion.vb</DependentUpon>
+    </Compile>
+    <Compile Include="VISTA\Registrar_Devolucion.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="VISTA\Registrar_Pedido.Designer.vb">
@@ -216,9 +222,9 @@
       <SubType>Designer</SubType>
       <DependentUpon>FARMACIASJ_SESION.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="VISTA\Form1.resx">
+    <EmbeddedResource Include="VISTA\IngresarCliente.resx">
       <SubType>Designer</SubType>
-      <DependentUpon>Form1.vb</DependentUpon>
+      <DependentUpon>IngresarCliente.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="VISTA\Ingresar_Linea.resx">
       <SubType>Designer</SubType>
