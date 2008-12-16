@@ -51,6 +51,7 @@
     <Compile Include="CONTROLADOR\Controlador_Compra.vb" />
     <Compile Include="CONTROLADOR\Controlador_Ingresar_Producto.vb" />
     <Compile Include="CONTROLADOR\Controlador_Linea.vb" />
+    <Compile Include="CONTROLADOR\Controlador_modificar_compra.vb" />
     <Compile Include="CONTROLADOR\Controlador_Pedido_Frecuente.vb" />
     <Compile Include="CONTROLADOR\Controlador_Producto.vb" />
     <Compile Include="CONTROLADOR\Controlador_Proveedor.vb" />
@@ -144,6 +145,12 @@
       <DependentUpon>Ingresar_Proveedor.vb</DependentUpon>
     </Compile>
     <Compile Include="VISTA\Ingresar_Proveedor.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="VISTA\Modificar_compra.Designer.vb">
+      <DependentUpon>Modificar_compra.vb</DependentUpon>
+    </Compile>
+    <Compile Include="VISTA\Modificar_compra.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="VISTA\Pago.Designer.vb">
@@ -249,6 +256,10 @@
     <EmbeddedResource Include="VISTA\Ingresar_Proveedor.resx">
       <SubType>Designer</SubType>
       <DependentUpon>Ingresar_Proveedor.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="VISTA\Modificar_compra.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>Modificar_compra.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="VISTA\Pago.resx">
       <SubType>Designer</SubType>

@@ -74,4 +74,19 @@ Public Class Compra
             MsgBox(e.Message, MsgBoxStyle.OkOnly, "Alert")
         End Try
     End Sub
+    Public Function general(ByVal cadena As String) As Data.SqlClient.SqlDataReader
+        Dim Compra As FarmaciaSJDataSetTableAdapters.COMPRATableAdapter
+        Dim Conextion As Data.SqlClient.SqlConnection
+        Dim Consulta As Data.SqlClient.SqlCommand
+        Dim Reder As Data.SqlClient.SqlDataReader
+
+        Compra = New FarmaciaSJDataSetTableAdapters.COMPRATableAdapter
+        Conextion = Compra.Connection
+        Consulta = New Data.SqlClient.SqlCommand
+        Conextion.Open()
+        Consulta.Connection = Conextion
+        Consulta.CommandText = cadena
+        Reder = Consulta.ExecuteReader()
+        Return Reder
+    End Function
 End Class

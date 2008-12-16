@@ -292,7 +292,20 @@ Public Class Proveedor
         Loop
         Tabla.Update(Bd.TELEFONO_PROVEEDOR)
     End Sub
-
+    Public Function Buscar_id_proveedor(ByVal id As String) As Data.SqlClient.SqlDataReader
+        Dim Proveedor As FarmaciaSJDataSetTableAdapters.PROVEEDORTableAdapter
+        Dim Conextion As Data.SqlClient.SqlConnection
+        Dim Consulta As Data.SqlClient.SqlCommand
+        Dim Reder As Data.SqlClient.SqlDataReader
+        Proveedor = New FarmaciaSJDataSetTableAdapters.PROVEEDORTableAdapter
+        Conextion = Proveedor.Connection
+        Conextion.Open()
+        Consulta = New Data.SqlClient.SqlCommand
+        Consulta.Connection = Conextion
+        Consulta.CommandText = "SELECT     ID_PROVEEDOR,Codigo, RIF, Nombre, Mail, Ciudad, Direccion FROM         PROVEEDOR WHERE     (Estatus = 'ACTIVO') AND (id_proveedor = '" & id & "')"
+        Reder = Consulta.ExecuteReader
+        Return Reder
+    End Function
 
 
 End Class
