@@ -56,8 +56,8 @@ Public Class Controlador_Venta
         Dim Pago As Pago
         Pago = New Pago
         Pago.ID_Factura = ID_FACTURA
-        Pago.Numero_Factura.Text = Venta.Numero_Factura.Text
-        Pago.TIPO_ID.Text = Venta.Tipo_Identidad.Text
+        'Pago.Numero_Factura.Text = Venta.Numero_Factura.Text
+        ' Pago.TIPO_ID.Text = Venta.Tipo_Identidad.Text
         Pago.Numero_ID.Text = Venta.Identidad.Text
         Pago.Stotal.Text = Venta.Sub_Total.Text
         Pago.Impuestos.Text = Venta.Impuesto.Text
@@ -90,5 +90,35 @@ Public Class Controlador_Venta
 
         End If
     End Function
+
+
+
+    'LZ
+    Public Sub Buscar_Info_Factura(ByVal Control_Numero As String, ByVal Ventana As Registrar_Devolucion)
+        Dim Venta_x As Venta = New Venta
+        Dim Id_Cliente As Integer = Venta_x.Buscar_id_Cliente_Factura(Control_Numero)
+
+
+        Dim ControladorF As Controlador_Venta = New Controlador_Venta
+
+       
+        If (Id_Cliente > 0) Then
+
+            Venta_x.Buscar_Info_Cliente(Id_Cliente, Ventana)
+            Ventana.DETALLE_VENTA.DataSource = ControladorF.Traer_Detalle(Venta_x.Buscar_Id_Venta_Factura(Control_Numero))
+            Ventana.DETALLE_VENTA.Update()
+
+        Else
+            MsgBox("Número de factura inválido", MsgBoxStyle.OkOnly, "Error")
+            Ventana.Razon_Social.Text = ""
+            Ventana.Rif.Text = ""
+            Ventana.Telefono.Text = ""
+            Ventana.Direccion.Text = ""
+        End If
+    End Sub
+
+
+    'Fin LZ
+
 
 End Class

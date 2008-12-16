@@ -6,7 +6,8 @@ Public Class Cliente
         Try
             BasedeDatos = New FarmaciaSJDataSet
             ClienteTableAdapter = New FarmaciaSJDataSetTableAdapters.CLIENTETableAdapter
-            ClienteTableAdapter.Insert(Documento_Identidad, Nombre, Apellido, Telefono, Direccion)
+            'ClienteTableAdapter.Insert(Documento_Identidad, Nombre, Apellido, Telefono, Direccion)
+
             ClienteTableAdapter.Update(BasedeDatos.CLIENTE)
             BasedeDatos.AcceptChanges()
             Return True
@@ -15,7 +16,7 @@ Public Class Cliente
         End Try
     End Function
 
-    Public Function buscar_identidad(ByVal Tipo As String, ByVal Numero As String, ByVal Venta As Realizar_Venta) As Integer
+    Public Function buscar_identidad(ByVal Numero As String, ByVal Venta As Realizar_Venta) As Integer
         Dim Cliente As FarmaciaSJDataSetTableAdapters.CLIENTETableAdapter
         Dim Conextion As Data.SqlClient.SqlConnection
         Dim Consulta As Data.SqlClient.SqlCommand
@@ -27,14 +28,14 @@ Public Class Cliente
             Consulta = New Data.SqlClient.SqlCommand
             Conextion.Open()
             Consulta.Connection = Conextion
-            Consulta.CommandText = "SELECT     ID_CLIENTE, TIPO_IDENTIDAD, DOCUMENTO_IDENTIDAD, NOMBRE, APELLIDO, TELEFONO, DIRECCION FROM         CLIENTE WHERE     (TIPO_IDENTIDAD = '" & Tipo & "') AND (DOCUMENTO_IDENTIDAD = '" & Numero & "')"
+            Consulta.CommandText = "SELECT     ID_CLIENTE, ID_CLIENTE, IDENTIDAD, NOMBRE, APELLIDO, TELEFONO, DIRECCION FROM         CLIENTE WHERE     (DOCUMENTO_IDENTIDAD = '" & Numero & "')"
             Reder = Consulta.ExecuteReader()
             If (Reder.Read = True) Then
-                Venta.ID_Cliente = Integer.Parse(Reder.Item(0).ToString)
-                Venta.Tipo_Identidad.Text = Reder.Item(1).ToString()
+                '        Venta.ID_Cliente = Integer.Parse(Reder.Item(0).ToString)
+                'Venta.Tipo_Identidad.Text = Reder.Item(1).ToString()
                 Venta.Identidad.Text = Reder.Item(2).ToString()
                 Venta.Nombre.Text = Reder.Item(3).ToString()
-                Venta.Apellido.Text = Reder.Item(4).ToString()
+                Venta.Direccion.Text = Reder.Item(4).ToString()
                 Venta.Telefono.Text = Reder.Item(5).ToString()
                 Venta.Direccion.Text = Reder.Item(6).ToString()
                 Return 0
@@ -68,5 +69,7 @@ Public Class Cliente
         Catch e As Data.SqlClient.SqlException
         End Try
     End Function
+
+
 
 End Class

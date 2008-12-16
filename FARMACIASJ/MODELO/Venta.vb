@@ -213,4 +213,75 @@ Public Class Venta
         Factura.PrintToPrinter(1, True, 1, 2)
         Return FarmaciaSJ
     End Function
+
+
+    'LZ
+
+    Public Function Buscar_id_Cliente_Factura(ByVal Control_Numero As String) As Integer
+        Dim Proveedor_x As FarmaciaSJDataSetTableAdapters.PROVEEDORTableAdapter = New FarmaciaSJDataSetTableAdapters.PROVEEDORTableAdapter
+        Dim Conextion As Data.SqlClient.SqlConnection = Proveedor_x.Connection
+        Dim Consulta As Data.SqlClient.SqlCommand = New Data.SqlClient.SqlCommand
+        Conextion.Open()
+        Consulta.Connection = Conextion
+        Consulta.CommandText = "SELECT ID_CLIENTE FROM VENTA WHERE NUMERO_FACTURA='" & Control_Numero & "'"
+        Dim Reder As Data.SqlClient.SqlDataReader = Consulta.ExecuteReader()
+        Dim Id_Cliente As Integer = 0
+        If (Reder.Read) Then
+            Id_Cliente = CInt(Reder.Item(0).ToString)
+        End If
+        Reder.Close()
+        Return Id_Cliente
+    End Function
+
+    Public Function Buscar_Id_Venta_Factura(ByVal Control_Numero As String) As Integer
+        Dim Proveedor_x As FarmaciaSJDataSetTableAdapters.PROVEEDORTableAdapter = New FarmaciaSJDataSetTableAdapters.PROVEEDORTableAdapter
+        Dim Conextion As Data.SqlClient.SqlConnection = Proveedor_x.Connection
+        Dim Consulta As Data.SqlClient.SqlCommand = New Data.SqlClient.SqlCommand
+        Conextion.Open()
+        Consulta.Connection = Conextion
+        Consulta.CommandText = "SELECT ID_VENTA FROM VENTA WHERE NUMERO_FACTURA='" & Control_Numero & "'"
+        Dim Reder As Data.SqlClient.SqlDataReader = Consulta.ExecuteReader()
+        Dim Id_Cliente As Integer = 0
+        If (Reder.Read) Then
+            Id_Cliente = CInt(Reder.Item(0).ToString)
+        End If
+        Reder.Close()
+        Return Id_Cliente
+    End Function
+
+
+
+
+
+    Public Sub Buscar_Info_Cliente(ByVal Id_Cliente As Integer, ByVal Venta As Registrar_Devolucion)
+
+        Dim Cliente As FarmaciaSJDataSetTableAdapters.CLIENTETableAdapter
+        Dim Conextion As Data.SqlClient.SqlConnection
+        Dim Consulta As Data.SqlClient.SqlCommand
+        Dim Reder As Data.SqlClient.SqlDataReader
+
+        Try
+            Cliente = New FarmaciaSJDataSetTableAdapters.CLIENTETableAdapter
+            Conextion = Cliente.Connection
+            Consulta = New Data.SqlClient.SqlCommand
+            Conextion.Open()
+            Consulta.Connection = Conextion
+            Consulta.CommandText = "SELECT APELLIDO+', '+NOMBRE, IDENTIDAD, TELEFONO, DIRECCION FROM CLIENTE WHERE ID_CLIENTE=" & Id_Cliente
+            Reder = Consulta.ExecuteReader()
+            If (Reder.Read = True) Then
+                Venta.Razon_Social.Text = Reder.Item(0).ToString()
+                Venta.Rif.Text = Reder.Item(1).ToString()
+                Venta.Telefono.Text = Reder.Item(2).ToString()
+                Venta.Direccion.Text = Reder.Item(3).ToString()
+                Reder.Close()
+            End If
+        Catch e As Data.SqlClient.SqlException
+        End Try
+    End Sub
+
+
+
+
+    'Fin LZ
+
 End Class

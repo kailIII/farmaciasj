@@ -15,7 +15,7 @@ Public Class Realizar_Venta
         Dim Controlador As Controlador_Cliente
         If (e.KeyChar = Char.ConvertFromUtf32(13)) Then
             Controlador = New Controlador_Cliente
-            Controlador.Buscar_Cliente(Me.Tipo_Identidad.Text, Me.Identidad.Text, Me)
+            Controlador.Buscar_Cliente(Me.Identidad.Text, Me)
         End If
     End Sub
 
@@ -39,15 +39,15 @@ Public Class Realizar_Venta
         ControladorC = New Controlador_Cliente
         If (ID_Factura = -1) Then
             If (ID_Cliente = -1) Then
-                a = ControladorC.Ingresar_Cliente(Tipo_Identidad.Text, Identidad.Text, Nombre.Text, Apellido.Text, Telefono.Text, Direccion.Text)
+                '                a = ControladorC.Ingresar_Cliente(Identidad.Text, Nombre.Text, Apellido.Text, Telefono.Text, Direccion.Text)
                 If (a = True) Then
-                    ControladorC.Buscar_Cliente(Tipo_Identidad.Text, Identidad.Text, Me)
+                    ControladorC.Buscar_Cliente(Identidad.Text, Me)
                 End If
 
             End If
             If (ID_Cliente <> -1) Then
                 If (ID_Factura = -1) Then
-                    ID_Factura = ControladorF.Ingresar_Factura(Numero.Text, Fecha_Compra.Value, Vence.Value, ID_Cliente)
+                    '                    ID_Factura = ControladorF.Ingresar_Factura(Numero.Text, Fecha_Compra.Value, Vence.Value, ID_Cliente)
                 End If
             End If
         End If
@@ -130,11 +130,11 @@ Public Class Realizar_Venta
         C = ControladorF.CantidadF()
         C = C + 1
         If (C < 10) Then
-            Numero.Text = "F00" & C
+            '            Numero.Text = "F00" & C
         ElseIf (C < 100) Then
-            Numero.Text = "F0" & C
+            '           Numero.Text = "F0" & C
         Else
-            Numero.Text = "F" & C
+            '          Numero.Text = "F" & C
         End If
     End Sub
 End Class

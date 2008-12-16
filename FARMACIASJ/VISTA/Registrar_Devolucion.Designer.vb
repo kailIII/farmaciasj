@@ -20,10 +20,10 @@ Partial Class Registrar_Devolucion
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
         Me.GroupBox1 = New System.Windows.Forms.GroupBox
-        Me.TextBox1 = New System.Windows.Forms.TextBox
+        Me.Numero_Control = New System.Windows.Forms.TextBox
         Me.Label1 = New System.Windows.Forms.Label
         Me.DETALLE_VENTA = New System.Windows.Forms.DataGridView
-        Me.Button2 = New System.Windows.Forms.Button
+        Me.Procesar = New System.Windows.Forms.Button
         Me.GroupBox4 = New System.Windows.Forms.GroupBox
         Me.Total = New System.Windows.Forms.TextBox
         Me.Label10 = New System.Windows.Forms.Label
@@ -34,7 +34,6 @@ Partial Class Registrar_Devolucion
         Me.GroupBox3 = New System.Windows.Forms.GroupBox
         Me.Cantidad = New System.Windows.Forms.TextBox
         Me.Label18 = New System.Windows.Forms.Label
-        Me.Button1 = New System.Windows.Forms.Button
         Me.Descuento = New System.Windows.Forms.TextBox
         Me.Label15 = New System.Windows.Forms.Label
         Me.Punitario = New System.Windows.Forms.TextBox
@@ -44,14 +43,15 @@ Partial Class Registrar_Devolucion
         Me.Label11 = New System.Windows.Forms.Label
         Me.Codigo_Barras = New System.Windows.Forms.TextBox
         Me.GroupBox2 = New System.Windows.Forms.GroupBox
-        Me.Identidad = New System.Windows.Forms.TextBox
+        Me.Rif = New System.Windows.Forms.TextBox
         Me.Label2 = New System.Windows.Forms.Label
-        Me.Nombre = New System.Windows.Forms.TextBox
+        Me.Razon_Social = New System.Windows.Forms.TextBox
         Me.Label3 = New System.Windows.Forms.Label
         Me.Label7 = New System.Windows.Forms.Label
         Me.Label6 = New System.Windows.Forms.Label
         Me.Telefono = New System.Windows.Forms.TextBox
         Me.Direccion = New System.Windows.Forms.TextBox
+        Me.Devolver = New System.Windows.Forms.Button
         Me.GroupBox1.SuspendLayout()
         CType(Me.DETALLE_VENTA, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.GroupBox4.SuspendLayout()
@@ -61,7 +61,7 @@ Partial Class Registrar_Devolucion
         '
         'GroupBox1
         '
-        Me.GroupBox1.Controls.Add(Me.TextBox1)
+        Me.GroupBox1.Controls.Add(Me.Numero_Control)
         Me.GroupBox1.Controls.Add(Me.Label1)
         Me.GroupBox1.Location = New System.Drawing.Point(12, 12)
         Me.GroupBox1.Name = "GroupBox1"
@@ -70,12 +70,12 @@ Partial Class Registrar_Devolucion
         Me.GroupBox1.TabStop = False
         Me.GroupBox1.Text = "Factura"
         '
-        'TextBox1
+        'Numero_Control
         '
-        Me.TextBox1.Location = New System.Drawing.Point(515, 15)
-        Me.TextBox1.Name = "TextBox1"
-        Me.TextBox1.Size = New System.Drawing.Size(140, 20)
-        Me.TextBox1.TabIndex = 1
+        Me.Numero_Control.Location = New System.Drawing.Point(515, 15)
+        Me.Numero_Control.Name = "Numero_Control"
+        Me.Numero_Control.Size = New System.Drawing.Size(140, 20)
+        Me.Numero_Control.TabIndex = 1
         '
         'Label1
         '
@@ -94,14 +94,14 @@ Partial Class Registrar_Devolucion
         Me.DETALLE_VENTA.Size = New System.Drawing.Size(660, 144)
         Me.DETALLE_VENTA.TabIndex = 12
         '
-        'Button2
+        'Procesar
         '
-        Me.Button2.Location = New System.Drawing.Point(507, 402)
-        Me.Button2.Name = "Button2"
-        Me.Button2.Size = New System.Drawing.Size(165, 23)
-        Me.Button2.TabIndex = 11
-        Me.Button2.Text = "Procesar"
-        Me.Button2.UseVisualStyleBackColor = True
+        Me.Procesar.Location = New System.Drawing.Point(507, 402)
+        Me.Procesar.Name = "Procesar"
+        Me.Procesar.Size = New System.Drawing.Size(165, 23)
+        Me.Procesar.TabIndex = 11
+        Me.Procesar.Text = "Procesar"
+        Me.Procesar.UseVisualStyleBackColor = True
         '
         'GroupBox4
         '
@@ -177,9 +177,9 @@ Partial Class Registrar_Devolucion
         '
         'GroupBox3
         '
+        Me.GroupBox3.Controls.Add(Me.Devolver)
         Me.GroupBox3.Controls.Add(Me.Cantidad)
         Me.GroupBox3.Controls.Add(Me.Label18)
-        Me.GroupBox3.Controls.Add(Me.Button1)
         Me.GroupBox3.Controls.Add(Me.Descuento)
         Me.GroupBox3.Controls.Add(Me.Label15)
         Me.GroupBox3.Controls.Add(Me.Punitario)
@@ -210,15 +210,6 @@ Partial Class Registrar_Devolucion
         Me.Label18.Size = New System.Drawing.Size(62, 13)
         Me.Label18.TabIndex = 13
         Me.Label18.Text = "Descuento:"
-        '
-        'Button1
-        '
-        Me.Button1.Location = New System.Drawing.Point(371, 99)
-        Me.Button1.Name = "Button1"
-        Me.Button1.Size = New System.Drawing.Size(112, 23)
-        Me.Button1.TabIndex = 12
-        Me.Button1.Text = "Agregar"
-        Me.Button1.UseVisualStyleBackColor = True
         '
         'Descuento
         '
@@ -289,9 +280,9 @@ Partial Class Registrar_Devolucion
         '
         'GroupBox2
         '
-        Me.GroupBox2.Controls.Add(Me.Identidad)
+        Me.GroupBox2.Controls.Add(Me.Rif)
         Me.GroupBox2.Controls.Add(Me.Label2)
-        Me.GroupBox2.Controls.Add(Me.Nombre)
+        Me.GroupBox2.Controls.Add(Me.Razon_Social)
         Me.GroupBox2.Controls.Add(Me.Label3)
         Me.GroupBox2.Controls.Add(Me.Label7)
         Me.GroupBox2.Controls.Add(Me.Label6)
@@ -304,12 +295,13 @@ Partial Class Registrar_Devolucion
         Me.GroupBox2.TabStop = False
         Me.GroupBox2.Text = "Cliente"
         '
-        'Identidad
+        'Rif
         '
-        Me.Identidad.Location = New System.Drawing.Point(454, 13)
-        Me.Identidad.Name = "Identidad"
-        Me.Identidad.Size = New System.Drawing.Size(200, 20)
-        Me.Identidad.TabIndex = 2
+        Me.Rif.Enabled = False
+        Me.Rif.Location = New System.Drawing.Point(454, 13)
+        Me.Rif.Name = "Rif"
+        Me.Rif.Size = New System.Drawing.Size(200, 20)
+        Me.Rif.TabIndex = 2
         '
         'Label2
         '
@@ -320,13 +312,13 @@ Partial Class Registrar_Devolucion
         Me.Label2.TabIndex = 14
         Me.Label2.Text = "R.I.F:"
         '
-        'Nombre
+        'Razon_Social
         '
-        Me.Nombre.Enabled = False
-        Me.Nombre.Location = New System.Drawing.Point(80, 13)
-        Me.Nombre.Name = "Nombre"
-        Me.Nombre.Size = New System.Drawing.Size(329, 20)
-        Me.Nombre.TabIndex = 13
+        Me.Razon_Social.Enabled = False
+        Me.Razon_Social.Location = New System.Drawing.Point(80, 13)
+        Me.Razon_Social.Name = "Razon_Social"
+        Me.Razon_Social.Size = New System.Drawing.Size(329, 20)
+        Me.Razon_Social.TabIndex = 13
         '
         'Label3
         '
@@ -371,13 +363,22 @@ Partial Class Registrar_Devolucion
         Me.Direccion.Size = New System.Drawing.Size(384, 20)
         Me.Direccion.TabIndex = 6
         '
+        'Devolver
+        '
+        Me.Devolver.Location = New System.Drawing.Point(371, 97)
+        Me.Devolver.Name = "Devolver"
+        Me.Devolver.Size = New System.Drawing.Size(112, 23)
+        Me.Devolver.TabIndex = 15
+        Me.Devolver.Text = "Devolver"
+        Me.Devolver.UseVisualStyleBackColor = True
+        '
         'Registrar_Devolucion
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(685, 450)
         Me.Controls.Add(Me.DETALLE_VENTA)
-        Me.Controls.Add(Me.Button2)
+        Me.Controls.Add(Me.Procesar)
         Me.Controls.Add(Me.GroupBox4)
         Me.Controls.Add(Me.GroupBox3)
         Me.Controls.Add(Me.GroupBox2)
@@ -397,10 +398,10 @@ Partial Class Registrar_Devolucion
 
     End Sub
     Friend WithEvents GroupBox1 As System.Windows.Forms.GroupBox
-    Friend WithEvents TextBox1 As System.Windows.Forms.TextBox
+    Friend WithEvents Numero_Control As System.Windows.Forms.TextBox
     Friend WithEvents Label1 As System.Windows.Forms.Label
     Friend WithEvents DETALLE_VENTA As System.Windows.Forms.DataGridView
-    Friend WithEvents Button2 As System.Windows.Forms.Button
+    Friend WithEvents Procesar As System.Windows.Forms.Button
     Friend WithEvents GroupBox4 As System.Windows.Forms.GroupBox
     Friend WithEvents Total As System.Windows.Forms.TextBox
     Friend WithEvents Label10 As System.Windows.Forms.Label
@@ -411,7 +412,6 @@ Partial Class Registrar_Devolucion
     Friend WithEvents GroupBox3 As System.Windows.Forms.GroupBox
     Friend WithEvents Cantidad As System.Windows.Forms.TextBox
     Friend WithEvents Label18 As System.Windows.Forms.Label
-    Friend WithEvents Button1 As System.Windows.Forms.Button
     Friend WithEvents Descuento As System.Windows.Forms.TextBox
     Friend WithEvents Label15 As System.Windows.Forms.Label
     Friend WithEvents Punitario As System.Windows.Forms.TextBox
@@ -421,12 +421,13 @@ Partial Class Registrar_Devolucion
     Friend WithEvents Label11 As System.Windows.Forms.Label
     Friend WithEvents Codigo_Barras As System.Windows.Forms.TextBox
     Friend WithEvents GroupBox2 As System.Windows.Forms.GroupBox
-    Friend WithEvents Identidad As System.Windows.Forms.TextBox
+    Friend WithEvents Rif As System.Windows.Forms.TextBox
     Friend WithEvents Label2 As System.Windows.Forms.Label
-    Friend WithEvents Nombre As System.Windows.Forms.TextBox
+    Friend WithEvents Razon_Social As System.Windows.Forms.TextBox
     Friend WithEvents Label3 As System.Windows.Forms.Label
     Friend WithEvents Label7 As System.Windows.Forms.Label
     Friend WithEvents Label6 As System.Windows.Forms.Label
     Friend WithEvents Telefono As System.Windows.Forms.TextBox
     Friend WithEvents Direccion As System.Windows.Forms.TextBox
+    Friend WithEvents Devolver As System.Windows.Forms.Button
 End Class
