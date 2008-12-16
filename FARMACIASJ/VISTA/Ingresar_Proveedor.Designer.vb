@@ -39,11 +39,8 @@ Partial Class Ingresar_Proveedor
         Me.Label3 = New System.Windows.Forms.Label
         Me.Label2 = New System.Windows.Forms.Label
         Me.Label1 = New System.Windows.Forms.Label
-        Me.FarmaciaSJDataSet = New FARMACIASJ.FarmaciaSJDataSet
-        Me.PRODUCTOTableAdapter = New FARMACIASJ.FarmaciaSJDataSetTableAdapters.PRODUCTOTableAdapter
         Me.GroupBox1.SuspendLayout()
         CType(Me.Productos_asociados, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.FarmaciaSJDataSet, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'GroupBox1
@@ -69,7 +66,7 @@ Partial Class Ingresar_Proveedor
         Me.GroupBox1.Controls.Add(Me.Label1)
         Me.GroupBox1.Location = New System.Drawing.Point(12, 12)
         Me.GroupBox1.Name = "GroupBox1"
-        Me.GroupBox1.Size = New System.Drawing.Size(347, 514)
+        Me.GroupBox1.Size = New System.Drawing.Size(347, 487)
         Me.GroupBox1.TabIndex = 0
         Me.GroupBox1.TabStop = False
         Me.GroupBox1.Text = "Registrar Proveedor"
@@ -77,7 +74,7 @@ Partial Class Ingresar_Proveedor
         'Label9
         '
         Me.Label9.AutoSize = True
-        Me.Label9.Location = New System.Drawing.Point(6, 289)
+        Me.Label9.Location = New System.Drawing.Point(6, 252)
         Me.Label9.Name = "Label9"
         Me.Label9.Size = New System.Drawing.Size(100, 13)
         Me.Label9.TabIndex = 18
@@ -85,7 +82,7 @@ Partial Class Ingresar_Proveedor
         '
         'Cod_producto
         '
-        Me.Cod_producto.Location = New System.Drawing.Point(112, 286)
+        Me.Cod_producto.Location = New System.Drawing.Point(112, 249)
         Me.Cod_producto.Name = "Cod_producto"
         Me.Cod_producto.Size = New System.Drawing.Size(212, 20)
         Me.Cod_producto.TabIndex = 14
@@ -93,7 +90,7 @@ Partial Class Ingresar_Proveedor
         'Label8
         '
         Me.Label8.AutoSize = True
-        Me.Label8.Location = New System.Drawing.Point(4, 313)
+        Me.Label8.Location = New System.Drawing.Point(4, 287)
         Me.Label8.Name = "Label8"
         Me.Label8.Size = New System.Drawing.Size(106, 13)
         Me.Label8.TabIndex = 16
@@ -102,14 +99,14 @@ Partial Class Ingresar_Proveedor
         'Productos_asociados
         '
         Me.Productos_asociados.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.Productos_asociados.Location = New System.Drawing.Point(7, 331)
+        Me.Productos_asociados.Location = New System.Drawing.Point(6, 303)
         Me.Productos_asociados.Name = "Productos_asociados"
         Me.Productos_asociados.Size = New System.Drawing.Size(334, 145)
         Me.Productos_asociados.TabIndex = 15
         '
         'Boton_Registrar
         '
-        Me.Boton_Registrar.Location = New System.Drawing.Point(266, 482)
+        Me.Boton_Registrar.Location = New System.Drawing.Point(266, 454)
         Me.Boton_Registrar.Name = "Boton_Registrar"
         Me.Boton_Registrar.Size = New System.Drawing.Size(75, 23)
         Me.Boton_Registrar.TabIndex = 15
@@ -119,21 +116,21 @@ Partial Class Ingresar_Proveedor
         'Saldo
         '
         Me.Saldo.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper
-        Me.Saldo.Location = New System.Drawing.Point(89, 229)
+        Me.Saldo.Location = New System.Drawing.Point(89, 223)
         Me.Saldo.Name = "Saldo"
         Me.Saldo.Size = New System.Drawing.Size(235, 20)
         Me.Saldo.TabIndex = 13
         '
         'Ciudad
         '
-        Me.Ciudad.Location = New System.Drawing.Point(89, 203)
+        Me.Ciudad.Location = New System.Drawing.Point(89, 197)
         Me.Ciudad.Name = "Ciudad"
         Me.Ciudad.Size = New System.Drawing.Size(235, 20)
         Me.Ciudad.TabIndex = 12
         '
         'Dir
         '
-        Me.Dir.Location = New System.Drawing.Point(89, 129)
+        Me.Dir.Location = New System.Drawing.Point(89, 123)
         Me.Dir.Name = "Dir"
         Me.Dir.Size = New System.Drawing.Size(235, 68)
         Me.Dir.TabIndex = 11
@@ -141,28 +138,28 @@ Partial Class Ingresar_Proveedor
         '
         'Correo
         '
-        Me.Correo.Location = New System.Drawing.Point(89, 103)
+        Me.Correo.Location = New System.Drawing.Point(89, 97)
         Me.Correo.Name = "Correo"
         Me.Correo.Size = New System.Drawing.Size(235, 20)
         Me.Correo.TabIndex = 10
         '
         'Nombre
         '
-        Me.Nombre.Location = New System.Drawing.Point(89, 77)
+        Me.Nombre.Location = New System.Drawing.Point(89, 71)
         Me.Nombre.Name = "Nombre"
         Me.Nombre.Size = New System.Drawing.Size(235, 20)
         Me.Nombre.TabIndex = 9
         '
         'Rif
         '
-        Me.Rif.Location = New System.Drawing.Point(89, 51)
+        Me.Rif.Location = New System.Drawing.Point(89, 45)
         Me.Rif.Name = "Rif"
         Me.Rif.Size = New System.Drawing.Size(235, 20)
         Me.Rif.TabIndex = 8
         '
         'Codigo
         '
-        Me.Codigo.Location = New System.Drawing.Point(89, 25)
+        Me.Codigo.Location = New System.Drawing.Point(89, 19)
         Me.Codigo.Name = "Codigo"
         Me.Codigo.Size = New System.Drawing.Size(235, 20)
         Me.Codigo.TabIndex = 7
@@ -170,7 +167,7 @@ Partial Class Ingresar_Proveedor
         'Label7
         '
         Me.Label7.AutoSize = True
-        Me.Label7.Location = New System.Drawing.Point(49, 232)
+        Me.Label7.Location = New System.Drawing.Point(6, 226)
         Me.Label7.Name = "Label7"
         Me.Label7.Size = New System.Drawing.Size(34, 13)
         Me.Label7.TabIndex = 6
@@ -179,7 +176,7 @@ Partial Class Ingresar_Proveedor
         'Label6
         '
         Me.Label6.AutoSize = True
-        Me.Label6.Location = New System.Drawing.Point(31, 145)
+        Me.Label6.Location = New System.Drawing.Point(6, 126)
         Me.Label6.Name = "Label6"
         Me.Label6.Size = New System.Drawing.Size(52, 13)
         Me.Label6.TabIndex = 5
@@ -188,7 +185,7 @@ Partial Class Ingresar_Proveedor
         'Label5
         '
         Me.Label5.AutoSize = True
-        Me.Label5.Location = New System.Drawing.Point(43, 206)
+        Me.Label5.Location = New System.Drawing.Point(6, 200)
         Me.Label5.Name = "Label5"
         Me.Label5.Size = New System.Drawing.Size(40, 13)
         Me.Label5.TabIndex = 4
@@ -197,7 +194,7 @@ Partial Class Ingresar_Proveedor
         'Label4
         '
         Me.Label4.AutoSize = True
-        Me.Label4.Location = New System.Drawing.Point(45, 106)
+        Me.Label4.Location = New System.Drawing.Point(6, 100)
         Me.Label4.Name = "Label4"
         Me.Label4.Size = New System.Drawing.Size(38, 13)
         Me.Label4.TabIndex = 3
@@ -206,7 +203,7 @@ Partial Class Ingresar_Proveedor
         'Label3
         '
         Me.Label3.AutoSize = True
-        Me.Label3.Location = New System.Drawing.Point(15, 80)
+        Me.Label3.Location = New System.Drawing.Point(6, 74)
         Me.Label3.Name = "Label3"
         Me.Label3.Size = New System.Drawing.Size(68, 13)
         Me.Label3.TabIndex = 2
@@ -215,7 +212,7 @@ Partial Class Ingresar_Proveedor
         'Label2
         '
         Me.Label2.AutoSize = True
-        Me.Label2.Location = New System.Drawing.Point(59, 54)
+        Me.Label2.Location = New System.Drawing.Point(6, 51)
         Me.Label2.Name = "Label2"
         Me.Label2.Size = New System.Drawing.Size(24, 13)
         Me.Label2.TabIndex = 1
@@ -224,33 +221,23 @@ Partial Class Ingresar_Proveedor
         'Label1
         '
         Me.Label1.AutoSize = True
-        Me.Label1.Location = New System.Drawing.Point(43, 28)
+        Me.Label1.Location = New System.Drawing.Point(6, 22)
         Me.Label1.Name = "Label1"
         Me.Label1.Size = New System.Drawing.Size(40, 13)
         Me.Label1.TabIndex = 0
         Me.Label1.Text = "Código"
         '
-        'FarmaciaSJDataSet
-        '
-        Me.FarmaciaSJDataSet.DataSetName = "FarmaciaSJDataSet"
-        Me.FarmaciaSJDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema
-        '
-        'PRODUCTOTableAdapter
-        '
-        Me.PRODUCTOTableAdapter.ClearBeforeFill = True
-        '
         'Ingresar_Proveedor
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(372, 541)
+        Me.ClientSize = New System.Drawing.Size(372, 509)
         Me.Controls.Add(Me.GroupBox1)
         Me.Name = "Ingresar_Proveedor"
         Me.Text = "Proveedor"
         Me.GroupBox1.ResumeLayout(False)
         Me.GroupBox1.PerformLayout()
         CType(Me.Productos_asociados, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.FarmaciaSJDataSet, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
 
     End Sub
@@ -274,6 +261,4 @@ Partial Class Ingresar_Proveedor
     Friend WithEvents Label8 As System.Windows.Forms.Label
     Friend WithEvents Label9 As System.Windows.Forms.Label
     Friend WithEvents Cod_producto As System.Windows.Forms.TextBox
-    Friend WithEvents FarmaciaSJDataSet As FARMACIASJ.FarmaciaSJDataSet
-    Friend WithEvents PRODUCTOTableAdapter As FARMACIASJ.FarmaciaSJDataSetTableAdapters.PRODUCTOTableAdapter
 End Class

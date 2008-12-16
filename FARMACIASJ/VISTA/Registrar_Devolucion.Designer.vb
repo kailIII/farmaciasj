@@ -126,6 +126,7 @@ Partial Class Registrar_Devolucion
         Me.Total.Size = New System.Drawing.Size(83, 20)
         Me.Total.TabIndex = 5
         Me.Total.Text = "0,0"
+        Me.Total.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
         '
         'Label10
         '
@@ -144,6 +145,7 @@ Partial Class Registrar_Devolucion
         Me.Impuesto.Size = New System.Drawing.Size(83, 20)
         Me.Impuesto.TabIndex = 3
         Me.Impuesto.Text = "0,0"
+        Me.Impuesto.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
         '
         'Label9
         '
@@ -162,6 +164,7 @@ Partial Class Registrar_Devolucion
         Me.Sub_Total.Size = New System.Drawing.Size(83, 20)
         Me.Sub_Total.TabIndex = 1
         Me.Sub_Total.Text = "0,0"
+        Me.Sub_Total.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
         '
         'Label8
         '

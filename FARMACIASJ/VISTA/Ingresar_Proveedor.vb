@@ -12,13 +12,6 @@ Public Class Ingresar_Proveedor
 
     End Sub
 
-    Private Sub Ingresar_Proveedor_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
-        'TODO: esta línea de código carga datos en la tabla 'FarmaciaSJDataSet.PRODUCTO' Puede moverla o quitarla según sea necesario.
-        Me.PRODUCTOTableAdapter.Fill(Me.FarmaciaSJDataSet.PRODUCTO)
-        'TODO: esta línea de código carga datos en la tabla 'FarmaciaSJDataSet.PRODUCTO' Puede moverla o quitarla según sea necesario.
-        '        Me.PRODUCTOTableAdapter.Fill(Me.FarmaciaSJDataSet.PRODUCTO)
-
-    End Sub
 
 
 

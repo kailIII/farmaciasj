@@ -20,6 +20,7 @@ Partial Class Ingresar_Linea
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
         Me.GroupBox1 = New System.Windows.Forms.GroupBox
+        Me.Label3 = New System.Windows.Forms.Label
         Me.Label6 = New System.Windows.Forms.Label
         Me.Label5 = New System.Windows.Forms.Label
         Me.Ingresar_Boton = New System.Windows.Forms.Button
@@ -30,7 +31,6 @@ Partial Class Ingresar_Linea
         Me.NombreLinea = New System.Windows.Forms.TextBox
         Me.Label2 = New System.Windows.Forms.Label
         Me.Label1 = New System.Windows.Forms.Label
-        Me.Label3 = New System.Windows.Forms.Label
         Me.GroupBox1.SuspendLayout()
         Me.SuspendLayout()
         '
@@ -53,6 +53,15 @@ Partial Class Ingresar_Linea
         Me.GroupBox1.TabIndex = 0
         Me.GroupBox1.TabStop = False
         Me.GroupBox1.Text = "Ingresar Línea"
+        '
+        'Label3
+        '
+        Me.Label3.AutoSize = True
+        Me.Label3.Location = New System.Drawing.Point(95, 168)
+        Me.Label3.Name = "Label3"
+        Me.Label3.Size = New System.Drawing.Size(100, 13)
+        Me.Label3.TabIndex = 10
+        Me.Label3.Text = "Descuento máximo:"
         '
         'Label6
         '
@@ -136,15 +145,6 @@ Partial Class Ingresar_Linea
         Me.Label1.Size = New System.Drawing.Size(47, 13)
         Me.Label1.TabIndex = 0
         Me.Label1.Text = "Nombre:"
-        '
-        'Label3
-        '
-        Me.Label3.AutoSize = True
-        Me.Label3.Location = New System.Drawing.Point(95, 168)
-        Me.Label3.Name = "Label3"
-        Me.Label3.Size = New System.Drawing.Size(100, 13)
-        Me.Label3.TabIndex = 10
-        Me.Label3.Text = "Descuento máximo:"
         '
         'Ingresar_Linea
         '

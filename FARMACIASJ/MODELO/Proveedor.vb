@@ -196,7 +196,16 @@ Public Class Proveedor
     End Function
 
 
-
+    Public Function Mostrar_datagrid_Telefonos(ByVal Arreglo As Array) As Data.DataTable
+        Dim Bd As FarmaciaSJDataSet = New FarmaciaSJDataSet
+        Dim Detalle As FarmaciaSJDataSetTableAdapters.DETALLE_VENTATableAdapter = New FarmaciaSJDataSetTableAdapters.DETALLE_VENTATableAdapter
+        Dim cn As Data.SqlClient.SqlConnection = New Data.SqlClient.SqlConnection(Detalle.Connection.ConnectionString)
+        Dim sql As String = "SELECT CODIGO_DE_BARRAS as CODIGO, NOMBRE, DESCRIPCION FROM PRODUCTO WHERE ID_PRODUCTO IN (" & Arreglo_Productos(Arreglo) & ")"
+        Dim da As Data.SqlClient.SqlDataAdapter = New Data.SqlClient.SqlDataAdapter(sql, cn)
+        Dim Table As Data.DataTable = New Data.DataTable("Productos_asociados")
+        da.Fill(Table)
+        Return Table
+    End Function
 
     Public Function Mostrar_datagrid(ByVal IdProveedor As Integer) As Data.DataTable
         Dim Bd As FarmaciaSJDataSet = New FarmaciaSJDataSet
@@ -267,6 +276,7 @@ Public Class Proveedor
         Return Reder
     End Function
 
+
     Public Sub Ingresar_Telefonos(ByVal ID_Proveedor As Integer, ByVal Telefonos As Windows.Forms.ListBox)
         Dim Tabla As New FarmaciaSJDataSetTableAdapters.TELEFONO_PROVEEDORTableAdapter
         Dim Bd As New FarmaciaSJDataSet
@@ -282,5 +292,7 @@ Public Class Proveedor
         Loop
         Tabla.Update(Bd.TELEFONO_PROVEEDOR)
     End Sub
+
+
 
 End Class

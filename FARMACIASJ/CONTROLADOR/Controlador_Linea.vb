@@ -3,8 +3,10 @@ Public Class Controlador_Linea
     Public Sub Ingresando_Linea(ByVal Nombre As String, ByVal Descuento As Double, ByVal Descripcion As String, ByVal Margen As Double)
 
         Dim Linea As Linea = New Linea
+        Dim Validacion As Validaciones_Generales = New Validaciones_Generales
+        
 
-        If (Linea.Ingresar_Linea(Nombre, Descuento, Descripcion, Margen)) Then
+        If (Linea.Ingresar_Linea(Nombre, Descuento, Descripcion, Margen) And Validacion.Tamano_Aceptable_Cadena(Descuento, 2, "Porcentaje de Descuento inválido") And Validacion.Tamano_Aceptable_Cadena(Margen, 2, "Porcentaje de margen útil inválido")) Then
             MsgBox("La Línea se insertó con éxito.", MsgBoxStyle.OkOnly, "Aviso")
         Else
             MsgBox("La Línea no se pudo insertar", MsgBoxStyle.OkOnly, "Error")
@@ -48,5 +50,6 @@ Public Class Controlador_Linea
         ILinea.MdiParent = Padre
         ILinea.Show()
     End Sub
+
 End Class
 

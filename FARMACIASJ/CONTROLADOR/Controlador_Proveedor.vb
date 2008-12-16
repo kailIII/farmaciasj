@@ -1,16 +1,34 @@
 Public Class Controlador_Proveedor
 
+    Public Sub Registrando_Proveedor(ByVal Arreglo As Array, ByVal Ventana As Registrar_Proveedor, ByVal Codigo As String, ByVal Rif As String, ByVal Nombre As String, ByVal Correo As String, ByVal Dir As String, ByVal Ciudad As String, ByVal Saldo As String)
+        Dim Proveedor_x As Proveedor = New Proveedor
+        Dim Validacion As Validaciones_Generales = New Validaciones_Generales
+
+        If (Validacion.Tamano_Aceptable_Cadena(Saldo, 15, "El Saldo introducido es incorrecto") And Proveedor_x.Ingresar_Proveedor(Codigo, Rif, Nombre, Correo, Dir, Ciudad, CDbl(Saldo))) Then
+            MsgBox("El proveedor se registró con éxito.", MsgBoxStyle.OkOnly, "Aviso")
+            ' Tenemos que buscar el último ID, ya 
+            If Not Proveedor_x.Proveedor_Producto(Arreglo) Then
+                MsgBox("No se pudo registrar el producto a este Proveedor", MsgBoxStyle.OkOnly, "Error")
+            End If
+            Ventana.Close()
+        Else
+            MsgBox("No se pudo registrar el Proveedor", MsgBoxStyle.OkOnly, "Error")
+        End If
+
+    End Sub
+
+
     Public Sub Ingresando_Proveedor(ByVal Arreglo As Array, ByVal Ventana As Ingresar_Proveedor, ByVal Codigo As String, ByVal Rif As String, ByVal Nombre As String, ByVal Correo As String, ByVal Dir As String, ByVal Ciudad As String, ByVal Saldo As String)
 
         Dim Proveedor_x As Proveedor = New Proveedor
         Dim Validacion As Validaciones_Generales = New Validaciones_Generales
 
-        Saldo = "DSSD4"
+        'Saldo = "DSSD4"
 
         If (Ventana.Boton_Registrar.Text = "Modificar") Then
 
             Estado_modificar(Ventana, True, True)
-            
+
             'Actualizar_Datagrid(Ventana, Proveedor_x.Existe_Proveedor(Codigo, True))
 
         ElseIf (Ventana.Boton_Registrar.Text = "Guardar") Then
@@ -45,6 +63,12 @@ Public Class Controlador_Proveedor
     Public Sub Actualizar_Datagrid(ByVal Ventana As Ingresar_Proveedor, ByVal Con_Id_De_Proveedor As Integer)
         Dim Proveedor_x As Proveedor = New Proveedor
         Ventana.Productos_asociados.DataSource = Proveedor_x.Mostrar_datagrid(Con_Id_De_Proveedor)
+        Ventana.Productos_asociados.Update()
+    End Sub
+
+    Public Sub Actualizar_Datagrid(ByVal Ventana As Registrar_Proveedor, ByVal Arreglo As Array)
+        Dim Proveedor_x As Proveedor = New Proveedor
+        Ventana.Productos_asociados.DataSource = Proveedor_x.Mostrar_datagrid(Arreglo)
         Ventana.Productos_asociados.Update()
     End Sub
 
@@ -140,7 +164,7 @@ Public Class Controlador_Proveedor
 
         Dim Proveedor_x As Proveedor = New Proveedor
         Dim Ventana_Modificar_Proveedor As Ingresar_Proveedor = New Ingresar_Proveedor
-        Ventana_Modificar_Proveedor.MdiParent=Ventana.MdiParent
+        Ventana_Modificar_Proveedor.MdiParent = Ventana.MdiParent
         If (CBool(Proveedor_x.Existe_Proveedor(Cadena, Codigo))) Then
             Ventana_Modificar_Proveedor.Show()
             Proveedor_x.Buscar_Proveedor(Cadena, Codigo, Ventana_Modificar_Proveedor)
