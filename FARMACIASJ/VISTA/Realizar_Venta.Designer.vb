@@ -20,6 +20,10 @@ Partial Class Realizar_Venta
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
         Me.GroupBox1 = New System.Windows.Forms.GroupBox
+        Me.Identidad = New System.Windows.Forms.TextBox
+        Me.Label1 = New System.Windows.Forms.Label
+        Me.Nombre = New System.Windows.Forms.TextBox
+        Me.Label3 = New System.Windows.Forms.Label
         Me.Label7 = New System.Windows.Forms.Label
         Me.Label6 = New System.Windows.Forms.Label
         Me.Telefono = New System.Windows.Forms.TextBox
@@ -52,10 +56,8 @@ Partial Class Realizar_Venta
         Me.Label8 = New System.Windows.Forms.Label
         Me.Button2 = New System.Windows.Forms.Button
         Me.DETALLE_VENTA = New System.Windows.Forms.DataGridView
-        Me.Identidad = New System.Windows.Forms.TextBox
-        Me.Label1 = New System.Windows.Forms.Label
-        Me.Nombre = New System.Windows.Forms.TextBox
-        Me.Label3 = New System.Windows.Forms.Label
+        Me.Numero = New System.Windows.Forms.TextBox
+        Me.Label2 = New System.Windows.Forms.Label
         Me.GroupBox1.SuspendLayout()
         Me.GroupBox2.SuspendLayout()
         Me.GroupBox3.SuspendLayout()
@@ -79,6 +81,39 @@ Partial Class Realizar_Venta
         Me.GroupBox1.TabIndex = 0
         Me.GroupBox1.TabStop = False
         Me.GroupBox1.Text = "Cliente"
+        '
+        'Identidad
+        '
+        Me.Identidad.Location = New System.Drawing.Point(454, 13)
+        Me.Identidad.Name = "Identidad"
+        Me.Identidad.Size = New System.Drawing.Size(200, 20)
+        Me.Identidad.TabIndex = 1
+        '
+        'Label1
+        '
+        Me.Label1.AutoSize = True
+        Me.Label1.Location = New System.Drawing.Point(415, 16)
+        Me.Label1.Name = "Label1"
+        Me.Label1.Size = New System.Drawing.Size(33, 13)
+        Me.Label1.TabIndex = 14
+        Me.Label1.Text = "R.I.F:"
+        '
+        'Nombre
+        '
+        Me.Nombre.Enabled = False
+        Me.Nombre.Location = New System.Drawing.Point(80, 13)
+        Me.Nombre.Name = "Nombre"
+        Me.Nombre.Size = New System.Drawing.Size(329, 20)
+        Me.Nombre.TabIndex = 13
+        '
+        'Label3
+        '
+        Me.Label3.AutoSize = True
+        Me.Label3.Location = New System.Drawing.Point(6, 16)
+        Me.Label3.Name = "Label3"
+        Me.Label3.Size = New System.Drawing.Size(71, 13)
+        Me.Label3.TabIndex = 12
+        Me.Label3.Text = "Razón social:"
         '
         'Label7
         '
@@ -116,6 +151,8 @@ Partial Class Realizar_Venta
         '
         'GroupBox2
         '
+        Me.GroupBox2.Controls.Add(Me.Label2)
+        Me.GroupBox2.Controls.Add(Me.Numero)
         Me.GroupBox2.Controls.Add(Me.Vence)
         Me.GroupBox2.Controls.Add(Me.Label17)
         Me.GroupBox2.Location = New System.Drawing.Point(12, 12)
@@ -129,7 +166,7 @@ Partial Class Realizar_Venta
         '
         Me.Vence.CustomFormat = "dd/MM/yyyy HH:MM:ss"
         Me.Vence.Format = System.Windows.Forms.DateTimePickerFormat.Custom
-        Me.Vence.Location = New System.Drawing.Point(515, 19)
+        Me.Vence.Location = New System.Drawing.Point(322, 19)
         Me.Vence.Name = "Vence"
         Me.Vence.Size = New System.Drawing.Size(139, 20)
         Me.Vence.TabIndex = 5
@@ -137,7 +174,7 @@ Partial Class Realizar_Venta
         'Label17
         '
         Me.Label17.AutoSize = True
-        Me.Label17.Location = New System.Drawing.Point(445, 23)
+        Me.Label17.Location = New System.Drawing.Point(252, 23)
         Me.Label17.Name = "Label17"
         Me.Label17.Size = New System.Drawing.Size(65, 13)
         Me.Label17.TabIndex = 4
@@ -380,38 +417,21 @@ Partial Class Realizar_Venta
         Me.DETALLE_VENTA.Size = New System.Drawing.Size(660, 144)
         Me.DETALLE_VENTA.TabIndex = 7
         '
-        'Identidad
+        'Numero
         '
-        Me.Identidad.Location = New System.Drawing.Point(454, 13)
-        Me.Identidad.Name = "Identidad"
-        Me.Identidad.Size = New System.Drawing.Size(200, 20)
-        Me.Identidad.TabIndex = 1
+        Me.Numero.Location = New System.Drawing.Point(554, 19)
+        Me.Numero.Name = "Numero"
+        Me.Numero.Size = New System.Drawing.Size(94, 20)
+        Me.Numero.TabIndex = 6
         '
-        'Label1
+        'Label2
         '
-        Me.Label1.AutoSize = True
-        Me.Label1.Location = New System.Drawing.Point(415, 16)
-        Me.Label1.Name = "Label1"
-        Me.Label1.Size = New System.Drawing.Size(33, 13)
-        Me.Label1.TabIndex = 14
-        Me.Label1.Text = "R.I.F:"
-        '
-        'Nombre
-        '
-        Me.Nombre.Enabled = False
-        Me.Nombre.Location = New System.Drawing.Point(80, 13)
-        Me.Nombre.Name = "Nombre"
-        Me.Nombre.Size = New System.Drawing.Size(329, 20)
-        Me.Nombre.TabIndex = 13
-        '
-        'Label3
-        '
-        Me.Label3.AutoSize = True
-        Me.Label3.Location = New System.Drawing.Point(6, 16)
-        Me.Label3.Name = "Label3"
-        Me.Label3.Size = New System.Drawing.Size(71, 13)
-        Me.Label3.TabIndex = 12
-        Me.Label3.Text = "Razón social:"
+        Me.Label2.AutoSize = True
+        Me.Label2.Location = New System.Drawing.Point(477, 22)
+        Me.Label2.Name = "Label2"
+        Me.Label2.Size = New System.Drawing.Size(44, 13)
+        Me.Label2.TabIndex = 7
+        Me.Label2.Text = "Numero"
         '
         'Realizar_Venta
         '
@@ -476,4 +496,6 @@ Partial Class Realizar_Venta
     Friend WithEvents Label1 As System.Windows.Forms.Label
     Friend WithEvents Nombre As System.Windows.Forms.TextBox
     Friend WithEvents Label3 As System.Windows.Forms.Label
+    Friend WithEvents Label2 As System.Windows.Forms.Label
+    Friend WithEvents Numero As System.Windows.Forms.TextBox
 End Class
