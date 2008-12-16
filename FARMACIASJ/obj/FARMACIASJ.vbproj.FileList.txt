@@ -22,7 +22,6 @@ obj\Release\FARMACIASJ.Vendedor.resources
 obj\Release\FARMACIASJ.vbproj.GenerateResource.Cache
 obj\Release\FARMACIASJ.exe
 obj\Release\FARMACIASJ.pdb
-obj\Debug\FARMACIASJ.Form1.resources
 obj\Release\FARMACIASJ.Form1.resources
 obj\Debug\FARMACIASJ.Ingresar_Linea.resources
 obj\Debug\FARMACIASJ.Realizar_Venta.resources
@@ -37,3 +36,6 @@ obj\Debug\FARMACIASJ.Reporte.resources
 obj\Debug\FARMACIASJ.Registrar_Compra.resources
 obj\Debug\FARMACIASJ.Registrar_Pedido.resources
 obj\Debug\FARMACIASJ.Compra2.resources
+obj\Debug\FARMACIASJ.IngresarCliente.resources
+obj\Debug\FARMACIASJ.Registrar_Proveedor.resources
+obj\Debug\FARMACIASJ.Suspender_Pedido_frecuente.resources

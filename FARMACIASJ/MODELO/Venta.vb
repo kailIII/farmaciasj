@@ -206,7 +206,7 @@ Public Class Venta
         Command.CommandText = "SELECT     ID_PRODUCTO, NOMBRE, CODIGO_DE_BARRAS, CODIGO, DESCRIPCION, GRAVADO_EXENTO, UNIDADES_POR_PAQUETE, ID_LINEA FROM         PRODUCTO"
         BD = New Data.SqlClient.SqlDataAdapter(Command)
         BD.Fill(FarmaciaSJ, "PRODUCTO")
-        Command.CommandText = "SELECT     ID_CLIENTE, TIPO_IDENTIDAD, DOCUMENTO_IDENTIDAD, NOMBRE, APELLIDO, TELEFONO, DIRECCION FROM         CLIENTE"
+        Command.CommandText = "SELECT     ID_CLIENTE,IDENTIDAD, NOMBRE, APELLIDO, TELEFONO, DIRECCION FROM         CLIENTE"
         BD = New Data.SqlClient.SqlDataAdapter(Command)
         BD.Fill(FarmaciaSJ, "CLIENTE")
         Factura.SetDataSource(FarmaciaSJ)

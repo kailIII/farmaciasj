@@ -25,6 +25,7 @@ Partial Class Realizar_Venta
         Me.Nombre = New System.Windows.Forms.TextBox
         Me.Label3 = New System.Windows.Forms.Label
         Me.GroupBox2 = New System.Windows.Forms.GroupBox
+        Me.Fecha_Compra = New System.Windows.Forms.DateTimePicker
         Me.Label2 = New System.Windows.Forms.Label
         Me.Numero = New System.Windows.Forms.TextBox
         Me.Vence = New System.Windows.Forms.DateTimePicker
@@ -54,7 +55,6 @@ Partial Class Realizar_Venta
         Me.Label8 = New System.Windows.Forms.Label
         Me.Button2 = New System.Windows.Forms.Button
         Me.DETALLE_VENTA = New System.Windows.Forms.DataGridView
-        Me.Fecha_Compra = New System.Windows.Forms.DateTimePicker
         Me.GroupBox1.SuspendLayout()
         Me.GroupBox2.SuspendLayout()
         Me.GroupBox3.SuspendLayout()
@@ -122,6 +122,16 @@ Partial Class Realizar_Venta
         Me.GroupBox2.TabStop = False
         Me.GroupBox2.Text = "Factura"
         '
+        'Fecha_Compra
+        '
+        Me.Fecha_Compra.CustomFormat = "dd/MM/yyyy HH:MM:ss"
+        Me.Fecha_Compra.Format = System.Windows.Forms.DateTimePickerFormat.Custom
+        Me.Fecha_Compra.Location = New System.Drawing.Point(30, 19)
+        Me.Fecha_Compra.Name = "Fecha_Compra"
+        Me.Fecha_Compra.Size = New System.Drawing.Size(139, 20)
+        Me.Fecha_Compra.TabIndex = 8
+        Me.Fecha_Compra.Visible = False
+        '
         'Label2
         '
         Me.Label2.AutoSize = True
@@ -133,6 +143,7 @@ Partial Class Realizar_Venta
         '
         'Numero
         '
+        Me.Numero.Enabled = False
         Me.Numero.Location = New System.Drawing.Point(554, 19)
         Me.Numero.Name = "Numero"
         Me.Numero.Size = New System.Drawing.Size(94, 20)
@@ -392,16 +403,6 @@ Partial Class Realizar_Venta
         Me.DETALLE_VENTA.Name = "DETALLE_VENTA"
         Me.DETALLE_VENTA.Size = New System.Drawing.Size(660, 144)
         Me.DETALLE_VENTA.TabIndex = 7
-        '
-        'Fecha_Compra
-        '
-        Me.Fecha_Compra.CustomFormat = "dd/MM/yyyy HH:MM:ss"
-        Me.Fecha_Compra.Format = System.Windows.Forms.DateTimePickerFormat.Custom
-        Me.Fecha_Compra.Location = New System.Drawing.Point(30, 19)
-        Me.Fecha_Compra.Name = "Fecha_Compra"
-        Me.Fecha_Compra.Size = New System.Drawing.Size(139, 20)
-        Me.Fecha_Compra.TabIndex = 8
-        Me.Fecha_Compra.Visible = False
         '
         'Realizar_Venta
         '

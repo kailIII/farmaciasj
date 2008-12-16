@@ -176,10 +176,22 @@
     <Compile Include="VISTA\Registrar_Pedido.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="VISTA\Registrar_Proveedor.Designer.vb">
+      <DependentUpon>Registrar_Proveedor.vb</DependentUpon>
+    </Compile>
+    <Compile Include="VISTA\Registrar_Proveedor.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="VISTA\Reporte.Designer.vb">
       <DependentUpon>Reporte.vb</DependentUpon>
     </Compile>
     <Compile Include="VISTA\Reporte.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="VISTA\Suspender_Pedido_frecuente.Designer.vb">
+      <DependentUpon>Suspender_Pedido_frecuente.vb</DependentUpon>
+    </Compile>
+    <Compile Include="VISTA\Suspender_Pedido_frecuente.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="VISTA\Vendedor.Designer.vb">
@@ -254,9 +266,17 @@
       <SubType>Designer</SubType>
       <DependentUpon>Registrar_Pedido.vb</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="VISTA\Registrar_Proveedor.resx">
+      <DependentUpon>Registrar_Proveedor.vb</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
     <EmbeddedResource Include="VISTA\Reporte.resx">
       <SubType>Designer</SubType>
       <DependentUpon>Reporte.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="VISTA\Suspender_Pedido_frecuente.resx">
+      <DependentUpon>Suspender_Pedido_frecuente.vb</DependentUpon>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="VISTA\Vendedor.resx">
       <SubType>Designer</SubType>

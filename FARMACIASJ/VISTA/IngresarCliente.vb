@@ -31,7 +31,11 @@ Public Class IngresarCliente
             ElseIf (Me.RIF.Text.Length > 1) Then
                 Dim count As Integer = Me.RIF.Text.Length - 1
                 If (Char.IsDigit(Me.RIF.Text(count)) = False) Then
-                    Me.RIF.TabIndex = Me.RIF.Text.Length - 1
+                    Dim A As String
+                    A = RIF.Text
+                    A = A.Substring(0, count)
+                    RIF.Text = A
+                    RIF.SelectionStart = RIF.Text.Length
                 End If
             End If
         ElseIf (ComboBox1.Items().Item(ComboBox1.SelectedIndex).ToString = "NATURAL") Then
@@ -42,7 +46,13 @@ Public Class IngresarCliente
             ElseIf (Me.RIF.Text.Length > 1) Then
                 Dim count As Integer = Me.RIF.Text.Length - 1
                 If (Char.IsDigit(Me.RIF.Text(count)) = False) Then
-                    Me.RIF.TabIndex = Me.RIF.Text.Length - 1
+                    If (Char.IsDigit(Me.RIF.Text(count)) = False) Then
+                        Dim A As String
+                        A = RIF.Text
+                        A = A.Substring(0, count)
+                        RIF.Text = A
+                        RIF.SelectionStart = RIF.Text.Length
+                    End If
                 End If
             End If
         ElseIf (ComboBox1.Items().Item(ComboBox1.SelectedIndex).ToString = "EXTRANJERO") Then
@@ -53,7 +63,13 @@ Public Class IngresarCliente
             ElseIf (Me.RIF.Text.Length > 1) Then
                 Dim count As Integer = Me.RIF.Text.Length - 1
                 If (Char.IsDigit(Me.RIF.Text(count)) = False) Then
-                    Me.RIF.TabIndex = Me.RIF.Text.Length - 1
+                    If (Char.IsDigit(Me.RIF.Text(count)) = False) Then
+                        Dim A As String
+                        A = RIF.Text
+                        A = A.Substring(0, count)
+                        RIF.Text = A
+                        RIF.SelectionStart = RIF.Text.Length
+                    End If
                 End If
             End If
         End If

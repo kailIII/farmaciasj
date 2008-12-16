@@ -11,11 +11,34 @@ Public Class Realizar_Venta
     Public ImpuestoP As Double
 
 
-    Private Sub Identidad_TextChanged(ByVal sender As System.Object, ByVal e As Windows.Forms.KeyPressEventArgs)
+    Private Sub Identidad_TextChanged(ByVal sender As System.Object, ByVal e As Windows.Forms.KeyPressEventArgs) Handles Identidad.KeyPress
         Dim Controlador As Controlador_Cliente
         If (e.KeyChar = Char.ConvertFromUtf32(13)) Then
             Controlador = New Controlador_Cliente
             Controlador.Buscar_Cliente(Me.Identidad.Text, Me)
+        End If
+    End Sub
+    Private Sub Identidad_TextChanged(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Identidad.TextChanged, Identidad.KeyPress
+        If (Identidad.Text.Length = 1) Then
+            If (Identidad.Text(0) = Char.Parse("J")) Then
+                Identidad.MaxLength = 10
+            ElseIf (Identidad.Text(0) = Char.Parse("V") Or Identidad.Text(0) = Char.Parse("E")) Then
+                Identidad.MaxLength = 9
+            ElseIf (Identidad.Text(0) = Char.Parse("P")) Then
+                Identidad.MaxLength = 12
+            Else
+                Identidad.Text = ""
+            End If
+        ElseIf (Identidad.Text.Length > 1) Then
+            Dim count As Integer
+            count = Identidad.Text.Length - 1
+            If (Char.IsDigit(Identidad.Text(count)) = False) Then
+                Dim A As String
+                A = Identidad.Text
+                A = A.Substring(0, count)
+                Identidad.Text = A
+                Identidad.SelectionStart = Identidad.Text.Length
+            End If
         End If
     End Sub
 
@@ -30,7 +53,7 @@ Public Class Realizar_Venta
     Private Sub Button1_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Button1.Click
         Dim ControladorF As Controlador_Venta
         Dim ControladorC As Controlador_Cliente
-        Dim a As Boolean
+        'Dim a As Boolean
         Dim subt As Double
         Dim Total As Double
         Dim impuesto As Double
@@ -112,10 +135,13 @@ Public Class Realizar_Venta
 
     Private Sub Button2_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Button2.Click
         Dim ControladorF As Controlador_Venta
-
-        ControladorF = New Controlador_Venta
-        ControladorF.Descontar_Inventario(ID_Factura)
-        ControladorF.Procesar_Venta(ID_Factura, Me)
+        If (ID_Factura <> -1) Then
+            ControladorF = New Controlador_Venta
+            ControladorF.Descontar_Inventario(ID_Factura)
+            ControladorF.Procesar_Venta(ID_Factura, Me)
+        Else
+            MsgBox("No se puede Facturar si la Facutra esta vacia", MsgBoxStyle.OkOnly, "Error")
+        End If
     End Sub
 
     Private Sub Realizar_Venta_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
@@ -135,23 +161,5 @@ Public Class Realizar_Venta
         End If
     End Sub
 
-    Private Sub Identidad_TextChanged(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Identidad.TextChanged
-        If (Identidad.Text.Length = 1) Then
-            If (Identidad.Text(0) = Char.Parse("J")) Then
-                Identidad.MaxLength = 10
-            ElseIf (Identidad.Text(0) = Char.Parse("V") Or Identidad.Text(0) = Char.Parse("E")) Then
-                Identidad.MaxLength = 9
-            ElseIf (Identidad.Text(0) = Char.Parse("P")) Then
-                Identidad.MaxLength = 12
-            Else
-                Identidad.Text = ""
-            End If
-        ElseIf (Identidad.Text.Length > 1) Then
-            Dim count As Integer
-            count = Identidad.Text.Length - 1
-            If (Char.IsDigit(Identidad.Text(count)) = False) Then
-                Identidad.TabIndex = Identidad.Text.Length - 1
-            End If
-        End If
-    End Sub
+    
 End Class

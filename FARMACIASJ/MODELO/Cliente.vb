@@ -46,12 +46,16 @@ Public Class Cliente
             Consulta = New Data.SqlClient.SqlCommand
             Conextion.Open()
             Consulta.Connection = Conextion
-            Consulta.CommandText = "SELECT     ID_CLIENTE, ID_CLIENTE, IDENTIDAD, NOMBRE, APELLIDO, TELEFONO, DIRECCION FROM         CLIENTE WHERE     (DOCUMENTO_IDENTIDAD = '" & Numero & "')"
+            Consulta.CommandText = "SELECT     ID_CLIENTE, ID_CLIENTE, IDENTIDAD, NOMBRE, APELLIDO, TELEFONO, DIRECCION FROM         CLIENTE WHERE     (IDENTIDAD = '" & Numero & "')"
             Reder = Consulta.ExecuteReader()
             If (Reder.Read = True) Then
                 Venta.ID_Cliente = Integer.Parse(Reder.Item(0).ToString)
                 Venta.Identidad.Text = Reder.Item(2).ToString()
-                Venta.Nombre.Text = Reder.Item(3).ToString()
+                If (Numero.Contains("J")) Then
+                    Venta.Nombre.Text = Reder.Item(3).ToString()
+                Else
+                    Venta.Nombre.Text = Reder.Item(3).ToString() & " " & Reder.Item(4).ToString
+                End If
                 Return 0
             Else
                 Return 1

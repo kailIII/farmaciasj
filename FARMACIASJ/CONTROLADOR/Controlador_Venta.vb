@@ -56,8 +56,7 @@ Public Class Controlador_Venta
         Dim Pago As Pago
         Pago = New Pago
         Pago.ID_Factura = ID_FACTURA
-        'Pago.Numero_Factura.Text = Venta.Numero_Factura.Text
-        ' Pago.TIPO_ID.Text = Venta.Tipo_Identidad.Text
+        Pago.Numero_Factura.Text = Venta.Numero.Text
         Pago.Numero_ID.Text = Venta.Identidad.Text
         Pago.Stotal.Text = Venta.Sub_Total.Text
         Pago.Impuestos.Text = Venta.Impuesto.Text
