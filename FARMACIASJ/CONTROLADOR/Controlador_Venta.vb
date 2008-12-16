@@ -96,26 +96,47 @@ Public Class Controlador_Venta
     Public Sub Buscar_Info_Factura(ByVal Control_Numero As String, ByVal Ventana As Registrar_Devolucion)
         Dim Venta_x As Venta = New Venta
         Dim Id_Cliente As Integer = Venta_x.Buscar_id_Cliente_Factura(Control_Numero)
-
-
         Dim ControladorF As Controlador_Venta = New Controlador_Venta
 
-       
         If (Id_Cliente > 0) Then
-
             Venta_x.Buscar_Info_Cliente(Id_Cliente, Ventana)
             Ventana.DETALLE_VENTA.DataSource = ControladorF.Traer_Detalle(Venta_x.Buscar_Id_Venta_Factura(Control_Numero))
             Ventana.DETALLE_VENTA.Update()
-
         Else
             MsgBox("Número de factura inválido", MsgBoxStyle.OkOnly, "Error")
             Ventana.Razon_Social.Text = ""
             Ventana.Rif.Text = ""
             Ventana.Telefono.Text = ""
             Ventana.Direccion.Text = ""
+            Ventana.DETALLE_VENTA.DataSource = DBNull.Value
+            Ventana.DETALLE_VENTA.Update()
         End If
     End Sub
 
+    Public Function Traer_Detalle_Devolucion(ByVal Id_Factura As Integer) As Data.DataTable
+        Dim Venta As Venta
+        Venta = New Venta
+        Return Venta.Traer_Detalle_Devolucion(Id_Factura)
+    End Function
+
+    Public Sub Devolucion_Productos(ByVal Control_Numero As String, ByVal Codigo_Barras As String, ByVal Ventana As Registrar_Devolucion)
+        Dim Producto_x As Producto = New Producto
+        Dim Id_Producto As Integer = Producto_x.idProductos(Codigo_Barras)
+        Dim Venta_x As Venta = New Venta
+        Dim ControladorF As Controlador_Venta = New Controlador_Venta
+
+
+        If Id_Producto > 0 Then
+            ' Falta llamar al llenado de la parte de producto
+            ' o Mostrado de datos
+            'Insert de devoluciones
+
+            Ventana.Detalle_DEV.DataSource = ControladorF.Traer_Detalle_Devolucion(Venta_x.Ultima_Devolucion(Venta_x.Buscar_Id_Venta_Factura(Control_Numero)))
+            Ventana.Detalle_DEV.Update()
+
+        End If
+
+    End Sub
 
     'Fin LZ
 

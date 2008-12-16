@@ -9,7 +9,7 @@ Public Class Venta
         Try
             BasedeDatos = New FarmaciaSJDataSet
             'VentaTablaAdapter()
-            VentaTablaAdapter.Insert(Numero, Fecha, Vence, 0, 0, 0, 0, 0, 0, "", "", Vence, Id_Cliente)
+            'VentaTablaAdapter.Insert(Numero, Fecha, Vence, 0, 0, 0, 0, 0, 0, "", "", Vence, Id_Cliente)
             ' Commit
             VentaTablaAdapter.Update(BasedeDatos.VENTA)
             Conextion.Open()
@@ -215,6 +215,7 @@ Public Class Venta
     End Function
 
 
+
     'LZ
 
     Public Function Buscar_id_Cliente_Factura(ByVal Control_Numero As String) As Integer
@@ -279,8 +280,72 @@ Public Class Venta
         End Try
     End Sub
 
+    Public Sub Buscar_Info_Venta_Producto(ByVal Id_Cliente As Integer, ByVal Venta As Registrar_Devolucion)
+
+        Dim Cliente As FarmaciaSJDataSetTableAdapters.CLIENTETableAdapter
+        Dim Conextion As Data.SqlClient.SqlConnection
+        Dim Consulta As Data.SqlClient.SqlCommand
+        Dim Reder As Data.SqlClient.SqlDataReader
+
+        Try
+            Cliente = New FarmaciaSJDataSetTableAdapters.CLIENTETableAdapter
+            Conextion = Cliente.Connection
+            Consulta = New Data.SqlClient.SqlCommand
+            Conextion.Open()
+            Consulta.Connection = Conextion
+            Consulta.CommandText = "SELECT APELLIDO+', '+NOMBRE, IDENTIDAD, TELEFONO, DIRECCION FROM CLIENTE WHERE ID_CLIENTE=" & Id_Cliente
+            Reder = Consulta.ExecuteReader()
+            If (Reder.Read = True) Then
+                Venta.Razon_Social.Text = Reder.Item(0).ToString()
+                Venta.Rif.Text = Reder.Item(1).ToString()
+                Venta.Telefono.Text = Reder.Item(2).ToString()
+                Venta.Direccion.Text = Reder.Item(3).ToString()
+                Reder.Close()
+            End If
+        Catch e As Data.SqlClient.SqlException
+        End Try
+    End Sub
 
 
+
+    Public Function Traer_Detalle_Devolucion(ByVal ID_Venta As Integer) As Data.DataTable
+        Dim Bd As FarmaciaSJDataSet
+        Bd = New FarmaciaSJDataSet
+        Dim Detalle As FarmaciaSJDataSetTableAdapters.DETALLE_VENTATableAdapter = New FarmaciaSJDataSetTableAdapters.DETALLE_VENTATableAdapter
+        Dim cn As Data.SqlClient.SqlConnection = New Data.SqlClient.SqlConnection(Detalle.Connection.ConnectionString)
+        Dim sql As String = "SELECT PRODUCTO.CODIGO_DE_BARRAS AS CODIGO, PRODUCTO.NOMBRE, LOTE.PVP, (LOTE.DESCUENTO / 100) * (LOTE.PVP * DETALLE_VENTA.Cantidad) AS DESCUENTO, DETALLE_VENTA.Cantidad, (LOTE.PVP * DETALLE_VENTA.Cantidad) * (1 - LOTE.DESCUENTO / 100) AS SUB_TOTAL FROM         DETALLE_VENTA INNER JOIN LOTE ON DETALLE_VENTA.ID_LOTE = LOTE.ID_LOTE AND DETALLE_VENTA.ID_PRODUCTO = LOTE.ID_PRODUCTO INNER JOIN PRODUCTO ON LOTE.ID_PRODUCTO = PRODUCTO.ID_PRODUCTO WHERE DETALLE_VENTA.ID_VENTA =" & ID_Venta
+        Dim da As Data.SqlClient.SqlDataAdapter = New Data.SqlClient.SqlDataAdapter(sql, cn)
+        Dim Table As Data.DataTable = New Data.DataTable("Detalle_Factura")
+        da.Fill(Table)
+        Return Table
+    End Function
+
+
+    Public Function Ultima_Devolucion(ByVal Id_Venta As Integer) As Integer
+
+        Dim Cliente As FarmaciaSJDataSetTableAdapters.CLIENTETableAdapter
+        Dim Conextion As Data.SqlClient.SqlConnection
+        Dim Consulta As Data.SqlClient.SqlCommand
+        Dim Reder As Data.SqlClient.SqlDataReader
+        Dim Resultado As Integer = 0
+        Try
+            Cliente = New FarmaciaSJDataSetTableAdapters.CLIENTETableAdapter
+            Conextion = Cliente.Connection
+            Consulta = New Data.SqlClient.SqlCommand
+            Conextion.Open()
+            Consulta.Connection = Conextion
+            Consulta.CommandText = "SELECT ID_VENTA FROM VENTA WHERE VENTA.ID_DEVOLUCION_ID_VENTA=" & Id_Venta
+            Reder = Consulta.ExecuteReader()
+
+            If (Reder.Read = True) Then
+                Resultado = CInt(Reder.Item(0).ToString())
+                Reder.Close()
+
+            End If
+        Catch e As Data.SqlClient.SqlException
+        End Try
+        Return Resultado
+    End Function
 
     'Fin LZ
 

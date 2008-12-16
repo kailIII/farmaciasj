@@ -10,10 +10,15 @@ Public Class Registrar_Devolucion
 
 
     Private Sub Codigo_Barras_TextChanged(ByVal sender As System.Object, ByVal e As Windows.Forms.KeyPressEventArgs) Handles Codigo_Barras.KeyPress
-        Dim ControladorP As Controlador_Producto
-        ControladorP = New Controlador_Producto
+
+
         If (e.KeyChar = Char.ConvertFromUtf32(13)) Then
-            '            ControladorP.Buscar_CodigoBarras(Me.Codigo_Barras.Text, Me)
+            Dim Controlador_Venta_x As Controlador_Venta
+            Controlador_Venta_x = New Controlador_Venta
+            Controlador_Venta_x.Devolucion_Productos(Me.Numero_Control.Text, Me.Codigo_Barras.Text, Me)
+
+
+            'Controlador_Producto_x.idProductos(Me.Codigo_Barras.Text)
         End If
     End Sub
 
