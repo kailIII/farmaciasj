@@ -50,12 +50,12 @@ Partial Class Administrador
         Me.ConfiguracionToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem
         Me.ConfigurarFarmaciaToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem
         Me.PasswordUsuarioToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem
-        Me.StatusStrip = New System.Windows.Forms.StatusStrip
-        Me.ToolStripStatusLabel = New System.Windows.Forms.ToolStripStatusLabel
-        Me.ToolTip = New System.Windows.Forms.ToolTip(Me.components)
         Me.SALIRToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem
         Me.CERRARSESIONToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem
         Me.CERRARPROGRAMAToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem
+        Me.StatusStrip = New System.Windows.Forms.StatusStrip
+        Me.ToolStripStatusLabel = New System.Windows.Forms.ToolStripStatusLabel
+        Me.ToolTip = New System.Windows.Forms.ToolTip(Me.components)
         Me.MenuStrip.SuspendLayout()
         Me.StatusStrip.SuspendLayout()
         Me.SuspendLayout()
@@ -245,21 +245,6 @@ Partial Class Administrador
         Me.PasswordUsuarioToolStripMenuItem.Size = New System.Drawing.Size(182, 22)
         Me.PasswordUsuarioToolStripMenuItem.Text = "Password Usuario"
         '
-        'StatusStrip
-        '
-        Me.StatusStrip.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ToolStripStatusLabel})
-        Me.StatusStrip.Location = New System.Drawing.Point(0, 431)
-        Me.StatusStrip.Name = "StatusStrip"
-        Me.StatusStrip.Size = New System.Drawing.Size(632, 22)
-        Me.StatusStrip.TabIndex = 7
-        Me.StatusStrip.Text = "StatusStrip"
-        '
-        'ToolStripStatusLabel
-        '
-        Me.ToolStripStatusLabel.Name = "ToolStripStatusLabel"
-        Me.ToolStripStatusLabel.Size = New System.Drawing.Size(38, 17)
-        Me.ToolStripStatusLabel.Text = "Status"
-        '
         'SALIRToolStripMenuItem
         '
         Me.SALIRToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.CERRARSESIONToolStripMenuItem, Me.CERRARPROGRAMAToolStripMenuItem})
@@ -278,6 +263,21 @@ Partial Class Administrador
         Me.CERRARPROGRAMAToolStripMenuItem.Name = "CERRARPROGRAMAToolStripMenuItem"
         Me.CERRARPROGRAMAToolStripMenuItem.Size = New System.Drawing.Size(186, 22)
         Me.CERRARPROGRAMAToolStripMenuItem.Text = "CERRAR PROGRAMA"
+        '
+        'StatusStrip
+        '
+        Me.StatusStrip.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ToolStripStatusLabel})
+        Me.StatusStrip.Location = New System.Drawing.Point(0, 431)
+        Me.StatusStrip.Name = "StatusStrip"
+        Me.StatusStrip.Size = New System.Drawing.Size(632, 22)
+        Me.StatusStrip.TabIndex = 7
+        Me.StatusStrip.Text = "StatusStrip"
+        '
+        'ToolStripStatusLabel
+        '
+        Me.ToolStripStatusLabel.Name = "ToolStripStatusLabel"
+        Me.ToolStripStatusLabel.Size = New System.Drawing.Size(38, 17)
+        Me.ToolStripStatusLabel.Text = "Status"
         '
         'Administrador
         '

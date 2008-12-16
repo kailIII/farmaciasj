@@ -27,14 +27,23 @@ Public Class Controlador_Ingresar_Producto
         Dim contador As Integer = 0
         Dim prueba As String
         Dim validar As Validaciones_Generales = New Validaciones_Generales
+        Dim codigoproducto As Integer
+        Dim codigoproveedor As Integer
+        Dim cproveedor As New Proveedor
         If (validar.Validar_Ingresar_Producto(codigo_barras, codigo, nombre_producto, desc_producto, ge_producto, u_producto, proveedor, linea) = True) Then
             Dim ingresar As Producto = New Producto
-            While (contador < proveedor.SelectedItems.Count)
-                'aca va la opcion de buscar la situacion con una consulta
-                prueba = proveedor.GetItemText(proveedor.SelectedItems.Item(contador))
-                ingresar.Ingresar_Producto(codigo_barras, codigo, nombre_producto, desc_producto, ge_producto, u_producto, prueba, linea)
-                contador = contador + 1
-            End While
+            codigoproducto = ingresar.Ingresar_Producto(codigo_barras, codigo, nombre_producto, desc_producto, ge_producto, u_producto, linea)
+            If (codigoproducto <> 0) Then
+                While (contador < proveedor.SelectedItems.Count)
+                    'aca va la opcion de buscar la situacion con una consulta
+                    prueba = proveedor.GetItemText(proveedor.SelectedItems.Item(contador))
+                    codigoproveedor = cproveedor.Buscar_Nombre(prueba)
+                    ingresar.Ingresar_Proveedor_Producto(codigoproducto, codigoproveedor)
+                    contador = contador + 1
+                End While
+            Else
+                MsgBox("El Producto no se pudo Ingresar, verifique e intente de nuevo", MsgBoxStyle.OkOnly, "Error")
+            End If
         End If
     End Sub
 End Class

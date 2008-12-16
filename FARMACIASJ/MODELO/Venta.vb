@@ -189,29 +189,35 @@ Public Class Venta
         Dim Control2 As New Data.DataSet
         Dim Factura As Factura = New Factura
         Dim BD As Data.SqlClient.SqlDataAdapter
-        Connection = Detalle.Connection
-        Command.Connection = Connection
-        Command.CommandText = "SELECT     ID_Farmacia, Razon_Social, RIF, Telefono, Direccion, Logo FROM         FARMACIA WHERE     (ID_Farmacia = 1)"
-        BD = New Data.SqlClient.SqlDataAdapter(Command)
-        BD.Fill(FarmaciaSJ, "FARMACIA")
-        Command.CommandText = "SELECT     ID_VENTA, NUMERO_FACTURA, FECHA, VENCE, DESCUENTO, [SUB-TOTAL], TOTAL, IMPUESTO, MONTO, TIPO_PAGO, VUELTO, NUMERO_T_CHEQ, FVENCIMIENTO_T, ID_CLIENTE FROM         VENTA WHERE     (ID_VENTA = " & ID_Factura & ")"
-        BD = New Data.SqlClient.SqlDataAdapter(Command)
-        BD.Fill(FarmaciaSJ, "VENTA")
-        Command.CommandText = "SELECT     ID_DETALLE_VENTA, Cantidad, ID_VENTA, ID_LOTE, ID_PRODUCTO FROM         DETALLE_VENTA WHERE     (ID_VENTA = " & ID_Factura & ")"
-        BD = New Data.SqlClient.SqlDataAdapter(Command)
-        BD.Fill(FarmaciaSJ, "DETALLE_VENTA")
-        Command.CommandText = "SELECT     ID_LOTE, CANTIDAD, FECHA_VENCIMIENTO, PVP, DESCUENTO, ID_PRODUCTO FROM         LOTE"
-        BD = New Data.SqlClient.SqlDataAdapter(Command)
-        BD.Fill(FarmaciaSJ, "LOTE")
-        Command.CommandText = "SELECT     ID_PRODUCTO, NOMBRE, CODIGO_DE_BARRAS, CODIGO, DESCRIPCION, GRAVADO_EXENTO, UNIDADES_POR_PAQUETE, ID_LINEA FROM         PRODUCTO"
-        BD = New Data.SqlClient.SqlDataAdapter(Command)
-        BD.Fill(FarmaciaSJ, "PRODUCTO")
-        Command.CommandText = "SELECT     ID_CLIENTE,IDENTIDAD, NOMBRE, APELLIDO, TELEFONO, DIRECCION FROM         CLIENTE"
-        BD = New Data.SqlClient.SqlDataAdapter(Command)
-        BD.Fill(FarmaciaSJ, "CLIENTE")
-        Factura.SetDataSource(FarmaciaSJ)
-        Factura.PrintToPrinter(1, True, 1, 2)
-        Return FarmaciaSJ
+        Try
+            Connection = Detalle.Connection
+            Command.Connection = Connection
+            Command.CommandText = "SELECT     ID_Farmacia, Razon_Social, RIF, Telefono, Direccion, Logo FROM         FARMACIA WHERE     (ID_Farmacia = 1)"
+            BD = New Data.SqlClient.SqlDataAdapter(Command)
+            BD.Fill(FarmaciaSJ, "FARMACIA")
+            Command.CommandText = "SELECT     ID_VENTA, NUMERO_FACTURA, FECHA, VENCE, DESCUENTO, [SUB-TOTAL], TOTAL, IMPUESTO, MONTO, TIPO_PAGO, VUELTO, NUMERO_T_CHEQ, FVENCIMIENTO_T, ID_CLIENTE FROM         VENTA WHERE     (ID_VENTA = " & ID_Factura & ")"
+            BD = New Data.SqlClient.SqlDataAdapter(Command)
+            BD.Fill(FarmaciaSJ, "VENTA")
+            Command.CommandText = "SELECT     ID_DETALLE_VENTA, Cantidad, ID_VENTA, ID_LOTE, ID_PRODUCTO FROM         DETALLE_VENTA WHERE     (ID_VENTA = " & ID_Factura & ")"
+            BD = New Data.SqlClient.SqlDataAdapter(Command)
+            BD.Fill(FarmaciaSJ, "DETALLE_VENTA")
+            Command.CommandText = "SELECT     ID_LOTE, CANTIDAD, FECHA_VENCIMIENTO, PVP, DESCUENTO, ID_PRODUCTO FROM         LOTE"
+            BD = New Data.SqlClient.SqlDataAdapter(Command)
+            BD.Fill(FarmaciaSJ, "LOTE")
+            Command.CommandText = "SELECT     ID_PRODUCTO, NOMBRE, CODIGO_DE_BARRAS, CODIGO, DESCRIPCION, GRAVADO_EXENTO, UNIDADES_POR_PAQUETE, ID_LINEA FROM         PRODUCTO"
+            BD = New Data.SqlClient.SqlDataAdapter(Command)
+            BD.Fill(FarmaciaSJ, "PRODUCTO")
+            Command.CommandText = "SELECT     ID_CLIENTE,IDENTIDAD, NOMBRE, APELLIDO, TELEFONO, DIRECCION FROM         CLIENTE"
+            BD = New Data.SqlClient.SqlDataAdapter(Command)
+            BD.Fill(FarmaciaSJ, "CLIENTE")
+            Factura.SetDataSource(FarmaciaSJ)
+            Factura.PrintToPrinter(1, True, 1, 2)
+            MsgBox("La factura se Processo con exito", MsgBoxStyle.OkOnly, "Error")
+            Return FarmaciaSJ
+        Catch E As Data.SqlClient.SqlException
+            MsgBox("La Factura se processo con exito, pero existen errores con la Impresor", MsgBoxStyle.OkOnly, "Error")
+            Return FarmaciaSJ
+        End Try
     End Function
 
 

@@ -51,5 +51,46 @@ Public Class Controlador_Linea
         ILinea.Show()
     End Sub
 
+    'Jesus
+    Public Sub buscar_linea(ByVal Nombre As String, ByVal MLinea As Modificar_Linea)
+        Dim Linea As Linea
+        Dim Reder As Data.SqlClient.SqlDataReader
+        Linea = New Linea
+        Reder = Linea.BuscarLinea2(Nombre)
+        If (Reder.Read = True) Then
+            MLinea.id_linea = Integer.Parse(Reder.Item(0).ToString)
+            MLinea.NombreLinea.Text = Reder.Item(1).ToString
+            MLinea.DescripcionLinea.Text = Reder.Item(2).ToString
+            MLinea.DescMax.Text = Reder.Item(3).ToString
+            MLinea.MargenUtil.Text = Reder.Item(4).ToString
+            MLinea.NombreLinea.Enabled = False
+            MLinea.DescripcionLinea.Enabled = True
+            MLinea.DescMax.Enabled = True
+            MLinea.MargenUtil.Enabled = True
+            MLinea.Modificar_Boton.Enabled = True
+        Else
+            MsgBox("La Linea: " & Nombre & " no existe", MsgBoxStyle.OkOnly, "Error")
+        End If
+    End Sub
+
+    Public Sub Modificar_Linea(ByVal id_linea As Integer, ByVal DescripcionLinea As String, ByVal DescMax As String, ByVal MargenU As String, ByVal mLinea As Modificar_Linea)
+        Dim Linea As New Linea
+        Dim a As Boolean
+        a = Linea.Modificar_Linea(id_linea, DescripcionLinea, DescMax, MargenU)
+        If (a = True) Then
+            MsgBox("La modificacion se realizo con Exito", MsgBoxStyle.OkOnly, "Informacion")
+            mLinea.Close()
+        Else
+            MsgBox("La modificacion tiene errores verifique e intente de nuevo", MsgBoxStyle.OkOnly, "Error")
+        End If
+    End Sub
+
+    Public Sub Abrir_VentaM(ByVal Padre As Windows.Forms.Form)
+        Dim ILinea As Modificar_Linea
+        ILinea = New Modificar_Linea
+        ILinea.MdiParent = Padre
+        ILinea.Show()
+    End Sub
+
 End Class
 

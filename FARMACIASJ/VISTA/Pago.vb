@@ -19,7 +19,7 @@ Public Class Pago
             Monto.Text = Total.Text
             LNCT.Visible = True
             Vuelto.Text = CStr(0)
-            LNCT.Text = "Numero de Cheke"
+            LNCT.Text = "Numero de Cheque"
             NCT.Visible = True
             Vuelto.Visible = False
             LVuelto.Visible = False

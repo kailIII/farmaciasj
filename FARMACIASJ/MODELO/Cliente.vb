@@ -26,7 +26,7 @@ Public Class Cliente
             Consulta = New Data.SqlClient.SqlCommand
             Conextion.Open()
             Consulta.Connection = Conextion
-            Consulta.CommandText = "INSERT INTO [FarmaciaSJ].[dbo].[CLIENTE] ([IDENTIDAD] ,[NOMBRE] ,[TELEFONO] ,[DIRECCION]) VALUES (" & Documento_Identidad & "," & Nombre & " ," & Telefono & " ," & Direccion & ")"
+            Consulta.CommandText = "INSERT INTO [FarmaciaSJ].[dbo].[CLIENTE] ([IDENTIDAD] ,[NOMBRE] ,[TELEFONO] ,[DIRECCION]) VALUES ('" & Documento_Identidad & "','" & Nombre & "' ,'" & Telefono & "' ,'" & Direccion & "')"
             Reder = Consulta.ExecuteReader()
             Return True
         Catch err As ArgumentNullException

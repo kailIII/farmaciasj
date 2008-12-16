@@ -4,18 +4,30 @@ Public Class IngresarCliente
         If (ComboBox1.Items().Item(ComboBox1.SelectedIndex).ToString = "JURIDICO") Then
             Me.LNOMBRE.Text = "Razon Social"
             Me.LIdentidad.Text = "Rif"
+            Me.NOMBRE.Enabled = True
+            Me.RIF.Enabled = True
+            Me.TELEFONO.Enabled = True
+            Me.DIRECCION.Enabled = True
             Me.LApellido.Visible = False
             Me.APELLIDO.Visible = False
             Me.RIF.MaxLength = 10
         ElseIf (ComboBox1.Items().Item(ComboBox1.SelectedIndex).ToString = "NATURAL") Then
             Me.LNOMBRE.Text = "Nombre"
             Me.LIdentidad.Text = "Cedula"
+            Me.NOMBRE.Enabled = True
+            Me.RIF.Enabled = True
+            Me.TELEFONO.Enabled = True
+            Me.DIRECCION.Enabled = True
             Me.LApellido.Visible = True
             Me.APELLIDO.Visible = True
             Me.RIF.MaxLength = 9
         ElseIf (ComboBox1.Items().Item(ComboBox1.SelectedIndex).ToString = "EXTRANJERO") Then
             Me.LNOMBRE.Text = "Nombre"
             Me.LIdentidad.Text = "PASSAPORTE"
+            Me.NOMBRE.Enabled = True
+            Me.RIF.Enabled = True
+            Me.TELEFONO.Enabled = True
+            Me.DIRECCION.Enabled = True
             Me.LApellido.Visible = True
             Me.APELLIDO.Visible = True
             Me.RIF.MaxLength = 12
@@ -25,8 +37,10 @@ Public Class IngresarCliente
     Private Sub RIF_TextChanged(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles RIF.TextChanged
         If (ComboBox1.Items().Item(ComboBox1.SelectedIndex).ToString = "JURIDICO") Then
             If (Me.RIF.Text.Length = 1) Then
-                If (Me.RIF.Text(0) <> Char.Parse("J") Or Me.RIF.Text(0) <> Char.Parse("G")) Then
-                    Me.RIF.Text = ""
+                If (Me.RIF.Text(0) <> Char.Parse("J")) Then
+                    If (Me.RIF.Text(0) <> Char.Parse("G")) Then
+                        Me.RIF.Text = ""
+                    End If
                 End If
             ElseIf (Me.RIF.Text.Length > 1) Then
                 Dim count As Integer = Me.RIF.Text.Length - 1
@@ -40,8 +54,10 @@ Public Class IngresarCliente
             End If
         ElseIf (ComboBox1.Items().Item(ComboBox1.SelectedIndex).ToString = "NATURAL") Then
             If (Me.RIF.Text.Length = 1) Then
-                If (Me.RIF.Text(0) <> Char.Parse("V") Or Me.RIF.Text(0) <> Char.Parse("E")) Then
-                    Me.RIF.Text = ""
+                If (Me.RIF.Text(0) <> Char.Parse("V")) Then
+                    If (Me.RIF.Text(0) <> Char.Parse("E")) Then
+                        Me.RIF.Text = ""
+                    End If
                 End If
             ElseIf (Me.RIF.Text.Length > 1) Then
                 Dim count As Integer = Me.RIF.Text.Length - 1

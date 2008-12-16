@@ -139,7 +139,7 @@ Partial Class Pago
         'ComboBox1
         '
         Me.ComboBox1.FormattingEnabled = True
-        Me.ComboBox1.Items.AddRange(New Object() {"EFECTIVO", "CHEKE", "TARJETA_DEBITO", "TARJETA_CREDITO"})
+        Me.ComboBox1.Items.AddRange(New Object() {"EFECTIVO", "CHEQUE", "TARJETA_DEBITO", "TARJETA_CREDITO"})
         Me.ComboBox1.Location = New System.Drawing.Point(148, 140)
         Me.ComboBox1.Name = "ComboBox1"
         Me.ComboBox1.Size = New System.Drawing.Size(100, 21)

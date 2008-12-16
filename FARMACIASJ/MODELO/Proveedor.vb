@@ -236,6 +236,26 @@ Public Class Proveedor
         Return Reder
     End Function
 
+    Public Function Buscar_nombre(ByVal nombre As String) As Integer
+        Dim Proveedor As FarmaciaSJDataSetTableAdapters.PROVEEDORTableAdapter
+        Dim Conextion As Data.SqlClient.SqlConnection
+        Dim Consulta As Data.SqlClient.SqlCommand
+        Dim Reder As Data.SqlClient.SqlDataReader
+        Dim id_Proveedor As Integer = 0
+        Proveedor = New FarmaciaSJDataSetTableAdapters.PROVEEDORTableAdapter
+        Conextion = Proveedor.Connection
+        Conextion.Open()
+        Consulta = New Data.SqlClient.SqlCommand
+        Consulta.Connection = Conextion
+        Consulta.CommandText = "SELECT     ID_PROVEEDOR FROM         PROVEEDOR WHERE     (Estatus = 'ACTIVO') AND (Nombre = '" & nombre & "')"
+
+        Reder = Consulta.ExecuteReader
+        If (Reder.Read = True) Then
+            id_Proveedor = Integer.Parse(Reder.Item(0).ToString)
+        End If
+        Return id_Proveedor
+    End Function
+
     Public Function BuscarRiff(ByVal nombre As String) As Boolean
         Dim Proveedor As FarmaciaSJDataSetTableAdapters.PROVEEDORTableAdapter
         Dim Conextion As Data.SqlClient.SqlConnection

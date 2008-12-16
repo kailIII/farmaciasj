@@ -1,5 +1,5 @@
 Public Class Realizar_Venta
-    Public ID_Cliente As Integer
+    Public ID_Cliente As Integer = -1
     Public ID_Factura As Integer = -1
     Public ID_Detalle As Integer = 0
     Public ID_Producto As Integer
@@ -18,7 +18,7 @@ Public Class Realizar_Venta
             Controlador.Buscar_Cliente(Me.Identidad.Text, Me)
         End If
     End Sub
-    Private Sub Identidad_TextChanged(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Identidad.TextChanged, Identidad.KeyPress
+    Private Sub Identidad_TextChanged(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Identidad.TextChanged
         If (Identidad.Text.Length = 1) Then
             If (Identidad.Text(0) = Char.Parse("J")) Then
                 Identidad.MaxLength = 10

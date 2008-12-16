@@ -2,8 +2,6 @@ Imports System.Windows.Forms
 
 Public Class Administrador
 
- 
-
     Private Sub PuntoDeVentaToolStripMenuItem_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles PuntoDeVentaToolStripMenuItem.Click
         Dim ControladorV As New Controlador_Venta
         ControladorV.Abrir_Venta(Me)
@@ -51,5 +49,15 @@ Public Class Administrador
     Private Sub CERRARPROGRAMAToolStripMenuItem_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles CERRARPROGRAMAToolStripMenuItem.Click
         Me.Finalize()
         Me.Close()
+    End Sub
+
+    Private Sub ModificarToolStripMenuItem2_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles ModificarToolStripMenuItem2.Click
+        Dim ControladorL As New Controlador_Linea
+        ControladorL.Abrir_VentaM(Me)
+    End Sub
+
+    Private Sub ModificarProductoToolStripMenuItem_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles ModificarProductoToolStripMenuItem.Click
+        Dim ControladorP As New Controlador_Producto
+        ControladorP.Abrir_VentaM(Me)
     End Sub
 End Class

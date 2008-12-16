@@ -13,7 +13,9 @@ Public Class Controlador_Cliente
                 IngresarCliente = New IngresarCliente
                 IngresarCliente.MdiParent = Venta.MdiParent
                 condicion = 1
+                Me.Venta = Venta
                 IngresarCliente.Cliente = Me
+                IngresarCliente.Show()
             End If
         ElseIf (a = 2) Then
             MsgBox("Se presentaron problemas en la conexion con la Base de Datos, intente de nuevo", MsgBoxStyle.OkOnly, "Error")

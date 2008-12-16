@@ -131,7 +131,6 @@ Partial Class IngresarCliente
         Me.ComboBox1.Name = "ComboBox1"
         Me.ComboBox1.Size = New System.Drawing.Size(141, 21)
         Me.ComboBox1.TabIndex = 11
-        Me.ComboBox1.Text = "JURIDICO"
         '
         'Label1
         '

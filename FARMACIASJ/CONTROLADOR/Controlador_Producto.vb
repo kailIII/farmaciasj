@@ -219,4 +219,30 @@ Public Class Controlador_Producto
         Producto.MdiParent = Padre
         Producto.Show()
     End Sub
+    Public Sub Abrir_VentaM(ByVal Padre As Windows.Forms.Form)
+        Dim Producto As Modificar_Producto
+        Producto = New Modificar_Producto
+        Producto.MdiParent = Padre
+        Producto.Show()
+    End Sub
+    Public Sub buscar_producto(ByVal codigo_Barras As String, ByVal mProducto As Modificar_Producto)
+        Dim producto As New Producto
+        Dim a As Boolean
+        a = producto.buscar_producto(codigo_barras, mProducto)
+        If (a = True) Then
+            producto.Buscar_producto_Proveedor(mProducto.id_Producto, mProducto)
+        Else
+            MsgBox("El producto no existe", MsgBoxStyle.OkOnly, "Error")
+        End If
+    End Sub
+    Public Function modificar_producto(ByVal Id_producto As String, ByVal desc_producto As String, ByVal ge_producto As String, ByVal u_producto As String, ByVal proveedor As Windows.Forms.ListBox, ByVal linea As String, ByVal proveedores() As Integer) As Boolean
+        Dim producto As New Producto
+        Dim a As Boolean
+        a = producto.modificar_producto(Id_producto, desc_producto, ge_producto, u_producto, linea)
+        If (a = True) Then
+            MsgBox("El producto se ha modificado con exito", MsgBoxStyle.OkOnly, "Informacion")
+        Else
+            MsgBox("Error, el producto no se ha podido modificar", MsgBoxStyle.OkOnly, "Error")
+        End If
+    End Function
 End Class
