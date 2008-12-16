@@ -41,3 +41,4 @@ obj\Debug\FARMACIASJ.Registrar_Proveedor.resources
 obj\Debug\FARMACIASJ.Suspender_Pedido_frecuente.resources
 obj\Debug\FARMACIASJ.Modificar_Linea.resources
 obj\Debug\FARMACIASJ.Modificar_Producto.resources
+obj\Debug\FARMACIASJ.Modificar_compra.resources

@@ -530,6 +530,24 @@ Public Class Venta
             Return False
         End Try
     End Function
+    Public Function combrobarcantidaddetalle(ByVal ID_detalle As Integer, ByVal ID_factura As Integer) As Integer
+        Dim Venta As FarmaciaSJDataSetTableAdapters.VENTATableAdapter
+        Dim Conextion As Data.SqlClient.SqlConnection
+        Dim Consulta As Data.SqlClient.SqlCommand
+        Dim Reder As Data.SqlClient.SqlDataReader
+        Dim C As Integer
+        Venta = New FarmaciaSJDataSetTableAdapters.VENTATableAdapter
+        Conextion = Venta.Connection
+        Consulta = New Data.SqlClient.SqlCommand
+        Conextion.Open()
+        Consulta.Connection = Conextion
+        Consulta.CommandText = "SELECT     CANTIDAD FROM         Detalle_Venta WHERE     (ID_detalle_venta = " & ID_detalle & ") AND (ID_venta = " & ID_factura & ")"
+        Reder = Consulta.ExecuteReader()
+        If (Reder.Read = True) Then
+            C = Integer.Parse(Reder.Item(0).ToString)
+        End If
+        Return C
+    End Function
 
     'Fin LZ
 
