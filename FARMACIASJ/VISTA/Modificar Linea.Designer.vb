@@ -104,6 +104,7 @@ Partial Class Modificar_Linea
         '
         Me.MargenUtil.Enabled = False
         Me.MargenUtil.Location = New System.Drawing.Point(201, 195)
+        Me.MargenUtil.MaxLength = 3
         Me.MargenUtil.Name = "MargenUtil"
         Me.MargenUtil.Size = New System.Drawing.Size(100, 20)
         Me.MargenUtil.TabIndex = 4
@@ -112,6 +113,7 @@ Partial Class Modificar_Linea
         '
         Me.DescripcionLinea.Enabled = False
         Me.DescripcionLinea.Location = New System.Drawing.Point(75, 45)
+        Me.DescripcionLinea.MaxLength = 200
         Me.DescripcionLinea.Name = "DescripcionLinea"
         Me.DescripcionLinea.Size = New System.Drawing.Size(241, 109)
         Me.DescripcionLinea.TabIndex = 2
@@ -121,13 +123,16 @@ Partial Class Modificar_Linea
         '
         Me.DescMax.Enabled = False
         Me.DescMax.Location = New System.Drawing.Point(201, 165)
+        Me.DescMax.MaxLength = 3
         Me.DescMax.Name = "DescMax"
         Me.DescMax.Size = New System.Drawing.Size(100, 20)
         Me.DescMax.TabIndex = 3
         '
         'NombreLinea
         '
+        Me.NombreLinea.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper
         Me.NombreLinea.Location = New System.Drawing.Point(75, 19)
+        Me.NombreLinea.MaxLength = 50
         Me.NombreLinea.Name = "NombreLinea"
         Me.NombreLinea.Size = New System.Drawing.Size(241, 20)
         Me.NombreLinea.TabIndex = 1

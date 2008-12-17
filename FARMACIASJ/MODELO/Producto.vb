@@ -171,7 +171,7 @@ Public Class Producto
         Dim Conextion As Data.SqlClient.SqlConnection
         Dim Consulta As Data.SqlClient.SqlCommand
         Dim mars As Data.SqlClient.SqlDataReader
-        Dim codigoproducto, codigoproveedor, codigolinea As Integer
+        Dim codigoproducto, codigolinea As Integer
         Try
             Producto = New FarmaciaSJDataSetTableAdapters.PRODUCTOTableAdapter
             Conextion = Producto.Connection
@@ -221,7 +221,6 @@ Public Class Producto
         Dim Conextion As Data.SqlClient.SqlConnection
         Dim Consulta As Data.SqlClient.SqlCommand
         Dim Reder As Data.SqlClient.SqlDataReader
-        Dim i As Integer
         Dim j As Integer
         Dim index As Integer
         Try

@@ -90,6 +90,7 @@ Partial Class Compra2
         'IMPUESTO
         '
         Me.IMPUESTO.Location = New System.Drawing.Point(126, 88)
+        Me.IMPUESTO.MaxLength = 10
         Me.IMPUESTO.Name = "IMPUESTO"
         Me.IMPUESTO.Size = New System.Drawing.Size(100, 20)
         Me.IMPUESTO.TabIndex = 7
@@ -108,6 +109,7 @@ Partial Class Compra2
         'DESCUENTO
         '
         Me.DESCUENTO.Location = New System.Drawing.Point(126, 114)
+        Me.DESCUENTO.MaxLength = 10
         Me.DESCUENTO.Name = "DESCUENTO"
         Me.DESCUENTO.Size = New System.Drawing.Size(100, 20)
         Me.DESCUENTO.TabIndex = 9

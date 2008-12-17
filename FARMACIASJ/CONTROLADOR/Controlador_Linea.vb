@@ -6,7 +6,7 @@ Public Class Controlador_Linea
         Dim Validacion As Validaciones_Generales = New Validaciones_Generales
         
 
-        If (Linea.Ingresar_Linea(Nombre, Descuento, Descripcion, Margen) And Validacion.Tamano_Aceptable_Cadena(Str(Descuento), 2, "Porcentaje de Descuento inválido") And Validacion.Tamano_Aceptable_Cadena(Str(Margen), 2, "Porcentaje de margen útil inválido")) Then
+        If (Linea.Ingresar_Linea(Nombre, Descuento, Descripcion, Margen) And Validacion.Tamano_Aceptable_Cadena(Str(Descuento), 3, "Porcentaje de Descuento inválido") And Validacion.Tamano_Aceptable_Cadena(Str(Margen), 3, "Porcentaje de margen útil inválido")) Then
             MsgBox("La Línea se insertó con éxito.", MsgBoxStyle.OkOnly, "Aviso")
         Else
             MsgBox("La Línea no se pudo insertar", MsgBoxStyle.OkOnly, "Error")
@@ -21,19 +21,10 @@ Public Class Controlador_Linea
         If (Reder.HasRows = True) Then
             If (Reder.Read = True) Then
                 Compra.ID_Linea = Integer.Parse(Reder.Item(0).ToString)
-                Compra.NOMBRE_LINEA.Text = Reder.Item(1).ToString
-                Compra.DESCRIPCION_LINEA.Text = Reder.Item(2).ToString
-                Compra.DMaximo.Text = Reder.Item(3).ToString
-                Compra.MUtil.Text = Reder.Item(4).ToString
+                Compra.DescMax = Double.Parse(Reder.Item(3).ToString)
+                Compra.MUtil = Double.Parse(Reder.Item(4).ToString)
             End If
         Else
-            If (MsgBox("La Linea no Existe, ¿Desea Agregarla?", MsgBoxStyle.YesNo, "Alert") = MsgBoxResult.Yes) Then
-                Compra.ID_Linea = -1
-                Compra.NOMBRE_LINEA.Enabled = True
-                Compra.DESCRIPCION_LINEA.Enabled = True
-                Compra.DMaximo.Enabled = True
-                Compra.MUtil.Enabled = True
-            End If
         End If
     End Sub
     Public Function BuscarIDLinea(ByVal NOMBRE_LINEA As String) As Integer

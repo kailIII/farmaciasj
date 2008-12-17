@@ -20,7 +20,7 @@ Public Class Realizar_Venta
     End Sub
     Private Sub Identidad_TextChanged(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Identidad.TextChanged
         If (Identidad.Text.Length = 1) Then
-            If (Identidad.Text(0) = Char.Parse("J")) Then
+            If (Identidad.Text(0) = Char.Parse("J") Or Identidad.Text(0) = Char.Parse("G")) Then
                 Identidad.MaxLength = 10
             ElseIf (Identidad.Text(0) = Char.Parse("V") Or Identidad.Text(0) = Char.Parse("E")) Then
                 Identidad.MaxLength = 9
@@ -161,5 +161,4 @@ Public Class Realizar_Venta
         End If
     End Sub
 
-    
 End Class

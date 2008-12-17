@@ -42,5 +42,64 @@ Public Class Controlador_Compra
         Compra.Show()
     End Sub
 
+    Public Sub Abrir_VentaM(ByVal Padre As Windows.Forms.Form)
+        Dim Compra As Modificar_compra
+        Compra = New Modificar_compra
+        Compra.MdiParent = Padre
+        Compra.Show()
+    End Sub
+
+    Public Sub Buscar_Info_Factura(ByVal Control_Numero As String, ByVal Compra As Modificar_compra)
+        Dim Compra_x As New Compra
+        Dim Id_proveedor As Integer = Compra_x.Buscar_id_Proveedor_Factura(Control_Numero)
+        Dim ControladorF As Controlador_Compra = New Controlador_Compra
+
+        If (Id_proveedor > 0) Then
+            Compra_x.Buscar_Info_Proveedor(Id_proveedor, Compra)
+            Compra.DETALLE_COMPRA.DataSource = ControladorF.Traer_Detalle(Compra_x.Buscar_Id_Compra_Factura(Control_Numero))
+            Compra.DETALLE_COMPRA.Update()
+            Compra.NDETALLE.Focus()
+            Compra.NDETALLE.Enabled = True
+
+        Else
+            MsgBox("Número de factura inválido", MsgBoxStyle.OkOnly, "Error")
+            Compra.NOMBRE_PROVEEDOR.Text = ""
+            Compra.RIF_PROVEEDOR.Text = ""
+            Compra.DETALLE_COMPRA.DataSource = DBNull.Value
+            Compra.DETALLE_COMPRA.Update()
+        End If
+    End Sub
+
+    Public Sub Buscar_Info_Detalle(ByVal NDETALLE As String, ByVal Numero As String, ByVal Compra As Modificar_compra)
+        Dim Compra_x As New Compra
+        Dim Id_Compra As Integer = Compra_x.Buscar_Id_Compra_Factura(Numero)
+        Dim a As Boolean
+
+        a = Compra_x.Buscar_Info_Detalle(NDETALLE, Id_Compra, Compra)
+        If (a = False) Then
+            MsgBox("El Detalle no se consigue verifique el numero y vuelva a intentar", MsgBoxStyle.OkOnly, "Error")
+        End If
+    End Sub
+
+    Public Sub Modificar_Compra(ByVal CRestar As Integer, ByVal CTotal As Double, ByVal NDETALLE As Integer, ByVal ID_Lote As Integer, ByVal Id_Producto As Integer, ByVal RIF As String, ByVal Numero As String, ByVal Compra As Modificar_compra)
+        Dim Compra_x As New Compra
+        Dim Id_Compra As Integer = Compra_x.Buscar_Id_Compra_Factura(Numero)
+        Dim Id_Proveedor As Integer = Compra_x.Buscar_id_Proveedor_Factura(Numero)
+        Dim a As Boolean
+        Dim ControladorF As Controlador_Compra = New Controlador_Compra
+
+        a = Compra_x.Modificar_Compra(CRestar, CTotal, NDETALLE, Id_Compra)
+        If (a = True) Then
+            a = Compra_x.Modificar_Lote(CRestar, ID_Lote, Id_Producto)
+            If (a = True) Then
+                a = Compra_x.Modificar_Proveedor(CTotal, Id_Proveedor)
+                Compra.DETALLE_COMPRA.DataSource = ControladorF.Traer_Detalle(Compra_x.Buscar_Id_Compra_Factura(Numero))
+                Compra.DETALLE_COMPRA.Update()
+                MsgBox("La Compra se Modifico con Exito", MsgBoxStyle.OkOnly, "Informa")
+            End If
+        Else
+            MsgBox("No se pudo modificar la Compra, Verifique e Itente de nuevo", MsgBoxStyle.OkOnly, "Error")
+        End If
+    End Sub
 
 End Class

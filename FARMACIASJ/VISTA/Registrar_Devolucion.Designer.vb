@@ -181,6 +181,7 @@ Partial Class Registrar_Devolucion
         '
         Me.Cantidad.Enabled = False
         Me.Cantidad.Location = New System.Drawing.Point(371, 45)
+        Me.Cantidad.MaxLength = 3
         Me.Cantidad.Name = "Cantidad"
         Me.Cantidad.Size = New System.Drawing.Size(112, 20)
         Me.Cantidad.TabIndex = 14

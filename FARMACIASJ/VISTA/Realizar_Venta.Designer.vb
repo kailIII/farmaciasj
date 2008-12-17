@@ -194,6 +194,7 @@ Partial Class Realizar_Venta
         'Cantidad
         '
         Me.Cantidad.Location = New System.Drawing.Point(266, 66)
+        Me.Cantidad.MaxLength = 3
         Me.Cantidad.Name = "Cantidad"
         Me.Cantidad.Size = New System.Drawing.Size(69, 20)
         Me.Cantidad.TabIndex = 14

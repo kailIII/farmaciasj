@@ -176,6 +176,7 @@ Partial Class Pago
         'NCT
         '
         Me.NCT.Location = New System.Drawing.Point(148, 168)
+        Me.NCT.MaxLength = 18
         Me.NCT.Name = "NCT"
         Me.NCT.Size = New System.Drawing.Size(100, 20)
         Me.NCT.TabIndex = 16
@@ -194,6 +195,7 @@ Partial Class Pago
         'Monto
         '
         Me.Monto.Location = New System.Drawing.Point(148, 168)
+        Me.Monto.MaxLength = 10
         Me.Monto.Name = "Monto"
         Me.Monto.Size = New System.Drawing.Size(100, 20)
         Me.Monto.TabIndex = 14

@@ -1,57 +1,60 @@
 Public Class Modificar_compra
-
-    Private Sub Buscar_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Buscar.Click
-        Dim control As Controlador_Modificar_Compra = New Controlador_Modificar_Compra
-        control.habilitar_compra(Me)
-    End Sub
-
-    Private Sub producto_SelectedIndexChanged(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles producto.SelectedIndexChanged
-        Dim control As Controlador_Modificar_compra = New Controlador_Modificar_compra
-        control.habilitar_cantidad(Me)
-    End Sub
-
-    Private Sub Generar_Click(ByVal sender As System.Object, ByVal e As System.EventArgs)
-        Me.Costo_Total.Text = (Double.Parse(Me.costo_unidad.Text) * Double.Parse(Me.Cantidad.Text)).ToString
-    End Sub
-
-    Private Sub Cantidad_TextChanged(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Cantidad.TextChanged
-        If Me.Cantidad.Text <> "" And Me.costo_unidad.Text <> "" Then
-            Try
-                Me.Costo_Total.Text = (Double.Parse(Me.costo_unidad.Text) * Double.Parse(Me.Cantidad.Text)).ToString
-            Catch
-                MsgBox("Los campos Cantidad y costo unidad no denen tener letras o simbolos", MsgBoxStyle.OkOnly, "Error")
-            End Try
+    Public ID_Producto As Integer
+    Public ID_Lote As Integer
+    Public MUtil As Double
+    Public DescMax As Double
+    Public Count As Integer = 0
+    Private Sub Numero_TextChanged(ByVal sender As System.Object, ByVal e As Windows.Forms.KeyPressEventArgs) Handles Numero.KeyPress
+        If (e.KeyChar = Char.ConvertFromUtf32(13)) Then
+            Dim Controlador_Compra_x As Controlador_Compra
+            Controlador_Compra_x = New Controlador_Compra
+            Controlador_Compra_x.Buscar_Info_Factura(Me.Numero.Text, Me)
         End If
     End Sub
 
-    Private Sub Guardar_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Guardar.Click
-        Dim control As Controlador_Modificar_compra = New Controlador_Modificar_compra
-        Try
-            control.guardar_cambio(Me)
-        Catch
-            MsgBox("Los campos Cantidad y costo unidad no denen tener letras o simbolos", MsgBoxStyle.OkOnly, "Error")
-        End Try
+    Private Sub NDETALLE_TextChanged(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles NDETALLE.TextChanged
+        If (Me.NDETALLE.Text.Length >= 1) Then
+            If (Char.IsDigit(Me.NDETALLE.Text(Me.NDETALLE.Text.Length - 1)) = False) Then
+                Dim A As String
+                A = Me.NDETALLE.Text
+                A = A.Substring(0, Me.NDETALLE.Text.Length)
+                Me.NDETALLE.Text = A
+                Me.NDETALLE.SelectionStart = Me.NDETALLE.Text.Length
+            End If
+        End If
     End Sub
-
-    Private Sub Cerrar_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Cerrar.Click
-        Me.Close()
-    End Sub
-
-    Private Sub costo_unidad_TextChanged(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles costo_unidad.TextChanged
-        If Me.Cantidad.Text <> "" And Me.costo_unidad.Text <> "" Then
-            Try
-                Me.Costo_Total.Text = (Double.Parse(Me.costo_unidad.Text) * Double.Parse(Me.Cantidad.Text)).ToString
-            Catch
-                MsgBox("Los campos Cantidad y costo unidad no denen tener letras o simbolos", MsgBoxStyle.OkOnly, "Error")
-            End Try
+    Private Sub NDETALLE_TextChanged(ByVal sender As System.Object, ByVal e As Windows.Forms.KeyPressEventArgs) Handles NDETALLE.KeyPress
+        If (e.KeyChar = Char.ConvertFromUtf32(13)) Then
+            Dim Controlador_Compra_x As Controlador_Compra
+            Controlador_Compra_x = New Controlador_Compra
+            Controlador_Compra_x.Buscar_Info_Detalle(Me.NDETALLE.Text, Me.Numero.Text, Me)
         End If
     End Sub
 
-    Private Sub Modificar_compra_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
-        'TODO: This line of code loads data into the 'FarmaciaSJDataSet.PRODUCTO' table. You can move, or remove it, as needed.
-        Me.PRODUCTOTableAdapter.Fill(Me.FarmaciaSJDataSet.PRODUCTO)
-        'TODO: This line of code loads data into the 'FarmaciaSJDataSet.COMPRA' table. You can move, or remove it, as needed.
-        Me.COMPRATableAdapter.Fill(Me.FarmaciaSJDataSet.COMPRA)
+    Private Sub CRestar_TextChanged(ByVal sender As System.Object, ByVal e As System.Windows.Forms.KeyPressEventArgs) Handles CRestar.KeyPress
+        Dim CRestar As Integer
+        Dim CUnitario As Double
+        Dim CTotal As Double
+        Dim A As Double
+        If (e.KeyChar = Char.ConvertFromUtf32(13)) Then
+            Count = 1
+            CRestar = Integer.Parse(Me.CRestar.Text)
+            CUnitario = Double.Parse(Me.CUnidad.Text)
+            CTotal = Double.Parse(Me.CTotal.Text)
+            A = Math.Round(CRestar * CUnitario)
+            CTotal = Math.Round(CTotal - A)
+            Me.CTotal.Text = Str(CTotal)
+        End If
+    End Sub
 
+
+    Private Sub CRestar_TextChanged(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles CRestar.TextChanged
+        Count = 0
+    End Sub
+
+    Private Sub Button1_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Button1.Click
+        Dim Compra As New Controlador_Compra
+
+        Compra.Modificar_Compra(Integer.Parse(Me.CRestar.Text), Double.Parse(Me.CTotal.Text), Integer.Parse(NDETALLE.Text), ID_Lote, ID_Producto, Me.RIF_PROVEEDOR.Text, Me.Numero.Text, Me)
     End Sub
 End Class

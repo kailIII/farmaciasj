@@ -20,6 +20,25 @@ Public Class Proveedor
             Return 0
         End Try
     End Function
+    Public Function CantidadP() As Integer
+        Dim Venta As FarmaciaSJDataSetTableAdapters.VENTATableAdapter
+        Dim Conextion As Data.SqlClient.SqlConnection
+        Dim Consulta As Data.SqlClient.SqlCommand
+        Dim Reder As Data.SqlClient.SqlDataReader
+        Dim C As Integer
+        Venta = New FarmaciaSJDataSetTableAdapters.VENTATableAdapter
+        Conextion = Venta.Connection
+        Consulta = New Data.SqlClient.SqlCommand
+        Conextion.Open()
+        Consulta.Connection = Conextion
+        Consulta.CommandText = "SELECT     COUNT(ID_PROVEEDOR) AS Cantidad FROM         PROVEEDOR"
+        Reder = Consulta.ExecuteReader()
+        If (Reder.Read = True) Then
+            C = Integer.Parse(Reder.Item(0).ToString)
+        End If
+        Return C
+    End Function
+
 
     Public Function Proveedor_Producto(ByVal Arreglo As Array) As Boolean
         Dim myEnumerator As System.Collections.IEnumerator = Arreglo.GetEnumerator()

@@ -56,6 +56,7 @@ Partial Class Administrador
         Me.StatusStrip = New System.Windows.Forms.StatusStrip
         Me.ToolStripStatusLabel = New System.Windows.Forms.ToolStripStatusLabel
         Me.ToolTip = New System.Windows.Forms.ToolTip(Me.components)
+        Me.SupenderPedidosToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem
         Me.MenuStrip.SuspendLayout()
         Me.StatusStrip.SuspendLayout()
         Me.SuspendLayout()
@@ -71,7 +72,7 @@ Partial Class Administrador
         '
         'VentaToolStripMenuItem
         '
-        Me.VentaToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.PuntoDeVentaToolStripMenuItem, Me.DevolverFacturaToolStripMenuItem, Me.ClienteToolStripMenuItem, Me.RegistrarPedidosToolStripMenuItem})
+        Me.VentaToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.PuntoDeVentaToolStripMenuItem, Me.DevolverFacturaToolStripMenuItem, Me.ClienteToolStripMenuItem, Me.RegistrarPedidosToolStripMenuItem, Me.SupenderPedidosToolStripMenuItem})
         Me.VentaToolStripMenuItem.Name = "VentaToolStripMenuItem"
         Me.VentaToolStripMenuItem.Size = New System.Drawing.Size(47, 20)
         Me.VentaToolStripMenuItem.Text = "Venta"
@@ -181,7 +182,7 @@ Partial Class Administrador
         '
         Me.ProveedorToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.IngresarToolStripMenuItem, Me.ConsultarToolStripMenuItem, Me.ModificarToolStripMenuItem, Me.EliminarToolStripMenuItem})
         Me.ProveedorToolStripMenuItem.Name = "ProveedorToolStripMenuItem"
-        Me.ProveedorToolStripMenuItem.Size = New System.Drawing.Size(183, 22)
+        Me.ProveedorToolStripMenuItem.Size = New System.Drawing.Size(169, 22)
         Me.ProveedorToolStripMenuItem.Text = "Proveedor"
         '
         'IngresarToolStripMenuItem
@@ -211,14 +212,14 @@ Partial Class Administrador
         'RegistrarCompraToolStripMenuItem
         '
         Me.RegistrarCompraToolStripMenuItem.Name = "RegistrarCompraToolStripMenuItem"
-        Me.RegistrarCompraToolStripMenuItem.Size = New System.Drawing.Size(183, 22)
+        Me.RegistrarCompraToolStripMenuItem.Size = New System.Drawing.Size(169, 22)
         Me.RegistrarCompraToolStripMenuItem.Text = "Registrar Compra"
         '
         'ReclamosProveedorToolStripMenuItem
         '
         Me.ReclamosProveedorToolStripMenuItem.Name = "ReclamosProveedorToolStripMenuItem"
-        Me.ReclamosProveedorToolStripMenuItem.Size = New System.Drawing.Size(183, 22)
-        Me.ReclamosProveedorToolStripMenuItem.Text = "Reclamos Proveedor"
+        Me.ReclamosProveedorToolStripMenuItem.Size = New System.Drawing.Size(169, 22)
+        Me.ReclamosProveedorToolStripMenuItem.Text = "Modificar Compra"
         '
         'ReportesToolStripMenuItem
         '
@@ -279,6 +280,12 @@ Partial Class Administrador
         Me.ToolStripStatusLabel.Size = New System.Drawing.Size(38, 17)
         Me.ToolStripStatusLabel.Text = "Status"
         '
+        'SupenderPedidosToolStripMenuItem
+        '
+        Me.SupenderPedidosToolStripMenuItem.Name = "SupenderPedidosToolStripMenuItem"
+        Me.SupenderPedidosToolStripMenuItem.Size = New System.Drawing.Size(171, 22)
+        Me.SupenderPedidosToolStripMenuItem.Text = "Supender Pedidos"
+        '
         'Administrador
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -334,5 +341,6 @@ Partial Class Administrador
     Friend WithEvents SALIRToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
     Friend WithEvents CERRARSESIONToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
     Friend WithEvents CERRARPROGRAMAToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
+    Friend WithEvents SupenderPedidosToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
 
 End Class

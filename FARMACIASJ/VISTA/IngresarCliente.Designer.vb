@@ -92,6 +92,7 @@ Partial Class IngresarCliente
         '
         'NOMBRE
         '
+        Me.NOMBRE.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper
         Me.NOMBRE.Enabled = False
         Me.NOMBRE.Location = New System.Drawing.Point(99, 89)
         Me.NOMBRE.Name = "NOMBRE"
@@ -100,6 +101,7 @@ Partial Class IngresarCliente
         '
         'APELLIDO
         '
+        Me.APELLIDO.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper
         Me.APELLIDO.Location = New System.Drawing.Point(99, 115)
         Me.APELLIDO.Name = "APELLIDO"
         Me.APELLIDO.Size = New System.Drawing.Size(141, 20)
@@ -110,6 +112,7 @@ Partial Class IngresarCliente
         '
         Me.TELEFONO.Enabled = False
         Me.TELEFONO.Location = New System.Drawing.Point(99, 141)
+        Me.TELEFONO.MaxLength = 12
         Me.TELEFONO.Name = "TELEFONO"
         Me.TELEFONO.Size = New System.Drawing.Size(141, 20)
         Me.TELEFONO.TabIndex = 8
@@ -137,9 +140,9 @@ Partial Class IngresarCliente
         Me.Label1.AutoSize = True
         Me.Label1.Location = New System.Drawing.Point(24, 35)
         Me.Label1.Name = "Label1"
-        Me.Label1.Size = New System.Drawing.Size(31, 13)
+        Me.Label1.Size = New System.Drawing.Size(28, 13)
         Me.Label1.TabIndex = 12
-        Me.Label1.Text = "Tipor"
+        Me.Label1.Text = "Tipo"
         '
         'GroupBox1
         '

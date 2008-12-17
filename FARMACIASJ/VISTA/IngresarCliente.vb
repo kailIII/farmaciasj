@@ -126,4 +126,16 @@ Public Class IngresarCliente
             End If
         End If
     End Sub
+
+    Private Sub TELEFONO_TextChanged(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles TELEFONO.TextChanged
+        If (Me.TELEFONO.Text.Length >= 1) Then
+            If (Char.IsDigit(Me.TELEFONO.Text(Me.TELEFONO.Text.Length - 1)) = False) Then
+                Dim A As String
+                A = Me.TELEFONO.Text
+                A = A.Substring(0, Me.TELEFONO.Text.Length)
+                Me.TELEFONO.Text = A
+                Me.TELEFONO.SelectionStart = Me.TELEFONO.Text.Length
+            End If
+        End If
+    End Sub
 End Class

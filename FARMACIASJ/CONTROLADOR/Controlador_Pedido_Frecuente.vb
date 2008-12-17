@@ -18,6 +18,12 @@ Public Class Controlador_Pedido_Frecuente
         Pedido.MdiParent = Padre
         Pedido.Show()
     End Sub
+    Public Sub Abrir_VentaS(ByVal Padre As Windows.Forms.Form)
+        Dim Pedido As Suspender_Pedido_frecuente
+        Pedido = New Suspender_Pedido_frecuente
+        Pedido.MdiParent = Padre
+        Pedido.Show()
+    End Sub
 
     Public Sub Buscar_Info_Pedido(ByVal Pedido_Numero As String, ByVal Ventana As Suspender_Pedido_frecuente)
         Dim Pedido_Frecuente_x As Pedido_Frecuente = New Pedido_Frecuente

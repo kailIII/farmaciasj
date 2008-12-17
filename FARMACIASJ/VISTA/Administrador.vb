@@ -60,4 +60,14 @@ Public Class Administrador
         Dim ControladorP As New Controlador_Producto
         ControladorP.Abrir_VentaM(Me)
     End Sub
+
+    Private Sub ReclamosProveedorToolStripMenuItem_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles ReclamosProveedorToolStripMenuItem.Click
+        Dim ControladorC As New Controlador_Compra
+        ControladorC.Abrir_VentaM(Me)
+    End Sub
+
+    Private Sub SupenderPedidosToolStripMenuItem_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles SupenderPedidosToolStripMenuItem.Click
+        Dim ControladorP As New Controlador_Pedido_Frecuente
+        ControladorP.Abrir_VentaS(Me)
+    End Sub
 End Class

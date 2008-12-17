@@ -103,20 +103,10 @@ Public Class Controlador_Producto
         If (Reder.HasRows = True) Then
             If (Reder.Read = True) Then
                 Compra.ID_Producto = Integer.Parse(Reder.Item(0).ToString)
-                Compra.CODIGO.Text = Reder.Item(1).ToString
                 Compra.NOMBRE_PRODUCTO.Text = Reder.Item(2).ToString
-                Compra.DESCRIPCION_PRODUCTO.Text = Reder.Item(3).ToString
-                If (Reder.Item(4).ToString = "GRAVADO") Then
-                    Compra.GRABADO.SelectedIndex = 0
-                Else
-                    Compra.GRABADO.SelectedIndex = 1
-                End If
-                Compra.UPAQUETE.Text = Reder.Item(5).ToString
                 Compra.ID_Linea = Integer.Parse(Reder.Item(6).ToString)
-                Compra.NOMBRE_LINEA.Text = Reder.Item(7).ToString
-                Compra.DESCRIPCION_LINEA.Text = Reder.Item(8).ToString
-                Compra.DMaximo.Text = Reder.Item(9).ToString
-                Compra.MUtil.Text = Reder.Item(10).ToString
+                Compra.DescMax = Double.Parse(Reder.Item(9).ToString)
+                Compra.MUtil = Double.Parse(Reder.Item(10).ToString)
             End If
         Else
             Reder = Producto.Buscar_CodigoBarras2(CODIGO_BARRAS)
@@ -125,70 +115,18 @@ Public Class Controlador_Producto
                     If (MsgBox("El Producto: " & Reder.Item(1).ToString & " No esta asociado al Proveedor, ¿Desea Asociarlo?", MsgBoxStyle.YesNo, "Alert") = MsgBoxResult.Yes) Then
                         Compra.ID_Producto = Integer.Parse(Reder.Item(0).ToString)
                         Producto.Ingresar_Proveedor_Producto(Compra.ID_Producto, ID_Proveedor)
-                        Compra.CODIGO.Text = Reder.Item(1).ToString
                         Compra.NOMBRE_PRODUCTO.Text = Reder.Item(2).ToString
-                        Compra.DESCRIPCION_PRODUCTO.Text = Reder.Item(3).ToString
-                        If (Reder.Item(4).ToString = "GRAVADO") Then
-                            Compra.GRABADO.SelectedIndex = 0
-                        Else
-                            Compra.GRABADO.SelectedIndex = 1
-                        End If
-                        Compra.UPAQUETE.Text = Reder.Item(5).ToString
                         Compra.ID_Linea = Integer.Parse(Reder.Item(6).ToString)
-                        Compra.NOMBRE_LINEA.Text = Reder.Item(7).ToString
-                        Compra.DESCRIPCION_LINEA.Text = Reder.Item(8).ToString
-                        Compra.DMaximo.Text = Reder.Item(9).ToString
-                        Compra.MUtil.Text = Reder.Item(10).ToString
+                        Compra.DescMax = Double.Parse(Reder.Item(9).ToString)
+                        Compra.MUtil = Double.Parse(Reder.Item(10).ToString)
                     End If
 
                 End If
             Else
-                If (MsgBox("El Prodcuto No existe, ¿Desea Agregarlo?", MsgBoxStyle.YesNo, "Alert") = MsgBoxResult.Yes) Then
-                    Compra.ID_Producto = -1
-                    Compra.CODIGO.Enabled = True
-                    Compra.NOMBRE_PRODUCTO.Enabled = True
-                    Compra.DESCRIPCION_PRODUCTO.Enabled = True
-                    Compra.GRABADO.Enabled = True
-                    Compra.UPAQUETE.Enabled = True
-                    Compra.NOMBRE_LINEA.Enabled = True
-                End If
-            End If
-        End If
-    End Sub
-    Public Sub Buscar_CBarras(ByVal CODIGO_BARRAS As String, ByVal ID_Proveedor As Integer, ByVal Compra As Registrar_Compra)
-        Dim Producto As Producto
-        Dim Reder As Data.SqlClient.SqlDataReader
-        Producto = New Producto
-        Reder = Producto.Buscar_CodigoBarras2(CODIGO_BARRAS)
-        If (Reder.HasRows = True) Then
-            If (Reder.Read = True) Then
-                Compra.ID_Producto = Integer.Parse(Reder.Item(0).ToString)
-                Compra.ID_Producto = Integer.Parse(Reder.Item(0).ToString)
-                Producto.Ingresar_Proveedor_Producto(Compra.ID_Producto, ID_Proveedor)
-                Compra.CODIGO.Text = Reder.Item(1).ToString
-                Compra.NOMBRE_PRODUCTO.Text = Reder.Item(2).ToString
-                Compra.DESCRIPCION_PRODUCTO.Text = Reder.Item(3).ToString
-                If (Reder.Item(4).ToString = "GRAVADO") Then
-                    Compra.GRABADO.SelectedIndex = 0
-                Else
-                    Compra.GRABADO.SelectedIndex = 1
-                End If
-                Compra.UPAQUETE.Text = Reder.Item(5).ToString
-                Compra.ID_Linea = Integer.Parse(Reder.Item(6).ToString)
-                Compra.NOMBRE_LINEA.Text = Reder.Item(7).ToString
-                Compra.DESCRIPCION_LINEA.Text = Reder.Item(8).ToString
-                Compra.DMaximo.Text = Reder.Item(9).ToString
-                Compra.MUtil.Text = Reder.Item(10).ToString
-            End If
-        Else
-            If (MsgBox("El Prodcuto No existe, ¿Desea Agregarlo?", MsgBoxStyle.YesNo, "Alert") = MsgBoxResult.Yes) Then
-                Compra.ID_Producto = -1
-                Compra.CODIGO.Enabled = True
-                Compra.NOMBRE_PRODUCTO.Enabled = True
-                Compra.DESCRIPCION_PRODUCTO.Enabled = True
-                Compra.GRABADO.Enabled = True
-                Compra.UPAQUETE.Enabled = True
-                Compra.NOMBRE_LINEA.Enabled = True
+                'If (MsgBox("El Prodcuto No existe, ¿Desea Agregarlo?", MsgBoxStyle.YesNo, "Alert") = MsgBoxResult.Yes) Then
+
+                'End If
+                MsgBox("El Prodcuto No existe", MsgBoxStyle.OkOnly, "Error")
             End If
         End If
     End Sub
@@ -230,7 +168,7 @@ Public Class Controlador_Producto
         Dim a As Boolean
         a = producto.buscar_producto(codigo_barras, mProducto)
         If (a = True) Then
-            producto.Buscar_producto_Proveedor(mProducto.id_Producto, mProducto)
+            producto.Buscar_producto_Proveedor(Str(mProducto.id_Producto), mProducto)
         Else
             MsgBox("El producto no existe", MsgBoxStyle.OkOnly, "Error")
         End If

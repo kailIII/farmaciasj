@@ -56,7 +56,7 @@ Public Class Modificar_Producto
         validar = New Validaciones_Generales
         If ((validar.comillas(Cod_Producto.Text, Label2.Text) = True) And (validar.espacio_blanco(Cod_Producto.Text, Label2.Text) = True) And (validar.nulo(Cod_Producto.Text, Label2.Text)) And (validar.comillas(Nom_Producto.Text, Label3.Text) = True) And (validar.nulo(Nom_Producto.Text, Label3.Text)) And (validar.comillas(Nom_Producto.Text, Label3.Text) = True) And (validar.nulo(Nom_Producto.Text, Label3.Text)) And (validar.comillas(Desc_Producto.Text, Label4.Text) = True) And (validar.nulo(Desc_Producto.Text, Label4.Text))) Then
             Dim ingresa As New Controlador_Producto
-            ingresa.modificar_producto(id_Producto, Me.Desc_Producto.Text, Me.GE_Producto.Text, Me.Unidades_Producto.Text, Me.Proveedores, Me.Lineas.Text, Me.proveedoresSelected)
+            ingresa.modificar_producto(Str(id_Producto), Me.Desc_Producto.Text, Me.GE_Producto.Text, Me.Unidades_Producto.Text, Me.Proveedores, Me.Lineas.Text, Me.proveedoresSelected)
         End If
         Me.Close()
     End Sub
