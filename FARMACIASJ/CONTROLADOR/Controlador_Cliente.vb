@@ -48,16 +48,4 @@ Public Class Controlador_Cliente
         End If
 
     End Function
-
-    'Lz
-    Public Sub Abrir_Ventana_Cliente(ByVal Padre As Windows.Forms.Form)
-        Dim Ingresar_Clientes As IngresarCliente
-        Ingresar_Clientes = New IngresarCliente
-        Ingresar_Clientes.MdiParent = Padre
-        Ingresar_Clientes.Show()
-    End Sub
-
-    'Fin Lz
-
-
 End Class

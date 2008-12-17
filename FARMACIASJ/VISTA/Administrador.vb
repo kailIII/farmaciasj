@@ -83,8 +83,4 @@ Public Class Administrador
 
     'Fin LZ
 
-    Private Sub ClienteToolStripMenuItem_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles ClienteToolStripMenuItem.Click
-        Dim Controlador_cliente_x As New Controlador_Cliente
-        Controlador_cliente_x.Abrir_Ventana_Cliente(Me)
-    End Sub
 End Class

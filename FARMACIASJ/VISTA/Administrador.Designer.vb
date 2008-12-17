@@ -25,7 +25,6 @@ Partial Class Administrador
         Me.VentaToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem
         Me.PuntoDeVentaToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem
         Me.DevolverFacturaToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem
-        Me.ClienteToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem
         Me.RegistrarPedidosToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem
         Me.SupenderPedidosToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem
         Me.InventarioToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem
@@ -68,7 +67,7 @@ Partial Class Administrador
         '
         'VentaToolStripMenuItem
         '
-        Me.VentaToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.PuntoDeVentaToolStripMenuItem, Me.DevolverFacturaToolStripMenuItem, Me.ClienteToolStripMenuItem, Me.RegistrarPedidosToolStripMenuItem, Me.SupenderPedidosToolStripMenuItem})
+        Me.VentaToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.PuntoDeVentaToolStripMenuItem, Me.DevolverFacturaToolStripMenuItem, Me.RegistrarPedidosToolStripMenuItem, Me.SupenderPedidosToolStripMenuItem})
         Me.VentaToolStripMenuItem.Name = "VentaToolStripMenuItem"
         Me.VentaToolStripMenuItem.Size = New System.Drawing.Size(47, 20)
         Me.VentaToolStripMenuItem.Text = "Venta"
@@ -84,12 +83,6 @@ Partial Class Administrador
         Me.DevolverFacturaToolStripMenuItem.Name = "DevolverFacturaToolStripMenuItem"
         Me.DevolverFacturaToolStripMenuItem.Size = New System.Drawing.Size(171, 22)
         Me.DevolverFacturaToolStripMenuItem.Text = "Devolver Factura"
-        '
-        'ClienteToolStripMenuItem
-        '
-        Me.ClienteToolStripMenuItem.Name = "ClienteToolStripMenuItem"
-        Me.ClienteToolStripMenuItem.Size = New System.Drawing.Size(171, 22)
-        Me.ClienteToolStripMenuItem.Text = "Registrar Cliente"
         '
         'RegistrarPedidosToolStripMenuItem
         '
@@ -292,7 +285,6 @@ Partial Class Administrador
     Friend WithEvents ReportesToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
     Friend WithEvents ConfiguracionToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
     Friend WithEvents AjusteToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
-    Friend WithEvents ClienteToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
     Friend WithEvents ProveedorToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
     Friend WithEvents IngresarToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
     Friend WithEvents EliminarToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem

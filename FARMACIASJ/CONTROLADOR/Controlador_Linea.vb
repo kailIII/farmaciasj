@@ -1,15 +1,17 @@
 Public Class Controlador_Linea
 
-    Public Sub Ingresando_Linea(ByVal Nombre As String, ByVal Descuento As Double, ByVal Descripcion As String, ByVal Margen As Double)
+    Public Sub Ingresando_Linea(ByVal Nombre As String, ByVal Descuento As String, ByVal Descripcion As String, ByVal Margen As String)
 
         Dim Linea As Linea = New Linea
         Dim Validacion As Validaciones_Generales = New Validaciones_Generales
-        
 
-        If (Linea.Ingresar_Linea(Nombre, Descuento, Descripcion, Margen) And Validacion.Tamano_Aceptable_Cadena(Str(Descuento), 3, "Porcentaje de Descuento inválido") And Validacion.Tamano_Aceptable_Cadena(Str(Margen), 3, "Porcentaje de margen útil inválido")) Then
-            MsgBox("La Línea se insertó con éxito.", MsgBoxStyle.OkOnly, "Aviso")
-        Else
-            MsgBox("La Línea no se pudo insertar", MsgBoxStyle.OkOnly, "Error")
+        If (Validacion.Tamano_Aceptable_Cadena(Descuento, 2, "Porcentaje de Descuento inválido") And Validacion.Tamano_Aceptable_Cadena(Margen, 2, "Porcentaje de margen útil inválido")) Then
+            If Linea.Ingresar_Linea(Nombre, CInt(Descuento), Descripcion, CInt(Margen)) Then
+                MsgBox("La Línea se insertó con éxito.", MsgBoxStyle.OkOnly, "Aviso")
+
+            Else
+                MsgBox("La Línea no se pudo insertar", MsgBoxStyle.OkOnly, "Error")
+            End If
         End If
     End Sub
 
@@ -47,21 +49,25 @@ Public Class Controlador_Linea
         Dim Linea As Linea
         Dim Reder As Data.SqlClient.SqlDataReader
         Linea = New Linea
-        Reder = Linea.BuscarLinea2(Nombre)
-        If (Reder.Read = True) Then
-            MLinea.id_linea = Integer.Parse(Reder.Item(0).ToString)
-            MLinea.NombreLinea.Text = Reder.Item(1).ToString
-            MLinea.DescripcionLinea.Text = Reder.Item(2).ToString
-            MLinea.DescMax.Text = Reder.Item(3).ToString
-            MLinea.MargenUtil.Text = Reder.Item(4).ToString
-            MLinea.NombreLinea.Enabled = False
-            MLinea.DescripcionLinea.Enabled = True
-            MLinea.DescMax.Enabled = True
-            MLinea.MargenUtil.Enabled = True
-            MLinea.Modificar_Boton.Enabled = True
-        Else
+        Try
+            Reder = Linea.BuscarLinea2(Nombre)
+            If (Reder.Read = True) Then
+                MLinea.id_linea = Integer.Parse(Reder.Item(0).ToString)
+                MLinea.NombreLinea.Text = Reder.Item(1).ToString
+                MLinea.DescripcionLinea.Text = Reder.Item(2).ToString
+                MLinea.DescMax.Text = Reder.Item(3).ToString
+                MLinea.MargenUtil.Text = Reder.Item(4).ToString
+                MLinea.NombreLinea.Enabled = False
+                MLinea.DescripcionLinea.Enabled = True
+                MLinea.DescMax.Enabled = True
+                MLinea.MargenUtil.Enabled = True
+                MLinea.Modificar_Boton.Enabled = True
+            Else
+                MsgBox("La Linea: " & Nombre & " no existe", MsgBoxStyle.OkOnly, "Error")
+            End If
+        Catch ex As Exception
             MsgBox("La Linea: " & Nombre & " no existe", MsgBoxStyle.OkOnly, "Error")
-        End If
+        End Try
     End Sub
 
     Public Sub Modificar_Linea(ByVal id_linea As Integer, ByVal DescripcionLinea As String, ByVal DescMax As String, ByVal MargenU As String, ByVal mLinea As Modificar_Linea)
@@ -69,10 +75,10 @@ Public Class Controlador_Linea
         Dim a As Boolean
         a = Linea.Modificar_Linea(id_linea, DescripcionLinea, DescMax, MargenU)
         If (a = True) Then
-            MsgBox("La modificacion se realizo con Exito", MsgBoxStyle.OkOnly, "Informacion")
+            MsgBox("La modificación se realizó con Éxito", MsgBoxStyle.OkOnly, "Información")
             mLinea.Close()
         Else
-            MsgBox("La modificacion tiene errores verifique e intente de nuevo", MsgBoxStyle.OkOnly, "Error")
+            MsgBox("La modificación tiene errores, verifique e intente nuevamente", MsgBoxStyle.OkOnly, "Error")
         End If
     End Sub
 

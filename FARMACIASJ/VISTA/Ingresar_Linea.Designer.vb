@@ -66,7 +66,7 @@ Partial Class Ingresar_Linea
         'Label6
         '
         Me.Label6.AutoSize = True
-        Me.Label6.Location = New System.Drawing.Point(307, 198)
+        Me.Label6.Location = New System.Drawing.Point(301, 198)
         Me.Label6.Name = "Label6"
         Me.Label6.Size = New System.Drawing.Size(15, 13)
         Me.Label6.TabIndex = 9
@@ -75,7 +75,7 @@ Partial Class Ingresar_Linea
         'Label5
         '
         Me.Label5.AutoSize = True
-        Me.Label5.Location = New System.Drawing.Point(307, 168)
+        Me.Label5.Location = New System.Drawing.Point(301, 168)
         Me.Label5.Name = "Label5"
         Me.Label5.Size = New System.Drawing.Size(15, 13)
         Me.Label5.TabIndex = 8
@@ -83,7 +83,7 @@ Partial Class Ingresar_Linea
         '
         'Ingresar_Boton
         '
-        Me.Ingresar_Boton.Location = New System.Drawing.Point(241, 230)
+        Me.Ingresar_Boton.Location = New System.Drawing.Point(241, 221)
         Me.Ingresar_Boton.Name = "Ingresar_Boton"
         Me.Ingresar_Boton.Size = New System.Drawing.Size(75, 23)
         Me.Ingresar_Boton.TabIndex = 7
