@@ -51,15 +51,19 @@ Public Class Registrar_Pedido
     End Sub
 
     Private Sub ingresar_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles ingresar.Click
+        Dim Controlador As Controlador_Pedido_Frecuente
+        Controlador = New Controlador_Pedido_Frecuente
+
+
         Dim validar As Validaciones_Generales
         validar = New Validaciones_Generales
         If ((validar.comillas(Descripcion.Text, Label4.Text) = True) And (validar.nulo(Descripcion.Text, Label4.Text))) Then
-
+            Controlador.Ingresar_Pedido(Me)
 
 
 
         End If
-        Me.Close()
+
     End Sub
 
 
