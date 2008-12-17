@@ -24,4 +24,8 @@ Public Class Suspender_Pedido_frecuente
             Controlador_Pedido_Frecuente_x.Buscar_Info_Pedido(Me.Numero_Pedido.Text, Me)
         End If
     End Sub
+
+    Private Sub Suspender_Pedido_frecuente_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
+
+    End Sub
 End Class

@@ -397,4 +397,40 @@ Public Class Producto
             Return False
         End Try
     End Function
+
+
+    'LZ
+
+    Public Function Buscar_Info_Productos(ByVal Codigo As String, ByVal Ventana As Registrar_Pedido) As Boolean
+        Dim Producto As FarmaciaSJDataSetTableAdapters.PRODUCTOTableAdapter
+        Dim Lote As FarmaciaSJDataSetTableAdapters.LOTETableAdapter
+        Dim Conextion As Data.SqlClient.SqlConnection
+        Dim Consulta As Data.SqlClient.SqlCommand
+        Dim Reder As Data.SqlClient.SqlDataReader
+        Try
+            Producto = New FarmaciaSJDataSetTableAdapters.PRODUCTOTableAdapter
+            Lote = New FarmaciaSJDataSetTableAdapters.LOTETableAdapter
+            Conextion = Producto.Connection
+            Consulta = New Data.SqlClient.SqlCommand
+            Conextion.Open()
+            Consulta.Connection = Conextion
+            Consulta.CommandText = "SELECT     PRODUCTO.ID_PRODUCTO, PRODUCTO.NOMBRE, PRODUCTO.DESCRIPCION, PRODUCTO.CODIGO FROM PRODUCTO WHERE PRODUCTO.CODIGO_DE_BARRAS = '" & Codigo & "'"
+            Reder = Consulta.ExecuteReader()
+            If (Reder.Read = True) Then
+
+                Ventana.Id_Producto = CInt(Reder.Item(0).ToString())
+                Ventana.Nombre_Producto.Text = Reder.Item(1).ToString()
+                Return True
+
+            End If
+
+        Catch ex As Exception
+            Return False
+        End Try
+        Return False
+    End Function
+
+    'Fin LZ
+
+
 End Class

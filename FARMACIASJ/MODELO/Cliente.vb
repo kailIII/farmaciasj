@@ -64,7 +64,41 @@ Public Class Cliente
             Return 2
         End Try
     End Function
-    Public Function BuscarCliente(ByVal Codigo As String, ByVal Tipo As String) As Boolean
+
+
+
+    Public Function buscar_identidad(ByVal Venta As Registrar_Pedido, ByVal Rif As String) As Integer
+        Dim Cliente As FarmaciaSJDataSetTableAdapters.CLIENTETableAdapter
+        Dim Conextion As Data.SqlClient.SqlConnection
+        Dim Consulta As Data.SqlClient.SqlCommand
+        Dim Reder As Data.SqlClient.SqlDataReader
+
+        Try
+            Cliente = New FarmaciaSJDataSetTableAdapters.CLIENTETableAdapter
+            Conextion = Cliente.Connection
+            Consulta = New Data.SqlClient.SqlCommand
+            Conextion.Open()
+            Consulta.Connection = Conextion
+            Consulta.CommandText = "SELECT     ID_CLIENTE, ID_CLIENTE, IDENTIDAD, NOMBRE, APELLIDO, TELEFONO, DIRECCION FROM         CLIENTE WHERE     (IDENTIDAD = '" & Rif & "')"
+            Reder = Consulta.ExecuteReader()
+            If (Reder.Read = True) Then
+
+                If (Rif.Contains("V")) Then
+                    Venta.Razon_Social.Text = Reder.Item(3).ToString() & " " & Reder.Item(4).ToString
+                Else
+                    Venta.Razon_Social.Text = Reder.Item(3).ToString()
+                End If
+                Return 0
+            Else
+                Return 1
+            End If
+        Catch e As Data.SqlClient.SqlException
+            Return 2
+        End Try
+    End Function
+
+
+    Public Function BuscarCliente(ByVal Codigo As String) As Integer
         Dim cliente As FarmaciaSJDataSetTableAdapters.CLIENTETableAdapter
         Dim Conextion As Data.SqlClient.SqlConnection
         Dim Consulta As Data.SqlClient.SqlCommand
@@ -75,13 +109,13 @@ Public Class Cliente
             Consulta = New Data.SqlClient.SqlCommand
             Conextion.Open()
             Consulta.Connection = Conextion
-            Consulta.CommandText = "SELECT documento_identidad FROM cliente WHERE ('" & Codigo & "' = documento_identidad and '" & TIPO & "'= TIPO_IDENTIDAD)"
+            Consulta.CommandText = "SELECT ID_CLIENTE FROM cliente WHERE IDENTIDAD='" & Codigo & "'"
             Reder = Consulta.ExecuteReader()
             If (Reder.Read = True) Then
                 If (Reder.HasRows = True) Then
-                    Return True
+                    Return CInt(Reder.Item(0).ToString)
                 Else
-                    Return (False)
+                    Return 0
                 End If
             End If
         Catch e As Data.SqlClient.SqlException

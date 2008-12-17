@@ -43,18 +43,25 @@ Public Class Controlador_Proveedor
             
             End If
         Else
-            If Validacion.Tamano_Aceptable_Cadena(Saldo, 15, "El Saldo introducido es incorrecto") Then
-                If Proveedor_x.Ingresar_Proveedor(Codigo, Rif, Nombre, Correo, Dir, Ciudad, CDbl(Saldo)) Then
-                    MsgBox("El proveedor se registró con éxito.", MsgBoxStyle.OkOnly, "Aviso")
-                Else
-                    MsgBox("No se pudo registrar el proveedor", MsgBoxStyle.OkOnly, "Error")
-                End If
+            If Proveedor_x.Existe_Proveedor(Codigo, True) > 0 Then
+                MsgBox("Código repetido. Ya existe un proveedor con ese número", MsgBoxStyle.OkOnly, "Aviso")
+            ElseIf Proveedor_x.Existe_Proveedor(Rif, False) > 0 Then
+                MsgBox("RIF repetido. Ya existe un proveedor con ese número", MsgBoxStyle.OkOnly, "Aviso")
+            Else
 
-                ' Tenemos que buscar el último ID, ya 
-                If Not Proveedor_x.Proveedor_Producto(Arreglo) Then
-                    MsgBox("No se pudo registrar el producto a este Proveedor", MsgBoxStyle.OkOnly, "Error")
+                If Validacion.Tamano_Aceptable_Cadena(Saldo, 15, "El Saldo introducido es incorrecto") Then
+                    If Proveedor_x.Ingresar_Proveedor(Codigo, Rif, Nombre, Correo, Dir, Ciudad, CDbl(Saldo)) Then
+                        MsgBox("El proveedor se registró con éxito.", MsgBoxStyle.OkOnly, "Aviso")
+                    Else
+                        MsgBox("No se pudo registrar el proveedor", MsgBoxStyle.OkOnly, "Error")
+                    End If
+
+                    ' Tenemos que buscar el último ID, ya 
+                    If Not Proveedor_x.Proveedor_Producto(Arreglo) Then
+                        MsgBox("No se pudo registrar el producto a este Proveedor", MsgBoxStyle.OkOnly, "Error")
+                    End If
+                    Ventana.Close()
                 End If
-                Ventana.Close()
 
             End If
         End If

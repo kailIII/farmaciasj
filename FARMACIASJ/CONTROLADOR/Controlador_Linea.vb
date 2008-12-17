@@ -4,15 +4,18 @@ Public Class Controlador_Linea
 
         Dim Linea As Linea = New Linea
         Dim Validacion As Validaciones_Generales = New Validaciones_Generales
-
-        If (Validacion.Tamano_Aceptable_Cadena(Descuento, 2, "Porcentaje de Descuento inválido") And Validacion.Tamano_Aceptable_Cadena(Margen, 2, "Porcentaje de margen útil inválido")) Then
-            If Linea.Ingresar_Linea(Nombre, CInt(Descuento), Descripcion, CInt(Margen)) Then
-                MsgBox("La Línea se insertó con éxito.", MsgBoxStyle.OkOnly, "Aviso")
-
-            Else
-                MsgBox("La Línea no se pudo insertar", MsgBoxStyle.OkOnly, "Error")
+        If Linea.BuscarLinea(Nombre) Then
+            MsgBox("Línea repetida. La Línea no se puede insertar", MsgBoxStyle.OkOnly, "Error")
+        Else
+            If (Validacion.Tamano_Aceptable_Cadena(Descuento, 2, "Porcentaje de Descuento inválido") And Validacion.Tamano_Aceptable_Cadena(Margen, 2, "Porcentaje de margen útil inválido")) Then
+                If Linea.Ingresar_Linea(Nombre, CInt(Descuento), Descripcion, CInt(Margen)) Then
+                    MsgBox("La Línea se insertó con éxito.", MsgBoxStyle.OkOnly, "Aviso")
+                Else
+                    MsgBox("La Línea no se pudo insertar", MsgBoxStyle.OkOnly, "Error")
+                End If
             End If
         End If
+        
     End Sub
 
     Public Sub Buscar_Nombre_linea(ByVal NOMBRE As String, ByVal Compra As Registrar_Compra)
