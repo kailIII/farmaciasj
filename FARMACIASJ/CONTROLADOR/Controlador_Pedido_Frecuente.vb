@@ -91,7 +91,7 @@ Public Class Controlador_Pedido_Frecuente
     Public Sub Ingresar_Pedido(ByVal Ventana As Registrar_Pedido)
         Dim ingresar As Pedido_Frecuente = New Pedido_Frecuente
         Try
-            ingresar.Ingresar_Pedido("", Ventana.Fecha_Inicio.Value, Ventana.Fecha_Fin.Value, Ventana.Descripcion.Text, CInt(Ventana.Cantidad.Text), Ventana.Id_Producto, Ventana.Id_Cliente)
+            ingresar.Ingresar_Pedido(Ventana.Numero.Text, Ventana.Fecha_Inicio.Value, Ventana.Fecha_Fin.Value, Ventana.Descripcion.Text, CInt(Ventana.Cantidad.Text), Ventana.Id_Producto, Ventana.Id_Cliente)
             MsgBox("El Pedido se ha registrado con Éxito.", MsgBoxStyle.OkOnly, "Información")
             Ventana.Close()
         Catch ex As Exception

@@ -60,8 +60,6 @@ Public Class Registrar_Pedido
         If ((validar.comillas(Descripcion.Text, Label4.Text) = True) And (validar.nulo(Descripcion.Text, Label4.Text))) Then
             Controlador.Ingresar_Pedido(Me)
 
-
-
         End If
 
     End Sub

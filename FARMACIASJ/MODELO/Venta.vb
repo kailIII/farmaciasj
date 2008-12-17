@@ -8,9 +8,7 @@ Public Class Venta
         Dim Reder As Data.SqlClient.SqlDataReader
         Try
             BasedeDatos = New FarmaciaSJDataSet
-            'VentaTablaAdapter()
-            'VentaTablaAdapter.Insert(Numero, Fecha, Vence, 0, 0, 0, 0, 0, 0, "", "", Vence, Id_Cliente)
-            ' Commit
+            VentaTablaAdapter.Insert(Numero, Fecha, Vence, 0, 0, 0, 0, 0, 0, "", "", Vence, Id_Cliente, 0)
             VentaTablaAdapter.Update(BasedeDatos.VENTA)
             Conextion.Open()
             Reder = Consulta.ExecuteReader
@@ -214,7 +212,7 @@ Public Class Venta
             Factura.PrintToPrinter(1, True, 1, 2)
             MsgBox("La factura se Processo con exito", MsgBoxStyle.OkOnly, "Error")
             Return FarmaciaSJ
-        Catch E As Data.SqlClient.SqlException
+        Catch E As Exception
             MsgBox("La Factura se processo con exito, pero existen errores con la Impresor", MsgBoxStyle.OkOnly, "Error")
             Return FarmaciaSJ
         End Try

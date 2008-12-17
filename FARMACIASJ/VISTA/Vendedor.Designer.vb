@@ -30,8 +30,6 @@ Partial Class Vendedor
         Me.ConsultarClienteToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem
         Me.ModificarClienteToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem
         Me.ConfiguracionToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem
-        Me.PasswordUsuarioToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem
-        Me.FacturaToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem
         Me.DatosFarmaciaToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem
         Me.SalirToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem
         Me.CerrarSesionToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem
@@ -108,29 +106,15 @@ Partial Class Vendedor
         '
         'ConfiguracionToolStripMenuItem
         '
-        Me.ConfiguracionToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.PasswordUsuarioToolStripMenuItem, Me.FacturaToolStripMenuItem, Me.DatosFarmaciaToolStripMenuItem})
+        Me.ConfiguracionToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.DatosFarmaciaToolStripMenuItem})
         Me.ConfiguracionToolStripMenuItem.Name = "ConfiguracionToolStripMenuItem"
         Me.ConfiguracionToolStripMenuItem.Size = New System.Drawing.Size(85, 20)
         Me.ConfiguracionToolStripMenuItem.Text = "C&onfiguracion"
         '
-        'PasswordUsuarioToolStripMenuItem
-        '
-        Me.PasswordUsuarioToolStripMenuItem.Name = "PasswordUsuarioToolStripMenuItem"
-        Me.PasswordUsuarioToolStripMenuItem.ShortcutKeys = CType((System.Windows.Forms.Keys.Control Or System.Windows.Forms.Keys.P), System.Windows.Forms.Keys)
-        Me.PasswordUsuarioToolStripMenuItem.Size = New System.Drawing.Size(211, 22)
-        Me.PasswordUsuarioToolStripMenuItem.Text = "Password_Usuario"
-        '
-        'FacturaToolStripMenuItem
-        '
-        Me.FacturaToolStripMenuItem.Name = "FacturaToolStripMenuItem"
-        Me.FacturaToolStripMenuItem.ShortcutKeys = CType((System.Windows.Forms.Keys.Control Or System.Windows.Forms.Keys.F), System.Windows.Forms.Keys)
-        Me.FacturaToolStripMenuItem.Size = New System.Drawing.Size(211, 22)
-        Me.FacturaToolStripMenuItem.Text = "Factura"
-        '
         'DatosFarmaciaToolStripMenuItem
         '
         Me.DatosFarmaciaToolStripMenuItem.Name = "DatosFarmaciaToolStripMenuItem"
-        Me.DatosFarmaciaToolStripMenuItem.Size = New System.Drawing.Size(211, 22)
+        Me.DatosFarmaciaToolStripMenuItem.Size = New System.Drawing.Size(162, 22)
         Me.DatosFarmaciaToolStripMenuItem.Text = "Datos_Farmacia"
         '
         'SalirToolStripMenuItem
@@ -200,8 +184,6 @@ Partial Class Vendedor
     Friend WithEvents ConsultarClienteToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
     Friend WithEvents ModificarClienteToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
     Friend WithEvents ConfiguracionToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
-    Friend WithEvents PasswordUsuarioToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
-    Friend WithEvents FacturaToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
     Friend WithEvents SalirToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
     Friend WithEvents CerrarSesionToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
     Friend WithEvents CerrarProgramaToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem

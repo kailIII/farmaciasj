@@ -31,7 +31,6 @@ Partial Class Administrador
         Me.ProductoToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem
         Me.IngresarProductoToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem
         Me.ModificarProductoToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem
-        Me.AjusteToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem
         Me.LineaToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem
         Me.IngresarToolStripMenuItem2 = New System.Windows.Forms.ToolStripMenuItem
         Me.ModificarToolStripMenuItem2 = New System.Windows.Forms.ToolStripMenuItem
@@ -42,10 +41,8 @@ Partial Class Administrador
         Me.EliminarToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem
         Me.RegistrarCompraToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem
         Me.ReclamosProveedorToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem
-        Me.ReportesToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem
         Me.ConfiguracionToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem
         Me.ConfigurarFarmaciaToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem
-        Me.PasswordUsuarioToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem
         Me.SALIRToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem
         Me.CERRARSESIONToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem
         Me.CERRARPROGRAMAToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem
@@ -58,7 +55,7 @@ Partial Class Administrador
         '
         'MenuStrip
         '
-        Me.MenuStrip.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.VentaToolStripMenuItem, Me.InventarioToolStripMenuItem, Me.CompraToolStripMenuItem, Me.ReportesToolStripMenuItem, Me.ConfiguracionToolStripMenuItem, Me.SALIRToolStripMenuItem})
+        Me.MenuStrip.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.VentaToolStripMenuItem, Me.InventarioToolStripMenuItem, Me.CompraToolStripMenuItem, Me.ConfiguracionToolStripMenuItem, Me.SALIRToolStripMenuItem})
         Me.MenuStrip.Location = New System.Drawing.Point(0, 0)
         Me.MenuStrip.Name = "MenuStrip"
         Me.MenuStrip.Size = New System.Drawing.Size(632, 24)
@@ -98,7 +95,7 @@ Partial Class Administrador
         '
         'InventarioToolStripMenuItem
         '
-        Me.InventarioToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ProductoToolStripMenuItem, Me.AjusteToolStripMenuItem, Me.LineaToolStripMenuItem})
+        Me.InventarioToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ProductoToolStripMenuItem, Me.LineaToolStripMenuItem})
         Me.InventarioToolStripMenuItem.Name = "InventarioToolStripMenuItem"
         Me.InventarioToolStripMenuItem.Size = New System.Drawing.Size(69, 20)
         Me.InventarioToolStripMenuItem.Text = "Inventario"
@@ -107,7 +104,7 @@ Partial Class Administrador
         '
         Me.ProductoToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.IngresarProductoToolStripMenuItem, Me.ModificarProductoToolStripMenuItem})
         Me.ProductoToolStripMenuItem.Name = "ProductoToolStripMenuItem"
-        Me.ProductoToolStripMenuItem.Size = New System.Drawing.Size(172, 22)
+        Me.ProductoToolStripMenuItem.Size = New System.Drawing.Size(152, 22)
         Me.ProductoToolStripMenuItem.Text = "Producto"
         '
         'IngresarProductoToolStripMenuItem
@@ -122,29 +119,23 @@ Partial Class Administrador
         Me.ModificarProductoToolStripMenuItem.Size = New System.Drawing.Size(174, 22)
         Me.ModificarProductoToolStripMenuItem.Text = "Modificar Producto"
         '
-        'AjusteToolStripMenuItem
-        '
-        Me.AjusteToolStripMenuItem.Name = "AjusteToolStripMenuItem"
-        Me.AjusteToolStripMenuItem.Size = New System.Drawing.Size(172, 22)
-        Me.AjusteToolStripMenuItem.Text = "Ajuste  Inventario"
-        '
         'LineaToolStripMenuItem
         '
         Me.LineaToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.IngresarToolStripMenuItem2, Me.ModificarToolStripMenuItem2})
         Me.LineaToolStripMenuItem.Name = "LineaToolStripMenuItem"
-        Me.LineaToolStripMenuItem.Size = New System.Drawing.Size(172, 22)
+        Me.LineaToolStripMenuItem.Size = New System.Drawing.Size(152, 22)
         Me.LineaToolStripMenuItem.Text = "Linea"
         '
         'IngresarToolStripMenuItem2
         '
         Me.IngresarToolStripMenuItem2.Name = "IngresarToolStripMenuItem2"
-        Me.IngresarToolStripMenuItem2.Size = New System.Drawing.Size(128, 22)
+        Me.IngresarToolStripMenuItem2.Size = New System.Drawing.Size(152, 22)
         Me.IngresarToolStripMenuItem2.Text = "Ingresar"
         '
         'ModificarToolStripMenuItem2
         '
         Me.ModificarToolStripMenuItem2.Name = "ModificarToolStripMenuItem2"
-        Me.ModificarToolStripMenuItem2.Size = New System.Drawing.Size(128, 22)
+        Me.ModificarToolStripMenuItem2.Size = New System.Drawing.Size(152, 22)
         Me.ModificarToolStripMenuItem2.Text = "Modificar"
         '
         'CompraToolStripMenuItem
@@ -191,15 +182,9 @@ Partial Class Administrador
         Me.ReclamosProveedorToolStripMenuItem.Size = New System.Drawing.Size(169, 22)
         Me.ReclamosProveedorToolStripMenuItem.Text = "Modificar Compra"
         '
-        'ReportesToolStripMenuItem
-        '
-        Me.ReportesToolStripMenuItem.Name = "ReportesToolStripMenuItem"
-        Me.ReportesToolStripMenuItem.Size = New System.Drawing.Size(63, 20)
-        Me.ReportesToolStripMenuItem.Text = "Reportes"
-        '
         'ConfiguracionToolStripMenuItem
         '
-        Me.ConfiguracionToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ConfigurarFarmaciaToolStripMenuItem, Me.PasswordUsuarioToolStripMenuItem})
+        Me.ConfiguracionToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ConfigurarFarmaciaToolStripMenuItem})
         Me.ConfiguracionToolStripMenuItem.Name = "ConfiguracionToolStripMenuItem"
         Me.ConfiguracionToolStripMenuItem.Size = New System.Drawing.Size(85, 20)
         Me.ConfiguracionToolStripMenuItem.Text = "Configuracion"
@@ -209,12 +194,6 @@ Partial Class Administrador
         Me.ConfigurarFarmaciaToolStripMenuItem.Name = "ConfigurarFarmaciaToolStripMenuItem"
         Me.ConfigurarFarmaciaToolStripMenuItem.Size = New System.Drawing.Size(182, 22)
         Me.ConfigurarFarmaciaToolStripMenuItem.Text = "Configurar Farmacia"
-        '
-        'PasswordUsuarioToolStripMenuItem
-        '
-        Me.PasswordUsuarioToolStripMenuItem.Name = "PasswordUsuarioToolStripMenuItem"
-        Me.PasswordUsuarioToolStripMenuItem.Size = New System.Drawing.Size(182, 22)
-        Me.PasswordUsuarioToolStripMenuItem.Text = "Password Usuario"
         '
         'SALIRToolStripMenuItem
         '
@@ -282,16 +261,13 @@ Partial Class Administrador
     Friend WithEvents IngresarProductoToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
     Friend WithEvents ModificarProductoToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
     Friend WithEvents CompraToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
-    Friend WithEvents ReportesToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
     Friend WithEvents ConfiguracionToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
-    Friend WithEvents AjusteToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
     Friend WithEvents ProveedorToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
     Friend WithEvents IngresarToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
     Friend WithEvents EliminarToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
     Friend WithEvents RegistrarCompraToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
     Friend WithEvents ReclamosProveedorToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
     Friend WithEvents ConfigurarFarmaciaToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
-    Friend WithEvents PasswordUsuarioToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
     Friend WithEvents RegistrarPedidosToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
     Friend WithEvents LineaToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
     Friend WithEvents IngresarToolStripMenuItem2 As System.Windows.Forms.ToolStripMenuItem

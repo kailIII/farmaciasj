@@ -73,14 +73,20 @@ Public Class Administrador
 
 
     'LZ
-    Private Sub DevolverFacturaToolStripMenuItem_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles DevolverFacturaToolStripMenuItem.Click
-        Dim Controlador_Venta_x As New Controlador_Venta
-        Controlador_Venta_x.Abrir_Ventana_Devolucion(Me)
-    End Sub
+    'Private Sub DevolverFacturaToolStripMenuItem_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles DevolverFacturaToolStripMenuItem.Click
+    '    Dim Controlador_Venta_x As New Controlador_Venta
+    '    Controlador_Venta_x.Abrir_Ventana_Devolucion(Me)
+    'End Sub
 
     
 
 
     'Fin LZ
 
+    Private Sub ConfigurarFarmaciaToolStripMenuItem_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles ConfigurarFarmaciaToolStripMenuItem.Click
+        Dim Configuracion As Configuracion
+        Configuracion = New Configuracion
+        Configuracion.MdiParent = Me
+        Configuracion.Show()
+    End Sub
 End Class
