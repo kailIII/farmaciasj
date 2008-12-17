@@ -39,7 +39,7 @@ Partial Class IngresarCliente
         'LIdentidad
         '
         Me.LIdentidad.AutoSize = True
-        Me.LIdentidad.Location = New System.Drawing.Point(24, 66)
+        Me.LIdentidad.Location = New System.Drawing.Point(6, 63)
         Me.LIdentidad.Name = "LIdentidad"
         Me.LIdentidad.Size = New System.Drawing.Size(27, 13)
         Me.LIdentidad.TabIndex = 1
@@ -48,7 +48,7 @@ Partial Class IngresarCliente
         'LNOMBRE
         '
         Me.LNOMBRE.AutoSize = True
-        Me.LNOMBRE.Location = New System.Drawing.Point(24, 92)
+        Me.LNOMBRE.Location = New System.Drawing.Point(6, 89)
         Me.LNOMBRE.Name = "LNOMBRE"
         Me.LNOMBRE.Size = New System.Drawing.Size(57, 13)
         Me.LNOMBRE.TabIndex = 3
@@ -57,7 +57,7 @@ Partial Class IngresarCliente
         'LApellido
         '
         Me.LApellido.AutoSize = True
-        Me.LApellido.Location = New System.Drawing.Point(24, 118)
+        Me.LApellido.Location = New System.Drawing.Point(6, 115)
         Me.LApellido.Name = "LApellido"
         Me.LApellido.Size = New System.Drawing.Size(62, 13)
         Me.LApellido.TabIndex = 5
@@ -67,7 +67,7 @@ Partial Class IngresarCliente
         'TELEFONOLabel
         '
         Me.TELEFONOLabel.AutoSize = True
-        Me.TELEFONOLabel.Location = New System.Drawing.Point(24, 144)
+        Me.TELEFONOLabel.Location = New System.Drawing.Point(6, 141)
         Me.TELEFONOLabel.Name = "TELEFONOLabel"
         Me.TELEFONOLabel.Size = New System.Drawing.Size(67, 13)
         Me.TELEFONOLabel.TabIndex = 7
@@ -76,7 +76,7 @@ Partial Class IngresarCliente
         'DIRECCIONLabel
         '
         Me.DIRECCIONLabel.AutoSize = True
-        Me.DIRECCIONLabel.Location = New System.Drawing.Point(24, 175)
+        Me.DIRECCIONLabel.Location = New System.Drawing.Point(6, 172)
         Me.DIRECCIONLabel.Name = "DIRECCIONLabel"
         Me.DIRECCIONLabel.Size = New System.Drawing.Size(69, 13)
         Me.DIRECCIONLabel.TabIndex = 9
@@ -85,52 +85,52 @@ Partial Class IngresarCliente
         'RIF
         '
         Me.RIF.Enabled = False
-        Me.RIF.Location = New System.Drawing.Point(99, 63)
+        Me.RIF.Location = New System.Drawing.Point(89, 56)
         Me.RIF.Name = "RIF"
-        Me.RIF.Size = New System.Drawing.Size(141, 20)
+        Me.RIF.Size = New System.Drawing.Size(199, 20)
         Me.RIF.TabIndex = 2
         '
         'NOMBRE
         '
         Me.NOMBRE.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper
         Me.NOMBRE.Enabled = False
-        Me.NOMBRE.Location = New System.Drawing.Point(99, 89)
+        Me.NOMBRE.Location = New System.Drawing.Point(89, 82)
         Me.NOMBRE.Name = "NOMBRE"
-        Me.NOMBRE.Size = New System.Drawing.Size(141, 20)
+        Me.NOMBRE.Size = New System.Drawing.Size(199, 20)
         Me.NOMBRE.TabIndex = 4
         '
         'APELLIDO
         '
         Me.APELLIDO.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper
-        Me.APELLIDO.Location = New System.Drawing.Point(99, 115)
+        Me.APELLIDO.Location = New System.Drawing.Point(89, 108)
         Me.APELLIDO.Name = "APELLIDO"
-        Me.APELLIDO.Size = New System.Drawing.Size(141, 20)
+        Me.APELLIDO.Size = New System.Drawing.Size(199, 20)
         Me.APELLIDO.TabIndex = 6
         Me.APELLIDO.Visible = False
         '
         'TELEFONO
         '
         Me.TELEFONO.Enabled = False
-        Me.TELEFONO.Location = New System.Drawing.Point(99, 141)
+        Me.TELEFONO.Location = New System.Drawing.Point(89, 134)
         Me.TELEFONO.MaxLength = 12
         Me.TELEFONO.Name = "TELEFONO"
-        Me.TELEFONO.Size = New System.Drawing.Size(141, 20)
+        Me.TELEFONO.Size = New System.Drawing.Size(199, 20)
         Me.TELEFONO.TabIndex = 8
         '
         'DIRECCION
         '
         Me.DIRECCION.Enabled = False
-        Me.DIRECCION.Location = New System.Drawing.Point(99, 172)
+        Me.DIRECCION.Location = New System.Drawing.Point(89, 160)
         Me.DIRECCION.Multiline = True
         Me.DIRECCION.Name = "DIRECCION"
-        Me.DIRECCION.Size = New System.Drawing.Size(141, 71)
+        Me.DIRECCION.Size = New System.Drawing.Size(199, 102)
         Me.DIRECCION.TabIndex = 10
         '
         'ComboBox1
         '
         Me.ComboBox1.FormattingEnabled = True
         Me.ComboBox1.Items.AddRange(New Object() {"JURIDICO", "NATURAL", "EXTRANJERO"})
-        Me.ComboBox1.Location = New System.Drawing.Point(99, 32)
+        Me.ComboBox1.Location = New System.Drawing.Point(89, 29)
         Me.ComboBox1.Name = "ComboBox1"
         Me.ComboBox1.Size = New System.Drawing.Size(141, 21)
         Me.ComboBox1.TabIndex = 11
@@ -138,7 +138,7 @@ Partial Class IngresarCliente
         'Label1
         '
         Me.Label1.AutoSize = True
-        Me.Label1.Location = New System.Drawing.Point(24, 35)
+        Me.Label1.Location = New System.Drawing.Point(6, 32)
         Me.Label1.Name = "Label1"
         Me.Label1.Size = New System.Drawing.Size(28, 13)
         Me.Label1.TabIndex = 12
@@ -146,6 +146,7 @@ Partial Class IngresarCliente
         '
         'GroupBox1
         '
+        Me.GroupBox1.Controls.Add(Me.Button1)
         Me.GroupBox1.Controls.Add(Me.Label1)
         Me.GroupBox1.Controls.Add(Me.ComboBox1)
         Me.GroupBox1.Controls.Add(Me.DIRECCIONLabel)
@@ -158,16 +159,16 @@ Partial Class IngresarCliente
         Me.GroupBox1.Controls.Add(Me.NOMBRE)
         Me.GroupBox1.Controls.Add(Me.LIdentidad)
         Me.GroupBox1.Controls.Add(Me.RIF)
-        Me.GroupBox1.Location = New System.Drawing.Point(19, 21)
+        Me.GroupBox1.Location = New System.Drawing.Point(12, 12)
         Me.GroupBox1.Name = "GroupBox1"
-        Me.GroupBox1.Size = New System.Drawing.Size(292, 257)
+        Me.GroupBox1.Size = New System.Drawing.Size(298, 302)
         Me.GroupBox1.TabIndex = 13
         Me.GroupBox1.TabStop = False
         Me.GroupBox1.Text = "Cliente"
         '
         'Button1
         '
-        Me.Button1.Location = New System.Drawing.Point(118, 286)
+        Me.Button1.Location = New System.Drawing.Point(202, 268)
         Me.Button1.Name = "Button1"
         Me.Button1.Size = New System.Drawing.Size(86, 24)
         Me.Button1.TabIndex = 14
@@ -178,8 +179,7 @@ Partial Class IngresarCliente
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(341, 322)
-        Me.Controls.Add(Me.Button1)
+        Me.ClientSize = New System.Drawing.Size(319, 322)
         Me.Controls.Add(Me.GroupBox1)
         Me.Name = "IngresarCliente"
         Me.Text = "IngresarCliente"

@@ -70,4 +70,21 @@ Public Class Administrador
         Dim ControladorP As New Controlador_Pedido_Frecuente
         ControladorP.Abrir_VentaS(Me)
     End Sub
+
+
+    'LZ
+    Private Sub DevolverFacturaToolStripMenuItem_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles DevolverFacturaToolStripMenuItem.Click
+        Dim Controlador_Venta_x As New Controlador_Venta
+        Controlador_Venta_x.Abrir_Ventana_Devolucion(Me)
+    End Sub
+
+    
+
+
+    'Fin LZ
+
+    Private Sub ClienteToolStripMenuItem_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles ClienteToolStripMenuItem.Click
+        Dim Controlador_cliente_x As New Controlador_Cliente
+        Controlador_cliente_x.Abrir_Ventana_Cliente(Me)
+    End Sub
 End Class

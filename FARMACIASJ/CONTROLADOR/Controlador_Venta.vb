@@ -177,6 +177,15 @@ Public Class Controlador_Venta
 
     End Sub
 
+
+
+    Public Sub Abrir_Ventana_Devolucion(ByVal Padre As Windows.Forms.Form)
+        Dim Venta_Devolucion As Registrar_Devolucion
+        Venta_Devolucion = New Registrar_Devolucion
+        Venta_Devolucion.MdiParent = Padre
+        Venta_Devolucion.Show()
+    End Sub
+
     'Fin LZ
 
 
