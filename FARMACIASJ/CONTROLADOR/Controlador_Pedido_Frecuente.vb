@@ -1,16 +1,4 @@
 Public Class Controlador_Pedido_Frecuente
-    Public Sub ActivarCampos(ByVal pantalla As Registrar_Pedido, ByVal respuesta As Boolean)
-        If respuesta = False Then
-            pantalla.Fecha_Inicio.Enabled = True
-            pantalla.Fecha_Fin.Enabled = True
-            pantalla.Descripcion.Enabled = True
-            pantalla.Cantidad.Enabled = True
-            pantalla.RIF.Enabled = True
-            pantalla.Codigo_Barras.Enabled = False
-            pantalla.Numero.Enabled = False
-            pantalla.ingresar.Enabled = True
-        End If
-    End Sub
 
     Public Sub Abrir_Venta(ByVal Padre As Windows.Forms.Form)
         Dim Pedido As Registrar_Pedido
@@ -27,18 +15,22 @@ Public Class Controlador_Pedido_Frecuente
 
     Public Sub Buscar_Info_Pedido(ByVal Pedido_Numero As String, ByVal Ventana As Suspender_Pedido_frecuente)
         Dim Pedido_Frecuente_x As Pedido_Frecuente = New Pedido_Frecuente
-        Dim Consulta As Data.SqlClient.SqlDataReader = Pedido_Frecuente_x.Cargar_Datos_Pedido(Pedido_Numero)
-        If (Consulta.Read) Then
-            Ventana.Suspender.Enabled = True
-            Ventana.Cliente.Text = Consulta.Item(0).ToString
-            Ventana.Producto.Text = Consulta.Item(1).ToString
-            Ventana.Cantidad.Text = Consulta.Item(2).ToString
-        Else
-            Ventana.Cliente.Text = ""
-            Ventana.Producto.Text = ""
-            Ventana.Cantidad.Text = ""
-            MsgBox("No existe el pedido bajo el número suministrado", MsgBoxStyle.OkOnly, "Error")
-            Ventana.Suspender.Enabled = False
+        Dim Validacion As Validaciones_Generales = New Validaciones_Generales
+
+        If Validacion.Tamano_Aceptable_Cadena(Pedido_Numero, 8, "Ingrese un número") Then
+            Dim Consulta As Data.SqlClient.SqlDataReader = Pedido_Frecuente_x.Cargar_Datos_Pedido(Pedido_Numero)
+            If (Consulta.Read) Then
+                Ventana.Suspender.Enabled = True
+                Ventana.Cliente.Text = Consulta.Item(0).ToString
+                Ventana.Producto.Text = Consulta.Item(1).ToString
+                Ventana.Cantidad.Text = Consulta.Item(2).ToString
+            Else
+                Ventana.Cliente.Text = ""
+                Ventana.Producto.Text = ""
+                Ventana.Cantidad.Text = ""
+                MsgBox("No existe el pedido bajo el número suministrado", MsgBoxStyle.OkOnly, "Error")
+                Ventana.Suspender.Enabled = False
+            End If
         End If
     End Sub
 
@@ -74,12 +66,14 @@ Public Class Controlador_Pedido_Frecuente
         Dim Controlador As Producto = New Producto
         Try
             If Controlador.Buscar_Info_Productos(Codigo_Barras, Ventana) Then
+                Ventana.ingresar.Enabled = True
 
             Else
                 MsgBox("Error. El Producto no existe.", MsgBoxStyle.OkOnly, "Error")
                 Ventana.Codigo_Barras.Text = ""
                 Ventana.Nombre_Producto.Text = ""
                 Ventana.Id_Producto = 0
+                Ventana.ingresar.Enabled = False
 
             End If
 
@@ -91,7 +85,7 @@ Public Class Controlador_Pedido_Frecuente
     Public Sub Ingresar_Pedido(ByVal Ventana As Registrar_Pedido)
         Dim ingresar As Pedido_Frecuente = New Pedido_Frecuente
         Try
-            ingresar.Ingresar_Pedido(Ventana.Numero.Text, Ventana.Fecha_Inicio.Value, Ventana.Fecha_Fin.Value, Ventana.Descripcion.Text, CInt(Ventana.Cantidad.Text), Ventana.Id_Producto, Ventana.Id_Cliente)
+            ingresar.Ingresar_Pedido("", Ventana.Fecha_Inicio.Value, Ventana.Fecha_Fin.Value, Ventana.Descripcion.Text, CInt(Ventana.Cantidad.Text), Ventana.Id_Producto, Ventana.Id_Cliente)
             MsgBox("El Pedido se ha registrado con Éxito.", MsgBoxStyle.OkOnly, "Información")
             Ventana.Close()
         Catch ex As Exception

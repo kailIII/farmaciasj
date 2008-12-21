@@ -6,7 +6,7 @@ Public Class Pedido_Frecuente
         Dim Consulta As Data.SqlClient.SqlCommand = New Data.SqlClient.SqlCommand
         Conextion.Open()
         Consulta.Connection = Conextion
-        Consulta.CommandText = "SELECT CLIENTE.APELLIDO+' '+ CLIENTE.NOMBRE as Nombre, PRODUCTO.NOMBRE AS Expr1, PEDIDO_FRECUENTE.CANTIDAD_DIARIA FROM CLIENTE INNER JOIN PEDIDO_FRECUENTE ON CLIENTE.ID_CLIENTE = PEDIDO_FRECUENTE.ID_CLIENTE INNER JOIN PRODUCTO ON PEDIDO_FRECUENTE.ID_PRODUCTO = PRODUCTO.ID_PRODUCTO WHERE ESTATUS='ACTIVO' AND NUMERO_PEDIDO='" & Pedido_Numero & "'"
+        Consulta.CommandText = "SELECT CLIENTE.APELLIDO+' '+ CLIENTE.NOMBRE as Nombre, PRODUCTO.NOMBRE AS Expr1, PEDIDO_FRECUENTE.CANTIDAD_DIARIA FROM CLIENTE INNER JOIN PEDIDO_FRECUENTE ON CLIENTE.ID_CLIENTE = PEDIDO_FRECUENTE.ID_CLIENTE INNER JOIN PRODUCTO ON PEDIDO_FRECUENTE.ID_PRODUCTO = PRODUCTO.ID_PRODUCTO WHERE ESTATUS='ACTIVO' AND ID_PEDIDO=" & Pedido_Numero
         Dim Reder As Data.SqlClient.SqlDataReader = Consulta.ExecuteReader()
         'If (Reder.Read = True) Then
         Return Reder
@@ -22,7 +22,7 @@ Public Class Pedido_Frecuente
             Dim Consulta As Data.SqlClient.SqlCommand = New Data.SqlClient.SqlCommand
             Conextion.Open()
             Consulta.Connection = Conextion
-            Consulta.CommandText = "UPDATE PEDIDO_FRECUENTE SET FECHA_FIN=GETDATE() , ESTATUS='INACTIVO' WHERE NUMERO_PEDIDO='" & Pedido_Numero & "'"
+            Consulta.CommandText = "UPDATE PEDIDO_FRECUENTE SET FECHA_FIN=GETDATE() , ESTATUS='INACTIVO' WHERE ID_PEDIDO=" & Pedido_Numero
             Consulta.ExecuteNonQuery()
             Return True
         Catch ex As ArgumentNullException
@@ -32,30 +32,6 @@ Public Class Pedido_Frecuente
     End Function
 
 
-    Public Function BuscarNumeroPedido(ByVal codigo As String) As Boolean
-        Dim Pedido As FarmaciaSJDataSetTableAdapters.PEDIDO_FRECUENTETableAdapter
-        Dim Conextion As Data.SqlClient.SqlConnection
-        Dim Consulta As Data.SqlClient.SqlCommand
-        Dim Reder As Data.SqlClient.SqlDataReader
-
-        Try
-            Pedido = New FarmaciaSJDataSetTableAdapters.PEDIDO_FRECUENTETableAdapter
-            Conextion = Pedido.Connection
-            Consulta = New Data.SqlClient.SqlCommand
-            Conextion.Open()
-            Consulta.Connection = Conextion
-            Consulta.CommandText = "SELECT numero_pedido FROM pedido_frecuente WHERE ('" & codigo & "' = numero_pedido)"
-            Reder = Consulta.ExecuteReader()
-            If (Reder.Read = True) Then
-                If (Reder.HasRows = True) Then
-                    Return True
-                Else
-                    Return (False)
-                End If
-            End If
-        Catch e As Data.SqlClient.SqlException
-        End Try
-    End Function
     Public Sub Ingresar_Pedido(ByVal num_pedido As String, ByVal finicio As Date, ByVal fin As Date, ByVal descripcion As String, ByVal cantidad As Integer, ByVal codigoproducto As Integer, ByVal codigocliente As Integer)
         Dim pedido As FarmaciaSJDataSetTableAdapters.PEDIDO_FRECUENTETableAdapter
         Dim BasedeDatos As New FarmaciaSJDataSet
