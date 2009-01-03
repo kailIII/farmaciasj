@@ -8,6 +8,6 @@ Public Class Despedir_Empleado
 
     Private Sub Eliminando_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Eliminando.Click
         Dim Controlador As Controlador_Empleado = New Controlador_Empleado
-
+        Controlador.Despedir_Empleado(Me.Cedula.Text, Me.Justificacion.Text, Me)
     End Sub
 End Class
