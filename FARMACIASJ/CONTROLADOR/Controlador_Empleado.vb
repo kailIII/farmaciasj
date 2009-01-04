@@ -48,4 +48,27 @@ Public Class Controlador_Empleado
 
         End Try
     End Sub
+
+    Public Sub Contratar_Empleado(ByVal Cedula As String, ByVal Ventana As Contratar_Empleado)
+        Dim Modelo As Empleado = New Empleado
+        Dim Id_Empleado As Integer = Modelo.Existe_Empleado(Cedula)
+        Try
+            If Id_Empleado > 0 Then
+            Else
+                If Modelo.Ingresar_Empleado(Ventana.Cedula.Text, Ventana.Nombre.Text, Ventana.Apellido.Text, Ventana.Telefono.Text, Ventana.Correo.Text) Then
+                    Dim Id_Empleado_Nuevo As Integer = Modelo.Existe_Empleado(Cedula)
+                    Dim Asignar_Cargo As Modificar_Sueldo = New Modificar_Sueldo
+                    Asignar_Cargo.Cedula.Text = Ventana.Cedula.Text
+                    Asignar_Cargo.Nombres.Text = Ventana.Nombre.Text & " " & Ventana.Apellido.Text
+                    'If Modelo.Modificar_Historico_Empleado(Id_Empleado_Nuevo, Ventana.Cargo.Text, "0") Then
+                    '    MsgBox("El Empleado fue contratado exitosamente!.", MsgBoxStyle.OkOnly, "Información")
+                    '    'Venatana modificar sueldo
+                    'End If
+                End If
+            End If
+        Catch ex As Exception
+
+        End Try
+    End Sub
+
 End Class

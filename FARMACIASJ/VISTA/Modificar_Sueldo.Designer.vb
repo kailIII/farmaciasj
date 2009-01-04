@@ -1,5 +1,5 @@
 <Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()> _
-Partial Class Despedir_Empleado
+Partial Class Modificar_Sueldo
     Inherits System.Windows.Forms.Form
 
     'Form reemplaza a Dispose para limpiar la lista de componentes.
@@ -19,63 +19,103 @@ Partial Class Despedir_Empleado
     'No lo modifique con el editor de código.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
+        Me.GroupBox2 = New System.Windows.Forms.GroupBox
+        Me.Registrando = New System.Windows.Forms.Button
+        Me.Label7 = New System.Windows.Forms.Label
+        Me.Cargo = New System.Windows.Forms.TextBox
+        Me.Sueldo = New System.Windows.Forms.TextBox
+        Me.Label8 = New System.Windows.Forms.Label
         Me.GroupBox1 = New System.Windows.Forms.GroupBox
         Me.Buscando = New System.Windows.Forms.Button
-        Me.Cargo_Actual = New System.Windows.Forms.TextBox
-        Me.Label3 = New System.Windows.Forms.Label
         Me.Label2 = New System.Windows.Forms.Label
         Me.Nombres = New System.Windows.Forms.TextBox
         Me.Label1 = New System.Windows.Forms.Label
         Me.Cedula = New System.Windows.Forms.TextBox
-        Me.GroupBox2 = New System.Windows.Forms.GroupBox
-        Me.Eliminando = New System.Windows.Forms.Button
-        Me.Label4 = New System.Windows.Forms.Label
-        Me.Justificacion = New System.Windows.Forms.RichTextBox
-        Me.GroupBox1.SuspendLayout()
         Me.GroupBox2.SuspendLayout()
+        Me.GroupBox1.SuspendLayout()
         Me.SuspendLayout()
+        '
+        'GroupBox2
+        '
+        Me.GroupBox2.Controls.Add(Me.Registrando)
+        Me.GroupBox2.Controls.Add(Me.Label7)
+        Me.GroupBox2.Controls.Add(Me.Cargo)
+        Me.GroupBox2.Controls.Add(Me.Sueldo)
+        Me.GroupBox2.Controls.Add(Me.Label8)
+        Me.GroupBox2.Location = New System.Drawing.Point(12, 124)
+        Me.GroupBox2.Name = "GroupBox2"
+        Me.GroupBox2.Size = New System.Drawing.Size(309, 107)
+        Me.GroupBox2.TabIndex = 4
+        Me.GroupBox2.TabStop = False
+        Me.GroupBox2.Text = "Información Laboral"
+        '
+        'Registrando
+        '
+        Me.Registrando.Enabled = False
+        Me.Registrando.Location = New System.Drawing.Point(222, 71)
+        Me.Registrando.Name = "Registrando"
+        Me.Registrando.Size = New System.Drawing.Size(75, 23)
+        Me.Registrando.TabIndex = 15
+        Me.Registrando.Text = "Registrar"
+        Me.Registrando.UseVisualStyleBackColor = True
+        '
+        'Label7
+        '
+        Me.Label7.AutoSize = True
+        Me.Label7.Location = New System.Drawing.Point(6, 22)
+        Me.Label7.Name = "Label7"
+        Me.Label7.Size = New System.Drawing.Size(38, 13)
+        Me.Label7.TabIndex = 14
+        Me.Label7.Text = "Cargo:"
+        '
+        'Cargo
+        '
+        Me.Cargo.Enabled = False
+        Me.Cargo.Location = New System.Drawing.Point(112, 19)
+        Me.Cargo.Name = "Cargo"
+        Me.Cargo.Size = New System.Drawing.Size(185, 20)
+        Me.Cargo.TabIndex = 13
+        '
+        'Sueldo
+        '
+        Me.Sueldo.Enabled = False
+        Me.Sueldo.Location = New System.Drawing.Point(112, 45)
+        Me.Sueldo.Name = "Sueldo"
+        Me.Sueldo.Size = New System.Drawing.Size(185, 20)
+        Me.Sueldo.TabIndex = 12
+        '
+        'Label8
+        '
+        Me.Label8.AutoSize = True
+        Me.Label8.Location = New System.Drawing.Point(6, 48)
+        Me.Label8.Name = "Label8"
+        Me.Label8.Size = New System.Drawing.Size(43, 13)
+        Me.Label8.TabIndex = 11
+        Me.Label8.Text = "Sueldo:"
         '
         'GroupBox1
         '
         Me.GroupBox1.Controls.Add(Me.Buscando)
-        Me.GroupBox1.Controls.Add(Me.Cargo_Actual)
-        Me.GroupBox1.Controls.Add(Me.Label3)
         Me.GroupBox1.Controls.Add(Me.Label2)
         Me.GroupBox1.Controls.Add(Me.Nombres)
         Me.GroupBox1.Controls.Add(Me.Label1)
         Me.GroupBox1.Controls.Add(Me.Cedula)
-        Me.GroupBox1.Location = New System.Drawing.Point(13, 13)
+        Me.GroupBox1.Location = New System.Drawing.Point(12, 12)
         Me.GroupBox1.Name = "GroupBox1"
-        Me.GroupBox1.Size = New System.Drawing.Size(309, 131)
-        Me.GroupBox1.TabIndex = 0
+        Me.GroupBox1.Size = New System.Drawing.Size(309, 106)
+        Me.GroupBox1.TabIndex = 5
         Me.GroupBox1.TabStop = False
         Me.GroupBox1.Text = "Búsqueda de Empleado"
         '
         'Buscando
         '
-        Me.Buscando.Location = New System.Drawing.Point(222, 97)
+        Me.Buscando.Enabled = False
+        Me.Buscando.Location = New System.Drawing.Point(222, 71)
         Me.Buscando.Name = "Buscando"
         Me.Buscando.Size = New System.Drawing.Size(75, 23)
         Me.Buscando.TabIndex = 6
         Me.Buscando.Text = "Buscar"
         Me.Buscando.UseVisualStyleBackColor = True
-        '
-        'Cargo_Actual
-        '
-        Me.Cargo_Actual.Enabled = False
-        Me.Cargo_Actual.Location = New System.Drawing.Point(106, 71)
-        Me.Cargo_Actual.Name = "Cargo_Actual"
-        Me.Cargo_Actual.Size = New System.Drawing.Size(191, 20)
-        Me.Cargo_Actual.TabIndex = 5
-        '
-        'Label3
-        '
-        Me.Label3.AutoSize = True
-        Me.Label3.Location = New System.Drawing.Point(6, 74)
-        Me.Label3.Name = "Label3"
-        Me.Label3.Size = New System.Drawing.Size(71, 13)
-        Me.Label3.TabIndex = 4
-        Me.Label3.Text = "Cargo Actual:"
         '
         'Label2
         '
@@ -105,77 +145,38 @@ Partial Class Despedir_Empleado
         '
         'Cedula
         '
+        Me.Cedula.Enabled = False
         Me.Cedula.Location = New System.Drawing.Point(106, 19)
         Me.Cedula.Name = "Cedula"
         Me.Cedula.Size = New System.Drawing.Size(191, 20)
         Me.Cedula.TabIndex = 0
         '
-        'GroupBox2
-        '
-        Me.GroupBox2.Controls.Add(Me.Eliminando)
-        Me.GroupBox2.Controls.Add(Me.Label4)
-        Me.GroupBox2.Controls.Add(Me.Justificacion)
-        Me.GroupBox2.Location = New System.Drawing.Point(13, 151)
-        Me.GroupBox2.Name = "GroupBox2"
-        Me.GroupBox2.Size = New System.Drawing.Size(309, 153)
-        Me.GroupBox2.TabIndex = 1
-        Me.GroupBox2.TabStop = False
-        Me.GroupBox2.Text = "Despedir Empleado"
-        '
-        'Eliminando
-        '
-        Me.Eliminando.Enabled = False
-        Me.Eliminando.Location = New System.Drawing.Point(222, 120)
-        Me.Eliminando.Name = "Eliminando"
-        Me.Eliminando.Size = New System.Drawing.Size(75, 23)
-        Me.Eliminando.TabIndex = 7
-        Me.Eliminando.Text = "Despedir"
-        Me.Eliminando.UseVisualStyleBackColor = True
-        '
-        'Label4
-        '
-        Me.Label4.AutoSize = True
-        Me.Label4.Location = New System.Drawing.Point(7, 20)
-        Me.Label4.Name = "Label4"
-        Me.Label4.Size = New System.Drawing.Size(123, 13)
-        Me.Label4.TabIndex = 13
-        Me.Label4.Text = "Justificación de despido:"
-        '
-        'Justificacion
-        '
-        Me.Justificacion.Enabled = False
-        Me.Justificacion.Location = New System.Drawing.Point(9, 36)
-        Me.Justificacion.Name = "Justificacion"
-        Me.Justificacion.Size = New System.Drawing.Size(288, 78)
-        Me.Justificacion.TabIndex = 12
-        Me.Justificacion.Text = ""
-        '
-        'Despedir_Empleado
+        'Modificar_Sueldo
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(335, 318)
-        Me.Controls.Add(Me.GroupBox2)
+        Me.ClientSize = New System.Drawing.Size(334, 248)
         Me.Controls.Add(Me.GroupBox1)
-        Me.Name = "Despedir_Empleado"
-        Me.Text = "Despedir Empleado"
-        Me.GroupBox1.ResumeLayout(False)
-        Me.GroupBox1.PerformLayout()
+        Me.Controls.Add(Me.GroupBox2)
+        Me.Name = "Modificar_Sueldo"
+        Me.Text = "Modificar_Sueldo"
         Me.GroupBox2.ResumeLayout(False)
         Me.GroupBox2.PerformLayout()
+        Me.GroupBox1.ResumeLayout(False)
+        Me.GroupBox1.PerformLayout()
         Me.ResumeLayout(False)
 
     End Sub
+    Friend WithEvents GroupBox2 As System.Windows.Forms.GroupBox
+    Friend WithEvents Registrando As System.Windows.Forms.Button
+    Friend WithEvents Label7 As System.Windows.Forms.Label
+    Friend WithEvents Cargo As System.Windows.Forms.TextBox
+    Friend WithEvents Sueldo As System.Windows.Forms.TextBox
+    Friend WithEvents Label8 As System.Windows.Forms.Label
     Friend WithEvents GroupBox1 As System.Windows.Forms.GroupBox
+    Friend WithEvents Buscando As System.Windows.Forms.Button
     Friend WithEvents Label2 As System.Windows.Forms.Label
     Friend WithEvents Nombres As System.Windows.Forms.TextBox
     Friend WithEvents Label1 As System.Windows.Forms.Label
     Friend WithEvents Cedula As System.Windows.Forms.TextBox
-    Friend WithEvents Cargo_Actual As System.Windows.Forms.TextBox
-    Friend WithEvents Label3 As System.Windows.Forms.Label
-    Friend WithEvents Buscando As System.Windows.Forms.Button
-    Friend WithEvents GroupBox2 As System.Windows.Forms.GroupBox
-    Friend WithEvents Eliminando As System.Windows.Forms.Button
-    Friend WithEvents Label4 As System.Windows.Forms.Label
-    Friend WithEvents Justificacion As System.Windows.Forms.RichTextBox
 End Class

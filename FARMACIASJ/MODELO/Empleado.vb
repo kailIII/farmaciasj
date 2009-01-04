@@ -91,5 +91,36 @@ Public Class Empleado
         End Try
     End Function
 
+    Public Function Ingresar_Empleado(ByVal Cedula As String, ByVal Nombre As String, ByVal Apellido As String, ByVal Telefono As String, ByVal Correo As String) As Boolean
+        Dim EmpleadoTableAdapter As FarmaciaSJDataSetTableAdapters.EMPLEADOTableAdapter
+        Try
+            Dim BasedeDatos As FarmaciaSJDataSet
+            BasedeDatos = New FarmaciaSJDataSet
+            EmpleadoTableAdapter = New FarmaciaSJDataSetTableAdapters.EMPLEADOTableAdapter
+            EmpleadoTableAdapter.Insert(Nombre, Apellido, Cedula, Telefono, Correo, "", "", "EMP")
+            EmpleadoTableAdapter.Update(BasedeDatos.EMPLEADO)
+            BasedeDatos.AcceptChanges()
+            Return True
+        Catch err As ArgumentNullException
+            Return False
+        End Try
+    End Function
 
+
+    Public Function Modificar_Historico_Empleado(ByVal Id_Empleado As Integer, ByVal Cargo As String, ByVal Sueldo As String) As Boolean
+        Dim Adaptador As FarmaciaSJDataSetTableAdapters.HISTORICO_EMPLEADOTableAdapter
+        Try
+            Adaptador = New FarmaciaSJDataSetTableAdapters.HISTORICO_EMPLEADOTableAdapter()
+            Dim Proveedor_x As FarmaciaSJDataSetTableAdapters.HISTORICO_EMPLEADOTableAdapter = New FarmaciaSJDataSetTableAdapters.HISTORICO_EMPLEADOTableAdapter
+            Dim Conextion As Data.SqlClient.SqlConnection = Proveedor_x.Connection
+            Dim Consulta As Data.SqlClient.SqlCommand = New Data.SqlClient.SqlCommand
+            Conextion.Open()
+            Consulta.Connection = Conextion
+            Consulta.CommandText = "INSERT INTO HISTORICO_EMPLEADO (ID_EMPLEADO,CARGO,SUELDO,FECHA_INGRESO,FECHA_FIN,JUSTIFICACION) VALUES (" & Id_Empleado & ", '" & Cargo & "'," & Sueldo & ", 'GETDATE()', NULL, '')"
+            Consulta.ExecuteNonQuery()
+            Return True
+        Catch ex As ArgumentNullException
+            Return False
+        End Try
+    End Function
 End Class
