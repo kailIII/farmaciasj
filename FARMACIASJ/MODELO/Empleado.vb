@@ -58,7 +58,7 @@ Public Class Empleado
 
 
 
-    Public Function Buscar_Info_Empleado(ByVal Reder As Data.SqlClient.SqlDataReader, ByVal Id_Empleado As Integer) As Data.SqlClient.SqlDataReader
+    Public Function Buscar_Info_Empleado(ByVal Reder As Data.SqlClient.SqlDataReader, ByVal Id_Empleado As Integer, ByVal Tabla_Empleado As Boolean) As Data.SqlClient.SqlDataReader
 
         Dim Empleo As FarmaciaSJDataSetTableAdapters.EMPLEADOTableAdapter
         Dim Conextion As Data.SqlClient.SqlConnection
@@ -69,7 +69,12 @@ Public Class Empleado
             Consulta = New Data.SqlClient.SqlCommand
             Conextion.Open()
             Consulta.Connection = Conextion
-            Consulta.CommandText = "SELECT EMPLEADO.NOMBRE, EMPLEADO.APELLIDO, EMPLEADO.IDENTIDAD, EMPLEADO.TELEFONO, EMPLEADO.MAIL, HISTORICO_EMPLEADO.CARGO, HISTORICO_EMPLEADO.SUELDO, HISTORICO_EMPLEADO.FECHA_INGRESO, HISTORICO_EMPLEADO.FECHA_FIN, HISTORICO_EMPLEADO.JUSTIFICACION FROM EMPLEADO INNER JOIN HISTORICO_EMPLEADO ON EMPLEADO.ID_EMPLEADO = HISTORICO_EMPLEADO.ID_EMPLEADO WHERE     (EMPLEADO.ID_EMPLEADO = " & Id_Empleado & ") AND (HISTORICO_EMPLEADO.FECHA_FIN IS NULL) ORDER BY HISTORICO_EMPLEADO.FECHA_INGRESO DESC"
+            If Tabla_Empleado Then
+                Consulta.CommandText = "SELECT NOMBRE, APELLIDO, IDENTIDAD, CONTRASEÑA, USUARIO, MAIL, TELEFONO, ID_EMPLEADO FROM EMPLEADO WHERE ID_EMPLEADO=" & Id_Empleado
+            Else
+                Consulta.CommandText = "SELECT EMPLEADO.NOMBRE, EMPLEADO.APELLIDO, EMPLEADO.IDENTIDAD, EMPLEADO.TELEFONO, EMPLEADO.MAIL, HISTORICO_EMPLEADO.CARGO, HISTORICO_EMPLEADO.SUELDO, HISTORICO_EMPLEADO.FECHA_INGRESO, HISTORICO_EMPLEADO.FECHA_FIN, HISTORICO_EMPLEADO.JUSTIFICACION FROM EMPLEADO INNER JOIN HISTORICO_EMPLEADO ON EMPLEADO.ID_EMPLEADO = HISTORICO_EMPLEADO.ID_EMPLEADO WHERE     (EMPLEADO.ID_EMPLEADO = " & Id_Empleado & ") AND (HISTORICO_EMPLEADO.FECHA_FIN IS NULL) ORDER BY HISTORICO_EMPLEADO.FECHA_INGRESO DESC"
+            End If
+
             Reder = Consulta.ExecuteReader()
             If (Reder.Read = True) Then
                 Return Reder
@@ -158,7 +163,7 @@ Public Class Empleado
     End Function
 
 
-    Public Function Modificar_Historico_Empleado(ByVal Id_Empleado As Integer, ByVal Cargo As String, ByVal Sueldo As String, ByVal Actualizar As Boolean) As Boolean
+    Public Function Modificar_Historico_Empleado(ByVal Id_Empleado As Integer, ByVal Cargo As String, ByVal Sueldo As Double, ByVal Actualizar As Boolean) As Boolean
         Dim Adaptador As FarmaciaSJDataSetTableAdapters.HISTORICO_EMPLEADOTableAdapter
         Try
             Adaptador = New FarmaciaSJDataSetTableAdapters.HISTORICO_EMPLEADOTableAdapter()
@@ -166,9 +171,10 @@ Public Class Empleado
             Dim Conextion As Data.SqlClient.SqlConnection = Proveedor_x.Connection
             Dim Consulta As Data.SqlClient.SqlCommand = New Data.SqlClient.SqlCommand
             Conextion.Open()
+
             Consulta.Connection = Conextion
             If Actualizar Then
-                Consulta.CommandText = "UPDATE HISTORICO_EMPLEADO SET CARGO='" & Cargo & "', SUELDO=" & Sueldo & " WHERE FECHA_FIN IS NULL AND ID_EMPLEADO=" & Id_Empleado
+                Consulta.CommandText = "UPDATE HISTORICO_EMPLEADO SET CARGO='" & Cargo & "', SUELDO='" & Sueldo & "' WHERE FECHA_FIN IS NULL AND ID_EMPLEADO=" & Id_Empleado
             Else
                 Consulta.CommandText = "INSERT INTO HISTORICO_EMPLEADO (ID_EMPLEADO,CARGO,SUELDO,FECHA_INGRESO,FECHA_FIN,JUSTIFICACION) VALUES (" & Id_Empleado & ", '" & Cargo & "'," & Sueldo & ", GETDATE(), NULL, '')"
             End If

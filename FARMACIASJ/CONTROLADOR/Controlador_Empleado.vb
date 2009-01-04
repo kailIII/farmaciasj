@@ -5,7 +5,7 @@ Public Class Controlador_Empleado
         Try
             If Id_Empleado > 0 Then
                 Dim ConsultaBD As Data.SqlClient.SqlDataReader
-                ConsultaBD = Modelo.Buscar_Info_Empleado(ConsultaBD, Id_Empleado)
+                ConsultaBD = Modelo.Buscar_Info_Empleado(ConsultaBD, Id_Empleado, False)
                 Ventana.Nombres.Text = ConsultaBD.Item(0).ToString & " " & ConsultaBD.Item(1).ToString
                 Ventana.Cargo_Actual.Text = ConsultaBD.Item(5).ToString
                 Ventana.Justificacion.Enabled = True
@@ -65,6 +65,9 @@ Public Class Controlador_Empleado
                     Ventana_Asignar_Cargo.Nombres.Text = Ventana.Nombre.Text & " " & Ventana.Apellido.Text
                     Ventana_Asignar_Cargo.Cargo.Enabled = True
                     Ventana_Asignar_Cargo.Sueldo.Enabled = True
+                    Ventana_Asignar_Cargo.Cedula.Enabled = False
+                    Ventana_Asignar_Cargo.Buscando.Enabled = False
+
                     Ventana_Asignar_Cargo.Registrando.Enabled = True
                     Ventana_Asignar_Cargo.Id_Empleado = Id_Empleado_Nuevo
                     'Asignar_Cargo.Close()
@@ -96,7 +99,7 @@ Public Class Controlador_Empleado
         Dim Modelo As Empleado = New Empleado
         Dim Validacion As Validaciones_Generales = New Validaciones_Generales
         If (Validacion.Tamano_Aceptable_Cadena(Sueldo, 8, "Introduzca un sueldo válido")) Then
-            If Modelo.Modificar_Historico_Empleado(Id_Empleado_Nuevo, Cargo, Sueldo, False) Then
+            If Modelo.Modificar_Historico_Empleado(Id_Empleado_Nuevo, Cargo, CDbl(Sueldo), False) Then
                 MsgBox("El Empleado fue contratado exitosamente!.", MsgBoxStyle.OkOnly, "Información")
                 'Venatana modificar sueldo
 
@@ -104,8 +107,90 @@ Public Class Controlador_Empleado
         End If
     End Function
 
-    Public Sub Modificar_Cargo_Sueldo(ByVal Cedula As String, ByVal Ventana As Modificar_Sueldo)
 
+    Public Sub Modificar_Cargo_Sueldo(ByVal Cedula As String, ByVal Ventana As Modificar_Sueldo)
+        Dim Modelo As Empleado = New Empleado
+        Dim Validacion As Validaciones_Generales = New Validaciones_Generales
+        Dim Id_Empleado As Integer = Modelo.Existe_Empleado(Cedula)
+        Dim Id_Historico_Empleado As Integer = Modelo.Id_Ultimo_Cargo(Id_Empleado)
+        If Id_Historico_Empleado > 0 Then
+            If (Validacion.Tamano_Aceptable_Cadena(Ventana.Sueldo.Text, 8, "Introduzca un sueldo válido")) Then
+                If Modelo.Modificar_Historico_Empleado(Id_Empleado, Ventana.Cargo.Text, CDbl(Ventana.Sueldo.Text), True) Then
+                    MsgBox("Se le asignó un sueldo al empleado", MsgBoxStyle.OkOnly, "Información")
+                    Borrado_Texto_Ventana_Modificar_Sueldo(Ventana)
+                End If
+            End If
+        Else
+            If (Validacion.Tamano_Aceptable_Cadena(Ventana.Sueldo.Text, 8, "Introduzca un sueldo válido")) Then
+                If Modelo.Modificar_Historico_Empleado(Id_Empleado, Ventana.Cargo.Text, CDbl(Ventana.Sueldo.Text), False) Then
+                    MsgBox("Se le ha asignado un cargo y un sueldo al empleado", MsgBoxStyle.OkOnly, "Información")
+                    Borrado_Texto_Ventana_Modificar_Sueldo(Ventana)
+                End If
+            End If
+        End If
     End Sub
+
+    Public Sub Borrado_Texto_Ventana_Modificar_Sueldo(ByVal Ventana As Modificar_Sueldo)
+        Ventana.Nombres.Text = ""
+        Ventana.Cargo.Text = ""
+        Ventana.Sueldo.Text = ""
+        Ventana.Cedula.Focus()
+        Ventana.Registrando.Enabled = False
+        Ventana.Cedula.Text = ""
+    End Sub
+
+
+
+    Public Sub Buscando_Empleado(ByVal Cedula As String, ByVal Ventana As Modificar_Sueldo)
+        Dim Modelo As Empleado = New Empleado
+        Dim Id_Empleado As Integer = Modelo.Existe_Empleado(Cedula)
+        Try
+            If Id_Empleado > 0 Then
+                Dim ConsultaBD As Data.SqlClient.SqlDataReader
+                ConsultaBD = Modelo.Buscar_Info_Empleado(ConsultaBD, Id_Empleado, False)
+                Ventana.Nombres.Text = ConsultaBD.Item(0).ToString & " " & ConsultaBD.Item(1).ToString
+                Dim Cargo_Temporal As String = ConsultaBD.Item(5).ToString
+                Dim Sueldo_Temporal As String = ConsultaBD.Item(6).ToString
+                ConsultaBD.Close()
+                Dim Id_Historico_Empleado As Integer = Modelo.Id_Ultimo_Cargo(Id_Empleado)
+                If Id_Historico_Empleado > 0 Then
+                    ' cambio de sueldo
+                    Ventana.Cargo.Text = Cargo_Temporal
+                    Ventana.Sueldo.Text = Sueldo_Temporal
+                    Ventana.Cargo.Enabled = False
+                    Ventana.Sueldo.Enabled = True
+                    Ventana.Sueldo.Focus()
+                    Ventana.Registrando.Enabled = True
+                End If
+            Else
+                Ventana.Nombres.Text = ""
+                Ventana.Cargo.Text = ""
+                Ventana.Sueldo.Text = ""
+                MsgBox("El empleado no existe", MsgBoxStyle.OkOnly, "Error")
+                Ventana.Cedula.Focus()
+                Ventana.Registrando.Enabled = False
+            End If
+        Catch ex As Exception
+            If Id_Empleado > 0 Then
+                ' se asigna cargo y sueldo. (INGRESAR)
+                Dim ConsultaBD As Data.SqlClient.SqlDataReader
+                ConsultaBD = Modelo.Buscar_Info_Empleado(ConsultaBD, Id_Empleado, True)
+                Ventana.Nombres.Text = ConsultaBD.Item(0).ToString & " " & ConsultaBD.Item(1).ToString
+                MsgBox("El empleado no tiene asignado ningún cargo ni sueldo", MsgBoxStyle.OkOnly, "Información")
+                Ventana.Sueldo.Enabled = True
+                Ventana.Cargo.Enabled = True
+                Ventana.Cargo.Focus()
+                Ventana.Registrando.Enabled = True
+            Else
+                Ventana.Cedula.Focus()
+                Ventana.Registrando.Enabled = False
+                MsgBox("El empleado no existe", MsgBoxStyle.OkOnly, "Error")
+            End If
+        End Try
+    End Sub
+
+
+
+
 
 End Class

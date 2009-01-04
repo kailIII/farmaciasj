@@ -109,7 +109,6 @@ Partial Class Modificar_Sueldo
         '
         'Buscando
         '
-        Me.Buscando.Enabled = False
         Me.Buscando.Location = New System.Drawing.Point(222, 71)
         Me.Buscando.Name = "Buscando"
         Me.Buscando.Size = New System.Drawing.Size(75, 23)
@@ -145,7 +144,6 @@ Partial Class Modificar_Sueldo
         '
         'Cedula
         '
-        Me.Cedula.Enabled = False
         Me.Cedula.Location = New System.Drawing.Point(106, 19)
         Me.Cedula.Name = "Cedula"
         Me.Cedula.Size = New System.Drawing.Size(191, 20)

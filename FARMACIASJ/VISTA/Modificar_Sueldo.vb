@@ -15,7 +15,15 @@ Public Class Modificar_Sueldo
 
         Else
             'En caso de uso Actual, Solo Modificar Sueldo y/o Cargo
-
+            Controlador.Modificar_Cargo_Sueldo(Me.Cedula.Text, Me)
+         
         End If
+    End Sub
+
+
+
+    Private Sub Buscando_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Buscando.Click
+        Dim Controlador As Controlador_Empleado = New Controlador_Empleado
+        Controlador.Buscando_Empleado(Me.Cedula.Text, Me)
     End Sub
 End Class
