@@ -54,21 +54,58 @@ Public Class Controlador_Empleado
         Dim Id_Empleado As Integer = Modelo.Existe_Empleado(Cedula)
         Try
             If Id_Empleado > 0 Then
+                MsgBox("Error, el empleado ya existe.", MsgBoxStyle.OkOnly, "Error")
             Else
                 If Modelo.Ingresar_Empleado(Ventana.Cedula.Text, Ventana.Nombre.Text, Ventana.Apellido.Text, Ventana.Telefono.Text, Ventana.Correo.Text) Then
                     Dim Id_Empleado_Nuevo As Integer = Modelo.Existe_Empleado(Cedula)
-                    Dim Asignar_Cargo As Modificar_Sueldo = New Modificar_Sueldo
-                    Asignar_Cargo.Cedula.Text = Ventana.Cedula.Text
-                    Asignar_Cargo.Nombres.Text = Ventana.Nombre.Text & " " & Ventana.Apellido.Text
-                    'If Modelo.Modificar_Historico_Empleado(Id_Empleado_Nuevo, Ventana.Cargo.Text, "0") Then
-                    '    MsgBox("El Empleado fue contratado exitosamente!.", MsgBoxStyle.OkOnly, "Información")
-                    '    'Venatana modificar sueldo
-                    'End If
+                    Dim Ventana_Asignar_Cargo As Modificar_Sueldo = New Modificar_Sueldo
+                    'Asignar_Cargo.MdiParent = Ventana.MdiParent
+                    Ventana_Asignar_Cargo.Show()
+                    Ventana_Asignar_Cargo.Cedula.Text = Ventana.Cedula.Text
+                    Ventana_Asignar_Cargo.Nombres.Text = Ventana.Nombre.Text & " " & Ventana.Apellido.Text
+                    Ventana_Asignar_Cargo.Cargo.Enabled = True
+                    Ventana_Asignar_Cargo.Sueldo.Enabled = True
+                    Ventana_Asignar_Cargo.Registrando.Enabled = True
+                    Ventana_Asignar_Cargo.Id_Empleado = Id_Empleado_Nuevo
+                    'Asignar_Cargo.Close()
+                    Ventana.Nombre.Enabled = False
+                    Ventana.Apellido.Enabled = False
+                    Ventana.Telefono.Enabled = False
+                    Ventana.Correo.Enabled = False
+                    Ventana.Contratando.Enabled = False
+                    Ventana.Usuario.Enabled = True
+                    Ventana.Contrasena.Enabled = True
+                    Ventana.Registrando.Enabled = True
+                    Ventana.Usuario.Focus()
+
+                    Ventana_Asignar_Cargo.Cargo.Focus()
+                    If Modelo.Existe_Usuario(Ventana.Usuario.Text) > 0 Then
+                        MsgBox("Error, el nombre de usuario ya existe.", MsgBoxStyle.OkOnly, "Error")
+                    ElseIf (Modelo.Modificar_Usuario_Contrasena(Id_Empleado_Nuevo, Ventana.Usuario.Text, Ventana.Contrasena.Text)) Then
+                        MsgBox("El usuario fue registrado exitosamente!.", MsgBoxStyle.OkOnly, "Información")
+                    End If
+
                 End If
             End If
         Catch ex As Exception
 
         End Try
+    End Sub
+
+    Public Function Modificar_Cargo_Sueldo(ByVal Id_Empleado_Nuevo As Integer, ByVal Cargo As String, ByVal Sueldo As String) As Boolean
+        Dim Modelo As Empleado = New Empleado
+        Dim Validacion As Validaciones_Generales = New Validaciones_Generales
+        If (Validacion.Tamano_Aceptable_Cadena(Sueldo, 8, "Introduzca un sueldo válido")) Then
+            If Modelo.Modificar_Historico_Empleado(Id_Empleado_Nuevo, Cargo, Sueldo, False) Then
+                MsgBox("El Empleado fue contratado exitosamente!.", MsgBoxStyle.OkOnly, "Información")
+                'Venatana modificar sueldo
+
+            End If
+        End If
+    End Function
+
+    Public Sub Modificar_Cargo_Sueldo(ByVal Cedula As String, ByVal Ventana As Modificar_Sueldo)
+
     End Sub
 
 End Class

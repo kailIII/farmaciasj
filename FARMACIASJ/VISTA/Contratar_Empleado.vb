@@ -10,4 +10,13 @@ Public Class Contratar_Empleado
         Dim Controlador As Controlador_Empleado = New Controlador_Empleado
 
     End Sub
+
+    'Private Sub Cedula_TextChanged(ByVal sender As System.Object, ByVal e As Windows.Forms.KeyPressEventArgs) Handles Cedula.KeyPress, Cedula.TextChanged
+    '    If (e.KeyChar = Char.ConvertFromUtf32(13)) Then
+    '        Dim Controlador_Venta_x As Controlador_Venta
+    '        Controlador_Venta_x = New Controlador_Venta
+    '        Controlador_Venta_x.Buscar_Info_Factura(Me.Cedula.Text, Me)
+    '    End If
+    'End Sub
+
 End Class

@@ -55,7 +55,7 @@ Partial Class Modificar_Sueldo
         Me.Registrando.Location = New System.Drawing.Point(222, 71)
         Me.Registrando.Name = "Registrando"
         Me.Registrando.Size = New System.Drawing.Size(75, 23)
-        Me.Registrando.TabIndex = 15
+        Me.Registrando.TabIndex = 16
         Me.Registrando.Text = "Registrar"
         Me.Registrando.UseVisualStyleBackColor = True
         '
@@ -74,7 +74,7 @@ Partial Class Modificar_Sueldo
         Me.Cargo.Location = New System.Drawing.Point(112, 19)
         Me.Cargo.Name = "Cargo"
         Me.Cargo.Size = New System.Drawing.Size(185, 20)
-        Me.Cargo.TabIndex = 13
+        Me.Cargo.TabIndex = 14
         '
         'Sueldo
         '
@@ -82,7 +82,7 @@ Partial Class Modificar_Sueldo
         Me.Sueldo.Location = New System.Drawing.Point(112, 45)
         Me.Sueldo.Name = "Sueldo"
         Me.Sueldo.Size = New System.Drawing.Size(185, 20)
-        Me.Sueldo.TabIndex = 12
+        Me.Sueldo.TabIndex = 15
         '
         'Label8
         '
@@ -113,7 +113,7 @@ Partial Class Modificar_Sueldo
         Me.Buscando.Location = New System.Drawing.Point(222, 71)
         Me.Buscando.Name = "Buscando"
         Me.Buscando.Size = New System.Drawing.Size(75, 23)
-        Me.Buscando.TabIndex = 6
+        Me.Buscando.TabIndex = 13
         Me.Buscando.Text = "Buscar"
         Me.Buscando.UseVisualStyleBackColor = True
         '
@@ -132,7 +132,7 @@ Partial Class Modificar_Sueldo
         Me.Nombres.Location = New System.Drawing.Point(106, 45)
         Me.Nombres.Name = "Nombres"
         Me.Nombres.Size = New System.Drawing.Size(191, 20)
-        Me.Nombres.TabIndex = 2
+        Me.Nombres.TabIndex = 12
         '
         'Label1
         '
@@ -149,7 +149,7 @@ Partial Class Modificar_Sueldo
         Me.Cedula.Location = New System.Drawing.Point(106, 19)
         Me.Cedula.Name = "Cedula"
         Me.Cedula.Size = New System.Drawing.Size(191, 20)
-        Me.Cedula.TabIndex = 0
+        Me.Cedula.TabIndex = 11
         '
         'Modificar_Sueldo
         '

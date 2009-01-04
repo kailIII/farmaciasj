@@ -20,23 +20,23 @@ Partial Class Contratar_Empleado
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
         Me.GroupBox1 = New System.Windows.Forms.GroupBox
+        Me.Label6 = New System.Windows.Forms.Label
+        Me.Apellido = New System.Windows.Forms.TextBox
+        Me.Label5 = New System.Windows.Forms.Label
+        Me.Correo = New System.Windows.Forms.TextBox
+        Me.Label4 = New System.Windows.Forms.Label
+        Me.Telefono = New System.Windows.Forms.TextBox
         Me.Contratando = New System.Windows.Forms.Button
         Me.Label2 = New System.Windows.Forms.Label
         Me.Nombre = New System.Windows.Forms.TextBox
         Me.Label1 = New System.Windows.Forms.Label
         Me.Cedula = New System.Windows.Forms.TextBox
-        Me.Label4 = New System.Windows.Forms.Label
-        Me.Telefono = New System.Windows.Forms.TextBox
-        Me.Label5 = New System.Windows.Forms.Label
-        Me.Correo = New System.Windows.Forms.TextBox
-        Me.Label6 = New System.Windows.Forms.Label
-        Me.Apellido = New System.Windows.Forms.TextBox
         Me.GroupBox2 = New System.Windows.Forms.GroupBox
+        Me.Registrando = New System.Windows.Forms.Button
         Me.Label7 = New System.Windows.Forms.Label
         Me.Usuario = New System.Windows.Forms.TextBox
-        Me.Contraseña = New System.Windows.Forms.TextBox
+        Me.Contrasena = New System.Windows.Forms.TextBox
         Me.Label8 = New System.Windows.Forms.Label
-        Me.Registrando = New System.Windows.Forms.Button
         Me.GroupBox1.SuspendLayout()
         Me.GroupBox2.SuspendLayout()
         Me.SuspendLayout()
@@ -60,6 +60,54 @@ Partial Class Contratar_Empleado
         Me.GroupBox1.TabIndex = 2
         Me.GroupBox1.TabStop = False
         Me.GroupBox1.Text = "Ficha de Empleado"
+        '
+        'Label6
+        '
+        Me.Label6.AutoSize = True
+        Me.Label6.Location = New System.Drawing.Point(6, 74)
+        Me.Label6.Name = "Label6"
+        Me.Label6.Size = New System.Drawing.Size(47, 13)
+        Me.Label6.TabIndex = 12
+        Me.Label6.Text = "Apellido:"
+        '
+        'Apellido
+        '
+        Me.Apellido.Location = New System.Drawing.Point(76, 71)
+        Me.Apellido.Name = "Apellido"
+        Me.Apellido.Size = New System.Drawing.Size(185, 20)
+        Me.Apellido.TabIndex = 3
+        '
+        'Label5
+        '
+        Me.Label5.AutoSize = True
+        Me.Label5.Location = New System.Drawing.Point(6, 126)
+        Me.Label5.Name = "Label5"
+        Me.Label5.Size = New System.Drawing.Size(41, 13)
+        Me.Label5.TabIndex = 10
+        Me.Label5.Text = "Correo:"
+        '
+        'Correo
+        '
+        Me.Correo.Location = New System.Drawing.Point(76, 123)
+        Me.Correo.Name = "Correo"
+        Me.Correo.Size = New System.Drawing.Size(185, 20)
+        Me.Correo.TabIndex = 5
+        '
+        'Label4
+        '
+        Me.Label4.AutoSize = True
+        Me.Label4.Location = New System.Drawing.Point(6, 100)
+        Me.Label4.Name = "Label4"
+        Me.Label4.Size = New System.Drawing.Size(52, 13)
+        Me.Label4.TabIndex = 8
+        Me.Label4.Text = "Teléfono:"
+        '
+        'Telefono
+        '
+        Me.Telefono.Location = New System.Drawing.Point(76, 97)
+        Me.Telefono.Name = "Telefono"
+        Me.Telefono.Size = New System.Drawing.Size(185, 20)
+        Me.Telefono.TabIndex = 4
         '
         'Contratando
         '
@@ -100,62 +148,14 @@ Partial Class Contratar_Empleado
         Me.Cedula.Location = New System.Drawing.Point(76, 19)
         Me.Cedula.Name = "Cedula"
         Me.Cedula.Size = New System.Drawing.Size(185, 20)
-        Me.Cedula.TabIndex = 0
-        '
-        'Label4
-        '
-        Me.Label4.AutoSize = True
-        Me.Label4.Location = New System.Drawing.Point(6, 100)
-        Me.Label4.Name = "Label4"
-        Me.Label4.Size = New System.Drawing.Size(52, 13)
-        Me.Label4.TabIndex = 8
-        Me.Label4.Text = "Teléfono:"
-        '
-        'Telefono
-        '
-        Me.Telefono.Location = New System.Drawing.Point(76, 97)
-        Me.Telefono.Name = "Telefono"
-        Me.Telefono.Size = New System.Drawing.Size(185, 20)
-        Me.Telefono.TabIndex = 7
-        '
-        'Label5
-        '
-        Me.Label5.AutoSize = True
-        Me.Label5.Location = New System.Drawing.Point(6, 126)
-        Me.Label5.Name = "Label5"
-        Me.Label5.Size = New System.Drawing.Size(41, 13)
-        Me.Label5.TabIndex = 10
-        Me.Label5.Text = "Correo:"
-        '
-        'Correo
-        '
-        Me.Correo.Location = New System.Drawing.Point(76, 123)
-        Me.Correo.Name = "Correo"
-        Me.Correo.Size = New System.Drawing.Size(185, 20)
-        Me.Correo.TabIndex = 9
-        '
-        'Label6
-        '
-        Me.Label6.AutoSize = True
-        Me.Label6.Location = New System.Drawing.Point(6, 74)
-        Me.Label6.Name = "Label6"
-        Me.Label6.Size = New System.Drawing.Size(47, 13)
-        Me.Label6.TabIndex = 12
-        Me.Label6.Text = "Apellido:"
-        '
-        'Apellido
-        '
-        Me.Apellido.Location = New System.Drawing.Point(76, 71)
-        Me.Apellido.Name = "Apellido"
-        Me.Apellido.Size = New System.Drawing.Size(185, 20)
-        Me.Apellido.TabIndex = 11
+        Me.Cedula.TabIndex = 1
         '
         'GroupBox2
         '
         Me.GroupBox2.Controls.Add(Me.Registrando)
         Me.GroupBox2.Controls.Add(Me.Label7)
         Me.GroupBox2.Controls.Add(Me.Usuario)
-        Me.GroupBox2.Controls.Add(Me.Contraseña)
+        Me.GroupBox2.Controls.Add(Me.Contrasena)
         Me.GroupBox2.Controls.Add(Me.Label8)
         Me.GroupBox2.Location = New System.Drawing.Point(12, 200)
         Me.GroupBox2.Name = "GroupBox2"
@@ -163,6 +163,16 @@ Partial Class Contratar_Empleado
         Me.GroupBox2.TabIndex = 3
         Me.GroupBox2.TabStop = False
         Me.GroupBox2.Text = "Registrar usuario"
+        '
+        'Registrando
+        '
+        Me.Registrando.Enabled = False
+        Me.Registrando.Location = New System.Drawing.Point(185, 72)
+        Me.Registrando.Name = "Registrando"
+        Me.Registrando.Size = New System.Drawing.Size(75, 23)
+        Me.Registrando.TabIndex = 9
+        Me.Registrando.Text = "Registrar"
+        Me.Registrando.UseVisualStyleBackColor = True
         '
         'Label7
         '
@@ -179,15 +189,15 @@ Partial Class Contratar_Empleado
         Me.Usuario.Location = New System.Drawing.Point(76, 19)
         Me.Usuario.Name = "Usuario"
         Me.Usuario.Size = New System.Drawing.Size(185, 20)
-        Me.Usuario.TabIndex = 13
+        Me.Usuario.TabIndex = 7
         '
-        'Contraseña
+        'Contrasena
         '
-        Me.Contraseña.Enabled = False
-        Me.Contraseña.Location = New System.Drawing.Point(76, 45)
-        Me.Contraseña.Name = "Contraseña"
-        Me.Contraseña.Size = New System.Drawing.Size(185, 20)
-        Me.Contraseña.TabIndex = 12
+        Me.Contrasena.Enabled = False
+        Me.Contrasena.Location = New System.Drawing.Point(76, 45)
+        Me.Contrasena.Name = "Contrasena"
+        Me.Contrasena.Size = New System.Drawing.Size(185, 20)
+        Me.Contrasena.TabIndex = 8
         '
         'Label8
         '
@@ -197,16 +207,6 @@ Partial Class Contratar_Empleado
         Me.Label8.Size = New System.Drawing.Size(64, 13)
         Me.Label8.TabIndex = 11
         Me.Label8.Text = "Contraseña:"
-        '
-        'Registrando
-        '
-        Me.Registrando.Enabled = False
-        Me.Registrando.Location = New System.Drawing.Point(185, 72)
-        Me.Registrando.Name = "Registrando"
-        Me.Registrando.Size = New System.Drawing.Size(75, 23)
-        Me.Registrando.TabIndex = 15
-        Me.Registrando.Text = "Registrar"
-        Me.Registrando.UseVisualStyleBackColor = True
         '
         'Contratar_Empleado
         '
@@ -239,7 +239,7 @@ Partial Class Contratar_Empleado
     Friend WithEvents GroupBox2 As System.Windows.Forms.GroupBox
     Friend WithEvents Label7 As System.Windows.Forms.Label
     Friend WithEvents Usuario As System.Windows.Forms.TextBox
-    Friend WithEvents Contraseña As System.Windows.Forms.TextBox
+    Friend WithEvents Contrasena As System.Windows.Forms.TextBox
     Friend WithEvents Label8 As System.Windows.Forms.Label
     Friend WithEvents Registrando As System.Windows.Forms.Button
 End Class
