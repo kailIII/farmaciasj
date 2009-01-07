@@ -31,14 +31,7 @@ Partial Class Contratar_Empleado
         Me.Nombre = New System.Windows.Forms.TextBox
         Me.Label1 = New System.Windows.Forms.Label
         Me.Cedula = New System.Windows.Forms.TextBox
-        Me.GroupBox2 = New System.Windows.Forms.GroupBox
-        Me.Registrando = New System.Windows.Forms.Button
-        Me.Label7 = New System.Windows.Forms.Label
-        Me.Usuario = New System.Windows.Forms.TextBox
-        Me.Contrasena = New System.Windows.Forms.TextBox
-        Me.Label8 = New System.Windows.Forms.Label
         Me.GroupBox1.SuspendLayout()
-        Me.GroupBox2.SuspendLayout()
         Me.SuspendLayout()
         '
         'GroupBox1
@@ -150,77 +143,16 @@ Partial Class Contratar_Empleado
         Me.Cedula.Size = New System.Drawing.Size(185, 20)
         Me.Cedula.TabIndex = 1
         '
-        'GroupBox2
-        '
-        Me.GroupBox2.Controls.Add(Me.Registrando)
-        Me.GroupBox2.Controls.Add(Me.Label7)
-        Me.GroupBox2.Controls.Add(Me.Usuario)
-        Me.GroupBox2.Controls.Add(Me.Contrasena)
-        Me.GroupBox2.Controls.Add(Me.Label8)
-        Me.GroupBox2.Location = New System.Drawing.Point(12, 200)
-        Me.GroupBox2.Name = "GroupBox2"
-        Me.GroupBox2.Size = New System.Drawing.Size(274, 112)
-        Me.GroupBox2.TabIndex = 3
-        Me.GroupBox2.TabStop = False
-        Me.GroupBox2.Text = "Registrar usuario"
-        '
-        'Registrando
-        '
-        Me.Registrando.Enabled = False
-        Me.Registrando.Location = New System.Drawing.Point(185, 72)
-        Me.Registrando.Name = "Registrando"
-        Me.Registrando.Size = New System.Drawing.Size(75, 23)
-        Me.Registrando.TabIndex = 9
-        Me.Registrando.Text = "Registrar"
-        Me.Registrando.UseVisualStyleBackColor = True
-        '
-        'Label7
-        '
-        Me.Label7.AutoSize = True
-        Me.Label7.Location = New System.Drawing.Point(6, 22)
-        Me.Label7.Name = "Label7"
-        Me.Label7.Size = New System.Drawing.Size(46, 13)
-        Me.Label7.TabIndex = 14
-        Me.Label7.Text = "Usuario:"
-        '
-        'Usuario
-        '
-        Me.Usuario.Enabled = False
-        Me.Usuario.Location = New System.Drawing.Point(76, 19)
-        Me.Usuario.Name = "Usuario"
-        Me.Usuario.Size = New System.Drawing.Size(185, 20)
-        Me.Usuario.TabIndex = 7
-        '
-        'Contrasena
-        '
-        Me.Contrasena.Enabled = False
-        Me.Contrasena.Location = New System.Drawing.Point(76, 45)
-        Me.Contrasena.Name = "Contrasena"
-        Me.Contrasena.Size = New System.Drawing.Size(185, 20)
-        Me.Contrasena.TabIndex = 8
-        '
-        'Label8
-        '
-        Me.Label8.AutoSize = True
-        Me.Label8.Location = New System.Drawing.Point(6, 48)
-        Me.Label8.Name = "Label8"
-        Me.Label8.Size = New System.Drawing.Size(64, 13)
-        Me.Label8.TabIndex = 11
-        Me.Label8.Text = "Contraseña:"
-        '
         'Contratar_Empleado
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(294, 324)
-        Me.Controls.Add(Me.GroupBox2)
+        Me.ClientSize = New System.Drawing.Size(294, 205)
         Me.Controls.Add(Me.GroupBox1)
         Me.Name = "Contratar_Empleado"
         Me.Text = "Contratar_Empleado"
         Me.GroupBox1.ResumeLayout(False)
         Me.GroupBox1.PerformLayout()
-        Me.GroupBox2.ResumeLayout(False)
-        Me.GroupBox2.PerformLayout()
         Me.ResumeLayout(False)
 
     End Sub
@@ -236,10 +168,4 @@ Partial Class Contratar_Empleado
     Friend WithEvents Correo As System.Windows.Forms.TextBox
     Friend WithEvents Label6 As System.Windows.Forms.Label
     Friend WithEvents Apellido As System.Windows.Forms.TextBox
-    Friend WithEvents GroupBox2 As System.Windows.Forms.GroupBox
-    Friend WithEvents Label7 As System.Windows.Forms.Label
-    Friend WithEvents Usuario As System.Windows.Forms.TextBox
-    Friend WithEvents Contrasena As System.Windows.Forms.TextBox
-    Friend WithEvents Label8 As System.Windows.Forms.Label
-    Friend WithEvents Registrando As System.Windows.Forms.Button
 End Class

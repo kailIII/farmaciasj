@@ -76,17 +76,17 @@ Public Class Controlador_Empleado
                     Ventana.Telefono.Enabled = False
                     Ventana.Correo.Enabled = False
                     Ventana.Contratando.Enabled = False
-                    Ventana.Usuario.Enabled = True
-                    Ventana.Contrasena.Enabled = True
-                    Ventana.Registrando.Enabled = True
-                    Ventana.Usuario.Focus()
+                    'Ventana.Usuario.Enabled = True
+                    'Ventana.Contrasena.Enabled = True
+                    'Ventana.Registrando.Enabled = True
+                    'Ventana.Usuario.Focus()
 
                     Ventana_Asignar_Cargo.Cargo.Focus()
-                    If Modelo.Existe_Usuario(Ventana.Usuario.Text) > 0 Then
-                        MsgBox("Error, el nombre de usuario ya existe.", MsgBoxStyle.OkOnly, "Error")
-                    ElseIf (Modelo.Modificar_Usuario_Contrasena(Id_Empleado_Nuevo, Ventana.Usuario.Text, Ventana.Contrasena.Text)) Then
-                        MsgBox("El usuario fue registrado exitosamente!.", MsgBoxStyle.OkOnly, "Información")
-                    End If
+                    'If Modelo.Existe_Usuario(Ventana.Usuario.Text) > 0 Then
+                    '    MsgBox("Error, el nombre de usuario ya existe.", MsgBoxStyle.OkOnly, "Error")
+                    'ElseIf (Modelo.Modificar_Usuario_Contrasena(Id_Empleado_Nuevo, Ventana.Usuario.Text, Ventana.Contrasena.Text)) Then
+                    '    MsgBox("El usuario fue registrado exitosamente!.", MsgBoxStyle.OkOnly, "Información")
+                    'End If
 
                 End If
             End If
