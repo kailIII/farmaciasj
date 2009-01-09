@@ -129,31 +129,13 @@ Public Class Empleado
     End Function
 
 
-    Public Function Modificar_Usuario_Contrasena(ByVal Id_Empleado As Integer, ByVal Usuario As String, ByVal Contrasena As String) As Boolean
-        Dim Adaptador As FarmaciaSJDataSetTableAdapters.EMPLEADOTableAdapter
-        Try
-            Adaptador = New FarmaciaSJDataSetTableAdapters.EMPLEADOTableAdapter
-            Dim Empleado As FarmaciaSJDataSetTableAdapters.EMPLEADOTableAdapter = New FarmaciaSJDataSetTableAdapters.EMPLEADOTableAdapter
-            Dim Conextion As Data.SqlClient.SqlConnection = Empleado.Connection
-            Dim Consulta As Data.SqlClient.SqlCommand = New Data.SqlClient.SqlCommand
-            Conextion.Open()
-            Consulta.Connection = Conextion
-            Consulta.CommandText = "UPDATE EMPLEADO SET USUARIO='" & Usuario & "', CONTRASENA='" & Contrasena & "' WHERE ID_EMPLEADO=" & Id_Empleado
-            Consulta.ExecuteNonQuery()
-            Return True
-        Catch ex As ArgumentNullException
-            Return False
-        End Try
-    End Function
-
-
     Public Function Ingresar_Empleado(ByVal Cedula As String, ByVal Nombre As String, ByVal Apellido As String, ByVal Telefono As String, ByVal Correo As String) As Boolean
         Dim EmpleadoTableAdapter As FarmaciaSJDataSetTableAdapters.EMPLEADOTableAdapter
         Try
             Dim BasedeDatos As FarmaciaSJDataSet
             BasedeDatos = New FarmaciaSJDataSet
             EmpleadoTableAdapter = New FarmaciaSJDataSetTableAdapters.EMPLEADOTableAdapter
-            EmpleadoTableAdapter.Insert(Nombre, Apellido, Cedula, Telefono, Correo, "", "", "EMP")
+            EmpleadoTableAdapter.Insert(Nombre, Apellido, Cedula, Telefono, Correo)
             EmpleadoTableAdapter.Update(BasedeDatos.EMPLEADO)
             BasedeDatos.AcceptChanges()
             Return True
