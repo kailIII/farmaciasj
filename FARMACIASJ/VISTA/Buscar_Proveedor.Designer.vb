@@ -36,7 +36,7 @@ Partial Class Buscar_Proveedor
         Me.GroupBox1.Controls.Add(Me.Codigo)
         Me.GroupBox1.Controls.Add(Me.textcodifo)
         Me.GroupBox1.Controls.Add(Me.Boton_Codigo)
-        Me.GroupBox1.Location = New System.Drawing.Point(12, 12)
+        Me.GroupBox1.Location = New System.Drawing.Point(12, 99)
         Me.GroupBox1.Name = "GroupBox1"
         Me.GroupBox1.Size = New System.Drawing.Size(286, 81)
         Me.GroupBox1.TabIndex = 0
@@ -53,11 +53,11 @@ Partial Class Buscar_Proveedor
         'textcodifo
         '
         Me.textcodifo.AutoSize = True
-        Me.textcodifo.Location = New System.Drawing.Point(7, 20)
+        Me.textcodifo.Location = New System.Drawing.Point(6, 20)
         Me.textcodifo.Name = "textcodifo"
-        Me.textcodifo.Size = New System.Drawing.Size(40, 13)
+        Me.textcodifo.Size = New System.Drawing.Size(43, 13)
         Me.textcodifo.TabIndex = 1
-        Me.textcodifo.Text = "Código"
+        Me.textcodifo.Text = "Código:"
         '
         'Boton_Codigo
         '
@@ -73,7 +73,7 @@ Partial Class Buscar_Proveedor
         Me.GroupBox2.Controls.Add(Me.Rif)
         Me.GroupBox2.Controls.Add(Me.Label1)
         Me.GroupBox2.Controls.Add(Me.Boton_Rif)
-        Me.GroupBox2.Location = New System.Drawing.Point(12, 109)
+        Me.GroupBox2.Location = New System.Drawing.Point(12, 12)
         Me.GroupBox2.Name = "GroupBox2"
         Me.GroupBox2.Size = New System.Drawing.Size(286, 81)
         Me.GroupBox2.TabIndex = 3
@@ -90,11 +90,11 @@ Partial Class Buscar_Proveedor
         'Label1
         '
         Me.Label1.AutoSize = True
-        Me.Label1.Location = New System.Drawing.Point(23, 20)
+        Me.Label1.Location = New System.Drawing.Point(7, 20)
         Me.Label1.Name = "Label1"
-        Me.Label1.Size = New System.Drawing.Size(24, 13)
+        Me.Label1.Size = New System.Drawing.Size(33, 13)
         Me.Label1.TabIndex = 1
-        Me.Label1.Text = "RIF"
+        Me.Label1.Text = "R.I.F:"
         '
         'Boton_Rif
         '
@@ -109,7 +109,7 @@ Partial Class Buscar_Proveedor
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(310, 204)
+        Me.ClientSize = New System.Drawing.Size(309, 192)
         Me.Controls.Add(Me.GroupBox2)
         Me.Controls.Add(Me.GroupBox1)
         Me.Name = "Buscar_Proveedor"

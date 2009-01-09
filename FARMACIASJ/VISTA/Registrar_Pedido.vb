@@ -63,4 +63,28 @@ Public Class Registrar_Pedido
 
         End If
     End Sub
+
+    Private Sub RIF_TextChanged(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles RIF.TextChanged
+        If (Me.RIF.Text.Length = 1) Then
+            If (Me.RIF.Text(0) = Char.Parse("J") Or Me.RIF.Text(0) = Char.Parse("G")) Then
+                Me.RIF.MaxLength = 10
+            ElseIf (Me.RIF.Text(0) = Char.Parse("V") Or Me.RIF.Text(0) = Char.Parse("E")) Then
+                Me.RIF.MaxLength = 9
+            ElseIf (Me.RIF.Text(0) = Char.Parse("P")) Then
+                Me.RIF.MaxLength = 12
+            Else
+                Me.RIF.Text = ""
+            End If
+        ElseIf (Me.RIF.Text.Length > 1) Then
+            Dim count As Integer
+            count = Me.RIF.Text.Length - 1
+            If (Char.IsDigit(Me.RIF.Text(count)) = False) Then
+                Dim A As String
+                A = Me.RIF.Text
+                A = A.Substring(0, count)
+                Me.RIF.Text = A
+                Me.RIF.SelectionStart = Me.RIF.Text.Length
+            End If
+        End If
+    End Sub
 End Class

@@ -89,9 +89,9 @@ Partial Class Registrar_Compra
         Me.Label3.AutoSize = True
         Me.Label3.Location = New System.Drawing.Point(394, 24)
         Me.Label3.Name = "Label3"
-        Me.Label3.Size = New System.Drawing.Size(44, 13)
+        Me.Label3.Size = New System.Drawing.Size(47, 13)
         Me.Label3.TabIndex = 4
-        Me.Label3.Text = "Numero"
+        Me.Label3.Text = "Número:"
         '
         'Label2
         '
@@ -181,7 +181,7 @@ Partial Class Registrar_Compra
         Me.Label11.Name = "Label11"
         Me.Label11.Size = New System.Drawing.Size(40, 13)
         Me.Label11.TabIndex = 0
-        Me.Label11.Text = "Codigo"
+        Me.Label11.Text = "Código"
         '
         'GroupBox5
         '
@@ -285,9 +285,9 @@ Partial Class Registrar_Compra
         Me.Label22.AutoSize = True
         Me.Label22.Location = New System.Drawing.Point(6, 77)
         Me.Label22.Name = "Label22"
-        Me.Label22.Size = New System.Drawing.Size(64, 13)
+        Me.Label22.Size = New System.Drawing.Size(61, 13)
         Me.Label22.TabIndex = 6
-        Me.Label22.Text = "Costo_Total"
+        Me.Label22.Text = "Costo Total"
         '
         'CUnidad
         '
@@ -303,9 +303,9 @@ Partial Class Registrar_Compra
         Me.Label21.AutoSize = True
         Me.Label21.Location = New System.Drawing.Point(6, 51)
         Me.Label21.Name = "Label21"
-        Me.Label21.Size = New System.Drawing.Size(74, 13)
+        Me.Label21.Size = New System.Drawing.Size(71, 13)
         Me.Label21.TabIndex = 4
-        Me.Label21.Text = "Costo_Unidad"
+        Me.Label21.Text = "Costo Unidad"
         '
         'Cantidad
         '
@@ -366,9 +366,9 @@ Partial Class Registrar_Compra
         Me.Label4.AutoSize = True
         Me.Label4.Location = New System.Drawing.Point(10, 26)
         Me.Label4.Name = "Label4"
-        Me.Label4.Size = New System.Drawing.Size(24, 13)
+        Me.Label4.Size = New System.Drawing.Size(33, 13)
         Me.Label4.TabIndex = 0
-        Me.Label4.Text = "RIF"
+        Me.Label4.Text = "R.I.F:"
         '
         'RIF_PROVEEDOR
         '
@@ -391,9 +391,9 @@ Partial Class Registrar_Compra
         Me.Label5.AutoSize = True
         Me.Label5.Location = New System.Drawing.Point(282, 26)
         Me.Label5.Name = "Label5"
-        Me.Label5.Size = New System.Drawing.Size(70, 13)
+        Me.Label5.Size = New System.Drawing.Size(73, 13)
         Me.Label5.TabIndex = 3
-        Me.Label5.Text = "Razon Social"
+        Me.Label5.Text = "Razón Social:"
         '
         'GroupBox2
         '
