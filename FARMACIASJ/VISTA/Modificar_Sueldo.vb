@@ -27,7 +27,7 @@ Public Class Modificar_Sueldo
         Controlador.Buscando_Empleado(Me.Cedula.Text, Me)
     End Sub
 
-    Private Sub Cedula_TextChanged(ByVal sender As System.Object, ByVal e As Windows.Forms.KeyPressEventArgs) Handles Cedula.KeyPress, Cedula.TextChanged
+    Private Sub Cedula_TextChanged(ByVal sender As System.Object, ByVal e As Windows.Forms.KeyPressEventArgs) Handles Cedula.KeyPress
 
         If (e.KeyChar = Char.ConvertFromUtf32(13)) Then
             Dim Controlador As Controlador_Empleado = New Controlador_Empleado
@@ -58,5 +58,5 @@ Public Class Modificar_Sueldo
             End If
         End If
     End Sub
-    End Sub
+
 End Class
