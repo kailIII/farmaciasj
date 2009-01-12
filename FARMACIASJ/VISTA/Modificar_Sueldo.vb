@@ -1,5 +1,6 @@
 Public Class Modificar_Sueldo
     Public Id_Empleado As Integer = 0
+    '    Public Contratado As Boolean = False
 
 
     Private Sub Registrando_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Registrando.Click
@@ -10,8 +11,12 @@ Public Class Modificar_Sueldo
         If Id_Empleado > 0 Then
             ' EN caso de uso donde se llama a esta ventana para asignarle 
             ' un sueldo a alguien que se inscribiendo
-            Controlador.Modificar_Cargo_Sueldo(Id_Empleado, Me.Cargo.Text, Me.Sueldo.Text)
-            Me.Close()
+            Dim Contratando As Boolean= False
+
+            Contratando = Controlador.Modificar_Cargo_Sueldo(Id_Empleado, Me.Cargo.Text, Me.Sueldo.Text)
+            If Contratando Then
+                Me.Close()
+            End If
 
         Else
             'En caso de uso Actual, Solo Modificar Sueldo y/o Cargo

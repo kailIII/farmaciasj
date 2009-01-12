@@ -22,7 +22,7 @@ Public Class Controlador_Empleado
                 Ventana.Cedula.Focus()
             End If
         Catch ex As Exception
-            MsgBox("El empleado no existe", MsgBoxStyle.OkOnly, "Error")
+            MsgBox("El empleado no posee ningún cargo asignado", MsgBoxStyle.OkOnly, "Error")
         End Try
     End Sub
 
@@ -60,6 +60,8 @@ Public Class Controlador_Empleado
                     Dim Id_Empleado_Nuevo As Integer = Modelo.Existe_Empleado(Cedula)
                     Dim Ventana_Asignar_Cargo As Modificar_Sueldo = New Modificar_Sueldo
                     'Asignar_Cargo.MdiParent = Ventana.MdiParent
+                    '  While (Ventana_Asignar_Cargo.Contratado = False)
+
                     Ventana_Asignar_Cargo.Show()
                     Ventana_Asignar_Cargo.Cedula.Text = Ventana.Cedula.Text
                     Ventana_Asignar_Cargo.Nombres.Text = Ventana.Nombre.Text & " " & Ventana.Apellido.Text
@@ -76,10 +78,10 @@ Public Class Controlador_Empleado
                     Ventana.Telefono.Enabled = False
                     Ventana.Correo.Enabled = False
                     Ventana.Contratando.Enabled = False
-                    
+
 
                     Ventana_Asignar_Cargo.Cargo.Focus()
-
+                    ' End While
 
                 End If
             End If
@@ -95,9 +97,10 @@ Public Class Controlador_Empleado
             If Modelo.Modificar_Historico_Empleado(Id_Empleado_Nuevo, Cargo, CDbl(Sueldo), False) Then
                 MsgBox("El Empleado fue contratado exitosamente!.", MsgBoxStyle.OkOnly, "Información")
                 'Venatana modificar sueldo
-
+                Return True
             End If
         End If
+        Return False
     End Function
 
 
@@ -182,7 +185,29 @@ Public Class Controlador_Empleado
         End Try
     End Sub
 
+    'Abriendo Ventanas desde la barra de menú del administrador:
 
+    Public Sub Abrir_Ventana_Contratar_Empleado(ByVal Padre As Windows.Forms.Form)
+        Dim Ventana As Contratar_Empleado
+        Ventana = New Contratar_Empleado
+        Ventana.MdiParent = Padre
+        Ventana.Show()
+    End Sub
+
+    Public Sub Abrir_Ventana_Despedir_Empleado(ByVal Padre As Windows.Forms.Form)
+        Dim Ventana As Despedir_Empleado
+        Ventana = New Despedir_Empleado
+        Ventana.MdiParent = Padre
+        Ventana.Show()
+    End Sub
+
+
+    Public Sub Abrir_Ventana_Modificar_Sueldo(ByVal Padre As Windows.Forms.Form)
+        Dim Ventana As Modificar_Sueldo
+        Ventana = New Modificar_Sueldo
+        Ventana.MdiParent = Padre
+        Ventana.Show()
+    End Sub
 
 
 

@@ -73,12 +73,26 @@ Public Class Administrador
 
 
     'LZ
-    'Private Sub DevolverFacturaToolStripMenuItem_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles DevolverFacturaToolStripMenuItem.Click
-    '    Dim Controlador_Venta_x As New Controlador_Venta
-    '    Controlador_Venta_x.Abrir_Ventana_Devolucion(Me)
-    'End Sub
+    Private Sub DevolverFacturaToolStripMenuItem_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles DevolverFacturaToolStripMenuItem.Click
+        Dim Controlador_Venta_x As New Controlador_Venta
+        Controlador_Venta_x.Abrir_Ventana_Devolucion(Me)
+    End Sub
 
-    
+
+    Private Sub AsignarSueldoCargoToolStripMenuItem_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles AsignarSueldoCargoToolStripMenuItem.Click
+        Dim Ventana As New Controlador_Empleado
+        Ventana.Abrir_Ventana_Modificar_Sueldo(Me)
+    End Sub
+
+    Private Sub ContratarToolStripMenuItem_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles ContratarToolStripMenuItem.Click
+        Dim Ventana As New Controlador_Empleado
+        Ventana.Abrir_Ventana_Contratar_Empleado(Me)
+    End Sub
+
+    Private Sub DespedirToolStripMenuItem1_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles DespedirToolStripMenuItem1.Click
+        Dim Ventana As New Controlador_Empleado
+        Ventana.Abrir_Ventana_Despedir_Empleado(Me)
+    End Sub
 
 
     'Fin LZ
@@ -89,4 +103,6 @@ Public Class Administrador
         Configuracion.MdiParent = Me
         Configuracion.Show()
     End Sub
+
+
 End Class
