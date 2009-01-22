@@ -147,8 +147,8 @@ Public Class Realizar_Venta
     Private Sub Realizar_Venta_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
         Dim ControladorF As Controlador_Venta
         ControladorF = New Controlador_Venta
-        Fecha_Compra.Value = Date.Today()
-        Vence.Value = Date.Today()
+        'Fecha_Compra.Value = Date.Today
+        ''Vence.Value = Date.Today
         Dim C As Integer
         C = ControladorF.CantidadF()
         C = C + 1
