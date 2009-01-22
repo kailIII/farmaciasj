@@ -409,6 +409,7 @@ Partial Class Realizar_Venta
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
+        Me.AutoSize = True
         Me.ClientSize = New System.Drawing.Size(685, 423)
         Me.Controls.Add(Me.DETALLE_VENTA)
         Me.Controls.Add(Me.Button2)
@@ -419,6 +420,7 @@ Partial Class Realizar_Venta
         Me.Name = "Realizar_Venta"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.Manual
         Me.Text = "RealizarVenta"
+        Me.WindowState = System.Windows.Forms.FormWindowState.Maximized
         Me.GroupBox1.ResumeLayout(False)
         Me.GroupBox1.PerformLayout()
         Me.GroupBox2.ResumeLayout(False)

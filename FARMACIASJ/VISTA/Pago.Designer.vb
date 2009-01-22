@@ -271,6 +271,7 @@ Partial Class Pago
         Me.Name = "Pago"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.Manual
         Me.Text = "Pago"
+        Me.WindowState = System.Windows.Forms.FormWindowState.Maximized
         Me.GroupBox1.ResumeLayout(False)
         Me.GroupBox1.PerformLayout()
         Me.ResumeLayout(False)

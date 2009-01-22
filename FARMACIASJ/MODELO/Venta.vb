@@ -149,7 +149,7 @@ Public Class Venta
             Vuelto = Vuelto1(0) & "." & Vuelto1(1)
             If (TIPO_PAGO = "EFECTIVO") Then
                 Consulta.CommandText = "UPDATE [FarmaciaSJ].[dbo].[VENTA] SET [SUB-TOTAL] = " & Stotal & " ,[IMPUESTO] = " & Impuestos & ",[TOTAL] = " & Total & " ,[MONTO] = " & Monto & " ,[VUELTO] = " & Vuelto & " ,[TIPO_PAGO] = '" & TIPO_PAGO & "' ,[NUMERO_T_CHEQ] = null, [FVENCIMIENTO_T]=null WHERE ID_VENTA=" & ID_Factura
-            ElseIf (TIPO_PAGO = "CHEKE") Then
+            ElseIf (TIPO_PAGO = "CHEQUE") Then
                 Consulta.CommandText = "UPDATE [FarmaciaSJ].[dbo].[VENTA] SET [SUB-TOTAL] = " & Stotal & " ,[IMPUESTO] = " & Impuestos & ",[TOTAL] = " & Total & " ,[MONTO] = " & Monto & " ,[VUELTO] = " & Vuelto & " ,[TIPO_PAGO] = '" & TIPO_PAGO & "' ,[NUMERO_T_CHEQ] = '" & NCT & "', [FVENCIMIENTO_T]=null WHERE ID_VENTA=" & ID_Factura
             Else
                 Consulta.CommandText = "UPDATE [FarmaciaSJ].[dbo].[VENTA] SET [SUB-TOTAL] = " & Stotal & " ,[IMPUESTO] = " & Impuestos & ",[TOTAL] = " & Total & " ,[MONTO] = " & Monto & " ,[VUELTO] = " & Vuelto & " ,[TIPO_PAGO] = '" & TIPO_PAGO & "' ,[NUMERO_T_CHEQ] = '" & NCT & "', [FVENCIMIENTO_T]=convert(datetime,'" & Vencimiento & "',102) WHERE ID_VENTA=" & ID_Factura
@@ -180,7 +180,7 @@ Public Class Venta
     End Function
 
     Public Function Cargar_Reporte(ByVal ID_Factura As Integer) As FarmaciaSJDataSet
-        Dim FarmaciaSJ As FarmaciaSJDataSet = New FarmaciaSJDataSet
+        Dim FarmaciaSJ As New FarmaciaSJDataSet
         Dim Detalle As FarmaciaSJDataSetTableAdapters.DETALLE_VENTATableAdapter = New FarmaciaSJDataSetTableAdapters.DETALLE_VENTATableAdapter
         Dim Connection As Data.SqlClient.SqlConnection = New Data.SqlClient.SqlConnection
         Dim Command As Data.SqlClient.SqlCommand = New Data.SqlClient.SqlCommand
@@ -199,10 +199,10 @@ Public Class Venta
             Command.CommandText = "SELECT     ID_DETALLE_VENTA, Cantidad, ID_VENTA, ID_LOTE, ID_PRODUCTO FROM         DETALLE_VENTA WHERE     (ID_VENTA = " & ID_Factura & ")"
             BD = New Data.SqlClient.SqlDataAdapter(Command)
             BD.Fill(FarmaciaSJ, "DETALLE_VENTA")
-            Command.CommandText = "SELECT     ID_LOTE, CANTIDAD, FECHA_VENCIMIENTO, PVP, DESCUENTO, ID_PRODUCTO FROM         LOTE"
+            Command.CommandText = "SELECT     LOTE.* FROM         LOTE INNER JOIN DETALLE_VENTA ON LOTE.ID_LOTE = DETALLE_VENTA.ID_LOTE AND LOTE.ID_PRODUCTO = DETALLE_VENTA.ID_PRODUCTO WHERE     (DETALLE_VENTA.ID_VENTA = " & ID_Factura & ")"
             BD = New Data.SqlClient.SqlDataAdapter(Command)
             BD.Fill(FarmaciaSJ, "LOTE")
-            Command.CommandText = "SELECT     ID_PRODUCTO, NOMBRE, CODIGO_DE_BARRAS, CODIGO, DESCRIPCION, GRAVADO_EXENTO, UNIDADES_POR_PAQUETE, ID_LINEA FROM         PRODUCTO"
+            Command.CommandText = "SELECT     PRODUCTO.* FROM         DETALLE_VENTA INNER JOIN PRODUCTO ON DETALLE_VENTA.ID_PRODUCTO = PRODUCTO.ID_PRODUCTO WHERE     (DETALLE_VENTA.ID_VENTA = " & ID_Factura & ")"
             BD = New Data.SqlClient.SqlDataAdapter(Command)
             BD.Fill(FarmaciaSJ, "PRODUCTO")
             Command.CommandText = "SELECT     ID_CLIENTE,IDENTIDAD, NOMBRE, APELLIDO, TELEFONO, DIRECCION FROM         CLIENTE"
@@ -210,7 +210,7 @@ Public Class Venta
             BD.Fill(FarmaciaSJ, "CLIENTE")
             Factura.SetDataSource(FarmaciaSJ)
             Factura.PrintToPrinter(1, True, 1, 2)
-            MsgBox("La factura se Processo con exito", MsgBoxStyle.OkOnly, "Error")
+            MsgBox("La factura se Processo con exito", MsgBoxStyle.OkOnly, "Aviso")
             Return FarmaciaSJ
         Catch E As Exception
             MsgBox("La Factura se processo con exito, pero existen errores con la Impresor", MsgBoxStyle.OkOnly, "Error")

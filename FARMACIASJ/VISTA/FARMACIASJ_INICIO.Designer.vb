@@ -97,9 +97,9 @@ Partial Class FARMACIASJ_INICIO
         Me.ApplicationTitle.Anchor = System.Windows.Forms.AnchorStyles.None
         Me.ApplicationTitle.BackColor = System.Drawing.Color.Transparent
         Me.ApplicationTitle.Font = New System.Drawing.Font("Microsoft Sans Serif", 18.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.ApplicationTitle.Location = New System.Drawing.Point(246, 3)
+        Me.ApplicationTitle.Location = New System.Drawing.Point(246, 0)
         Me.ApplicationTitle.Name = "ApplicationTitle"
-        Me.ApplicationTitle.Size = New System.Drawing.Size(247, 212)
+        Me.ApplicationTitle.Size = New System.Drawing.Size(247, 218)
         Me.ApplicationTitle.TabIndex = 0
         Me.ApplicationTitle.Text = "FARMACIASJ"
         Me.ApplicationTitle.TextAlign = System.Drawing.ContentAlignment.BottomLeft

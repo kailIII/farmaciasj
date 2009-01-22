@@ -41,4 +41,16 @@ Public Class FARMACIASJ_SESION
         Me.Close()
     End Sub
 
+    Private Sub FARMACIABindingNavigatorSaveItem_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles FARMACIABindingNavigatorSaveItem.Click
+        Me.Validate()
+        Me.FARMACIABindingSource.EndEdit()
+        Me.FARMACIATableAdapter.Update(Me.FarmaciaSJDataSet.FARMACIA)
+
+    End Sub
+
+    Private Sub FARMACIASJ_SESION_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
+        'TODO: This line of code loads data into the 'FarmaciaSJDataSet.FARMACIA' table. You can move, or remove it, as needed.
+        Me.FARMACIATableAdapter.Fill(Me.FarmaciaSJDataSet.FARMACIA)
+
+    End Sub
 End Class
