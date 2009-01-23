@@ -81,3 +81,6 @@ C:\Documents and Settings\jeraro\Mis documentos\FarnaciaSJ\FARMACIASJ\obj\Debug\
 C:\Documents and Settings\jeraro\Mis documentos\FarnaciaSJ\FARMACIASJ\obj\Debug\FARMACIASJ.Vendedor.resources
 C:\Documents and Settings\jeraro\Mis documentos\FarnaciaSJ\FARMACIASJ\obj\Debug\FARMACIASJ.vbproj.GenerateResource.Cache
 C:\Documents and Settings\jeraro\Mis documentos\FarnaciaSJ\FARMACIASJ\obj\Debug\FARMACIASJ.Resources.resources
+C:\Documents and Settings\jeraro\Mis documentos\FarnaciaSJ\FARMACIASJ\obj\Debug\FARMACIASJ.IngresarOtrosGastos.resources
+C:\Documents and Settings\jeraro\Mis documentos\FarnaciaSJ\FARMACIASJ\obj\Debug\FARMACIASJ.Otros_Gastos.rpt
+C:\Documents and Settings\jeraro\Mis documentos\FarnaciaSJ\FARMACIASJ\obj\Debug\FARMACIASJ.Reporte_OtroGasto.resources

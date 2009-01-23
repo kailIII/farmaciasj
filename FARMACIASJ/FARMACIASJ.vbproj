@@ -52,6 +52,7 @@
     <Compile Include="CONTROLADOR\Controlador_Empleado.vb" />
     <Compile Include="CONTROLADOR\Controlador_Ingresar_Producto.vb" />
     <Compile Include="CONTROLADOR\Controlador_Linea.vb" />
+    <Compile Include="CONTROLADOR\Controlador_OtrosGastos.vb" />
     <Compile Include="CONTROLADOR\Controlador_Pedido_Frecuente.vb" />
     <Compile Include="CONTROLADOR\Controlador_Producto.vb" />
     <Compile Include="CONTROLADOR\Controlador_Proveedor.vb" />
@@ -67,6 +68,7 @@
     <Compile Include="CONTROLADOR\Controlador_Cliente.vb" />
     <Compile Include="CONTROLADOR\Validaciones_Generales.vb" />
     <Compile Include="MODELO\Linea.vb" />
+    <Compile Include="MODELO\OtrosGastos.vb" />
     <Compile Include="MODELO\Pedido_Frecuente.vb" />
     <Compile Include="MODELO\Producto.vb" />
     <Compile Include="MODELO\Proveedor.vb" />
@@ -147,6 +149,12 @@
     <Compile Include="VISTA\IngresarCliente.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="VISTA\IngresarOtrosGastos.Designer.vb">
+      <DependentUpon>IngresarOtrosGastos.vb</DependentUpon>
+    </Compile>
+    <Compile Include="VISTA\IngresarOtrosGastos.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="VISTA\Ingresar_Linea.Designer.vb">
       <DependentUpon>Ingresar_Linea.vb</DependentUpon>
     </Compile>
@@ -188,6 +196,12 @@
     </Compile>
     <Compile Include="VISTA\Modificar_Sueldo.vb">
       <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="VISTA\Otros_Gastos.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Otros_Gastos.rpt</DependentUpon>
+      <SubType>Component</SubType>
     </Compile>
     <Compile Include="VISTA\Pago.Designer.vb">
       <DependentUpon>Pago.vb</DependentUpon>
@@ -235,6 +249,12 @@
       <DependentUpon>Reporte.vb</DependentUpon>
     </Compile>
     <Compile Include="VISTA\Reporte.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="VISTA\Reporte_OtroGasto.Designer.vb">
+      <DependentUpon>Reporte_OtroGasto.vb</DependentUpon>
+    </Compile>
+    <Compile Include="VISTA\Reporte_OtroGasto.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="VISTA\Suspender_Pedido_frecuente.Designer.vb">
@@ -301,6 +321,10 @@
       <SubType>Designer</SubType>
       <DependentUpon>IngresarCliente.vb</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="VISTA\IngresarOtrosGastos.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>IngresarOtrosGastos.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="VISTA\Ingresar_Linea.resx">
       <SubType>Designer</SubType>
       <DependentUpon>Ingresar_Linea.vb</DependentUpon>
@@ -328,6 +352,10 @@
     <EmbeddedResource Include="VISTA\Modificar_Sueldo.resx">
       <DependentUpon>Modificar_Sueldo.vb</DependentUpon>
       <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="VISTA\Otros_Gastos.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>Otros_Gastos.vb</LastGenOutput>
     </EmbeddedResource>
     <EmbeddedResource Include="VISTA\Pago.resx">
       <SubType>Designer</SubType>
@@ -360,6 +388,10 @@
     <EmbeddedResource Include="VISTA\Reporte.resx">
       <SubType>Designer</SubType>
       <DependentUpon>Reporte.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="VISTA\Reporte_OtroGasto.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>Reporte_OtroGasto.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="VISTA\Suspender_Pedido_frecuente.resx">
       <DependentUpon>Suspender_Pedido_frecuente.vb</DependentUpon>

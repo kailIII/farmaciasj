@@ -105,4 +105,11 @@ Public Class Administrador
     End Sub
 
 
+    Private Sub IngresarOtrosGastosToolStripMenuItem_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles IngresarOtrosGastosToolStripMenuItem.Click
+        Dim Gastos As Controlador_OtrosGastos
+
+        Gastos = New Controlador_OtrosGastos(Me)
+        Gastos.Abrir_Ingresar_Gasto()
+    End Sub
+
 End Class

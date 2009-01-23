@@ -41,12 +41,15 @@ Partial Class Administrador
         Me.EliminarToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem
         Me.RegistrarCompraToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem
         Me.ReclamosProveedorToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem
-        Me.ConfiguracionToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem
-        Me.ConfigurarFarmaciaToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem
         Me.EmpleadoToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem
         Me.ContratarToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem
         Me.AsignarSueldoCargoToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem
         Me.DespedirToolStripMenuItem1 = New System.Windows.Forms.ToolStripMenuItem
+        Me.ReporteDeEmpleadosToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem
+        Me.IngresarOtrosGastosToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem
+        Me.ReporteDeOtrosGastosToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem
+        Me.ConfiguracionToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem
+        Me.ConfigurarFarmaciaToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem
         Me.SALIRToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem
         Me.CERRARSESIONToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem
         Me.CERRARPROGRAMAToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem
@@ -59,7 +62,7 @@ Partial Class Administrador
         '
         'MenuStrip
         '
-        Me.MenuStrip.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.VentaToolStripMenuItem, Me.InventarioToolStripMenuItem, Me.CompraToolStripMenuItem, Me.ConfiguracionToolStripMenuItem, Me.EmpleadoToolStripMenuItem, Me.SALIRToolStripMenuItem})
+        Me.MenuStrip.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.VentaToolStripMenuItem, Me.InventarioToolStripMenuItem, Me.CompraToolStripMenuItem, Me.EmpleadoToolStripMenuItem, Me.ConfiguracionToolStripMenuItem, Me.SALIRToolStripMenuItem})
         Me.MenuStrip.Location = New System.Drawing.Point(0, 0)
         Me.MenuStrip.Name = "MenuStrip"
         Me.MenuStrip.Size = New System.Drawing.Size(632, 24)
@@ -186,6 +189,50 @@ Partial Class Administrador
         Me.ReclamosProveedorToolStripMenuItem.Size = New System.Drawing.Size(169, 22)
         Me.ReclamosProveedorToolStripMenuItem.Text = "Modificar Compra"
         '
+        'EmpleadoToolStripMenuItem
+        '
+        Me.EmpleadoToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ContratarToolStripMenuItem, Me.AsignarSueldoCargoToolStripMenuItem, Me.DespedirToolStripMenuItem1, Me.ReporteDeEmpleadosToolStripMenuItem, Me.IngresarOtrosGastosToolStripMenuItem, Me.ReporteDeOtrosGastosToolStripMenuItem})
+        Me.EmpleadoToolStripMenuItem.Name = "EmpleadoToolStripMenuItem"
+        Me.EmpleadoToolStripMenuItem.Size = New System.Drawing.Size(46, 20)
+        Me.EmpleadoToolStripMenuItem.Text = "Otros"
+        '
+        'ContratarToolStripMenuItem
+        '
+        Me.ContratarToolStripMenuItem.Name = "ContratarToolStripMenuItem"
+        Me.ContratarToolStripMenuItem.Size = New System.Drawing.Size(251, 22)
+        Me.ContratarToolStripMenuItem.Text = "Contratar Empleado"
+        '
+        'AsignarSueldoCargoToolStripMenuItem
+        '
+        Me.AsignarSueldoCargoToolStripMenuItem.Name = "AsignarSueldoCargoToolStripMenuItem"
+        Me.AsignarSueldoCargoToolStripMenuItem.Size = New System.Drawing.Size(251, 22)
+        Me.AsignarSueldoCargoToolStripMenuItem.Text = "Modificar Sueldo - Cargo Empleado"
+        '
+        'DespedirToolStripMenuItem1
+        '
+        Me.DespedirToolStripMenuItem1.Name = "DespedirToolStripMenuItem1"
+        Me.DespedirToolStripMenuItem1.Size = New System.Drawing.Size(251, 22)
+        Me.DespedirToolStripMenuItem1.Text = "Despedir Empleado"
+        '
+        'ReporteDeEmpleadosToolStripMenuItem
+        '
+        Me.ReporteDeEmpleadosToolStripMenuItem.Name = "ReporteDeEmpleadosToolStripMenuItem"
+        Me.ReporteDeEmpleadosToolStripMenuItem.Size = New System.Drawing.Size(251, 22)
+        Me.ReporteDeEmpleadosToolStripMenuItem.Text = "Reporte de Empleados"
+        '
+        'IngresarOtrosGastosToolStripMenuItem
+        '
+        Me.IngresarOtrosGastosToolStripMenuItem.Name = "IngresarOtrosGastosToolStripMenuItem"
+        Me.IngresarOtrosGastosToolStripMenuItem.Size = New System.Drawing.Size(251, 22)
+        Me.IngresarOtrosGastosToolStripMenuItem.Text = "Ingresar Otros Gastos"
+        '
+        'ReporteDeOtrosGastosToolStripMenuItem
+        '
+        Me.ReporteDeOtrosGastosToolStripMenuItem.CheckOnClick = True
+        Me.ReporteDeOtrosGastosToolStripMenuItem.Name = "ReporteDeOtrosGastosToolStripMenuItem"
+        Me.ReporteDeOtrosGastosToolStripMenuItem.Size = New System.Drawing.Size(251, 22)
+        Me.ReporteDeOtrosGastosToolStripMenuItem.Text = "Reporte de Otros Gastos"
+        '
         'ConfiguracionToolStripMenuItem
         '
         Me.ConfiguracionToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ConfigurarFarmaciaToolStripMenuItem})
@@ -198,31 +245,6 @@ Partial Class Administrador
         Me.ConfigurarFarmaciaToolStripMenuItem.Name = "ConfigurarFarmaciaToolStripMenuItem"
         Me.ConfigurarFarmaciaToolStripMenuItem.Size = New System.Drawing.Size(182, 22)
         Me.ConfigurarFarmaciaToolStripMenuItem.Text = "Configurar Farmacia"
-        '
-        'EmpleadoToolStripMenuItem
-        '
-        Me.EmpleadoToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ContratarToolStripMenuItem, Me.AsignarSueldoCargoToolStripMenuItem, Me.DespedirToolStripMenuItem1})
-        Me.EmpleadoToolStripMenuItem.Name = "EmpleadoToolStripMenuItem"
-        Me.EmpleadoToolStripMenuItem.Size = New System.Drawing.Size(65, 20)
-        Me.EmpleadoToolStripMenuItem.Text = "Empleado"
-        '
-        'ContratarToolStripMenuItem
-        '
-        Me.ContratarToolStripMenuItem.Name = "ContratarToolStripMenuItem"
-        Me.ContratarToolStripMenuItem.Size = New System.Drawing.Size(202, 22)
-        Me.ContratarToolStripMenuItem.Text = "Contratar"
-        '
-        'AsignarSueldoCargoToolStripMenuItem
-        '
-        Me.AsignarSueldoCargoToolStripMenuItem.Name = "AsignarSueldoCargoToolStripMenuItem"
-        Me.AsignarSueldoCargoToolStripMenuItem.Size = New System.Drawing.Size(202, 22)
-        Me.AsignarSueldoCargoToolStripMenuItem.Text = "Modificar Sueldo - Cargo"
-        '
-        'DespedirToolStripMenuItem1
-        '
-        Me.DespedirToolStripMenuItem1.Name = "DespedirToolStripMenuItem1"
-        Me.DespedirToolStripMenuItem1.Size = New System.Drawing.Size(202, 22)
-        Me.DespedirToolStripMenuItem1.Text = "Despedir"
         '
         'SALIRToolStripMenuItem
         '
@@ -310,5 +332,8 @@ Partial Class Administrador
     Friend WithEvents ContratarToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
     Friend WithEvents AsignarSueldoCargoToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
     Friend WithEvents DespedirToolStripMenuItem1 As System.Windows.Forms.ToolStripMenuItem
+    Friend WithEvents ReporteDeEmpleadosToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
+    Friend WithEvents IngresarOtrosGastosToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
+    Friend WithEvents ReporteDeOtrosGastosToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
 
 End Class

@@ -25,8 +25,11 @@ Partial Class Ingresar_Producto
         Me.components = New System.ComponentModel.Container
         Me.Label7 = New System.Windows.Forms.Label
         Me.Lineas = New System.Windows.Forms.ComboBox
+        Me.LINEABindingSource = New System.Windows.Forms.BindingSource(Me.components)
+        Me.FarmaciaSJDataSet = New FARMACIASJ.FarmaciaSJDataSet
         Me.GroupBox2 = New System.Windows.Forms.GroupBox
         Me.Proveedores = New System.Windows.Forms.ListBox
+        Me.PROVEEDORBindingSource = New System.Windows.Forms.BindingSource(Me.components)
         Me.Button2 = New System.Windows.Forms.Button
         Me.Ingresar = New System.Windows.Forms.Button
         Me.GroupBox1 = New System.Windows.Forms.GroupBox
@@ -42,16 +45,13 @@ Partial Class Ingresar_Producto
         Me.Label2 = New System.Windows.Forms.Label
         Me.Cod_Barras = New System.Windows.Forms.TextBox
         Me.Label1 = New System.Windows.Forms.Label
-        Me.FarmaciaSJDataSet = New FARMACIASJ.FarmaciaSJDataSet
-        Me.PROVEEDORBindingSource = New System.Windows.Forms.BindingSource(Me.components)
         Me.PROVEEDORTableAdapter = New FARMACIASJ.FarmaciaSJDataSetTableAdapters.PROVEEDORTableAdapter
-        Me.LINEABindingSource = New System.Windows.Forms.BindingSource(Me.components)
         Me.LINEATableAdapter = New FARMACIASJ.FarmaciaSJDataSetTableAdapters.LINEATableAdapter
-        Me.GroupBox2.SuspendLayout()
-        Me.GroupBox1.SuspendLayout()
-        CType(Me.FarmaciaSJDataSet, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.PROVEEDORBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.LINEABindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.FarmaciaSJDataSet, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.GroupBox2.SuspendLayout()
+        CType(Me.PROVEEDORBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.GroupBox1.SuspendLayout()
         Me.SuspendLayout()
         '
         'Label7
@@ -74,6 +74,16 @@ Partial Class Ingresar_Producto
         Me.Lineas.Size = New System.Drawing.Size(291, 21)
         Me.Lineas.TabIndex = 16
         Me.Lineas.ValueMember = "DESCRIPCION"
+        '
+        'LINEABindingSource
+        '
+        Me.LINEABindingSource.DataMember = "LINEA"
+        Me.LINEABindingSource.DataSource = Me.FarmaciaSJDataSet
+        '
+        'FarmaciaSJDataSet
+        '
+        Me.FarmaciaSJDataSet.DataSetName = "FarmaciaSJDataSet"
+        Me.FarmaciaSJDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema
         '
         'GroupBox2
         '
@@ -98,6 +108,11 @@ Partial Class Ingresar_Producto
         Me.Proveedores.Size = New System.Drawing.Size(288, 160)
         Me.Proveedores.TabIndex = 0
         Me.Proveedores.ValueMember = "Nombre"
+        '
+        'PROVEEDORBindingSource
+        '
+        Me.PROVEEDORBindingSource.DataMember = "PROVEEDOR"
+        Me.PROVEEDORBindingSource.DataSource = Me.FarmaciaSJDataSet
         '
         'Button2
         '
@@ -243,24 +258,9 @@ Partial Class Ingresar_Producto
         Me.Label1.TabIndex = 10
         Me.Label1.Text = "Codigo de Barras:"
         '
-        'FarmaciaSJDataSet
-        '
-        Me.FarmaciaSJDataSet.DataSetName = "FarmaciaSJDataSet"
-        Me.FarmaciaSJDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema
-        '
-        'PROVEEDORBindingSource
-        '
-        Me.PROVEEDORBindingSource.DataMember = "PROVEEDOR"
-        Me.PROVEEDORBindingSource.DataSource = Me.FarmaciaSJDataSet
-        '
         'PROVEEDORTableAdapter
         '
         Me.PROVEEDORTableAdapter.ClearBeforeFill = True
-        '
-        'LINEABindingSource
-        '
-        Me.LINEABindingSource.DataMember = "LINEA"
-        Me.LINEABindingSource.DataSource = Me.FarmaciaSJDataSet
         '
         'LINEATableAdapter
         '
@@ -281,12 +281,12 @@ Partial Class Ingresar_Producto
         Me.Controls.Add(Me.Label1)
         Me.Name = "Ingresar_Producto"
         Me.Text = "Ingresar Producto"
+        CType(Me.LINEABindingSource, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.FarmaciaSJDataSet, System.ComponentModel.ISupportInitialize).EndInit()
         Me.GroupBox2.ResumeLayout(False)
+        CType(Me.PROVEEDORBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
         Me.GroupBox1.ResumeLayout(False)
         Me.GroupBox1.PerformLayout()
-        CType(Me.FarmaciaSJDataSet, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.PROVEEDORBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.LINEABindingSource, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
