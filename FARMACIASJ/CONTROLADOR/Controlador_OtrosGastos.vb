@@ -71,7 +71,16 @@ Public Class Controlador_OtrosGastos
         ventana2.Show()
     End Sub
 
+    Public Sub Abrir_Reporte()
+        Dim ventana As Administrador
+        Dim ventana2 As Reporte_OtroGasto
 
+        ventana = Me.Ventana
+        ventana2 = New Reporte_OtroGasto
+
+        ventana2.MdiParent = ventana
+        ventana2.Show()
+    End Sub
     Public Sub generar_reporte(ByVal Hasta As Date)
         Dim ventana As Reporte_OtroGasto
         Dim desde As Date
@@ -83,8 +92,8 @@ Public Class Controlador_OtrosGastos
         If (resultado = True) Then
             reporte = Gasto.get_reporte
             desde = Gasto.get_fecha
-            reporte.Parameter_Hasta.CurrentValues.AddValue(Hasta)
-            reporte.Parameter_Desde.CurrentValues.AddValue(desde)
+            reporte.SetParameterValue(0, desde)
+            reporte.SetParameterValue(1, Hasta)
             ventana2 = New Reporte
             ventana2.visor.ReportSource = reporte
             ventana2.MdiParent = ventana.MdiParent

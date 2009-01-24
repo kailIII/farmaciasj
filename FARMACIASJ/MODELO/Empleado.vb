@@ -135,7 +135,7 @@ Public Class Empleado
             Dim BasedeDatos As FarmaciaSJDataSet
             BasedeDatos = New FarmaciaSJDataSet
             EmpleadoTableAdapter = New FarmaciaSJDataSetTableAdapters.EMPLEADOTableAdapter
-            EmpleadoTableAdapter.Insert(Nombre, Apellido, Cedula, Telefono, Correo)
+            'EmpleadoTableAdapter.Insert(Nombre, Apellido, Cedula, Telefono, Correo)
             EmpleadoTableAdapter.Update(BasedeDatos.EMPLEADO)
             BasedeDatos.AcceptChanges()
             Return True

@@ -114,7 +114,7 @@ Partial Class Administrador
         '
         Me.ProductoToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.IngresarProductoToolStripMenuItem, Me.ModificarProductoToolStripMenuItem})
         Me.ProductoToolStripMenuItem.Name = "ProductoToolStripMenuItem"
-        Me.ProductoToolStripMenuItem.Size = New System.Drawing.Size(152, 22)
+        Me.ProductoToolStripMenuItem.Size = New System.Drawing.Size(148, 22)
         Me.ProductoToolStripMenuItem.Text = "Producto"
         '
         'IngresarProductoToolStripMenuItem
@@ -133,19 +133,19 @@ Partial Class Administrador
         '
         Me.LineaToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.IngresarToolStripMenuItem2, Me.ModificarToolStripMenuItem2})
         Me.LineaToolStripMenuItem.Name = "LineaToolStripMenuItem"
-        Me.LineaToolStripMenuItem.Size = New System.Drawing.Size(152, 22)
+        Me.LineaToolStripMenuItem.Size = New System.Drawing.Size(148, 22)
         Me.LineaToolStripMenuItem.Text = "Linea"
         '
         'IngresarToolStripMenuItem2
         '
         Me.IngresarToolStripMenuItem2.Name = "IngresarToolStripMenuItem2"
-        Me.IngresarToolStripMenuItem2.Size = New System.Drawing.Size(152, 22)
+        Me.IngresarToolStripMenuItem2.Size = New System.Drawing.Size(148, 22)
         Me.IngresarToolStripMenuItem2.Text = "Ingresar"
         '
         'ModificarToolStripMenuItem2
         '
         Me.ModificarToolStripMenuItem2.Name = "ModificarToolStripMenuItem2"
-        Me.ModificarToolStripMenuItem2.Size = New System.Drawing.Size(152, 22)
+        Me.ModificarToolStripMenuItem2.Size = New System.Drawing.Size(148, 22)
         Me.ModificarToolStripMenuItem2.Text = "Modificar"
         '
         'CompraToolStripMenuItem
@@ -166,19 +166,19 @@ Partial Class Administrador
         'IngresarToolStripMenuItem
         '
         Me.IngresarToolStripMenuItem.Name = "IngresarToolStripMenuItem"
-        Me.IngresarToolStripMenuItem.Size = New System.Drawing.Size(152, 22)
+        Me.IngresarToolStripMenuItem.Size = New System.Drawing.Size(148, 22)
         Me.IngresarToolStripMenuItem.Text = "Ingresar"
         '
         'ConsultarToolStripMenuItem
         '
         Me.ConsultarToolStripMenuItem.Name = "ConsultarToolStripMenuItem"
-        Me.ConsultarToolStripMenuItem.Size = New System.Drawing.Size(152, 22)
+        Me.ConsultarToolStripMenuItem.Size = New System.Drawing.Size(148, 22)
         Me.ConsultarToolStripMenuItem.Text = "Modificar"
         '
         'EliminarToolStripMenuItem
         '
         Me.EliminarToolStripMenuItem.Name = "EliminarToolStripMenuItem"
-        Me.EliminarToolStripMenuItem.Size = New System.Drawing.Size(152, 22)
+        Me.EliminarToolStripMenuItem.Size = New System.Drawing.Size(148, 22)
         Me.EliminarToolStripMenuItem.Text = "Eliminar"
         '
         'RegistrarCompraToolStripMenuItem
@@ -298,7 +298,7 @@ Partial Class Administrador
         Me.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.IsMdiContainer = True
         Me.MainMenuStrip = Me.MenuStrip
-        Me.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.Margin = New System.Windows.Forms.Padding(4)
         Me.Name = "Administrador"
         Me.Text = "ADMINISTRADOR"
         Me.WindowState = System.Windows.Forms.FormWindowState.Maximized
