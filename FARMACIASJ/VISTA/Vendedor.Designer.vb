@@ -53,90 +53,94 @@ Partial Class Vendedor
         'VentaToolStripMenuItem
         '
         Me.VentaToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.PuntoDeVentaToolStripMenuItem, Me.DeToolStripMenuItem, Me.RegToolStripMenuItem})
+        Me.VentaToolStripMenuItem.Font = New System.Drawing.Font("Tahoma", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.VentaToolStripMenuItem.Name = "VentaToolStripMenuItem"
-        Me.VentaToolStripMenuItem.Size = New System.Drawing.Size(47, 20)
+        Me.VentaToolStripMenuItem.Size = New System.Drawing.Size(59, 20)
         Me.VentaToolStripMenuItem.Text = "&Venta"
         '
         'PuntoDeVentaToolStripMenuItem
         '
         Me.PuntoDeVentaToolStripMenuItem.Name = "PuntoDeVentaToolStripMenuItem"
         Me.PuntoDeVentaToolStripMenuItem.ShortcutKeys = CType((System.Windows.Forms.Keys.Control Or System.Windows.Forms.Keys.V), System.Windows.Forms.Keys)
-        Me.PuntoDeVentaToolStripMenuItem.Size = New System.Drawing.Size(210, 22)
+        Me.PuntoDeVentaToolStripMenuItem.Size = New System.Drawing.Size(257, 22)
         Me.PuntoDeVentaToolStripMenuItem.Text = "Punto_De_Venta"
         '
         'DeToolStripMenuItem
         '
         Me.DeToolStripMenuItem.Name = "DeToolStripMenuItem"
         Me.DeToolStripMenuItem.ShortcutKeys = CType((System.Windows.Forms.Keys.Control Or System.Windows.Forms.Keys.D), System.Windows.Forms.Keys)
-        Me.DeToolStripMenuItem.Size = New System.Drawing.Size(210, 22)
+        Me.DeToolStripMenuItem.Size = New System.Drawing.Size(257, 22)
         Me.DeToolStripMenuItem.Text = "&Devolucion_Venta"
         '
         'RegToolStripMenuItem
         '
         Me.RegToolStripMenuItem.Name = "RegToolStripMenuItem"
-        Me.RegToolStripMenuItem.Size = New System.Drawing.Size(210, 22)
+        Me.RegToolStripMenuItem.Size = New System.Drawing.Size(257, 22)
         Me.RegToolStripMenuItem.Text = "Registrar Pedidos"
         '
         'ClienteToolStripMenuItem
         '
         Me.ClienteToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.IngresarClienteToolStripMenuItem, Me.ConsultarClienteToolStripMenuItem, Me.ModificarClienteToolStripMenuItem})
+        Me.ClienteToolStripMenuItem.Font = New System.Drawing.Font("Tahoma", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.ClienteToolStripMenuItem.Name = "ClienteToolStripMenuItem"
-        Me.ClienteToolStripMenuItem.Size = New System.Drawing.Size(52, 20)
+        Me.ClienteToolStripMenuItem.Size = New System.Drawing.Size(64, 20)
         Me.ClienteToolStripMenuItem.Text = "&Cliente"
         '
         'IngresarClienteToolStripMenuItem
         '
         Me.IngresarClienteToolStripMenuItem.Name = "IngresarClienteToolStripMenuItem"
         Me.IngresarClienteToolStripMenuItem.ShortcutKeys = CType((System.Windows.Forms.Keys.Control Or System.Windows.Forms.Keys.I), System.Windows.Forms.Keys)
-        Me.IngresarClienteToolStripMenuItem.Size = New System.Drawing.Size(209, 22)
+        Me.IngresarClienteToolStripMenuItem.Size = New System.Drawing.Size(253, 22)
         Me.IngresarClienteToolStripMenuItem.Text = "Ingresar_Cliente"
         '
         'ConsultarClienteToolStripMenuItem
         '
         Me.ConsultarClienteToolStripMenuItem.Name = "ConsultarClienteToolStripMenuItem"
         Me.ConsultarClienteToolStripMenuItem.ShortcutKeys = CType((System.Windows.Forms.Keys.Control Or System.Windows.Forms.Keys.C), System.Windows.Forms.Keys)
-        Me.ConsultarClienteToolStripMenuItem.Size = New System.Drawing.Size(209, 22)
+        Me.ConsultarClienteToolStripMenuItem.Size = New System.Drawing.Size(253, 22)
         Me.ConsultarClienteToolStripMenuItem.Text = "Consultar_Cliente"
         '
         'ModificarClienteToolStripMenuItem
         '
         Me.ModificarClienteToolStripMenuItem.Name = "ModificarClienteToolStripMenuItem"
         Me.ModificarClienteToolStripMenuItem.ShortcutKeys = CType((System.Windows.Forms.Keys.Control Or System.Windows.Forms.Keys.M), System.Windows.Forms.Keys)
-        Me.ModificarClienteToolStripMenuItem.Size = New System.Drawing.Size(209, 22)
+        Me.ModificarClienteToolStripMenuItem.Size = New System.Drawing.Size(253, 22)
         Me.ModificarClienteToolStripMenuItem.Text = "Modificar_Cliente"
         '
         'ConfiguracionToolStripMenuItem
         '
         Me.ConfiguracionToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.DatosFarmaciaToolStripMenuItem})
+        Me.ConfiguracionToolStripMenuItem.Font = New System.Drawing.Font("Tahoma", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.ConfiguracionToolStripMenuItem.Name = "ConfiguracionToolStripMenuItem"
-        Me.ConfiguracionToolStripMenuItem.Size = New System.Drawing.Size(85, 20)
+        Me.ConfiguracionToolStripMenuItem.Size = New System.Drawing.Size(108, 20)
         Me.ConfiguracionToolStripMenuItem.Text = "C&onfiguracion"
         '
         'DatosFarmaciaToolStripMenuItem
         '
         Me.DatosFarmaciaToolStripMenuItem.Name = "DatosFarmaciaToolStripMenuItem"
-        Me.DatosFarmaciaToolStripMenuItem.Size = New System.Drawing.Size(162, 22)
+        Me.DatosFarmaciaToolStripMenuItem.Size = New System.Drawing.Size(192, 22)
         Me.DatosFarmaciaToolStripMenuItem.Text = "Datos_Farmacia"
         '
         'SalirToolStripMenuItem
         '
         Me.SalirToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.CerrarSesionToolStripMenuItem, Me.CerrarProgramaToolStripMenuItem})
+        Me.SalirToolStripMenuItem.Font = New System.Drawing.Font("Tahoma", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.SalirToolStripMenuItem.Name = "SalirToolStripMenuItem"
-        Me.SalirToolStripMenuItem.Size = New System.Drawing.Size(39, 20)
+        Me.SalirToolStripMenuItem.Size = New System.Drawing.Size(48, 20)
         Me.SalirToolStripMenuItem.Text = "&Salir"
         '
         'CerrarSesionToolStripMenuItem
         '
         Me.CerrarSesionToolStripMenuItem.Name = "CerrarSesionToolStripMenuItem"
         Me.CerrarSesionToolStripMenuItem.ShortcutKeys = CType((System.Windows.Forms.Keys.Alt Or System.Windows.Forms.Keys.S), System.Windows.Forms.Keys)
-        Me.CerrarSesionToolStripMenuItem.Size = New System.Drawing.Size(202, 22)
+        Me.CerrarSesionToolStripMenuItem.Size = New System.Drawing.Size(248, 22)
         Me.CerrarSesionToolStripMenuItem.Text = "Cerrar_Sesion"
         '
         'CerrarProgramaToolStripMenuItem
         '
         Me.CerrarProgramaToolStripMenuItem.Name = "CerrarProgramaToolStripMenuItem"
         Me.CerrarProgramaToolStripMenuItem.ShortcutKeys = CType((System.Windows.Forms.Keys.Alt Or System.Windows.Forms.Keys.P), System.Windows.Forms.Keys)
-        Me.CerrarProgramaToolStripMenuItem.Size = New System.Drawing.Size(202, 22)
+        Me.CerrarProgramaToolStripMenuItem.Size = New System.Drawing.Size(248, 22)
         Me.CerrarProgramaToolStripMenuItem.Text = "Cerrar_Programa"
         '
         'StatusStrip
@@ -165,7 +169,7 @@ Partial Class Vendedor
         Me.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.IsMdiContainer = True
         Me.MainMenuStrip = Me.MenuStrip
-        Me.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.Margin = New System.Windows.Forms.Padding(4)
         Me.Name = "Vendedor"
         Me.Text = "VENDEDOR"
         Me.WindowState = System.Windows.Forms.FormWindowState.Maximized

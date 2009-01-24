@@ -12,7 +12,7 @@ Public Class Modificar_compra
         End If
     End Sub
 
-    Private Sub NDETALLE_TextChanged(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles NDETALLE.TextChanged
+    Private Sub NDETALLE_TextChanged(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles NDETALLE.TextChanged, NDETALLE.KeyPress
         If (Me.NDETALLE.Text.Length >= 1) Then
             If (Char.IsDigit(Me.NDETALLE.Text(Me.NDETALLE.Text.Length - 1)) = False) Then
                 Dim A As String
@@ -48,7 +48,7 @@ Public Class Modificar_compra
     End Sub
 
 
-    Private Sub CRestar_TextChanged(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles CRestar.TextChanged
+    Private Sub CRestar_TextChanged(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles CRestar.TextChanged, CRestar.KeyPress
         Count = 0
     End Sub
 
