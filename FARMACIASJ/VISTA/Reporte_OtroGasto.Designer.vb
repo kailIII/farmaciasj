@@ -25,77 +25,100 @@ Partial Class Reporte_OtroGasto
         Me.Label3 = New System.Windows.Forms.Label
         Me.Hasta = New System.Windows.Forms.DateTimePicker
         Me.Button1 = New System.Windows.Forms.Button
+        Me.GroupBox1 = New System.Windows.Forms.GroupBox
+        Me.GroupBox1.SuspendLayout()
         Me.SuspendLayout()
         '
         'Label1
         '
         Me.Label1.AutoSize = True
-        Me.Label1.Location = New System.Drawing.Point(12, 9)
+        Me.Label1.Location = New System.Drawing.Point(9, 20)
+        Me.Label1.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.Label1.Name = "Label1"
-        Me.Label1.Size = New System.Drawing.Size(151, 13)
+        Me.Label1.Size = New System.Drawing.Size(219, 16)
         Me.Label1.TabIndex = 0
         Me.Label1.Text = "Ingrese las fechas a consultar:"
         '
         'Label2
         '
         Me.Label2.AutoSize = True
-        Me.Label2.Location = New System.Drawing.Point(12, 48)
+        Me.Label2.Location = New System.Drawing.Point(9, 50)
+        Me.Label2.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.Label2.Name = "Label2"
-        Me.Label2.Size = New System.Drawing.Size(38, 13)
+        Me.Label2.Size = New System.Drawing.Size(58, 16)
         Me.Label2.TabIndex = 1
-        Me.Label2.Text = "Desde"
+        Me.Label2.Text = "Desde:"
         '
         'Desde
         '
         Me.Desde.CustomFormat = "dd/MM/yyyy"
         Me.Desde.Format = System.Windows.Forms.DateTimePickerFormat.Custom
-        Me.Desde.Location = New System.Drawing.Point(56, 44)
+        Me.Desde.Location = New System.Drawing.Point(80, 46)
+        Me.Desde.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
         Me.Desde.Name = "Desde"
-        Me.Desde.Size = New System.Drawing.Size(97, 20)
+        Me.Desde.Size = New System.Drawing.Size(144, 22)
         Me.Desde.TabIndex = 2
         '
         'Label3
         '
         Me.Label3.AutoSize = True
-        Me.Label3.Location = New System.Drawing.Point(160, 47)
+        Me.Label3.Location = New System.Drawing.Point(234, 50)
+        Me.Label3.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.Label3.Name = "Label3"
-        Me.Label3.Size = New System.Drawing.Size(35, 13)
+        Me.Label3.Size = New System.Drawing.Size(53, 16)
         Me.Label3.TabIndex = 3
-        Me.Label3.Text = "Hasta"
+        Me.Label3.Text = "Hasta:"
         '
         'Hasta
         '
         Me.Hasta.CustomFormat = "dd/MM/yyyy"
         Me.Hasta.Format = System.Windows.Forms.DateTimePickerFormat.Custom
-        Me.Hasta.Location = New System.Drawing.Point(201, 44)
+        Me.Hasta.Location = New System.Drawing.Point(300, 46)
+        Me.Hasta.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
         Me.Hasta.Name = "Hasta"
-        Me.Hasta.Size = New System.Drawing.Size(94, 20)
+        Me.Hasta.Size = New System.Drawing.Size(139, 22)
         Me.Hasta.TabIndex = 4
         '
         'Button1
         '
-        Me.Button1.Location = New System.Drawing.Point(120, 70)
+        Me.Button1.Location = New System.Drawing.Point(328, 78)
+        Me.Button1.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
         Me.Button1.Name = "Button1"
-        Me.Button1.Size = New System.Drawing.Size(75, 23)
+        Me.Button1.Size = New System.Drawing.Size(112, 28)
         Me.Button1.TabIndex = 5
         Me.Button1.Text = "Generar Reporte"
         Me.Button1.UseVisualStyleBackColor = True
         '
+        'GroupBox1
+        '
+        Me.GroupBox1.Controls.Add(Me.Label1)
+        Me.GroupBox1.Controls.Add(Me.Button1)
+        Me.GroupBox1.Controls.Add(Me.Label2)
+        Me.GroupBox1.Controls.Add(Me.Hasta)
+        Me.GroupBox1.Controls.Add(Me.Desde)
+        Me.GroupBox1.Controls.Add(Me.Label3)
+        Me.GroupBox1.Location = New System.Drawing.Point(18, 15)
+        Me.GroupBox1.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.GroupBox1.Name = "GroupBox1"
+        Me.GroupBox1.Padding = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.GroupBox1.Size = New System.Drawing.Size(460, 123)
+        Me.GroupBox1.TabIndex = 6
+        Me.GroupBox1.TabStop = False
+        Me.GroupBox1.Text = "Reporte otros gastos"
+        '
         'Reporte_OtroGasto
         '
-        Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
+        Me.AutoScaleDimensions = New System.Drawing.SizeF(9.0!, 16.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(313, 114)
-        Me.Controls.Add(Me.Button1)
-        Me.Controls.Add(Me.Hasta)
-        Me.Controls.Add(Me.Label3)
-        Me.Controls.Add(Me.Desde)
-        Me.Controls.Add(Me.Label2)
-        Me.Controls.Add(Me.Label1)
+        Me.ClientSize = New System.Drawing.Size(501, 156)
+        Me.Controls.Add(Me.GroupBox1)
+        Me.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
         Me.Name = "Reporte_OtroGasto"
         Me.Text = "Reporte Otros Gastos"
+        Me.GroupBox1.ResumeLayout(False)
+        Me.GroupBox1.PerformLayout()
         Me.ResumeLayout(False)
-        Me.PerformLayout()
 
     End Sub
     Friend WithEvents Label1 As System.Windows.Forms.Label
@@ -104,4 +127,5 @@ Partial Class Reporte_OtroGasto
     Friend WithEvents Label3 As System.Windows.Forms.Label
     Friend WithEvents Hasta As System.Windows.Forms.DateTimePicker
     Friend WithEvents Button1 As System.Windows.Forms.Button
+    Friend WithEvents GroupBox1 As System.Windows.Forms.GroupBox
 End Class

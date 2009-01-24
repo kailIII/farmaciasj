@@ -36,34 +36,40 @@ Partial Class Buscar_Proveedor
         Me.GroupBox1.Controls.Add(Me.Codigo)
         Me.GroupBox1.Controls.Add(Me.textcodifo)
         Me.GroupBox1.Controls.Add(Me.Boton_Codigo)
-        Me.GroupBox1.Location = New System.Drawing.Point(12, 99)
+        Me.GroupBox1.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.GroupBox1.Location = New System.Drawing.Point(18, 133)
+        Me.GroupBox1.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
         Me.GroupBox1.Name = "GroupBox1"
-        Me.GroupBox1.Size = New System.Drawing.Size(286, 81)
+        Me.GroupBox1.Padding = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.GroupBox1.Size = New System.Drawing.Size(456, 107)
         Me.GroupBox1.TabIndex = 0
         Me.GroupBox1.TabStop = False
         Me.GroupBox1.Text = "Buscar proveedor - Código"
         '
         'Codigo
         '
-        Me.Codigo.Location = New System.Drawing.Point(53, 17)
+        Me.Codigo.Location = New System.Drawing.Point(111, 26)
+        Me.Codigo.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
         Me.Codigo.Name = "Codigo"
-        Me.Codigo.Size = New System.Drawing.Size(213, 20)
+        Me.Codigo.Size = New System.Drawing.Size(318, 22)
         Me.Codigo.TabIndex = 0
         '
         'textcodifo
         '
         Me.textcodifo.AutoSize = True
-        Me.textcodifo.Location = New System.Drawing.Point(6, 20)
+        Me.textcodifo.Location = New System.Drawing.Point(9, 30)
+        Me.textcodifo.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.textcodifo.Name = "textcodifo"
-        Me.textcodifo.Size = New System.Drawing.Size(43, 13)
+        Me.textcodifo.Size = New System.Drawing.Size(62, 16)
         Me.textcodifo.TabIndex = 1
         Me.textcodifo.Text = "Código:"
         '
         'Boton_Codigo
         '
-        Me.Boton_Codigo.Location = New System.Drawing.Point(191, 43)
+        Me.Boton_Codigo.Location = New System.Drawing.Point(318, 60)
+        Me.Boton_Codigo.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
         Me.Boton_Codigo.Name = "Boton_Codigo"
-        Me.Boton_Codigo.Size = New System.Drawing.Size(75, 23)
+        Me.Boton_Codigo.Size = New System.Drawing.Size(112, 28)
         Me.Boton_Codigo.TabIndex = 1
         Me.Boton_Codigo.Text = "Buscar"
         Me.Boton_Codigo.UseVisualStyleBackColor = True
@@ -73,45 +79,53 @@ Partial Class Buscar_Proveedor
         Me.GroupBox2.Controls.Add(Me.Rif)
         Me.GroupBox2.Controls.Add(Me.Label1)
         Me.GroupBox2.Controls.Add(Me.Boton_Rif)
-        Me.GroupBox2.Location = New System.Drawing.Point(12, 12)
+        Me.GroupBox2.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.GroupBox2.Location = New System.Drawing.Point(18, 15)
+        Me.GroupBox2.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
         Me.GroupBox2.Name = "GroupBox2"
-        Me.GroupBox2.Size = New System.Drawing.Size(286, 81)
+        Me.GroupBox2.Padding = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.GroupBox2.Size = New System.Drawing.Size(456, 111)
         Me.GroupBox2.TabIndex = 3
         Me.GroupBox2.TabStop = False
         Me.GroupBox2.Text = "Buscar proveedor - RIF"
         '
         'Rif
         '
-        Me.Rif.Location = New System.Drawing.Point(53, 17)
+        Me.Rif.Location = New System.Drawing.Point(111, 26)
+        Me.Rif.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
         Me.Rif.Name = "Rif"
-        Me.Rif.Size = New System.Drawing.Size(213, 20)
+        Me.Rif.Size = New System.Drawing.Size(318, 22)
         Me.Rif.TabIndex = 2
         '
         'Label1
         '
         Me.Label1.AutoSize = True
-        Me.Label1.Location = New System.Drawing.Point(7, 20)
+        Me.Label1.Location = New System.Drawing.Point(9, 30)
+        Me.Label1.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.Label1.Name = "Label1"
-        Me.Label1.Size = New System.Drawing.Size(33, 13)
+        Me.Label1.Size = New System.Drawing.Size(44, 16)
         Me.Label1.TabIndex = 1
         Me.Label1.Text = "R.I.F:"
         '
         'Boton_Rif
         '
-        Me.Boton_Rif.Location = New System.Drawing.Point(191, 43)
+        Me.Boton_Rif.Location = New System.Drawing.Point(318, 60)
+        Me.Boton_Rif.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
         Me.Boton_Rif.Name = "Boton_Rif"
-        Me.Boton_Rif.Size = New System.Drawing.Size(75, 23)
+        Me.Boton_Rif.Size = New System.Drawing.Size(112, 28)
         Me.Boton_Rif.TabIndex = 3
         Me.Boton_Rif.Text = "Buscar"
         Me.Boton_Rif.UseVisualStyleBackColor = True
         '
         'Buscar_Proveedor
         '
-        Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
+        Me.AutoScaleDimensions = New System.Drawing.SizeF(9.0!, 16.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(309, 192)
+        Me.ClientSize = New System.Drawing.Size(492, 256)
         Me.Controls.Add(Me.GroupBox2)
         Me.Controls.Add(Me.GroupBox1)
+        Me.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
         Me.Name = "Buscar_Proveedor"
         Me.Text = "Buscar_Proveedor"
         Me.GroupBox1.ResumeLayout(False)

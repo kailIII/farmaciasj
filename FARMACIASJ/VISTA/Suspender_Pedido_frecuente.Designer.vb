@@ -40,35 +40,40 @@ Partial Class Suspender_Pedido_frecuente
         Me.GroupBox1.Controls.Add(Me.Buscar)
         Me.GroupBox1.Controls.Add(Me.Numero_Pedido)
         Me.GroupBox1.Controls.Add(Me.Label1)
-        Me.GroupBox1.Location = New System.Drawing.Point(13, 13)
+        Me.GroupBox1.Location = New System.Drawing.Point(20, 16)
+        Me.GroupBox1.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
         Me.GroupBox1.Name = "GroupBox1"
-        Me.GroupBox1.Size = New System.Drawing.Size(284, 80)
+        Me.GroupBox1.Padding = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.GroupBox1.Size = New System.Drawing.Size(426, 98)
         Me.GroupBox1.TabIndex = 0
         Me.GroupBox1.TabStop = False
         Me.GroupBox1.Text = "Buscar Pedido"
         '
         'Buscar
         '
-        Me.Buscar.Location = New System.Drawing.Point(192, 45)
+        Me.Buscar.Location = New System.Drawing.Point(288, 55)
+        Me.Buscar.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
         Me.Buscar.Name = "Buscar"
-        Me.Buscar.Size = New System.Drawing.Size(75, 23)
+        Me.Buscar.Size = New System.Drawing.Size(112, 28)
         Me.Buscar.TabIndex = 2
         Me.Buscar.Text = "Buscar"
         Me.Buscar.UseVisualStyleBackColor = True
         '
         'Numero_Pedido
         '
-        Me.Numero_Pedido.Location = New System.Drawing.Point(59, 19)
+        Me.Numero_Pedido.Location = New System.Drawing.Point(88, 23)
+        Me.Numero_Pedido.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
         Me.Numero_Pedido.Name = "Numero_Pedido"
-        Me.Numero_Pedido.Size = New System.Drawing.Size(208, 20)
+        Me.Numero_Pedido.Size = New System.Drawing.Size(310, 22)
         Me.Numero_Pedido.TabIndex = 1
         '
         'Label1
         '
         Me.Label1.AutoSize = True
-        Me.Label1.Location = New System.Drawing.Point(6, 22)
+        Me.Label1.Location = New System.Drawing.Point(9, 27)
+        Me.Label1.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.Label1.Name = "Label1"
-        Me.Label1.Size = New System.Drawing.Size(47, 13)
+        Me.Label1.Size = New System.Drawing.Size(66, 16)
         Me.Label1.TabIndex = 0
         Me.Label1.Text = "Número:"
         '
@@ -81,9 +86,11 @@ Partial Class Suspender_Pedido_frecuente
         Me.GroupBox2.Controls.Add(Me.Label3)
         Me.GroupBox2.Controls.Add(Me.Cliente)
         Me.GroupBox2.Controls.Add(Me.Label2)
-        Me.GroupBox2.Location = New System.Drawing.Point(13, 99)
+        Me.GroupBox2.Location = New System.Drawing.Point(20, 122)
+        Me.GroupBox2.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
         Me.GroupBox2.Name = "GroupBox2"
-        Me.GroupBox2.Size = New System.Drawing.Size(284, 131)
+        Me.GroupBox2.Padding = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.GroupBox2.Size = New System.Drawing.Size(426, 161)
         Me.GroupBox2.TabIndex = 1
         Me.GroupBox2.TabStop = False
         Me.GroupBox2.Text = "Datos de Pedido Frecuente"
@@ -91,9 +98,10 @@ Partial Class Suspender_Pedido_frecuente
         'Suspender
         '
         Me.Suspender.Enabled = False
-        Me.Suspender.Location = New System.Drawing.Point(147, 98)
+        Me.Suspender.Location = New System.Drawing.Point(220, 121)
+        Me.Suspender.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
         Me.Suspender.Name = "Suspender"
-        Me.Suspender.Size = New System.Drawing.Size(120, 23)
+        Me.Suspender.Size = New System.Drawing.Size(180, 28)
         Me.Suspender.TabIndex = 6
         Me.Suspender.Text = "Suspender Pedido"
         Me.Suspender.UseVisualStyleBackColor = True
@@ -101,61 +109,69 @@ Partial Class Suspender_Pedido_frecuente
         'Cantidad
         '
         Me.Cantidad.Enabled = False
-        Me.Cantidad.Location = New System.Drawing.Point(65, 72)
+        Me.Cantidad.Location = New System.Drawing.Point(98, 89)
+        Me.Cantidad.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
         Me.Cantidad.Name = "Cantidad"
-        Me.Cantidad.Size = New System.Drawing.Size(60, 20)
+        Me.Cantidad.Size = New System.Drawing.Size(88, 22)
         Me.Cantidad.TabIndex = 5
         '
         'Label4
         '
         Me.Label4.AutoSize = True
-        Me.Label4.Location = New System.Drawing.Point(6, 75)
+        Me.Label4.Location = New System.Drawing.Point(9, 92)
+        Me.Label4.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.Label4.Name = "Label4"
-        Me.Label4.Size = New System.Drawing.Size(52, 13)
+        Me.Label4.Size = New System.Drawing.Size(74, 16)
         Me.Label4.TabIndex = 4
         Me.Label4.Text = "Cantidad:"
         '
         'Producto
         '
         Me.Producto.Enabled = False
-        Me.Producto.Location = New System.Drawing.Point(65, 46)
+        Me.Producto.Location = New System.Drawing.Point(98, 57)
+        Me.Producto.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
         Me.Producto.Name = "Producto"
-        Me.Producto.Size = New System.Drawing.Size(202, 20)
+        Me.Producto.Size = New System.Drawing.Size(301, 22)
         Me.Producto.TabIndex = 3
         '
         'Label3
         '
         Me.Label3.AutoSize = True
-        Me.Label3.Location = New System.Drawing.Point(6, 49)
+        Me.Label3.Location = New System.Drawing.Point(9, 60)
+        Me.Label3.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.Label3.Name = "Label3"
-        Me.Label3.Size = New System.Drawing.Size(53, 13)
+        Me.Label3.Size = New System.Drawing.Size(74, 16)
         Me.Label3.TabIndex = 2
         Me.Label3.Text = "Producto:"
         '
         'Cliente
         '
         Me.Cliente.Enabled = False
-        Me.Cliente.Location = New System.Drawing.Point(65, 20)
+        Me.Cliente.Location = New System.Drawing.Point(98, 25)
+        Me.Cliente.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
         Me.Cliente.Name = "Cliente"
-        Me.Cliente.Size = New System.Drawing.Size(202, 20)
+        Me.Cliente.Size = New System.Drawing.Size(301, 22)
         Me.Cliente.TabIndex = 1
         '
         'Label2
         '
         Me.Label2.AutoSize = True
-        Me.Label2.Location = New System.Drawing.Point(6, 23)
+        Me.Label2.Location = New System.Drawing.Point(9, 28)
+        Me.Label2.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.Label2.Name = "Label2"
-        Me.Label2.Size = New System.Drawing.Size(42, 13)
+        Me.Label2.Size = New System.Drawing.Size(60, 16)
         Me.Label2.TabIndex = 0
         Me.Label2.Text = "Cliente:"
         '
         'Suspender_Pedido_frecuente
         '
-        Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
+        Me.AutoScaleDimensions = New System.Drawing.SizeF(9.0!, 16.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(310, 242)
+        Me.ClientSize = New System.Drawing.Size(465, 298)
         Me.Controls.Add(Me.GroupBox2)
         Me.Controls.Add(Me.GroupBox1)
+        Me.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
         Me.Name = "Suspender_Pedido_frecuente"
         Me.Text = "Suspender Pedido Frecuente"
         Me.GroupBox1.ResumeLayout(False)

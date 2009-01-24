@@ -20,11 +20,12 @@ Partial Class Registrar_Proveedor_Compra
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
         Me.GroupBox1 = New System.Windows.Forms.GroupBox
+        Me.Button1 = New System.Windows.Forms.Button
+        Me.Telefonos = New System.Windows.Forms.ListBox
         Me.TLF_Cod_Area = New System.Windows.Forms.TextBox
         Me.Label8 = New System.Windows.Forms.Label
         Me.Label9 = New System.Windows.Forms.Label
         Me.TLF_Numero = New System.Windows.Forms.TextBox
-        Me.Boton_Registrar = New System.Windows.Forms.Button
         Me.Saldo = New System.Windows.Forms.TextBox
         Me.Ciudad = New System.Windows.Forms.TextBox
         Me.Dir = New System.Windows.Forms.RichTextBox
@@ -39,8 +40,7 @@ Partial Class Registrar_Proveedor_Compra
         Me.Label3 = New System.Windows.Forms.Label
         Me.Label2 = New System.Windows.Forms.Label
         Me.Label1 = New System.Windows.Forms.Label
-        Me.Telefonos = New System.Windows.Forms.ListBox
-        Me.Button1 = New System.Windows.Forms.Button
+        Me.Boton_Registrar = New System.Windows.Forms.Button
         Me.GroupBox1.SuspendLayout()
         Me.SuspendLayout()
         '
@@ -66,63 +66,81 @@ Partial Class Registrar_Proveedor_Compra
         Me.GroupBox1.Controls.Add(Me.Label3)
         Me.GroupBox1.Controls.Add(Me.Label2)
         Me.GroupBox1.Controls.Add(Me.Label1)
-        Me.GroupBox1.Location = New System.Drawing.Point(19, 12)
+        Me.GroupBox1.Location = New System.Drawing.Point(28, 15)
+        Me.GroupBox1.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
         Me.GroupBox1.Name = "GroupBox1"
-        Me.GroupBox1.Size = New System.Drawing.Size(401, 334)
+        Me.GroupBox1.Padding = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.GroupBox1.Size = New System.Drawing.Size(602, 411)
         Me.GroupBox1.TabIndex = 2
         Me.GroupBox1.TabStop = False
         Me.GroupBox1.Text = "Registrar Proveedor"
         '
+        'Button1
+        '
+        Me.Button1.Location = New System.Drawing.Point(488, 290)
+        Me.Button1.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.Button1.Name = "Button1"
+        Me.Button1.Size = New System.Drawing.Size(99, 25)
+        Me.Button1.TabIndex = 21
+        Me.Button1.Text = "Agregar"
+        Me.Button1.UseVisualStyleBackColor = True
+        '
+        'Telefonos
+        '
+        Me.Telefonos.FormattingEnabled = True
+        Me.Telefonos.ItemHeight = 16
+        Me.Telefonos.Location = New System.Drawing.Point(124, 327)
+        Me.Telefonos.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.Telefonos.Name = "Telefonos"
+        Me.Telefonos.Size = New System.Drawing.Size(349, 68)
+        Me.Telefonos.TabIndex = 20
+        '
         'TLF_Cod_Area
         '
-        Me.TLF_Cod_Area.Location = New System.Drawing.Point(83, 236)
+        Me.TLF_Cod_Area.Location = New System.Drawing.Point(124, 290)
+        Me.TLF_Cod_Area.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
         Me.TLF_Cod_Area.MaxLength = 4
         Me.TLF_Cod_Area.Name = "TLF_Cod_Area"
-        Me.TLF_Cod_Area.Size = New System.Drawing.Size(60, 20)
+        Me.TLF_Cod_Area.Size = New System.Drawing.Size(88, 22)
         Me.TLF_Cod_Area.TabIndex = 14
         '
         'Label8
         '
         Me.Label8.AutoSize = True
-        Me.Label8.Location = New System.Drawing.Point(290, 213)
+        Me.Label8.Location = New System.Drawing.Point(435, 262)
+        Me.Label8.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.Label8.Name = "Label8"
-        Me.Label8.Size = New System.Drawing.Size(25, 13)
+        Me.Label8.Size = New System.Drawing.Size(35, 16)
         Me.Label8.TabIndex = 19
         Me.Label8.Text = "BsF"
         '
         'Label9
         '
         Me.Label9.AutoSize = True
-        Me.Label9.Location = New System.Drawing.Point(6, 239)
+        Me.Label9.Location = New System.Drawing.Point(9, 294)
+        Me.Label9.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.Label9.Name = "Label9"
-        Me.Label9.Size = New System.Drawing.Size(52, 13)
+        Me.Label9.Size = New System.Drawing.Size(74, 16)
         Me.Label9.TabIndex = 18
         Me.Label9.Text = "Teléfono:"
         '
         'TLF_Numero
         '
-        Me.TLF_Numero.Location = New System.Drawing.Point(149, 236)
+        Me.TLF_Numero.Location = New System.Drawing.Point(224, 290)
+        Me.TLF_Numero.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
         Me.TLF_Numero.MaxLength = 7
         Me.TLF_Numero.Name = "TLF_Numero"
-        Me.TLF_Numero.Size = New System.Drawing.Size(169, 20)
+        Me.TLF_Numero.Size = New System.Drawing.Size(252, 22)
         Me.TLF_Numero.TabIndex = 15
-        '
-        'Boton_Registrar
-        '
-        Me.Boton_Registrar.Location = New System.Drawing.Point(345, 352)
-        Me.Boton_Registrar.Name = "Boton_Registrar"
-        Me.Boton_Registrar.Size = New System.Drawing.Size(75, 23)
-        Me.Boton_Registrar.TabIndex = 16
-        Me.Boton_Registrar.Text = "Registrar"
-        Me.Boton_Registrar.UseVisualStyleBackColor = True
         '
         'Saldo
         '
         Me.Saldo.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper
-        Me.Saldo.Location = New System.Drawing.Point(83, 210)
+        Me.Saldo.Location = New System.Drawing.Point(124, 258)
+        Me.Saldo.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
         Me.Saldo.MaxLength = 18
         Me.Saldo.Name = "Saldo"
-        Me.Saldo.Size = New System.Drawing.Size(202, 20)
+        Me.Saldo.Size = New System.Drawing.Size(301, 22)
         Me.Saldo.TabIndex = 13
         Me.Saldo.Text = "0"
         Me.Saldo.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
@@ -130,142 +148,150 @@ Partial Class Registrar_Proveedor_Compra
         'Ciudad
         '
         Me.Ciudad.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper
-        Me.Ciudad.Location = New System.Drawing.Point(83, 184)
+        Me.Ciudad.Location = New System.Drawing.Point(124, 226)
+        Me.Ciudad.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
         Me.Ciudad.Name = "Ciudad"
-        Me.Ciudad.Size = New System.Drawing.Size(235, 20)
+        Me.Ciudad.Size = New System.Drawing.Size(350, 22)
         Me.Ciudad.TabIndex = 12
         '
         'Dir
         '
-        Me.Dir.Location = New System.Drawing.Point(83, 123)
+        Me.Dir.Location = New System.Drawing.Point(124, 151)
+        Me.Dir.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
         Me.Dir.MaxLength = 200
         Me.Dir.Name = "Dir"
-        Me.Dir.Size = New System.Drawing.Size(235, 52)
+        Me.Dir.Size = New System.Drawing.Size(350, 63)
         Me.Dir.TabIndex = 11
         Me.Dir.Text = ""
         '
         'Correo
         '
-        Me.Correo.Location = New System.Drawing.Point(83, 97)
+        Me.Correo.Location = New System.Drawing.Point(124, 119)
+        Me.Correo.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
         Me.Correo.MaxLength = 20
         Me.Correo.Name = "Correo"
-        Me.Correo.Size = New System.Drawing.Size(235, 20)
+        Me.Correo.Size = New System.Drawing.Size(350, 22)
         Me.Correo.TabIndex = 10
         '
         'Nombre
         '
         Me.Nombre.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper
-        Me.Nombre.Location = New System.Drawing.Point(83, 71)
+        Me.Nombre.Location = New System.Drawing.Point(124, 87)
+        Me.Nombre.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
         Me.Nombre.MaxLength = 30
         Me.Nombre.Name = "Nombre"
-        Me.Nombre.Size = New System.Drawing.Size(235, 20)
+        Me.Nombre.Size = New System.Drawing.Size(350, 22)
         Me.Nombre.TabIndex = 9
         '
         'Rif
         '
         Me.Rif.Enabled = False
-        Me.Rif.Location = New System.Drawing.Point(83, 45)
+        Me.Rif.Location = New System.Drawing.Point(124, 55)
+        Me.Rif.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
         Me.Rif.Name = "Rif"
-        Me.Rif.Size = New System.Drawing.Size(235, 20)
+        Me.Rif.Size = New System.Drawing.Size(350, 22)
         Me.Rif.TabIndex = 8
         '
         'Codigo
         '
         Me.Codigo.Enabled = False
-        Me.Codigo.Location = New System.Drawing.Point(83, 19)
+        Me.Codigo.Location = New System.Drawing.Point(124, 23)
+        Me.Codigo.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
         Me.Codigo.Name = "Codigo"
-        Me.Codigo.Size = New System.Drawing.Size(235, 20)
+        Me.Codigo.Size = New System.Drawing.Size(350, 22)
         Me.Codigo.TabIndex = 7
         '
         'Label7
         '
         Me.Label7.AutoSize = True
-        Me.Label7.Location = New System.Drawing.Point(6, 213)
+        Me.Label7.Location = New System.Drawing.Point(9, 262)
+        Me.Label7.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.Label7.Name = "Label7"
-        Me.Label7.Size = New System.Drawing.Size(37, 13)
+        Me.Label7.Size = New System.Drawing.Size(53, 16)
         Me.Label7.TabIndex = 6
         Me.Label7.Text = "Saldo:"
         '
         'Label6
         '
         Me.Label6.AutoSize = True
-        Me.Label6.Location = New System.Drawing.Point(6, 126)
+        Me.Label6.Location = New System.Drawing.Point(9, 155)
+        Me.Label6.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.Label6.Name = "Label6"
-        Me.Label6.Size = New System.Drawing.Size(55, 13)
+        Me.Label6.Size = New System.Drawing.Size(78, 16)
         Me.Label6.TabIndex = 5
         Me.Label6.Text = "Dirección:"
         '
         'Label5
         '
         Me.Label5.AutoSize = True
-        Me.Label5.Location = New System.Drawing.Point(6, 187)
+        Me.Label5.Location = New System.Drawing.Point(9, 230)
+        Me.Label5.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.Label5.Name = "Label5"
-        Me.Label5.Size = New System.Drawing.Size(43, 13)
+        Me.Label5.Size = New System.Drawing.Size(61, 16)
         Me.Label5.TabIndex = 4
         Me.Label5.Text = "Ciudad:"
         '
         'Label4
         '
         Me.Label4.AutoSize = True
-        Me.Label4.Location = New System.Drawing.Point(6, 100)
+        Me.Label4.Location = New System.Drawing.Point(9, 123)
+        Me.Label4.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.Label4.Name = "Label4"
-        Me.Label4.Size = New System.Drawing.Size(41, 13)
+        Me.Label4.Size = New System.Drawing.Size(59, 16)
         Me.Label4.TabIndex = 3
         Me.Label4.Text = "Correo:"
         '
         'Label3
         '
         Me.Label3.AutoSize = True
-        Me.Label3.Location = New System.Drawing.Point(6, 74)
+        Me.Label3.Location = New System.Drawing.Point(9, 91)
+        Me.Label3.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.Label3.Name = "Label3"
-        Me.Label3.Size = New System.Drawing.Size(71, 13)
+        Me.Label3.Size = New System.Drawing.Size(102, 16)
         Me.Label3.TabIndex = 2
         Me.Label3.Text = "Razón social:"
         '
         'Label2
         '
         Me.Label2.AutoSize = True
-        Me.Label2.Location = New System.Drawing.Point(6, 48)
+        Me.Label2.Location = New System.Drawing.Point(9, 59)
+        Me.Label2.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.Label2.Name = "Label2"
-        Me.Label2.Size = New System.Drawing.Size(33, 13)
+        Me.Label2.Size = New System.Drawing.Size(44, 16)
         Me.Label2.TabIndex = 1
         Me.Label2.Text = "R.I.F:"
         '
         'Label1
         '
         Me.Label1.AutoSize = True
-        Me.Label1.Location = New System.Drawing.Point(6, 22)
+        Me.Label1.Location = New System.Drawing.Point(9, 27)
+        Me.Label1.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.Label1.Name = "Label1"
-        Me.Label1.Size = New System.Drawing.Size(43, 13)
+        Me.Label1.Size = New System.Drawing.Size(62, 16)
         Me.Label1.TabIndex = 0
         Me.Label1.Text = "Código:"
         '
-        'Telefonos
+        'Boton_Registrar
         '
-        Me.Telefonos.FormattingEnabled = True
-        Me.Telefonos.Location = New System.Drawing.Point(83, 266)
-        Me.Telefonos.Name = "Telefonos"
-        Me.Telefonos.Size = New System.Drawing.Size(234, 56)
-        Me.Telefonos.TabIndex = 20
-        '
-        'Button1
-        '
-        Me.Button1.Location = New System.Drawing.Point(325, 236)
-        Me.Button1.Name = "Button1"
-        Me.Button1.Size = New System.Drawing.Size(66, 20)
-        Me.Button1.TabIndex = 21
-        Me.Button1.Text = "Agregar"
-        Me.Button1.UseVisualStyleBackColor = True
+        Me.Boton_Registrar.Location = New System.Drawing.Point(518, 433)
+        Me.Boton_Registrar.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.Boton_Registrar.Name = "Boton_Registrar"
+        Me.Boton_Registrar.Size = New System.Drawing.Size(112, 28)
+        Me.Boton_Registrar.TabIndex = 16
+        Me.Boton_Registrar.Text = "Registrar"
+        Me.Boton_Registrar.UseVisualStyleBackColor = True
         '
         'Registrar_Proveedor_Compra
         '
-        Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
+        Me.AutoScaleDimensions = New System.Drawing.SizeF(9.0!, 16.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(464, 394)
+        Me.ClientSize = New System.Drawing.Size(696, 485)
         Me.Controls.Add(Me.GroupBox1)
         Me.Controls.Add(Me.Boton_Registrar)
+        Me.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
         Me.Name = "Registrar_Proveedor_Compra"
-        Me.Text = "Registrar_Proveedor_Compra"
+        Me.Text = "Registrar Proveedor Compra"
         Me.GroupBox1.ResumeLayout(False)
         Me.GroupBox1.PerformLayout()
         Me.ResumeLayout(False)

@@ -25,19 +25,23 @@ Partial Class Elegir_Lote
         'Lotes
         '
         Me.Lotes.FormattingEnabled = True
-        Me.Lotes.Location = New System.Drawing.Point(12, 12)
+        Me.Lotes.ItemHeight = 16
+        Me.Lotes.Location = New System.Drawing.Point(18, 15)
+        Me.Lotes.Margin = New System.Windows.Forms.Padding(4)
         Me.Lotes.Name = "Lotes"
-        Me.Lotes.Size = New System.Drawing.Size(248, 199)
+        Me.Lotes.Size = New System.Drawing.Size(370, 244)
         Me.Lotes.TabIndex = 0
         '
         'Elegir_Lote
         '
-        Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
+        Me.AutoScaleDimensions = New System.Drawing.SizeF(9.0!, 16.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(273, 224)
+        Me.ClientSize = New System.Drawing.Size(410, 276)
         Me.Controls.Add(Me.Lotes)
+        Me.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Margin = New System.Windows.Forms.Padding(4)
         Me.Name = "Elegir_Lote"
-        Me.Text = "Elegir_Lote"
+        Me.Text = "Elegir Lote"
         Me.ResumeLayout(False)
 
     End Sub

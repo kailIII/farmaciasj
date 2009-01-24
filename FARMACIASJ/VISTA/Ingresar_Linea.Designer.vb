@@ -47,9 +47,11 @@ Partial Class Ingresar_Linea
         Me.GroupBox1.Controls.Add(Me.NombreLinea)
         Me.GroupBox1.Controls.Add(Me.Label2)
         Me.GroupBox1.Controls.Add(Me.Label1)
-        Me.GroupBox1.Location = New System.Drawing.Point(12, 12)
+        Me.GroupBox1.Location = New System.Drawing.Point(18, 15)
+        Me.GroupBox1.Margin = New System.Windows.Forms.Padding(4)
         Me.GroupBox1.Name = "GroupBox1"
-        Me.GroupBox1.Size = New System.Drawing.Size(332, 265)
+        Me.GroupBox1.Padding = New System.Windows.Forms.Padding(4)
+        Me.GroupBox1.Size = New System.Drawing.Size(498, 326)
         Me.GroupBox1.TabIndex = 0
         Me.GroupBox1.TabStop = False
         Me.GroupBox1.Text = "Ingresar Línea"
@@ -57,35 +59,39 @@ Partial Class Ingresar_Linea
         'Label3
         '
         Me.Label3.AutoSize = True
-        Me.Label3.Location = New System.Drawing.Point(95, 168)
+        Me.Label3.Location = New System.Drawing.Point(142, 207)
+        Me.Label3.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.Label3.Name = "Label3"
-        Me.Label3.Size = New System.Drawing.Size(100, 13)
+        Me.Label3.Size = New System.Drawing.Size(143, 16)
         Me.Label3.TabIndex = 10
         Me.Label3.Text = "Descuento máximo:"
         '
         'Label6
         '
         Me.Label6.AutoSize = True
-        Me.Label6.Location = New System.Drawing.Point(301, 198)
+        Me.Label6.Location = New System.Drawing.Point(452, 244)
+        Me.Label6.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.Label6.Name = "Label6"
-        Me.Label6.Size = New System.Drawing.Size(15, 13)
+        Me.Label6.Size = New System.Drawing.Size(21, 16)
         Me.Label6.TabIndex = 9
         Me.Label6.Text = "%"
         '
         'Label5
         '
         Me.Label5.AutoSize = True
-        Me.Label5.Location = New System.Drawing.Point(301, 168)
+        Me.Label5.Location = New System.Drawing.Point(452, 207)
+        Me.Label5.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.Label5.Name = "Label5"
-        Me.Label5.Size = New System.Drawing.Size(15, 13)
+        Me.Label5.Size = New System.Drawing.Size(21, 16)
         Me.Label5.TabIndex = 8
         Me.Label5.Text = "%"
         '
         'Ingresar_Boton
         '
-        Me.Ingresar_Boton.Location = New System.Drawing.Point(241, 221)
+        Me.Ingresar_Boton.Location = New System.Drawing.Point(362, 272)
+        Me.Ingresar_Boton.Margin = New System.Windows.Forms.Padding(4)
         Me.Ingresar_Boton.Name = "Ingresar_Boton"
-        Me.Ingresar_Boton.Size = New System.Drawing.Size(75, 23)
+        Me.Ingresar_Boton.Size = New System.Drawing.Size(112, 28)
         Me.Ingresar_Boton.TabIndex = 7
         Me.Ingresar_Boton.Text = "Ingresar"
         Me.Ingresar_Boton.UseVisualStyleBackColor = True
@@ -93,67 +99,76 @@ Partial Class Ingresar_Linea
         'Label4
         '
         Me.Label4.AutoSize = True
-        Me.Label4.Location = New System.Drawing.Point(131, 198)
+        Me.Label4.Location = New System.Drawing.Point(196, 244)
+        Me.Label4.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.Label4.Name = "Label4"
-        Me.Label4.Size = New System.Drawing.Size(62, 13)
+        Me.Label4.Size = New System.Drawing.Size(88, 16)
         Me.Label4.TabIndex = 6
         Me.Label4.Text = "Margen útil:"
         '
         'MargenUtil
         '
-        Me.MargenUtil.Location = New System.Drawing.Point(201, 195)
+        Me.MargenUtil.Location = New System.Drawing.Point(302, 240)
+        Me.MargenUtil.Margin = New System.Windows.Forms.Padding(4)
         Me.MargenUtil.Name = "MargenUtil"
-        Me.MargenUtil.Size = New System.Drawing.Size(100, 20)
+        Me.MargenUtil.Size = New System.Drawing.Size(148, 22)
         Me.MargenUtil.TabIndex = 4
         '
         'DescripcionLinea
         '
-        Me.DescripcionLinea.Location = New System.Drawing.Point(75, 45)
+        Me.DescripcionLinea.Location = New System.Drawing.Point(112, 55)
+        Me.DescripcionLinea.Margin = New System.Windows.Forms.Padding(4)
         Me.DescripcionLinea.Name = "DescripcionLinea"
-        Me.DescripcionLinea.Size = New System.Drawing.Size(241, 109)
+        Me.DescripcionLinea.Size = New System.Drawing.Size(360, 133)
         Me.DescripcionLinea.TabIndex = 2
         Me.DescripcionLinea.Text = ""
         '
         'DescMax
         '
-        Me.DescMax.Location = New System.Drawing.Point(201, 165)
+        Me.DescMax.Location = New System.Drawing.Point(302, 203)
+        Me.DescMax.Margin = New System.Windows.Forms.Padding(4)
         Me.DescMax.Name = "DescMax"
-        Me.DescMax.Size = New System.Drawing.Size(100, 20)
+        Me.DescMax.Size = New System.Drawing.Size(148, 22)
         Me.DescMax.TabIndex = 3
         '
         'NombreLinea
         '
-        Me.NombreLinea.Location = New System.Drawing.Point(75, 19)
+        Me.NombreLinea.Location = New System.Drawing.Point(112, 23)
+        Me.NombreLinea.Margin = New System.Windows.Forms.Padding(4)
         Me.NombreLinea.Name = "NombreLinea"
-        Me.NombreLinea.Size = New System.Drawing.Size(241, 20)
+        Me.NombreLinea.Size = New System.Drawing.Size(360, 22)
         Me.NombreLinea.TabIndex = 1
         '
         'Label2
         '
         Me.Label2.AutoSize = True
-        Me.Label2.Location = New System.Drawing.Point(6, 48)
+        Me.Label2.Location = New System.Drawing.Point(9, 59)
+        Me.Label2.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.Label2.Name = "Label2"
-        Me.Label2.Size = New System.Drawing.Size(66, 13)
+        Me.Label2.Size = New System.Drawing.Size(95, 16)
         Me.Label2.TabIndex = 1
         Me.Label2.Text = "Descripción:"
         '
         'Label1
         '
         Me.Label1.AutoSize = True
-        Me.Label1.Location = New System.Drawing.Point(6, 22)
+        Me.Label1.Location = New System.Drawing.Point(9, 27)
+        Me.Label1.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.Label1.Name = "Label1"
-        Me.Label1.Size = New System.Drawing.Size(47, 13)
+        Me.Label1.Size = New System.Drawing.Size(67, 16)
         Me.Label1.TabIndex = 0
         Me.Label1.Text = "Nombre:"
         '
         'Ingresar_Linea
         '
-        Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
+        Me.AutoScaleDimensions = New System.Drawing.SizeF(9.0!, 16.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(354, 286)
+        Me.ClientSize = New System.Drawing.Size(531, 352)
         Me.Controls.Add(Me.GroupBox1)
+        Me.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Margin = New System.Windows.Forms.Padding(4)
         Me.Name = "Ingresar_Linea"
-        Me.Text = "Ingresar_Linea"
+        Me.Text = "Ingresar Linea"
         Me.GroupBox1.ResumeLayout(False)
         Me.GroupBox1.PerformLayout()
         Me.ResumeLayout(False)

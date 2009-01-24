@@ -57,11 +57,12 @@ Partial Class Ingresar_Producto
         'Label7
         '
         Me.Label7.AutoSize = True
-        Me.Label7.Location = New System.Drawing.Point(352, 235)
+        Me.Label7.Location = New System.Drawing.Point(528, 289)
+        Me.Label7.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.Label7.Name = "Label7"
-        Me.Label7.Size = New System.Drawing.Size(178, 13)
+        Me.Label7.Size = New System.Drawing.Size(257, 16)
         Me.Label7.TabIndex = 17
-        Me.Label7.Text = "Linea a la que pertence el producto:"
+        Me.Label7.Text = "Línea a la que pertence el producto:"
         '
         'Lineas
         '
@@ -69,9 +70,10 @@ Partial Class Ingresar_Producto
         Me.Lineas.DisplayMember = "NOMBRE"
         Me.Lineas.Enabled = False
         Me.Lineas.FormattingEnabled = True
-        Me.Lineas.Location = New System.Drawing.Point(355, 251)
+        Me.Lineas.Location = New System.Drawing.Point(532, 309)
+        Me.Lineas.Margin = New System.Windows.Forms.Padding(4)
         Me.Lineas.Name = "Lineas"
-        Me.Lineas.Size = New System.Drawing.Size(291, 21)
+        Me.Lineas.Size = New System.Drawing.Size(434, 24)
         Me.Lineas.TabIndex = 16
         Me.Lineas.ValueMember = "DESCRIPCION"
         '
@@ -88,9 +90,11 @@ Partial Class Ingresar_Producto
         'GroupBox2
         '
         Me.GroupBox2.Controls.Add(Me.Proveedores)
-        Me.GroupBox2.Location = New System.Drawing.Point(349, 43)
+        Me.GroupBox2.Location = New System.Drawing.Point(524, 53)
+        Me.GroupBox2.Margin = New System.Windows.Forms.Padding(4)
         Me.GroupBox2.Name = "GroupBox2"
-        Me.GroupBox2.Size = New System.Drawing.Size(300, 189)
+        Me.GroupBox2.Padding = New System.Windows.Forms.Padding(4)
+        Me.GroupBox2.Size = New System.Drawing.Size(450, 233)
         Me.GroupBox2.TabIndex = 15
         Me.GroupBox2.TabStop = False
         Me.GroupBox2.Text = "Proveedores del Producto"
@@ -101,11 +105,13 @@ Partial Class Ingresar_Producto
         Me.Proveedores.DisplayMember = "Nombre"
         Me.Proveedores.Enabled = False
         Me.Proveedores.FormattingEnabled = True
-        Me.Proveedores.Location = New System.Drawing.Point(6, 19)
+        Me.Proveedores.ItemHeight = 16
+        Me.Proveedores.Location = New System.Drawing.Point(9, 23)
+        Me.Proveedores.Margin = New System.Windows.Forms.Padding(4)
         Me.Proveedores.MultiColumn = True
         Me.Proveedores.Name = "Proveedores"
         Me.Proveedores.SelectionMode = System.Windows.Forms.SelectionMode.MultiSimple
-        Me.Proveedores.Size = New System.Drawing.Size(288, 160)
+        Me.Proveedores.Size = New System.Drawing.Size(430, 196)
         Me.Proveedores.TabIndex = 0
         Me.Proveedores.ValueMember = "Nombre"
         '
@@ -116,9 +122,10 @@ Partial Class Ingresar_Producto
         '
         'Button2
         '
-        Me.Button2.Location = New System.Drawing.Point(349, 287)
+        Me.Button2.Location = New System.Drawing.Point(524, 353)
+        Me.Button2.Margin = New System.Windows.Forms.Padding(4)
         Me.Button2.Name = "Button2"
-        Me.Button2.Size = New System.Drawing.Size(87, 21)
+        Me.Button2.Size = New System.Drawing.Size(130, 26)
         Me.Button2.TabIndex = 14
         Me.Button2.Text = "Cerrar"
         Me.Button2.UseVisualStyleBackColor = True
@@ -126,9 +133,10 @@ Partial Class Ingresar_Producto
         'Ingresar
         '
         Me.Ingresar.Enabled = False
-        Me.Ingresar.Location = New System.Drawing.Point(256, 287)
+        Me.Ingresar.Location = New System.Drawing.Point(384, 353)
+        Me.Ingresar.Margin = New System.Windows.Forms.Padding(4)
         Me.Ingresar.Name = "Ingresar"
-        Me.Ingresar.Size = New System.Drawing.Size(87, 21)
+        Me.Ingresar.Size = New System.Drawing.Size(130, 26)
         Me.Ingresar.TabIndex = 13
         Me.Ingresar.Text = "Ingresar"
         Me.Ingresar.UseVisualStyleBackColor = True
@@ -145,9 +153,11 @@ Partial Class Ingresar_Producto
         Me.GroupBox1.Controls.Add(Me.Label3)
         Me.GroupBox1.Controls.Add(Me.Cod_Producto)
         Me.GroupBox1.Controls.Add(Me.Label2)
-        Me.GroupBox1.Location = New System.Drawing.Point(6, 43)
+        Me.GroupBox1.Location = New System.Drawing.Point(9, 53)
+        Me.GroupBox1.Margin = New System.Windows.Forms.Padding(4)
         Me.GroupBox1.Name = "GroupBox1"
-        Me.GroupBox1.Size = New System.Drawing.Size(337, 229)
+        Me.GroupBox1.Padding = New System.Windows.Forms.Padding(4)
+        Me.GroupBox1.Size = New System.Drawing.Size(506, 282)
         Me.GroupBox1.TabIndex = 12
         Me.GroupBox1.TabStop = False
         Me.GroupBox1.Text = "Datos de Producto"
@@ -155,18 +165,20 @@ Partial Class Ingresar_Producto
         'Unidades_Producto
         '
         Me.Unidades_Producto.Enabled = False
-        Me.Unidades_Producto.Location = New System.Drawing.Point(122, 195)
+        Me.Unidades_Producto.Location = New System.Drawing.Point(183, 240)
+        Me.Unidades_Producto.Margin = New System.Windows.Forms.Padding(4)
         Me.Unidades_Producto.MaxLength = 4
         Me.Unidades_Producto.Name = "Unidades_Producto"
-        Me.Unidades_Producto.Size = New System.Drawing.Size(125, 20)
+        Me.Unidades_Producto.Size = New System.Drawing.Size(186, 22)
         Me.Unidades_Producto.TabIndex = 9
         '
         'Label6
         '
         Me.Label6.AutoSize = True
-        Me.Label6.Location = New System.Drawing.Point(6, 202)
+        Me.Label6.Location = New System.Drawing.Point(9, 249)
+        Me.Label6.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.Label6.Name = "Label6"
-        Me.Label6.Size = New System.Drawing.Size(115, 13)
+        Me.Label6.Size = New System.Drawing.Size(167, 16)
         Me.Label6.TabIndex = 8
         Me.Label6.Text = "Unidades por paquete:"
         '
@@ -175,88 +187,98 @@ Partial Class Ingresar_Producto
         Me.GE_Producto.Enabled = False
         Me.GE_Producto.FormattingEnabled = True
         Me.GE_Producto.Items.AddRange(New Object() {"EXENTO", "GRAVADO"})
-        Me.GE_Producto.Location = New System.Drawing.Point(122, 159)
+        Me.GE_Producto.Location = New System.Drawing.Point(183, 196)
+        Me.GE_Producto.Margin = New System.Windows.Forms.Padding(4)
         Me.GE_Producto.Name = "GE_Producto"
-        Me.GE_Producto.Size = New System.Drawing.Size(125, 21)
+        Me.GE_Producto.Size = New System.Drawing.Size(186, 24)
         Me.GE_Producto.TabIndex = 7
         '
         'Label5
         '
         Me.Label5.AutoSize = True
-        Me.Label5.Location = New System.Drawing.Point(6, 167)
+        Me.Label5.Location = New System.Drawing.Point(9, 206)
+        Me.Label5.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.Label5.Name = "Label5"
-        Me.Label5.Size = New System.Drawing.Size(89, 13)
+        Me.Label5.Size = New System.Drawing.Size(124, 16)
         Me.Label5.TabIndex = 6
         Me.Label5.Text = "Gravado/Exento:"
         '
         'Desc_Producto
         '
         Me.Desc_Producto.Enabled = False
-        Me.Desc_Producto.Location = New System.Drawing.Point(122, 81)
+        Me.Desc_Producto.Location = New System.Drawing.Point(183, 100)
+        Me.Desc_Producto.Margin = New System.Windows.Forms.Padding(4)
         Me.Desc_Producto.Name = "Desc_Producto"
-        Me.Desc_Producto.Size = New System.Drawing.Size(209, 66)
+        Me.Desc_Producto.Size = New System.Drawing.Size(312, 80)
         Me.Desc_Producto.TabIndex = 5
         Me.Desc_Producto.Text = ""
         '
         'Label4
         '
         Me.Label4.AutoSize = True
-        Me.Label4.Location = New System.Drawing.Point(6, 84)
+        Me.Label4.Location = New System.Drawing.Point(9, 103)
+        Me.Label4.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.Label4.Name = "Label4"
-        Me.Label4.Size = New System.Drawing.Size(66, 13)
+        Me.Label4.Size = New System.Drawing.Size(95, 16)
         Me.Label4.TabIndex = 4
-        Me.Label4.Text = "Descripcion:"
+        Me.Label4.Text = "Descripción:"
         '
         'Nom_Producto
         '
         Me.Nom_Producto.Enabled = False
-        Me.Nom_Producto.Location = New System.Drawing.Point(122, 49)
+        Me.Nom_Producto.Location = New System.Drawing.Point(183, 60)
+        Me.Nom_Producto.Margin = New System.Windows.Forms.Padding(4)
         Me.Nom_Producto.Name = "Nom_Producto"
-        Me.Nom_Producto.Size = New System.Drawing.Size(209, 20)
+        Me.Nom_Producto.Size = New System.Drawing.Size(312, 22)
         Me.Nom_Producto.TabIndex = 3
         '
         'Label3
         '
         Me.Label3.AutoSize = True
-        Me.Label3.Location = New System.Drawing.Point(6, 56)
+        Me.Label3.Location = New System.Drawing.Point(9, 69)
+        Me.Label3.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.Label3.Name = "Label3"
-        Me.Label3.Size = New System.Drawing.Size(110, 13)
+        Me.Label3.Size = New System.Drawing.Size(159, 16)
         Me.Label3.TabIndex = 2
         Me.Label3.Text = "Nombre del Producto:"
         '
         'Cod_Producto
         '
         Me.Cod_Producto.Enabled = False
-        Me.Cod_Producto.Location = New System.Drawing.Point(122, 19)
+        Me.Cod_Producto.Location = New System.Drawing.Point(183, 23)
+        Me.Cod_Producto.Margin = New System.Windows.Forms.Padding(4)
         Me.Cod_Producto.Name = "Cod_Producto"
-        Me.Cod_Producto.Size = New System.Drawing.Size(209, 20)
+        Me.Cod_Producto.Size = New System.Drawing.Size(312, 22)
         Me.Cod_Producto.TabIndex = 1
         '
         'Label2
         '
         Me.Label2.AutoSize = True
-        Me.Label2.Location = New System.Drawing.Point(6, 26)
+        Me.Label2.Location = New System.Drawing.Point(9, 32)
+        Me.Label2.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.Label2.Name = "Label2"
-        Me.Label2.Size = New System.Drawing.Size(89, 13)
+        Me.Label2.Size = New System.Drawing.Size(128, 16)
         Me.Label2.TabIndex = 0
-        Me.Label2.Text = "Codigo Producto:"
+        Me.Label2.Text = "Código Producto:"
         '
         'Cod_Barras
         '
-        Me.Cod_Barras.Location = New System.Drawing.Point(262, 12)
+        Me.Cod_Barras.Location = New System.Drawing.Point(393, 15)
+        Me.Cod_Barras.Margin = New System.Windows.Forms.Padding(4)
         Me.Cod_Barras.MaxLength = 13
         Me.Cod_Barras.Name = "Cod_Barras"
-        Me.Cod_Barras.Size = New System.Drawing.Size(206, 20)
+        Me.Cod_Barras.Size = New System.Drawing.Size(307, 22)
         Me.Cod_Barras.TabIndex = 11
         '
         'Label1
         '
         Me.Label1.AutoSize = True
-        Me.Label1.Location = New System.Drawing.Point(156, 15)
+        Me.Label1.Location = New System.Drawing.Point(234, 18)
+        Me.Label1.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.Label1.Name = "Label1"
-        Me.Label1.Size = New System.Drawing.Size(91, 13)
+        Me.Label1.Size = New System.Drawing.Size(134, 16)
         Me.Label1.TabIndex = 10
-        Me.Label1.Text = "Codigo de Barras:"
+        Me.Label1.Text = "Código de Barras:"
         '
         'PROVEEDORTableAdapter
         '
@@ -268,9 +290,9 @@ Partial Class Ingresar_Producto
         '
         'Ingresar_Producto
         '
-        Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
+        Me.AutoScaleDimensions = New System.Drawing.SizeF(9.0!, 16.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(655, 314)
+        Me.ClientSize = New System.Drawing.Size(982, 386)
         Me.Controls.Add(Me.Label7)
         Me.Controls.Add(Me.Lineas)
         Me.Controls.Add(Me.GroupBox2)
@@ -279,6 +301,8 @@ Partial Class Ingresar_Producto
         Me.Controls.Add(Me.GroupBox1)
         Me.Controls.Add(Me.Cod_Barras)
         Me.Controls.Add(Me.Label1)
+        Me.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Margin = New System.Windows.Forms.Padding(4)
         Me.Name = "Ingresar_Producto"
         Me.Text = "Ingresar Producto"
         CType(Me.LINEABindingSource, System.ComponentModel.ISupportInitialize).EndInit()

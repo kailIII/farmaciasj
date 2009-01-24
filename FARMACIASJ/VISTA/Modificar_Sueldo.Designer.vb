@@ -42,9 +42,11 @@ Partial Class Modificar_Sueldo
         Me.GroupBox2.Controls.Add(Me.Cargo)
         Me.GroupBox2.Controls.Add(Me.Sueldo)
         Me.GroupBox2.Controls.Add(Me.Label8)
-        Me.GroupBox2.Location = New System.Drawing.Point(12, 124)
+        Me.GroupBox2.Location = New System.Drawing.Point(18, 153)
+        Me.GroupBox2.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
         Me.GroupBox2.Name = "GroupBox2"
-        Me.GroupBox2.Size = New System.Drawing.Size(309, 107)
+        Me.GroupBox2.Padding = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.GroupBox2.Size = New System.Drawing.Size(464, 132)
         Me.GroupBox2.TabIndex = 4
         Me.GroupBox2.TabStop = False
         Me.GroupBox2.Text = "Información Laboral"
@@ -52,9 +54,10 @@ Partial Class Modificar_Sueldo
         'Registrando
         '
         Me.Registrando.Enabled = False
-        Me.Registrando.Location = New System.Drawing.Point(222, 71)
+        Me.Registrando.Location = New System.Drawing.Point(333, 87)
+        Me.Registrando.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
         Me.Registrando.Name = "Registrando"
-        Me.Registrando.Size = New System.Drawing.Size(75, 23)
+        Me.Registrando.Size = New System.Drawing.Size(112, 28)
         Me.Registrando.TabIndex = 16
         Me.Registrando.Text = "Registrar"
         Me.Registrando.UseVisualStyleBackColor = True
@@ -62,34 +65,38 @@ Partial Class Modificar_Sueldo
         'Label7
         '
         Me.Label7.AutoSize = True
-        Me.Label7.Location = New System.Drawing.Point(6, 22)
+        Me.Label7.Location = New System.Drawing.Point(9, 27)
+        Me.Label7.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.Label7.Name = "Label7"
-        Me.Label7.Size = New System.Drawing.Size(38, 13)
+        Me.Label7.Size = New System.Drawing.Size(54, 16)
         Me.Label7.TabIndex = 14
         Me.Label7.Text = "Cargo:"
         '
         'Cargo
         '
         Me.Cargo.Enabled = False
-        Me.Cargo.Location = New System.Drawing.Point(112, 19)
+        Me.Cargo.Location = New System.Drawing.Point(168, 23)
+        Me.Cargo.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
         Me.Cargo.Name = "Cargo"
-        Me.Cargo.Size = New System.Drawing.Size(185, 20)
+        Me.Cargo.Size = New System.Drawing.Size(276, 22)
         Me.Cargo.TabIndex = 14
         '
         'Sueldo
         '
         Me.Sueldo.Enabled = False
-        Me.Sueldo.Location = New System.Drawing.Point(112, 45)
+        Me.Sueldo.Location = New System.Drawing.Point(168, 55)
+        Me.Sueldo.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
         Me.Sueldo.Name = "Sueldo"
-        Me.Sueldo.Size = New System.Drawing.Size(185, 20)
+        Me.Sueldo.Size = New System.Drawing.Size(276, 22)
         Me.Sueldo.TabIndex = 15
         '
         'Label8
         '
         Me.Label8.AutoSize = True
-        Me.Label8.Location = New System.Drawing.Point(6, 48)
+        Me.Label8.Location = New System.Drawing.Point(9, 59)
+        Me.Label8.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.Label8.Name = "Label8"
-        Me.Label8.Size = New System.Drawing.Size(43, 13)
+        Me.Label8.Size = New System.Drawing.Size(61, 16)
         Me.Label8.TabIndex = 11
         Me.Label8.Text = "Sueldo:"
         '
@@ -100,18 +107,21 @@ Partial Class Modificar_Sueldo
         Me.GroupBox1.Controls.Add(Me.Nombres)
         Me.GroupBox1.Controls.Add(Me.Label1)
         Me.GroupBox1.Controls.Add(Me.Cedula)
-        Me.GroupBox1.Location = New System.Drawing.Point(12, 12)
+        Me.GroupBox1.Location = New System.Drawing.Point(18, 15)
+        Me.GroupBox1.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
         Me.GroupBox1.Name = "GroupBox1"
-        Me.GroupBox1.Size = New System.Drawing.Size(309, 106)
+        Me.GroupBox1.Padding = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.GroupBox1.Size = New System.Drawing.Size(464, 130)
         Me.GroupBox1.TabIndex = 5
         Me.GroupBox1.TabStop = False
         Me.GroupBox1.Text = "Búsqueda de Empleado"
         '
         'Buscando
         '
-        Me.Buscando.Location = New System.Drawing.Point(222, 71)
+        Me.Buscando.Location = New System.Drawing.Point(333, 87)
+        Me.Buscando.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
         Me.Buscando.Name = "Buscando"
-        Me.Buscando.Size = New System.Drawing.Size(75, 23)
+        Me.Buscando.Size = New System.Drawing.Size(112, 28)
         Me.Buscando.TabIndex = 13
         Me.Buscando.Text = "Buscar"
         Me.Buscando.UseVisualStyleBackColor = True
@@ -119,45 +129,51 @@ Partial Class Modificar_Sueldo
         'Label2
         '
         Me.Label2.AutoSize = True
-        Me.Label2.Location = New System.Drawing.Point(6, 48)
+        Me.Label2.Location = New System.Drawing.Point(9, 59)
+        Me.Label2.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.Label2.Name = "Label2"
-        Me.Label2.Size = New System.Drawing.Size(90, 13)
+        Me.Label2.Size = New System.Drawing.Size(133, 16)
         Me.Label2.TabIndex = 3
         Me.Label2.Text = "Nombre, Apellido:"
         '
         'Nombres
         '
         Me.Nombres.Enabled = False
-        Me.Nombres.Location = New System.Drawing.Point(106, 45)
+        Me.Nombres.Location = New System.Drawing.Point(159, 55)
+        Me.Nombres.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
         Me.Nombres.Name = "Nombres"
-        Me.Nombres.Size = New System.Drawing.Size(191, 20)
+        Me.Nombres.Size = New System.Drawing.Size(284, 22)
         Me.Nombres.TabIndex = 12
         '
         'Label1
         '
         Me.Label1.AutoSize = True
-        Me.Label1.Location = New System.Drawing.Point(6, 22)
+        Me.Label1.Location = New System.Drawing.Point(9, 27)
+        Me.Label1.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.Label1.Name = "Label1"
-        Me.Label1.Size = New System.Drawing.Size(43, 13)
+        Me.Label1.Size = New System.Drawing.Size(61, 16)
         Me.Label1.TabIndex = 1
         Me.Label1.Text = "Cédula:"
         '
         'Cedula
         '
-        Me.Cedula.Location = New System.Drawing.Point(106, 19)
+        Me.Cedula.Location = New System.Drawing.Point(159, 23)
+        Me.Cedula.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
         Me.Cedula.Name = "Cedula"
-        Me.Cedula.Size = New System.Drawing.Size(191, 20)
+        Me.Cedula.Size = New System.Drawing.Size(284, 22)
         Me.Cedula.TabIndex = 11
         '
         'Modificar_Sueldo
         '
-        Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
+        Me.AutoScaleDimensions = New System.Drawing.SizeF(9.0!, 16.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(334, 248)
+        Me.ClientSize = New System.Drawing.Size(501, 305)
         Me.Controls.Add(Me.GroupBox1)
         Me.Controls.Add(Me.GroupBox2)
+        Me.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
         Me.Name = "Modificar_Sueldo"
-        Me.Text = "Modificar_Sueldo"
+        Me.Text = "Modificar Sueldo"
         Me.GroupBox2.ResumeLayout(False)
         Me.GroupBox2.PerformLayout()
         Me.GroupBox1.ResumeLayout(False)
