@@ -13,7 +13,7 @@ Public Class Registrar_Compra
             ControladorP.Buscar_Rif(RIF_PROVEEDOR.Text, Me)
         End If
     End Sub
-    Private Sub RIF_PROVEEDOR_TextChanged(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles RIF_PROVEEDOR.TextChanged, RIF_PROVEEDOR.KeyPress
+    Private Sub RIF_PROVEEDOR_TextChanged(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles RIF_PROVEEDOR.TextChanged
         If (Me.RIF_PROVEEDOR.Text.Length = 1) Then
             If (Me.RIF_PROVEEDOR.Text(0) = Char.Parse("J") Or Me.RIF_PROVEEDOR.Text(0) = Char.Parse("V") Or Me.RIF_PROVEEDOR.Text(0) = Char.Parse("E") Or Me.RIF_PROVEEDOR.Text(0) = Char.Parse("G")) Then
                 Me.RIF_PROVEEDOR.MaxLength = 10

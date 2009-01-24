@@ -25,10 +25,6 @@ Partial Class Vendedor
         Me.PuntoDeVentaToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem
         Me.DeToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem
         Me.RegToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem
-        Me.ClienteToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem
-        Me.IngresarClienteToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem
-        Me.ConsultarClienteToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem
-        Me.ModificarClienteToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem
         Me.ConfiguracionToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem
         Me.DatosFarmaciaToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem
         Me.SalirToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem
@@ -42,7 +38,7 @@ Partial Class Vendedor
         '
         'MenuStrip
         '
-        Me.MenuStrip.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.VentaToolStripMenuItem, Me.ClienteToolStripMenuItem, Me.ConfiguracionToolStripMenuItem, Me.SalirToolStripMenuItem})
+        Me.MenuStrip.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.VentaToolStripMenuItem, Me.ConfiguracionToolStripMenuItem, Me.SalirToolStripMenuItem})
         Me.MenuStrip.Location = New System.Drawing.Point(0, 0)
         Me.MenuStrip.Name = "MenuStrip"
         Me.MenuStrip.Padding = New System.Windows.Forms.Padding(9, 2, 0, 2)
@@ -77,35 +73,6 @@ Partial Class Vendedor
         Me.RegToolStripMenuItem.Name = "RegToolStripMenuItem"
         Me.RegToolStripMenuItem.Size = New System.Drawing.Size(257, 22)
         Me.RegToolStripMenuItem.Text = "Registrar Pedidos"
-        '
-        'ClienteToolStripMenuItem
-        '
-        Me.ClienteToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.IngresarClienteToolStripMenuItem, Me.ConsultarClienteToolStripMenuItem, Me.ModificarClienteToolStripMenuItem})
-        Me.ClienteToolStripMenuItem.Font = New System.Drawing.Font("Tahoma", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.ClienteToolStripMenuItem.Name = "ClienteToolStripMenuItem"
-        Me.ClienteToolStripMenuItem.Size = New System.Drawing.Size(64, 20)
-        Me.ClienteToolStripMenuItem.Text = "&Cliente"
-        '
-        'IngresarClienteToolStripMenuItem
-        '
-        Me.IngresarClienteToolStripMenuItem.Name = "IngresarClienteToolStripMenuItem"
-        Me.IngresarClienteToolStripMenuItem.ShortcutKeys = CType((System.Windows.Forms.Keys.Control Or System.Windows.Forms.Keys.I), System.Windows.Forms.Keys)
-        Me.IngresarClienteToolStripMenuItem.Size = New System.Drawing.Size(253, 22)
-        Me.IngresarClienteToolStripMenuItem.Text = "Ingresar_Cliente"
-        '
-        'ConsultarClienteToolStripMenuItem
-        '
-        Me.ConsultarClienteToolStripMenuItem.Name = "ConsultarClienteToolStripMenuItem"
-        Me.ConsultarClienteToolStripMenuItem.ShortcutKeys = CType((System.Windows.Forms.Keys.Control Or System.Windows.Forms.Keys.C), System.Windows.Forms.Keys)
-        Me.ConsultarClienteToolStripMenuItem.Size = New System.Drawing.Size(253, 22)
-        Me.ConsultarClienteToolStripMenuItem.Text = "Consultar_Cliente"
-        '
-        'ModificarClienteToolStripMenuItem
-        '
-        Me.ModificarClienteToolStripMenuItem.Name = "ModificarClienteToolStripMenuItem"
-        Me.ModificarClienteToolStripMenuItem.ShortcutKeys = CType((System.Windows.Forms.Keys.Control Or System.Windows.Forms.Keys.M), System.Windows.Forms.Keys)
-        Me.ModificarClienteToolStripMenuItem.Size = New System.Drawing.Size(253, 22)
-        Me.ModificarClienteToolStripMenuItem.Text = "Modificar_Cliente"
         '
         'ConfiguracionToolStripMenuItem
         '
@@ -187,10 +154,6 @@ Partial Class Vendedor
     Friend WithEvents VentaToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
     Friend WithEvents PuntoDeVentaToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
     Friend WithEvents DeToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
-    Friend WithEvents ClienteToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
-    Friend WithEvents IngresarClienteToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
-    Friend WithEvents ConsultarClienteToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
-    Friend WithEvents ModificarClienteToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
     Friend WithEvents ConfiguracionToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
     Friend WithEvents SalirToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
     Friend WithEvents CerrarSesionToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem

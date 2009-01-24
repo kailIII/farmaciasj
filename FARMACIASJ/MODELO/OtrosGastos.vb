@@ -53,7 +53,7 @@ Public Class OtrosGastos
             OtrosGastosTableAdapter.Update(BasedeDatos.OTROS_GASTOS)
             BasedeDatos.AcceptChanges()
             Return True
-        Catch err As ArgumentNullException
+        Catch err As Exception
             Return False
         End Try
     End Function
