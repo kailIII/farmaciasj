@@ -118,4 +118,9 @@ Public Class Administrador
         Gastos = New Controlador_OtrosGastos(Me)
         Gastos.Abrir_Reporte()
     End Sub
+
+    Private Sub EliminarToolStripMenuItem_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles EliminarToolStripMenuItem.Click
+        Dim Ventana As New Controlador_Proveedor
+        Ventana.Abrir_Ventana_Eliminar_Proveedor(Me)
+    End Sub
 End Class

@@ -38,9 +38,9 @@ Partial Class Buscar_Proveedor
         Me.GroupBox1.Controls.Add(Me.Boton_Codigo)
         Me.GroupBox1.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.GroupBox1.Location = New System.Drawing.Point(18, 133)
-        Me.GroupBox1.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.GroupBox1.Margin = New System.Windows.Forms.Padding(4)
         Me.GroupBox1.Name = "GroupBox1"
-        Me.GroupBox1.Padding = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.GroupBox1.Padding = New System.Windows.Forms.Padding(4)
         Me.GroupBox1.Size = New System.Drawing.Size(456, 107)
         Me.GroupBox1.TabIndex = 0
         Me.GroupBox1.TabStop = False
@@ -49,10 +49,10 @@ Partial Class Buscar_Proveedor
         'Codigo
         '
         Me.Codigo.Location = New System.Drawing.Point(111, 26)
-        Me.Codigo.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.Codigo.Margin = New System.Windows.Forms.Padding(4)
         Me.Codigo.Name = "Codigo"
         Me.Codigo.Size = New System.Drawing.Size(318, 22)
-        Me.Codigo.TabIndex = 0
+        Me.Codigo.TabIndex = 3
         '
         'textcodifo
         '
@@ -67,10 +67,10 @@ Partial Class Buscar_Proveedor
         'Boton_Codigo
         '
         Me.Boton_Codigo.Location = New System.Drawing.Point(318, 60)
-        Me.Boton_Codigo.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.Boton_Codigo.Margin = New System.Windows.Forms.Padding(4)
         Me.Boton_Codigo.Name = "Boton_Codigo"
         Me.Boton_Codigo.Size = New System.Drawing.Size(112, 28)
-        Me.Boton_Codigo.TabIndex = 1
+        Me.Boton_Codigo.TabIndex = 4
         Me.Boton_Codigo.Text = "Buscar"
         Me.Boton_Codigo.UseVisualStyleBackColor = True
         '
@@ -81,9 +81,9 @@ Partial Class Buscar_Proveedor
         Me.GroupBox2.Controls.Add(Me.Boton_Rif)
         Me.GroupBox2.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.GroupBox2.Location = New System.Drawing.Point(18, 15)
-        Me.GroupBox2.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.GroupBox2.Margin = New System.Windows.Forms.Padding(4)
         Me.GroupBox2.Name = "GroupBox2"
-        Me.GroupBox2.Padding = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.GroupBox2.Padding = New System.Windows.Forms.Padding(4)
         Me.GroupBox2.Size = New System.Drawing.Size(456, 111)
         Me.GroupBox2.TabIndex = 3
         Me.GroupBox2.TabStop = False
@@ -92,10 +92,10 @@ Partial Class Buscar_Proveedor
         'Rif
         '
         Me.Rif.Location = New System.Drawing.Point(111, 26)
-        Me.Rif.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.Rif.Margin = New System.Windows.Forms.Padding(4)
         Me.Rif.Name = "Rif"
         Me.Rif.Size = New System.Drawing.Size(318, 22)
-        Me.Rif.TabIndex = 2
+        Me.Rif.TabIndex = 0
         '
         'Label1
         '
@@ -110,10 +110,10 @@ Partial Class Buscar_Proveedor
         'Boton_Rif
         '
         Me.Boton_Rif.Location = New System.Drawing.Point(318, 60)
-        Me.Boton_Rif.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.Boton_Rif.Margin = New System.Windows.Forms.Padding(4)
         Me.Boton_Rif.Name = "Boton_Rif"
         Me.Boton_Rif.Size = New System.Drawing.Size(112, 28)
-        Me.Boton_Rif.TabIndex = 3
+        Me.Boton_Rif.TabIndex = 2
         Me.Boton_Rif.Text = "Buscar"
         Me.Boton_Rif.UseVisualStyleBackColor = True
         '
@@ -125,7 +125,7 @@ Partial Class Buscar_Proveedor
         Me.Controls.Add(Me.GroupBox2)
         Me.Controls.Add(Me.GroupBox1)
         Me.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.Margin = New System.Windows.Forms.Padding(4)
         Me.Name = "Buscar_Proveedor"
         Me.Text = "Buscar_Proveedor"
         Me.GroupBox1.ResumeLayout(False)

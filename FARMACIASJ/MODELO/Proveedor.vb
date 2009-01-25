@@ -368,4 +368,24 @@ Public Class Proveedor
     End Function
 
 
+    Public Function Eliminar_Proveedor(ByVal IdProveedor As Integer) As Boolean
+        Dim Adaptador As FarmaciaSJDataSetTableAdapters.PROVEEDORTableAdapter
+        Try
+            Adaptador = New FarmaciaSJDataSetTableAdapters.PROVEEDORTableAdapter()
+            Dim Proveedor_x As FarmaciaSJDataSetTableAdapters.PROVEEDORTableAdapter = New FarmaciaSJDataSetTableAdapters.PROVEEDORTableAdapter
+            Dim Conextion As Data.SqlClient.SqlConnection = Proveedor_x.Connection
+            Dim Consulta As Data.SqlClient.SqlCommand = New Data.SqlClient.SqlCommand
+            Conextion.Open()
+            Consulta.Connection = Conextion
+            Consulta.CommandText = "UPDATE PROVEEDOR SET Estatus = '" & "INACTIVO" & "' WHERE ID_PROVEEDOR=" & IdProveedor
+            Consulta.ExecuteNonQuery()
+            Return True
+        Catch ex As ArgumentNullException
+            Return False
+        End Try
+    End Function
+
+
+
+
 End Class

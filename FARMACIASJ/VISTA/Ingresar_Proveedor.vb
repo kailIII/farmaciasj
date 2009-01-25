@@ -17,23 +17,56 @@ Public Class Ingresar_Proveedor
 
 
     Private Sub Cod_producto_TextChanged(ByVal sender As System.Object, ByVal e As Windows.Forms.KeyPressEventArgs)
-        Dim Proveedor_x As Controlador_Proveedor = New Controlador_Proveedor
+        ' Dim Proveedor_x As Controlador_Proveedor = New Controlador_Proveedor
 
         If (e.KeyChar = Char.ConvertFromUtf32(13)) Then
             'Si existe el codigo de barras lo deberia insertar en el datagrid
-            'If (Me.Boton_Registrar.Text = "Registrar" And Proveedor_x.Productos_Relacionados(Me.Cod_producto.Text, Arreglo)) Then
             If (Me.Boton_Registrar.Text = "Registrar") Then
-                Proveedor_x.Actualizar_Datagrid(Me, Arreglo)
-                ' Me.Cod_producto.Text = ""
 
-                'ElseIf Me.Boton_Registrar.Text = "Guardar" And Proveedor_x.Productos_Relacionados(Me.Codigo.Text, Me.Cod_producto.Text) Then
+
             ElseIf Me.Boton_Registrar.Text = "Guardar" Then
                 Dim Proveedor_y As Proveedor = New Proveedor
                 Dim Numero As Integer = Proveedor_y.Existe_Proveedor(Me.Codigo.Text, True)
-                Proveedor_x.Actualizar_Datagrid(Me, Numero)
-                'Me.Cod_producto.Text = ""
             End If
         End If
     End Sub
 
+    Private Sub Rif_TextChanged(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Rif.TextChanged
+        If (Me.Rif.Text.Length = 1) Then
+            If (Me.Rif.Text(0) = Char.Parse("J") Or Me.Rif.Text(0) = Char.Parse("G")) Then
+                Me.Rif.MaxLength = 10
+            ElseIf (Me.Rif.Text(0) = Char.Parse("V") Or Me.Rif.Text(0) = Char.Parse("E")) Then
+                Me.Rif.MaxLength = 9
+            ElseIf (Me.Rif.Text(0) = Char.Parse("P")) Then
+                Me.Rif.MaxLength = 12
+            Else
+                Me.Rif.Text = ""
+            End If
+        ElseIf (Me.Rif.Text.Length > 1) Then
+            Dim count As Integer
+            count = Me.Rif.Text.Length - 1
+            If (Char.IsDigit(Me.Rif.Text(count)) = False) Then
+                Dim A As String
+                A = Me.Rif.Text
+                A = A.Substring(0, count)
+                Me.Rif.Text = A
+                Me.Rif.SelectionStart = Me.Rif.Text.Length
+            End If
+        End If
+    End Sub
+
+    Private Sub Ingresar_Proveedor_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
+        Dim ControladorF As Controlador_Proveedor
+        ControladorF = New Controlador_Proveedor
+        Dim C As Integer
+        C = ControladorF.CantidadP()
+        C = C + 1
+        If (C < 10) Then
+            Me.Codigo.Text = "Pr00" & C
+        ElseIf (C < 100) Then
+            Me.Codigo.Text = "Pr0" & C
+        Else
+            Me.Codigo.Text = "Pr" & C
+        End If
+    End Sub
 End Class

@@ -9,7 +9,7 @@ Public Class Buscar_Proveedor
     Private Sub Boton_Rif_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Boton_Rif.Click
         Dim Controlador_Proveedor As Controlador_Proveedor = New Controlador_Proveedor
         Controlador_Proveedor.Buscando_Proveedor(Rif.Text, False, Me)
-        
+
     End Sub
 
     Private Sub Rif_TextChanged(ByVal sender As System.Object, ByVal e As Windows.Forms.KeyPressEventArgs) Handles Rif.KeyPress
@@ -43,4 +43,7 @@ Public Class Buscar_Proveedor
         End If
     End Sub
 
+    Private Sub Buscar_Proveedor_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
+        Me.Rif.Focus()
+    End Sub
 End Class

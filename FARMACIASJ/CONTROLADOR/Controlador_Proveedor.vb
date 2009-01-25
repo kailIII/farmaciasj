@@ -29,8 +29,6 @@ Public Class Controlador_Proveedor
 
             Estado_modificar(Ventana, True, True)
 
-            'Actualizar_Datagrid(Ventana, Proveedor_x.Existe_Proveedor(Codigo, True))
-
         ElseIf (Ventana.Boton_Registrar.Text = "Guardar") Then
             If (Validacion.Tamano_Aceptable_Cadena(Saldo, 15, "El Saldo introducido es incorrecto")) Then
                 If Proveedor_x.Actualizar_Proveedor(Codigo, Rif, Nombre, Correo, Dir, Ciudad, CDbl(Saldo)) Then
@@ -74,19 +72,6 @@ Public Class Controlador_Proveedor
 
             End If
         End If
-    End Sub
-
-    Public Sub Actualizar_Datagrid(ByVal Ventana As Ingresar_Proveedor, ByVal Arreglo As Array)
-        Dim Proveedor_x As Proveedor = New Proveedor
-        'Ventana.Productos_asociados.DataSource = Proveedor_x.Mostrar_datagrid(Arreglo)
-        'Ventana.Productos_asociados.Update()
-    End Sub
-
-
-    Public Sub Actualizar_Datagrid(ByVal Ventana As Ingresar_Proveedor, ByVal Con_Id_De_Proveedor As Integer)
-        Dim Proveedor_x As Proveedor = New Proveedor
-        'Ventana.Productos_asociados.DataSource = Proveedor_x.Mostrar_datagrid(Con_Id_De_Proveedor)
-        'Ventana.Productos_asociados.Update()
     End Sub
 
     Public Sub Actualizar_Datagrid(ByVal Ventana As Registrar_Proveedor, ByVal Arreglo As Array)
@@ -134,24 +119,13 @@ Public Class Controlador_Proveedor
 
     Public Function Productos_Relacionados(ByVal Codigo As String, ByVal Id_Producto_x_codigo As String) As Boolean
         Dim Proveedor_y As Proveedor = New Proveedor
-
         Dim Producto_x As Producto = New Producto
-        ' If (Producto_x.idProductos(Codigo) > 0) Then
-        ' Actualiza_Arreglo(Producto_x.idProductos(Codigo), Arreglo)
-        ' Posible ingresar directo
 
         If Not Proveedor_y.Proveedor_Producto(Proveedor_y.Existe_Proveedor(Codigo, True), Producto_x.idProductos(Id_Producto_x_codigo)) Then
             MsgBox("No se pudo registrar el producto a este Proveedor", MsgBoxStyle.OkOnly, "Error")
             Return False
         End If
-
-
         Return True
-        'Else
-        'Aca podria ir el insertar producto...
-        'MsgBox("El código suministrado es inválido", MsgBoxStyle.OkOnly, "Error")
-        'End If
-
     End Function
 
 
@@ -165,9 +139,6 @@ Public Class Controlador_Proveedor
         Ventana_Modificar_Proveedor.Dir.Enabled = Estado
         Ventana_Modificar_Proveedor.Ciudad.Enabled = Estado
         Ventana_Modificar_Proveedor.Saldo.Enabled = Estado
-        'Ventana_Modificar_Proveedor.Cod_producto.Enabled = Estado
-        'Ventana_Modificar_Proveedor.Productos_asociados.Enabled = Estado
-
         If (Buscando) Then
             Ventana_Modificar_Proveedor.Boton_Registrar.Text = "Guardar"
         Else
@@ -192,8 +163,6 @@ Public Class Controlador_Proveedor
             Ventana_Modificar_Proveedor.Show()
             Proveedor_x.Buscar_Proveedor(Cadena, Codigo, Ventana_Modificar_Proveedor)
             Estado_modificar(Ventana_Modificar_Proveedor, False, False)
-            Actualizar_Datagrid(Ventana_Modificar_Proveedor, Proveedor_x.Existe_Proveedor(Cadena, Codigo))
-            'Ventana.Close()
         Else
             If Codigo = True Then
                 MsgBox("El Código introducido es inválido o no existe", MsgBoxStyle.OkOnly, "Error")
@@ -285,4 +254,51 @@ Public Class Controlador_Proveedor
         End If
         Return False
     End Function
+
+
+    Public Function Buscando_Info_Para_Eliminar(ByVal Ventana As Eliminar_proveedor, ByVal Codigo As String) As Boolean
+        Dim Modelo As Proveedor = New Proveedor
+        Dim ConsultaBD As Data.SqlClient.SqlDataReader
+        Try
+            ConsultaBD = Modelo.Buscar_id_proveedor(CStr(Modelo.Existe_Proveedor(Codigo, False)))
+            Ventana.Nombre.Text = ConsultaBD.Item(3).ToString
+            Return True
+        Catch ex As Exception
+            MsgBox("No exite proveedor con el RIF es suministrado", MsgBoxStyle.OkOnly, "Error")
+            Return False
+        End Try
+    End Function
+
+    Public Sub Abrir_Ventana_Eliminar_Proveedor(ByVal Padre As Windows.Forms.Form)
+        Dim Eliminar As Eliminar_proveedor
+        Eliminar = New Eliminar_proveedor
+        Eliminar.MdiParent = Padre
+        Eliminar.Show()
+    End Sub
+
+    Public Function Eliminando_Proveedor(ByVal Ventana As Eliminar_proveedor, ByVal Codigo As String) As Boolean
+        Dim Modelo As Proveedor = New Proveedor
+        Dim ConsultaBD As Data.SqlClient.SqlDataReader
+        Try
+            If Modelo.Existe_Proveedor(Codigo, False) > 0 Then
+                ConsultaBD = Modelo.Buscar_id_proveedor(CStr(Modelo.Existe_Proveedor(Codigo, False)))
+                Dim Respuesta As MsgBoxResult = MsgBox("Está seguro que desea eliminar proveedor: " & ConsultaBD.Item(3).ToString & "?", MsgBoxStyle.OkCancel, "Aviso")
+                If Respuesta = MsgBoxResult.Ok Then
+                    If Modelo.Eliminar_Proveedor(CInt(ConsultaBD.Item(0).ToString)) Then
+                        MsgBox("El proveedor ha sido eliminado exitosamente", MsgBoxStyle.OkOnly, "Información")
+                        Ventana.Rif.Text = ""
+                        Ventana.Nombre.Text = ""
+                        Ventana.Eliminar.Enabled = False
+                    Else
+                        MsgBox("Error al tratar de eliminar el proveedor", MsgBoxStyle.OkOnly, "Error")
+                    End If
+                End If
+            End If
+            Return True
+        Catch ex As Exception
+            MsgBox("Error al eliminar. No existe proveedor con el RIF suministrado", MsgBoxStyle.OkOnly, "Error")
+            Return False
+        End Try
+    End Function
+
 End Class

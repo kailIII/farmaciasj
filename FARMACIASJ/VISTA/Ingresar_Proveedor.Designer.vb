@@ -20,6 +20,7 @@ Partial Class Ingresar_Proveedor
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
         Me.GroupBox1 = New System.Windows.Forms.GroupBox
+        Me.Boton_Registrar = New System.Windows.Forms.Button
         Me.Label10 = New System.Windows.Forms.Label
         Me.Saldo = New System.Windows.Forms.TextBox
         Me.Ciudad = New System.Windows.Forms.TextBox
@@ -35,7 +36,6 @@ Partial Class Ingresar_Proveedor
         Me.Label3 = New System.Windows.Forms.Label
         Me.Label2 = New System.Windows.Forms.Label
         Me.Label1 = New System.Windows.Forms.Label
-        Me.Boton_Registrar = New System.Windows.Forms.Button
         Me.GroupBox1.SuspendLayout()
         Me.SuspendLayout()
         '
@@ -65,6 +65,16 @@ Partial Class Ingresar_Proveedor
         Me.GroupBox1.TabIndex = 0
         Me.GroupBox1.TabStop = False
         Me.GroupBox1.Text = "Registrar Proveedor"
+        '
+        'Boton_Registrar
+        '
+        Me.Boton_Registrar.Location = New System.Drawing.Point(397, 304)
+        Me.Boton_Registrar.Margin = New System.Windows.Forms.Padding(4)
+        Me.Boton_Registrar.Name = "Boton_Registrar"
+        Me.Boton_Registrar.Size = New System.Drawing.Size(112, 28)
+        Me.Boton_Registrar.TabIndex = 15
+        Me.Boton_Registrar.Text = "Registrar"
+        Me.Boton_Registrar.UseVisualStyleBackColor = True
         '
         'Label10
         '
@@ -130,6 +140,7 @@ Partial Class Ingresar_Proveedor
         '
         'Codigo
         '
+        Me.Codigo.Enabled = False
         Me.Codigo.Location = New System.Drawing.Point(134, 23)
         Me.Codigo.Margin = New System.Windows.Forms.Padding(4)
         Me.Codigo.Name = "Codigo"
@@ -205,16 +216,6 @@ Partial Class Ingresar_Proveedor
         Me.Label1.Size = New System.Drawing.Size(62, 16)
         Me.Label1.TabIndex = 0
         Me.Label1.Text = "Código:"
-        '
-        'Boton_Registrar
-        '
-        Me.Boton_Registrar.Location = New System.Drawing.Point(397, 304)
-        Me.Boton_Registrar.Margin = New System.Windows.Forms.Padding(4)
-        Me.Boton_Registrar.Name = "Boton_Registrar"
-        Me.Boton_Registrar.Size = New System.Drawing.Size(112, 28)
-        Me.Boton_Registrar.TabIndex = 15
-        Me.Boton_Registrar.Text = "Registrar"
-        Me.Boton_Registrar.UseVisualStyleBackColor = True
         '
         'Ingresar_Proveedor
         '
