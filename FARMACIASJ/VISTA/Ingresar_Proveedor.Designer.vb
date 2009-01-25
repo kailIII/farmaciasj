@@ -35,18 +35,13 @@ Partial Class Ingresar_Proveedor
         Me.Label3 = New System.Windows.Forms.Label
         Me.Label2 = New System.Windows.Forms.Label
         Me.Label1 = New System.Windows.Forms.Label
-        Me.Label9 = New System.Windows.Forms.Label
-        Me.Cod_producto = New System.Windows.Forms.TextBox
-        Me.Productos_asociados = New System.Windows.Forms.DataGridView
         Me.Boton_Registrar = New System.Windows.Forms.Button
-        Me.GroupBox2 = New System.Windows.Forms.GroupBox
         Me.GroupBox1.SuspendLayout()
-        CType(Me.Productos_asociados, System.ComponentModel.ISupportInitialize).BeginInit()
-        Me.GroupBox2.SuspendLayout()
         Me.SuspendLayout()
         '
         'GroupBox1
         '
+        Me.GroupBox1.Controls.Add(Me.Boton_Registrar)
         Me.GroupBox1.Controls.Add(Me.Label10)
         Me.GroupBox1.Controls.Add(Me.Saldo)
         Me.GroupBox1.Controls.Add(Me.Ciudad)
@@ -63,10 +58,10 @@ Partial Class Ingresar_Proveedor
         Me.GroupBox1.Controls.Add(Me.Label2)
         Me.GroupBox1.Controls.Add(Me.Label1)
         Me.GroupBox1.Location = New System.Drawing.Point(18, 15)
-        Me.GroupBox1.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.GroupBox1.Margin = New System.Windows.Forms.Padding(4)
         Me.GroupBox1.Name = "GroupBox1"
-        Me.GroupBox1.Padding = New System.Windows.Forms.Padding(4, 4, 4, 4)
-        Me.GroupBox1.Size = New System.Drawing.Size(521, 315)
+        Me.GroupBox1.Padding = New System.Windows.Forms.Padding(4)
+        Me.GroupBox1.Size = New System.Drawing.Size(521, 349)
         Me.GroupBox1.TabIndex = 0
         Me.GroupBox1.TabStop = False
         Me.GroupBox1.Text = "Registrar Proveedor"
@@ -85,7 +80,7 @@ Partial Class Ingresar_Proveedor
         '
         Me.Saldo.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper
         Me.Saldo.Location = New System.Drawing.Point(134, 274)
-        Me.Saldo.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.Saldo.Margin = New System.Windows.Forms.Padding(4)
         Me.Saldo.Name = "Saldo"
         Me.Saldo.Size = New System.Drawing.Size(329, 22)
         Me.Saldo.TabIndex = 13
@@ -95,7 +90,7 @@ Partial Class Ingresar_Proveedor
         'Ciudad
         '
         Me.Ciudad.Location = New System.Drawing.Point(134, 242)
-        Me.Ciudad.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.Ciudad.Margin = New System.Windows.Forms.Padding(4)
         Me.Ciudad.Name = "Ciudad"
         Me.Ciudad.Size = New System.Drawing.Size(376, 22)
         Me.Ciudad.TabIndex = 12
@@ -103,7 +98,7 @@ Partial Class Ingresar_Proveedor
         'Dir
         '
         Me.Dir.Location = New System.Drawing.Point(134, 151)
-        Me.Dir.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.Dir.Margin = New System.Windows.Forms.Padding(4)
         Me.Dir.Name = "Dir"
         Me.Dir.Size = New System.Drawing.Size(376, 83)
         Me.Dir.TabIndex = 11
@@ -112,7 +107,7 @@ Partial Class Ingresar_Proveedor
         'Correo
         '
         Me.Correo.Location = New System.Drawing.Point(134, 119)
-        Me.Correo.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.Correo.Margin = New System.Windows.Forms.Padding(4)
         Me.Correo.Name = "Correo"
         Me.Correo.Size = New System.Drawing.Size(376, 22)
         Me.Correo.TabIndex = 10
@@ -120,7 +115,7 @@ Partial Class Ingresar_Proveedor
         'Nombre
         '
         Me.Nombre.Location = New System.Drawing.Point(134, 87)
-        Me.Nombre.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.Nombre.Margin = New System.Windows.Forms.Padding(4)
         Me.Nombre.Name = "Nombre"
         Me.Nombre.Size = New System.Drawing.Size(376, 22)
         Me.Nombre.TabIndex = 9
@@ -128,7 +123,7 @@ Partial Class Ingresar_Proveedor
         'Rif
         '
         Me.Rif.Location = New System.Drawing.Point(134, 55)
-        Me.Rif.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.Rif.Margin = New System.Windows.Forms.Padding(4)
         Me.Rif.Name = "Rif"
         Me.Rif.Size = New System.Drawing.Size(376, 22)
         Me.Rif.TabIndex = 8
@@ -136,7 +131,7 @@ Partial Class Ingresar_Proveedor
         'Codigo
         '
         Me.Codigo.Location = New System.Drawing.Point(134, 23)
-        Me.Codigo.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.Codigo.Margin = New System.Windows.Forms.Padding(4)
         Me.Codigo.Name = "Codigo"
         Me.Codigo.Size = New System.Drawing.Size(376, 22)
         Me.Codigo.TabIndex = 7
@@ -194,7 +189,7 @@ Partial Class Ingresar_Proveedor
         'Label2
         '
         Me.Label2.AutoSize = True
-        Me.Label2.Location = New System.Drawing.Point(9, 63)
+        Me.Label2.Location = New System.Drawing.Point(9, 58)
         Me.Label2.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.Label2.Name = "Label2"
         Me.Label2.Size = New System.Drawing.Size(44, 16)
@@ -211,74 +206,28 @@ Partial Class Ingresar_Proveedor
         Me.Label1.TabIndex = 0
         Me.Label1.Text = "Código:"
         '
-        'Label9
-        '
-        Me.Label9.AutoSize = True
-        Me.Label9.Location = New System.Drawing.Point(9, 27)
-        Me.Label9.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
-        Me.Label9.Name = "Label9"
-        Me.Label9.Size = New System.Drawing.Size(150, 16)
-        Me.Label9.TabIndex = 18
-        Me.Label9.Text = "Código de Producto:"
-        '
-        'Cod_producto
-        '
-        Me.Cod_producto.Location = New System.Drawing.Point(174, 23)
-        Me.Cod_producto.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
-        Me.Cod_producto.Name = "Cod_producto"
-        Me.Cod_producto.Size = New System.Drawing.Size(336, 22)
-        Me.Cod_producto.TabIndex = 14
-        '
-        'Productos_asociados
-        '
-        Me.Productos_asociados.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.Productos_asociados.Location = New System.Drawing.Point(14, 55)
-        Me.Productos_asociados.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
-        Me.Productos_asociados.Name = "Productos_asociados"
-        Me.Productos_asociados.Size = New System.Drawing.Size(498, 178)
-        Me.Productos_asociados.TabIndex = 15
-        '
         'Boton_Registrar
         '
-        Me.Boton_Registrar.Location = New System.Drawing.Point(399, 241)
-        Me.Boton_Registrar.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.Boton_Registrar.Location = New System.Drawing.Point(397, 304)
+        Me.Boton_Registrar.Margin = New System.Windows.Forms.Padding(4)
         Me.Boton_Registrar.Name = "Boton_Registrar"
         Me.Boton_Registrar.Size = New System.Drawing.Size(112, 28)
         Me.Boton_Registrar.TabIndex = 15
         Me.Boton_Registrar.Text = "Registrar"
         Me.Boton_Registrar.UseVisualStyleBackColor = True
         '
-        'GroupBox2
-        '
-        Me.GroupBox2.Controls.Add(Me.Label9)
-        Me.GroupBox2.Controls.Add(Me.Cod_producto)
-        Me.GroupBox2.Controls.Add(Me.Boton_Registrar)
-        Me.GroupBox2.Controls.Add(Me.Productos_asociados)
-        Me.GroupBox2.Location = New System.Drawing.Point(18, 337)
-        Me.GroupBox2.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
-        Me.GroupBox2.Name = "GroupBox2"
-        Me.GroupBox2.Padding = New System.Windows.Forms.Padding(4, 4, 4, 4)
-        Me.GroupBox2.Size = New System.Drawing.Size(521, 274)
-        Me.GroupBox2.TabIndex = 1
-        Me.GroupBox2.TabStop = False
-        Me.GroupBox2.Text = "Productos Asociados"
-        '
         'Ingresar_Proveedor
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(9.0!, 16.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(554, 618)
-        Me.Controls.Add(Me.GroupBox2)
+        Me.ClientSize = New System.Drawing.Size(554, 382)
         Me.Controls.Add(Me.GroupBox1)
         Me.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.Margin = New System.Windows.Forms.Padding(4)
         Me.Name = "Ingresar_Proveedor"
         Me.Text = "Proveedor"
         Me.GroupBox1.ResumeLayout(False)
         Me.GroupBox1.PerformLayout()
-        CType(Me.Productos_asociados, System.ComponentModel.ISupportInitialize).EndInit()
-        Me.GroupBox2.ResumeLayout(False)
-        Me.GroupBox2.PerformLayout()
         Me.ResumeLayout(False)
 
     End Sub
@@ -297,10 +246,6 @@ Partial Class Ingresar_Proveedor
     Friend WithEvents Ciudad As System.Windows.Forms.TextBox
     Friend WithEvents Dir As System.Windows.Forms.RichTextBox
     Friend WithEvents Correo As System.Windows.Forms.TextBox
-    Friend WithEvents Boton_Registrar As System.Windows.Forms.Button
-    Friend WithEvents Productos_asociados As System.Windows.Forms.DataGridView
-    Friend WithEvents Label9 As System.Windows.Forms.Label
-    Friend WithEvents Cod_producto As System.Windows.Forms.TextBox
     Friend WithEvents Label10 As System.Windows.Forms.Label
-    Friend WithEvents GroupBox2 As System.Windows.Forms.GroupBox
+    Friend WithEvents Boton_Registrar As System.Windows.Forms.Button
 End Class

@@ -336,14 +336,35 @@ Public Class Proveedor
         Dim Conextion As Data.SqlClient.SqlConnection
         Dim Consulta As Data.SqlClient.SqlCommand
         Dim Reder As Data.SqlClient.SqlDataReader
-        Proveedor = New FarmaciaSJDataSetTableAdapters.PROVEEDORTableAdapter
-        Conextion = Proveedor.Connection
-        Conextion.Open()
-        Consulta = New Data.SqlClient.SqlCommand
-        Consulta.Connection = Conextion
-        Consulta.CommandText = "SELECT     ID_PROVEEDOR,Codigo, RIF, Nombre, Mail, Ciudad, Direccion FROM         PROVEEDOR WHERE     (Estatus = 'ACTIVO') AND (id_proveedor = '" & id & "')"
-        Reder = Consulta.ExecuteReader
+        Try
+            Proveedor = New FarmaciaSJDataSetTableAdapters.PROVEEDORTableAdapter
+            Conextion = Proveedor.Connection
+            Conextion.Open()
+            Consulta = New Data.SqlClient.SqlCommand
+            Consulta.Connection = Conextion
+            Consulta.CommandText = "SELECT     ID_PROVEEDOR,Codigo, RIF, Nombre, Mail, Ciudad, Direccion FROM         PROVEEDOR WHERE     (Estatus = 'ACTIVO') AND (id_proveedor = '" & id & "')"
+            Reder = Consulta.ExecuteReader
+            If Reder.Read = True Then
+            End If
+        Catch ex As Exception
+        End Try
         Return Reder
+    End Function
+
+
+    Public Function Ingresar_TLF_Proveedor(ByVal Codigo As String, ByVal Numero As String, ByVal IdProveedor As Integer) As Boolean
+
+        Dim Adaptador As FarmaciaSJDataSetTableAdapters.TELEFONO_PROVEEDORTableAdapter
+        Try
+            BasedeDatos = New FarmaciaSJDataSet
+            Adaptador = New FarmaciaSJDataSetTableAdapters.TELEFONO_PROVEEDORTableAdapter
+            Adaptador.Insert(IdProveedor, Codigo, Numero)
+            Adaptador.Update(BasedeDatos.TELEFONO_PROVEEDOR)
+            Return True
+        Catch ex As ArgumentNullException
+            Return False
+        End Try
+        Return False
     End Function
 
 

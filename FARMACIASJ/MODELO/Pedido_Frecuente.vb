@@ -4,10 +4,16 @@ Public Class Pedido_Frecuente
         Dim Proveedor_x As FarmaciaSJDataSetTableAdapters.PROVEEDORTableAdapter = New FarmaciaSJDataSetTableAdapters.PROVEEDORTableAdapter
         Dim Conextion As Data.SqlClient.SqlConnection = Proveedor_x.Connection
         Dim Consulta As Data.SqlClient.SqlCommand = New Data.SqlClient.SqlCommand
-        Conextion.Open()
-        Consulta.Connection = Conextion
-        Consulta.CommandText = "SELECT CLIENTE.APELLIDO+' '+ CLIENTE.NOMBRE as Nombre, PRODUCTO.NOMBRE AS Expr1, PEDIDO_FRECUENTE.CANTIDAD_DIARIA FROM CLIENTE INNER JOIN PEDIDO_FRECUENTE ON CLIENTE.ID_CLIENTE = PEDIDO_FRECUENTE.ID_CLIENTE INNER JOIN PRODUCTO ON PEDIDO_FRECUENTE.ID_PRODUCTO = PRODUCTO.ID_PRODUCTO WHERE ESTATUS='ACTIVO' AND ID_PEDIDO=" & Pedido_Numero
-        Dim Reder As Data.SqlClient.SqlDataReader = Consulta.ExecuteReader()
+        Dim Reder As Data.SqlClient.SqlDataReader
+        Try
+            Conextion.Open()
+            Consulta.Connection = Conextion
+            Consulta.CommandText = "SELECT CLIENTE.APELLIDO+' '+ CLIENTE.NOMBRE as Nombre, PRODUCTO.NOMBRE AS Expr1, PEDIDO_FRECUENTE.CANTIDAD_DIARIA FROM CLIENTE INNER JOIN PEDIDO_FRECUENTE ON CLIENTE.ID_CLIENTE = PEDIDO_FRECUENTE.ID_CLIENTE INNER JOIN PRODUCTO ON PEDIDO_FRECUENTE.ID_PRODUCTO = PRODUCTO.ID_PRODUCTO WHERE ESTATUS='ACTIVO' AND ID_PEDIDO=" & Pedido_Numero
+            Reder = Consulta.ExecuteReader()
+        Catch ex As Exception
+
+        End Try
+
         'If (Reder.Read = True) Then
         Return Reder
     End Function

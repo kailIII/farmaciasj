@@ -19,18 +19,26 @@ Public Class Controlador_Pedido_Frecuente
 
         If Validacion.Tamano_Aceptable_Cadena(Pedido_Numero, 8, "Ingrese un número") Then
             Dim Consulta As Data.SqlClient.SqlDataReader = Pedido_Frecuente_x.Cargar_Datos_Pedido(Pedido_Numero)
-            If (Consulta.Read) Then
-                Ventana.Suspender.Enabled = True
-                Ventana.Cliente.Text = Consulta.Item(0).ToString
-                Ventana.Producto.Text = Consulta.Item(1).ToString
-                Ventana.Cantidad.Text = Consulta.Item(2).ToString
-            Else
+            Try
+                If (Consulta.Read) Then
+                    Ventana.Suspender.Enabled = True
+                    Ventana.Cliente.Text = Consulta.Item(0).ToString
+                    Ventana.Producto.Text = Consulta.Item(1).ToString
+                    Ventana.Cantidad.Text = Consulta.Item(2).ToString
+                Else
+                    Ventana.Cliente.Text = ""
+                    Ventana.Producto.Text = ""
+                    Ventana.Cantidad.Text = ""
+                    MsgBox("No existe el pedido bajo el número suministrado", MsgBoxStyle.OkOnly, "Error")
+                    Ventana.Suspender.Enabled = False
+                End If
+            Catch ex As Exception
                 Ventana.Cliente.Text = ""
                 Ventana.Producto.Text = ""
                 Ventana.Cantidad.Text = ""
                 MsgBox("No existe el pedido bajo el número suministrado", MsgBoxStyle.OkOnly, "Error")
                 Ventana.Suspender.Enabled = False
-            End If
+            End Try
         End If
     End Sub
 

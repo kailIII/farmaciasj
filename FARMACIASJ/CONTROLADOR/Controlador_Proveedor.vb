@@ -4,13 +4,15 @@ Public Class Controlador_Proveedor
         Dim Proveedor_x As Proveedor = New Proveedor
         Dim Validacion As Validaciones_Generales = New Validaciones_Generales
 
-        If (Validacion.Tamano_Aceptable_Cadena(Saldo, 15, "El Saldo introducido es incorrecto") And Proveedor_x.Ingresar_Proveedor(Codigo, Rif, Nombre, Correo, Dir, Ciudad, CDbl(Saldo))) Then
-            MsgBox("El proveedor se registró con éxito.", MsgBoxStyle.OkOnly, "Aviso")
-            ' Tenemos que buscar el último ID, ya 
-            If Not Proveedor_x.Proveedor_Producto(Arreglo) Then
-                MsgBox("No se pudo registrar el producto a este Proveedor", MsgBoxStyle.OkOnly, "Error")
+        If (Validacion.Tamano_Aceptable_Cadena(Saldo, 15, "El Saldo introducido es incorrecto")) Then
+            If Proveedor_x.Ingresar_Proveedor(Codigo, Rif, Nombre, Correo, Dir, Ciudad, CDbl(Saldo)) Then
+                MsgBox("El proveedor se registró con éxito.", MsgBoxStyle.OkOnly, "Aviso")
+                ' Tenemos que buscar el último ID, ya 
+                If Not Proveedor_x.Proveedor_Producto(Arreglo) Then
+                    MsgBox("No se pudo registrar el producto a este Proveedor", MsgBoxStyle.OkOnly, "Error")
+                End If
+                Ventana.Close()
             End If
-            Ventana.Close()
         Else
             MsgBox("No se pudo registrar el Proveedor", MsgBoxStyle.OkOnly, "Error")
         End If
@@ -22,8 +24,6 @@ Public Class Controlador_Proveedor
 
         Dim Proveedor_x As Proveedor = New Proveedor
         Dim Validacion As Validaciones_Generales = New Validaciones_Generales
-
-        'Saldo = "DSSD4"
 
         If (Ventana.Boton_Registrar.Text = "Modificar") Then
 
@@ -51,7 +51,16 @@ Public Class Controlador_Proveedor
 
                 If Validacion.Tamano_Aceptable_Cadena(Saldo, 15, "El Saldo introducido es incorrecto") Then
                     If Proveedor_x.Ingresar_Proveedor(Codigo, Rif, Nombre, Correo, Dir, Ciudad, CDbl(Saldo)) Then
-                        MsgBox("El proveedor se registró con éxito.", MsgBoxStyle.OkOnly, "Aviso")
+                        'MsgBox("El proveedor se registró con éxito.", MsgBoxStyle.OkOnly, "Aviso")
+                        Dim Respuesta As MsgBoxResult = MsgBox("El proveedor se registró con éxito. ¿Desea asignar teléfonos y/o productos al proveedor?", MsgBoxStyle.OkCancel, "Aviso")
+                        If Respuesta = MsgBoxResult.Ok Then
+                            Ventana.Enabled = False
+                            Dim Vista As TLF_Proveedor = New TLF_Proveedor
+                            Vista.Show()
+                            Vista.Id_Proveedor = Proveedor_x.Id_Ultimo_Proveedor()
+                            Buscando_Info_Para_TLF(Vista)
+                        End If
+                        Ventana.Close()
                     Else
                         MsgBox("No se pudo registrar el proveedor", MsgBoxStyle.OkOnly, "Error")
                     End If
@@ -60,7 +69,7 @@ Public Class Controlador_Proveedor
                     If Not Proveedor_x.Proveedor_Producto(Arreglo) Then
                         MsgBox("No se pudo registrar el producto a este Proveedor", MsgBoxStyle.OkOnly, "Error")
                     End If
-                    Ventana.Close()
+
                 End If
 
             End If
@@ -69,15 +78,15 @@ Public Class Controlador_Proveedor
 
     Public Sub Actualizar_Datagrid(ByVal Ventana As Ingresar_Proveedor, ByVal Arreglo As Array)
         Dim Proveedor_x As Proveedor = New Proveedor
-        Ventana.Productos_asociados.DataSource = Proveedor_x.Mostrar_datagrid(Arreglo)
-        Ventana.Productos_asociados.Update()
+        'Ventana.Productos_asociados.DataSource = Proveedor_x.Mostrar_datagrid(Arreglo)
+        'Ventana.Productos_asociados.Update()
     End Sub
 
 
     Public Sub Actualizar_Datagrid(ByVal Ventana As Ingresar_Proveedor, ByVal Con_Id_De_Proveedor As Integer)
         Dim Proveedor_x As Proveedor = New Proveedor
-        Ventana.Productos_asociados.DataSource = Proveedor_x.Mostrar_datagrid(Con_Id_De_Proveedor)
-        Ventana.Productos_asociados.Update()
+        'Ventana.Productos_asociados.DataSource = Proveedor_x.Mostrar_datagrid(Con_Id_De_Proveedor)
+        'Ventana.Productos_asociados.Update()
     End Sub
 
     Public Sub Actualizar_Datagrid(ByVal Ventana As Registrar_Proveedor, ByVal Arreglo As Array)
@@ -156,8 +165,8 @@ Public Class Controlador_Proveedor
         Ventana_Modificar_Proveedor.Dir.Enabled = Estado
         Ventana_Modificar_Proveedor.Ciudad.Enabled = Estado
         Ventana_Modificar_Proveedor.Saldo.Enabled = Estado
-        Ventana_Modificar_Proveedor.Cod_producto.Enabled = Estado
-        Ventana_Modificar_Proveedor.Productos_asociados.Enabled = Estado
+        'Ventana_Modificar_Proveedor.Cod_producto.Enabled = Estado
+        'Ventana_Modificar_Proveedor.Productos_asociados.Enabled = Estado
 
         If (Buscando) Then
             Ventana_Modificar_Proveedor.Boton_Registrar.Text = "Guardar"
@@ -254,5 +263,26 @@ Public Class Controlador_Proveedor
         Else
             Return False
         End If
+    End Function
+
+    Public Sub Buscando_Info_Para_TLF(ByVal Ventana As TLF_Proveedor)
+        Dim Modelo As Proveedor = New Proveedor
+        Dim ConsultaBD As Data.SqlClient.SqlDataReader
+        ConsultaBD = Modelo.Buscar_id_proveedor(CStr(Modelo.Id_Ultimo_Proveedor()))
+        Ventana.Rif.Text = ConsultaBD.Item(2).ToString
+        Ventana.Nombre.Text = ConsultaBD.Item(3).ToString
+    End Sub
+    Public Function AsignarTlfProveedor(ByVal Codigo As String, ByVal Numero As String, ByVal IdProveedor As Integer) As Boolean
+        Dim Validacion As Validaciones_Generales = New Validaciones_Generales
+        Dim Modelo As Proveedor = New Proveedor
+      
+        If (Validacion.Tamano_Aceptable_Cadena(Codigo, 6, "El Código del teléfono introducido es incorrecto")) Then
+            If (Validacion.Tamano_Aceptable_Cadena(Numero, 14, "El Número del teléfono introducido es incorrecto")) Then
+                If Modelo.Ingresar_TLF_Proveedor(Codigo, Numero, IdProveedor) Then
+                    Return True
+                End If
+            End If
+        End If
+        Return False
     End Function
 End Class

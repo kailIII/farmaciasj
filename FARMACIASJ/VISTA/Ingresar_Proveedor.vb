@@ -16,21 +16,22 @@ Public Class Ingresar_Proveedor
 
 
 
-    Private Sub Cod_producto_TextChanged(ByVal sender As System.Object, ByVal e As Windows.Forms.KeyPressEventArgs) Handles Cod_producto.KeyPress
+    Private Sub Cod_producto_TextChanged(ByVal sender As System.Object, ByVal e As Windows.Forms.KeyPressEventArgs)
         Dim Proveedor_x As Controlador_Proveedor = New Controlador_Proveedor
-    
+
         If (e.KeyChar = Char.ConvertFromUtf32(13)) Then
             'Si existe el codigo de barras lo deberia insertar en el datagrid
-            If (Me.Boton_Registrar.Text = "Registrar" And Proveedor_x.Productos_Relacionados(Me.Cod_producto.Text, Arreglo)) Then
-
+            'If (Me.Boton_Registrar.Text = "Registrar" And Proveedor_x.Productos_Relacionados(Me.Cod_producto.Text, Arreglo)) Then
+            If (Me.Boton_Registrar.Text = "Registrar") Then
                 Proveedor_x.Actualizar_Datagrid(Me, Arreglo)
-                Me.Cod_producto.Text = ""
+                ' Me.Cod_producto.Text = ""
 
-            ElseIf Me.Boton_Registrar.Text = "Guardar" And Proveedor_x.Productos_Relacionados(Me.Codigo.Text, Me.Cod_producto.Text) Then
+                'ElseIf Me.Boton_Registrar.Text = "Guardar" And Proveedor_x.Productos_Relacionados(Me.Codigo.Text, Me.Cod_producto.Text) Then
+            ElseIf Me.Boton_Registrar.Text = "Guardar" Then
                 Dim Proveedor_y As Proveedor = New Proveedor
                 Dim Numero As Integer = Proveedor_y.Existe_Proveedor(Me.Codigo.Text, True)
                 Proveedor_x.Actualizar_Datagrid(Me, Numero)
-                Me.Cod_producto.Text = ""
+                'Me.Cod_producto.Text = ""
             End If
         End If
     End Sub

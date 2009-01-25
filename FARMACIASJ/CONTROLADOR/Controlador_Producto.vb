@@ -183,4 +183,31 @@ Public Class Controlador_Producto
             MsgBox("Error, el producto no se ha podido modificar", MsgBoxStyle.OkOnly, "Error")
         End If
     End Function
+
+
+    Public Function Buscar_Nombre_Producto_Proveedor(ByVal Codigo As String, ByVal Ventana As TLF_Proveedor) As Boolean
+        Dim Modelo As Producto = New Producto
+        Dim ConsultaBD As Data.SqlClient.SqlDataReader
+        Try
+            ConsultaBD = Modelo.Buscar_Info_Producto(Codigo)
+            Ventana.NombreProducto.Text = ConsultaBD.Item(1).ToString
+        Catch ex As Exception
+            MsgBox("Error, el código del producto es inválido ", MsgBoxStyle.OkOnly, "Error")
+            Ventana.CodigoBarras.Focus()
+            Ventana.NombreProducto.Text = ""
+        End Try
+    End Function
+
+
+    Public Function AsignarProductoProveedor(ByVal Codigo_Barra As String, ByVal Id_Proveedor As Integer) As Boolean
+        Dim Modelo As Producto = New Producto
+        Try
+            Dim Id_Producto As Integer = 0
+            Id_Producto = Modelo.idProductos(Codigo_Barra)
+            Return Modelo.Ingresar_Producto_Proveedor(Id_Proveedor, Id_Producto)
+        Catch ex As Exception
+            MsgBox("Error, el código del producto es inválido ", MsgBoxStyle.OkOnly, "Error")
+        End Try
+        Return False
+    End Function
 End Class

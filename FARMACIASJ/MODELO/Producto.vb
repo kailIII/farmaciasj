@@ -430,6 +430,43 @@ Public Class Producto
         Return False
     End Function
 
+    Public Function Buscar_Info_Producto(ByVal Codigo As String) As Data.SqlClient.SqlDataReader
+        Dim Proveedor As FarmaciaSJDataSetTableAdapters.PRODUCTOTableAdapter
+        Dim Conextion As Data.SqlClient.SqlConnection
+        Dim Consulta As Data.SqlClient.SqlCommand
+        Dim Reder As Data.SqlClient.SqlDataReader
+        Try
+            Proveedor = New FarmaciaSJDataSetTableAdapters.PRODUCTOTableAdapter
+            Conextion = Proveedor.Connection
+            Conextion.Open()
+            Consulta = New Data.SqlClient.SqlCommand
+            Consulta.Connection = Conextion
+            Consulta.CommandText = "SELECT ID_PRODUCTO, NOMBRE FROM PRODUCTO where CODIGO_DE_BARRAS='" & Codigo & "'"
+            Reder = Consulta.ExecuteReader
+            If Reder.Read = True Then
+            End If
+        Catch ex As Exception
+        End Try
+        Return Reder
+    End Function
+
+
+    Public Function Ingresar_Producto_Proveedor(ByVal Id_Proveedor As Integer, ByVal Id_Producto As Integer) As Boolean
+        Dim BasedeDatos As FarmaciaSJDataSet
+        Dim Adaptador As FarmaciaSJDataSetTableAdapters.PROVEEDOR_PRODUCTOTableAdapter
+        Try
+            BasedeDatos = New FarmaciaSJDataSet
+            Adaptador = New FarmaciaSJDataSetTableAdapters.PROVEEDOR_PRODUCTOTableAdapter
+            Adaptador.Insert(Id_Proveedor, Id_Producto)
+            Adaptador.Update(BasedeDatos.PROVEEDOR_PRODUCTO)
+            Return True
+        Catch ex As ArgumentNullException
+            Return False
+        End Try
+        Return False
+    End Function
+
+
     'Fin LZ
 
 
