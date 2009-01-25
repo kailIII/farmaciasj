@@ -54,7 +54,7 @@ Partial Class Reporte_OtroGasto
         Me.Desde.CustomFormat = "dd/MM/yyyy"
         Me.Desde.Format = System.Windows.Forms.DateTimePickerFormat.Custom
         Me.Desde.Location = New System.Drawing.Point(80, 46)
-        Me.Desde.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.Desde.Margin = New System.Windows.Forms.Padding(4)
         Me.Desde.Name = "Desde"
         Me.Desde.Size = New System.Drawing.Size(144, 22)
         Me.Desde.TabIndex = 2
@@ -74,7 +74,7 @@ Partial Class Reporte_OtroGasto
         Me.Hasta.CustomFormat = "dd/MM/yyyy"
         Me.Hasta.Format = System.Windows.Forms.DateTimePickerFormat.Custom
         Me.Hasta.Location = New System.Drawing.Point(300, 46)
-        Me.Hasta.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.Hasta.Margin = New System.Windows.Forms.Padding(4)
         Me.Hasta.Name = "Hasta"
         Me.Hasta.Size = New System.Drawing.Size(139, 22)
         Me.Hasta.TabIndex = 4
@@ -82,7 +82,7 @@ Partial Class Reporte_OtroGasto
         'Button1
         '
         Me.Button1.Location = New System.Drawing.Point(328, 78)
-        Me.Button1.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.Button1.Margin = New System.Windows.Forms.Padding(4)
         Me.Button1.Name = "Button1"
         Me.Button1.Size = New System.Drawing.Size(112, 28)
         Me.Button1.TabIndex = 5
@@ -98,9 +98,9 @@ Partial Class Reporte_OtroGasto
         Me.GroupBox1.Controls.Add(Me.Desde)
         Me.GroupBox1.Controls.Add(Me.Label3)
         Me.GroupBox1.Location = New System.Drawing.Point(18, 15)
-        Me.GroupBox1.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.GroupBox1.Margin = New System.Windows.Forms.Padding(4)
         Me.GroupBox1.Name = "GroupBox1"
-        Me.GroupBox1.Padding = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.GroupBox1.Padding = New System.Windows.Forms.Padding(4)
         Me.GroupBox1.Size = New System.Drawing.Size(460, 123)
         Me.GroupBox1.TabIndex = 6
         Me.GroupBox1.TabStop = False
@@ -113,9 +113,10 @@ Partial Class Reporte_OtroGasto
         Me.ClientSize = New System.Drawing.Size(501, 156)
         Me.Controls.Add(Me.GroupBox1)
         Me.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.Margin = New System.Windows.Forms.Padding(4)
         Me.Name = "Reporte_OtroGasto"
         Me.Text = "Reporte Otros Gastos"
+        Me.WindowState = System.Windows.Forms.FormWindowState.Maximized
         Me.GroupBox1.ResumeLayout(False)
         Me.GroupBox1.PerformLayout()
         Me.ResumeLayout(False)

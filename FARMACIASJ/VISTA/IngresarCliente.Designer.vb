@@ -200,6 +200,7 @@ Partial Class IngresarCliente
         Me.Margin = New System.Windows.Forms.Padding(4)
         Me.Name = "IngresarCliente"
         Me.Text = "Ingresar Cliente"
+        Me.WindowState = System.Windows.Forms.FormWindowState.Maximized
         Me.GroupBox1.ResumeLayout(False)
         Me.GroupBox1.PerformLayout()
         Me.ResumeLayout(False)

@@ -227,6 +227,7 @@ Partial Class Ingresar_Proveedor
         Me.Margin = New System.Windows.Forms.Padding(4)
         Me.Name = "Ingresar_Proveedor"
         Me.Text = "Proveedor"
+        Me.WindowState = System.Windows.Forms.FormWindowState.Maximized
         Me.GroupBox1.ResumeLayout(False)
         Me.GroupBox1.PerformLayout()
         Me.ResumeLayout(False)

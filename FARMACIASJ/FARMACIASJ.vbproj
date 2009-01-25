@@ -11,7 +11,12 @@
     <AssemblyName>FARMACIASJ</AssemblyName>
     <MyType>Empty</MyType>
     <StartupObject>FARMACIASJ.FARMACIASJ_SESION</StartupObject>
-    <PublishUrl>publish\</PublishUrl>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <ManifestCertificateThumbprint>BE915DBA9573890985BC89021FD0BBB2F4FEF247</ManifestCertificateThumbprint>
+    <ManifestKeyFile>FARMACIASJ_TemporaryKey.pfx</ManifestKeyFile>
+    <GenerateManifests>true</GenerateManifests>
+    <SignManifests>true</SignManifests>
+    <PublishUrl>C:\Documents and Settings\jeraro\Mis documentos\FarnaciaSJ\FARMACIASJ\Publicado\</PublishUrl>
     <Install>true</Install>
     <InstallFrom>Disk</InstallFrom>
     <UpdateEnabled>false</UpdateEnabled>
@@ -22,7 +27,6 @@
     <UpdateRequired>false</UpdateRequired>
     <MapFileExtensions>true</MapFileExtensions>
     <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
-    <IsWebBootstrapper>false</IsWebBootstrapper>
     <BootstrapperEnabled>true</BootstrapperEnabled>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
@@ -117,6 +121,12 @@
       <DependentUpon>Elegir_Lote.vb</DependentUpon>
     </Compile>
     <Compile Include="VISTA\Elegir_Lote.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="VISTA\Eliminar_proveedor.Designer.vb">
+      <DependentUpon>Eliminar_proveedor.vb</DependentUpon>
+    </Compile>
+    <Compile Include="VISTA\Eliminar_proveedor.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="VISTA\Factura.vb">
@@ -263,6 +273,12 @@
     <Compile Include="VISTA\Suspender_Pedido_frecuente.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="VISTA\TLF_Proveedor.Designer.vb">
+      <DependentUpon>TLF_Proveedor.vb</DependentUpon>
+    </Compile>
+    <Compile Include="VISTA\TLF_Proveedor.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="VISTA\Vendedor.Designer.vb">
       <DependentUpon>Vendedor.vb</DependentUpon>
     </Compile>
@@ -299,6 +315,10 @@
     </EmbeddedResource>
     <EmbeddedResource Include="VISTA\Elegir_Lote.resx">
       <DependentUpon>Elegir_Lote.vb</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="VISTA\Eliminar_proveedor.resx">
+      <DependentUpon>Eliminar_proveedor.vb</DependentUpon>
       <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="VISTA\Factura.rpt">
@@ -397,6 +417,10 @@
       <DependentUpon>Suspender_Pedido_frecuente.vb</DependentUpon>
       <SubType>Designer</SubType>
     </EmbeddedResource>
+    <EmbeddedResource Include="VISTA\TLF_Proveedor.resx">
+      <DependentUpon>TLF_Proveedor.vb</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
     <EmbeddedResource Include="VISTA\Vendedor.resx">
       <SubType>Designer</SubType>
       <DependentUpon>Vendedor.vb</DependentUpon>
@@ -453,7 +477,7 @@
     </BootstrapperPackage>
     <BootstrapperPackage Include="Microsoft.Sql.Server.Express.1.0">
       <Visible>False</Visible>
-      <ProductName>SQL Server 2005 Express</ProductName>
+      <ProductName>SQL Server 2005 Express Edition</ProductName>
       <Install>true</Install>
     </BootstrapperPackage>
     <BootstrapperPackage Include="Microsoft.Windows.Installer.3.1">

@@ -128,6 +128,7 @@ Partial Class Buscar_Proveedor
         Me.Margin = New System.Windows.Forms.Padding(4)
         Me.Name = "Buscar_Proveedor"
         Me.Text = "Buscar_Proveedor"
+        Me.WindowState = System.Windows.Forms.FormWindowState.Maximized
         Me.GroupBox1.ResumeLayout(False)
         Me.GroupBox1.PerformLayout()
         Me.GroupBox2.ResumeLayout(False)

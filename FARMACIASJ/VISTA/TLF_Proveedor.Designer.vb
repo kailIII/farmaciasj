@@ -215,6 +215,7 @@ Partial Class TLF_Proveedor
         Me.Margin = New System.Windows.Forms.Padding(4)
         Me.Name = "TLF_Proveedor"
         Me.Text = "Proveedor"
+        Me.WindowState = System.Windows.Forms.FormWindowState.Maximized
         Me.GroupBox1.ResumeLayout(False)
         Me.GroupBox1.PerformLayout()
         Me.GroupBox2.ResumeLayout(False)

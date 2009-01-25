@@ -71,7 +71,7 @@ Partial Class Modificar_Producto
         Me.Lineas.Enabled = False
         Me.Lineas.FormattingEnabled = True
         Me.Lineas.Location = New System.Drawing.Point(532, 309)
-        Me.Lineas.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.Lineas.Margin = New System.Windows.Forms.Padding(4)
         Me.Lineas.Name = "Lineas"
         Me.Lineas.Size = New System.Drawing.Size(434, 24)
         Me.Lineas.TabIndex = 16
@@ -91,9 +91,9 @@ Partial Class Modificar_Producto
         '
         Me.GroupBox2.Controls.Add(Me.Proveedores)
         Me.GroupBox2.Location = New System.Drawing.Point(524, 53)
-        Me.GroupBox2.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.GroupBox2.Margin = New System.Windows.Forms.Padding(4)
         Me.GroupBox2.Name = "GroupBox2"
-        Me.GroupBox2.Padding = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.GroupBox2.Padding = New System.Windows.Forms.Padding(4)
         Me.GroupBox2.Size = New System.Drawing.Size(450, 233)
         Me.GroupBox2.TabIndex = 15
         Me.GroupBox2.TabStop = False
@@ -107,7 +107,7 @@ Partial Class Modificar_Producto
         Me.Proveedores.FormattingEnabled = True
         Me.Proveedores.ItemHeight = 16
         Me.Proveedores.Location = New System.Drawing.Point(9, 23)
-        Me.Proveedores.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.Proveedores.Margin = New System.Windows.Forms.Padding(4)
         Me.Proveedores.MultiColumn = True
         Me.Proveedores.Name = "Proveedores"
         Me.Proveedores.SelectionMode = System.Windows.Forms.SelectionMode.MultiSimple
@@ -123,7 +123,7 @@ Partial Class Modificar_Producto
         'Button2
         '
         Me.Button2.Location = New System.Drawing.Point(524, 353)
-        Me.Button2.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.Button2.Margin = New System.Windows.Forms.Padding(4)
         Me.Button2.Name = "Button2"
         Me.Button2.Size = New System.Drawing.Size(130, 26)
         Me.Button2.TabIndex = 14
@@ -134,7 +134,7 @@ Partial Class Modificar_Producto
         '
         Me.Ingresar.Enabled = False
         Me.Ingresar.Location = New System.Drawing.Point(384, 353)
-        Me.Ingresar.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.Ingresar.Margin = New System.Windows.Forms.Padding(4)
         Me.Ingresar.Name = "Ingresar"
         Me.Ingresar.Size = New System.Drawing.Size(130, 26)
         Me.Ingresar.TabIndex = 13
@@ -154,9 +154,9 @@ Partial Class Modificar_Producto
         Me.GroupBox1.Controls.Add(Me.Cod_Producto)
         Me.GroupBox1.Controls.Add(Me.Label2)
         Me.GroupBox1.Location = New System.Drawing.Point(9, 53)
-        Me.GroupBox1.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.GroupBox1.Margin = New System.Windows.Forms.Padding(4)
         Me.GroupBox1.Name = "GroupBox1"
-        Me.GroupBox1.Padding = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.GroupBox1.Padding = New System.Windows.Forms.Padding(4)
         Me.GroupBox1.Size = New System.Drawing.Size(506, 282)
         Me.GroupBox1.TabIndex = 12
         Me.GroupBox1.TabStop = False
@@ -166,7 +166,7 @@ Partial Class Modificar_Producto
         '
         Me.Unidades_Producto.Enabled = False
         Me.Unidades_Producto.Location = New System.Drawing.Point(183, 240)
-        Me.Unidades_Producto.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.Unidades_Producto.Margin = New System.Windows.Forms.Padding(4)
         Me.Unidades_Producto.MaxLength = 4
         Me.Unidades_Producto.Name = "Unidades_Producto"
         Me.Unidades_Producto.Size = New System.Drawing.Size(186, 22)
@@ -188,7 +188,7 @@ Partial Class Modificar_Producto
         Me.GE_Producto.FormattingEnabled = True
         Me.GE_Producto.Items.AddRange(New Object() {"EXENTO", "GRAVADO"})
         Me.GE_Producto.Location = New System.Drawing.Point(183, 196)
-        Me.GE_Producto.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.GE_Producto.Margin = New System.Windows.Forms.Padding(4)
         Me.GE_Producto.Name = "GE_Producto"
         Me.GE_Producto.Size = New System.Drawing.Size(186, 24)
         Me.GE_Producto.TabIndex = 7
@@ -207,7 +207,7 @@ Partial Class Modificar_Producto
         '
         Me.Desc_Producto.Enabled = False
         Me.Desc_Producto.Location = New System.Drawing.Point(183, 100)
-        Me.Desc_Producto.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.Desc_Producto.Margin = New System.Windows.Forms.Padding(4)
         Me.Desc_Producto.Name = "Desc_Producto"
         Me.Desc_Producto.Size = New System.Drawing.Size(312, 80)
         Me.Desc_Producto.TabIndex = 5
@@ -227,7 +227,7 @@ Partial Class Modificar_Producto
         '
         Me.Nom_Producto.Enabled = False
         Me.Nom_Producto.Location = New System.Drawing.Point(183, 60)
-        Me.Nom_Producto.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.Nom_Producto.Margin = New System.Windows.Forms.Padding(4)
         Me.Nom_Producto.Name = "Nom_Producto"
         Me.Nom_Producto.Size = New System.Drawing.Size(312, 22)
         Me.Nom_Producto.TabIndex = 3
@@ -246,7 +246,7 @@ Partial Class Modificar_Producto
         '
         Me.Cod_Producto.Enabled = False
         Me.Cod_Producto.Location = New System.Drawing.Point(183, 23)
-        Me.Cod_Producto.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.Cod_Producto.Margin = New System.Windows.Forms.Padding(4)
         Me.Cod_Producto.Name = "Cod_Producto"
         Me.Cod_Producto.Size = New System.Drawing.Size(312, 22)
         Me.Cod_Producto.TabIndex = 1
@@ -264,7 +264,7 @@ Partial Class Modificar_Producto
         'Cod_Barras
         '
         Me.Cod_Barras.Location = New System.Drawing.Point(393, 15)
-        Me.Cod_Barras.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.Cod_Barras.Margin = New System.Windows.Forms.Padding(4)
         Me.Cod_Barras.MaxLength = 13
         Me.Cod_Barras.Name = "Cod_Barras"
         Me.Cod_Barras.Size = New System.Drawing.Size(307, 22)
@@ -302,9 +302,10 @@ Partial Class Modificar_Producto
         Me.Controls.Add(Me.Cod_Barras)
         Me.Controls.Add(Me.Label1)
         Me.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.Margin = New System.Windows.Forms.Padding(4)
         Me.Name = "Modificar_Producto"
         Me.Text = "Modificar Producto"
+        Me.WindowState = System.Windows.Forms.FormWindowState.Maximized
         CType(Me.LINEABindingSource, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.FarmaciaSJDataSet, System.ComponentModel.ISupportInitialize).EndInit()
         Me.GroupBox2.ResumeLayout(False)

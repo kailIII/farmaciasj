@@ -42,6 +42,7 @@ Partial Class Reporte
         Me.Controls.Add(Me.visor)
         Me.Name = "Reporte"
         Me.Text = "Reporte"
+        Me.WindowState = System.Windows.Forms.FormWindowState.Maximized
         Me.ResumeLayout(False)
 
     End Sub

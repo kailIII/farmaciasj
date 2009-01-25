@@ -467,6 +467,7 @@ Partial Class Registrar_Compra
         Me.Name = "Registrar_Compra"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.Manual
         Me.Text = "Registrar Compra"
+        Me.WindowState = System.Windows.Forms.FormWindowState.Maximized
         Me.GroupBox1.ResumeLayout(False)
         Me.GroupBox1.PerformLayout()
         CType(Me.DETALLE_COMPRA, System.ComponentModel.ISupportInitialize).EndInit()

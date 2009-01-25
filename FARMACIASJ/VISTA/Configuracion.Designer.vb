@@ -20,30 +20,29 @@ Partial Class Configuracion
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
         Me.components = New System.ComponentModel.Container
-        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(Configuracion))
         Dim Razon_SocialLabel As System.Windows.Forms.Label
         Dim RIFLabel As System.Windows.Forms.Label
         Dim TelefonoLabel As System.Windows.Forms.Label
         Dim DireccionLabel As System.Windows.Forms.Label
         Dim LogoLabel As System.Windows.Forms.Label
+        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(Configuracion))
         Me.Button1 = New System.Windows.Forms.Button
         Me.OpenFileDialog1 = New System.Windows.Forms.OpenFileDialog
-        Me.Button2 = New System.Windows.Forms.Button
         Me.FarmaciaSJDataSet = New FARMACIASJ.FarmaciaSJDataSet
         Me.FARMACIABindingSource = New System.Windows.Forms.BindingSource(Me.components)
         Me.FARMACIATableAdapter = New FARMACIASJ.FarmaciaSJDataSetTableAdapters.FARMACIATableAdapter
         Me.FARMACIABindingNavigator = New System.Windows.Forms.BindingNavigator(Me.components)
+        Me.BindingNavigatorAddNewItem = New System.Windows.Forms.ToolStripButton
+        Me.BindingNavigatorCountItem = New System.Windows.Forms.ToolStripLabel
+        Me.BindingNavigatorDeleteItem = New System.Windows.Forms.ToolStripButton
         Me.BindingNavigatorMoveFirstItem = New System.Windows.Forms.ToolStripButton
         Me.BindingNavigatorMovePreviousItem = New System.Windows.Forms.ToolStripButton
         Me.BindingNavigatorSeparator = New System.Windows.Forms.ToolStripSeparator
         Me.BindingNavigatorPositionItem = New System.Windows.Forms.ToolStripTextBox
-        Me.BindingNavigatorCountItem = New System.Windows.Forms.ToolStripLabel
         Me.BindingNavigatorSeparator1 = New System.Windows.Forms.ToolStripSeparator
         Me.BindingNavigatorMoveNextItem = New System.Windows.Forms.ToolStripButton
         Me.BindingNavigatorMoveLastItem = New System.Windows.Forms.ToolStripButton
         Me.BindingNavigatorSeparator2 = New System.Windows.Forms.ToolStripSeparator
-        Me.BindingNavigatorAddNewItem = New System.Windows.Forms.ToolStripButton
-        Me.BindingNavigatorDeleteItem = New System.Windows.Forms.ToolStripButton
         Me.FARMACIABindingNavigatorSaveItem = New System.Windows.Forms.ToolStripButton
         Me.Razon_SocialTextBox = New System.Windows.Forms.TextBox
         Me.RIFTextBox = New System.Windows.Forms.TextBox
@@ -62,9 +61,54 @@ Partial Class Configuracion
         CType(Me.LogoPictureBox, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
+        'Razon_SocialLabel
+        '
+        Razon_SocialLabel.AutoSize = True
+        Razon_SocialLabel.Location = New System.Drawing.Point(40, 59)
+        Razon_SocialLabel.Name = "Razon_SocialLabel"
+        Razon_SocialLabel.Size = New System.Drawing.Size(73, 13)
+        Razon_SocialLabel.TabIndex = 13
+        Razon_SocialLabel.Text = "Razon Social:"
+        '
+        'RIFLabel
+        '
+        RIFLabel.AutoSize = True
+        RIFLabel.Location = New System.Drawing.Point(40, 85)
+        RIFLabel.Name = "RIFLabel"
+        RIFLabel.Size = New System.Drawing.Size(27, 13)
+        RIFLabel.TabIndex = 14
+        RIFLabel.Text = "RIF:"
+        '
+        'TelefonoLabel
+        '
+        TelefonoLabel.AutoSize = True
+        TelefonoLabel.Location = New System.Drawing.Point(40, 111)
+        TelefonoLabel.Name = "TelefonoLabel"
+        TelefonoLabel.Size = New System.Drawing.Size(52, 13)
+        TelefonoLabel.TabIndex = 15
+        TelefonoLabel.Text = "Telefono:"
+        '
+        'DireccionLabel
+        '
+        DireccionLabel.AutoSize = True
+        DireccionLabel.Location = New System.Drawing.Point(40, 137)
+        DireccionLabel.Name = "DireccionLabel"
+        DireccionLabel.Size = New System.Drawing.Size(55, 13)
+        DireccionLabel.TabIndex = 16
+        DireccionLabel.Text = "Direccion:"
+        '
+        'LogoLabel
+        '
+        LogoLabel.AutoSize = True
+        LogoLabel.Location = New System.Drawing.Point(40, 160)
+        LogoLabel.Name = "LogoLabel"
+        LogoLabel.Size = New System.Drawing.Size(34, 13)
+        LogoLabel.TabIndex = 17
+        LogoLabel.Text = "Logo:"
+        '
         'Button1
         '
-        Me.Button1.Location = New System.Drawing.Point(242, 242)
+        Me.Button1.Location = New System.Drawing.Point(290, 272)
         Me.Button1.Name = "Button1"
         Me.Button1.Size = New System.Drawing.Size(75, 23)
         Me.Button1.TabIndex = 11
@@ -74,15 +118,6 @@ Partial Class Configuracion
         'OpenFileDialog1
         '
         Me.OpenFileDialog1.FileName = "OpenFileDialog1"
-        '
-        'Button2
-        '
-        Me.Button2.Location = New System.Drawing.Point(112, 290)
-        Me.Button2.Name = "Button2"
-        Me.Button2.Size = New System.Drawing.Size(107, 31)
-        Me.Button2.TabIndex = 12
-        Me.Button2.Text = "Salir"
-        Me.Button2.UseVisualStyleBackColor = True
         '
         'FarmaciaSJDataSet
         '
@@ -116,6 +151,31 @@ Partial Class Configuracion
         Me.FARMACIABindingNavigator.TabIndex = 13
         Me.FARMACIABindingNavigator.Text = "BindingNavigator1"
         '
+        'BindingNavigatorAddNewItem
+        '
+        Me.BindingNavigatorAddNewItem.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image
+        Me.BindingNavigatorAddNewItem.Image = CType(resources.GetObject("BindingNavigatorAddNewItem.Image"), System.Drawing.Image)
+        Me.BindingNavigatorAddNewItem.Name = "BindingNavigatorAddNewItem"
+        Me.BindingNavigatorAddNewItem.RightToLeftAutoMirrorImage = True
+        Me.BindingNavigatorAddNewItem.Size = New System.Drawing.Size(23, 22)
+        Me.BindingNavigatorAddNewItem.Text = "Add new"
+        '
+        'BindingNavigatorCountItem
+        '
+        Me.BindingNavigatorCountItem.Name = "BindingNavigatorCountItem"
+        Me.BindingNavigatorCountItem.Size = New System.Drawing.Size(36, 22)
+        Me.BindingNavigatorCountItem.Text = "of {0}"
+        Me.BindingNavigatorCountItem.ToolTipText = "Total number of items"
+        '
+        'BindingNavigatorDeleteItem
+        '
+        Me.BindingNavigatorDeleteItem.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image
+        Me.BindingNavigatorDeleteItem.Image = CType(resources.GetObject("BindingNavigatorDeleteItem.Image"), System.Drawing.Image)
+        Me.BindingNavigatorDeleteItem.Name = "BindingNavigatorDeleteItem"
+        Me.BindingNavigatorDeleteItem.RightToLeftAutoMirrorImage = True
+        Me.BindingNavigatorDeleteItem.Size = New System.Drawing.Size(23, 22)
+        Me.BindingNavigatorDeleteItem.Text = "Delete"
+        '
         'BindingNavigatorMoveFirstItem
         '
         Me.BindingNavigatorMoveFirstItem.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image
@@ -148,17 +208,10 @@ Partial Class Configuracion
         Me.BindingNavigatorPositionItem.Text = "0"
         Me.BindingNavigatorPositionItem.ToolTipText = "Current position"
         '
-        'BindingNavigatorCountItem
-        '
-        Me.BindingNavigatorCountItem.Name = "BindingNavigatorCountItem"
-        Me.BindingNavigatorCountItem.Size = New System.Drawing.Size(36, 13)
-        Me.BindingNavigatorCountItem.Text = "of {0}"
-        Me.BindingNavigatorCountItem.ToolTipText = "Total number of items"
-        '
         'BindingNavigatorSeparator1
         '
-        Me.BindingNavigatorSeparator1.Name = "BindingNavigatorSeparator"
-        Me.BindingNavigatorSeparator1.Size = New System.Drawing.Size(6, 6)
+        Me.BindingNavigatorSeparator1.Name = "BindingNavigatorSeparator1"
+        Me.BindingNavigatorSeparator1.Size = New System.Drawing.Size(6, 25)
         '
         'BindingNavigatorMoveNextItem
         '
@@ -166,7 +219,7 @@ Partial Class Configuracion
         Me.BindingNavigatorMoveNextItem.Image = CType(resources.GetObject("BindingNavigatorMoveNextItem.Image"), System.Drawing.Image)
         Me.BindingNavigatorMoveNextItem.Name = "BindingNavigatorMoveNextItem"
         Me.BindingNavigatorMoveNextItem.RightToLeftAutoMirrorImage = True
-        Me.BindingNavigatorMoveNextItem.Size = New System.Drawing.Size(23, 20)
+        Me.BindingNavigatorMoveNextItem.Size = New System.Drawing.Size(23, 22)
         Me.BindingNavigatorMoveNextItem.Text = "Move next"
         '
         'BindingNavigatorMoveLastItem
@@ -175,123 +228,60 @@ Partial Class Configuracion
         Me.BindingNavigatorMoveLastItem.Image = CType(resources.GetObject("BindingNavigatorMoveLastItem.Image"), System.Drawing.Image)
         Me.BindingNavigatorMoveLastItem.Name = "BindingNavigatorMoveLastItem"
         Me.BindingNavigatorMoveLastItem.RightToLeftAutoMirrorImage = True
-        Me.BindingNavigatorMoveLastItem.Size = New System.Drawing.Size(23, 20)
+        Me.BindingNavigatorMoveLastItem.Size = New System.Drawing.Size(23, 22)
         Me.BindingNavigatorMoveLastItem.Text = "Move last"
         '
         'BindingNavigatorSeparator2
         '
-        Me.BindingNavigatorSeparator2.Name = "BindingNavigatorSeparator"
-        Me.BindingNavigatorSeparator2.Size = New System.Drawing.Size(6, 6)
-        '
-        'BindingNavigatorAddNewItem
-        '
-        Me.BindingNavigatorAddNewItem.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image
-        Me.BindingNavigatorAddNewItem.Image = CType(resources.GetObject("BindingNavigatorAddNewItem.Image"), System.Drawing.Image)
-        Me.BindingNavigatorAddNewItem.Name = "BindingNavigatorAddNewItem"
-        Me.BindingNavigatorAddNewItem.RightToLeftAutoMirrorImage = True
-        Me.BindingNavigatorAddNewItem.Size = New System.Drawing.Size(23, 22)
-        Me.BindingNavigatorAddNewItem.Text = "Add new"
-        '
-        'BindingNavigatorDeleteItem
-        '
-        Me.BindingNavigatorDeleteItem.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image
-        Me.BindingNavigatorDeleteItem.Image = CType(resources.GetObject("BindingNavigatorDeleteItem.Image"), System.Drawing.Image)
-        Me.BindingNavigatorDeleteItem.Name = "BindingNavigatorDeleteItem"
-        Me.BindingNavigatorDeleteItem.RightToLeftAutoMirrorImage = True
-        Me.BindingNavigatorDeleteItem.Size = New System.Drawing.Size(23, 20)
-        Me.BindingNavigatorDeleteItem.Text = "Delete"
+        Me.BindingNavigatorSeparator2.Name = "BindingNavigatorSeparator2"
+        Me.BindingNavigatorSeparator2.Size = New System.Drawing.Size(6, 25)
         '
         'FARMACIABindingNavigatorSaveItem
         '
         Me.FARMACIABindingNavigatorSaveItem.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image
         Me.FARMACIABindingNavigatorSaveItem.Image = CType(resources.GetObject("FARMACIABindingNavigatorSaveItem.Image"), System.Drawing.Image)
         Me.FARMACIABindingNavigatorSaveItem.Name = "FARMACIABindingNavigatorSaveItem"
-        Me.FARMACIABindingNavigatorSaveItem.Size = New System.Drawing.Size(23, 23)
+        Me.FARMACIABindingNavigatorSaveItem.Size = New System.Drawing.Size(23, 22)
         Me.FARMACIABindingNavigatorSaveItem.Text = "Save Data"
-        '
-        'Razon_SocialLabel
-        '
-        Razon_SocialLabel.AutoSize = True
-        Razon_SocialLabel.Location = New System.Drawing.Point(40, 59)
-        Razon_SocialLabel.Name = "Razon_SocialLabel"
-        Razon_SocialLabel.Size = New System.Drawing.Size(73, 13)
-        Razon_SocialLabel.TabIndex = 13
-        Razon_SocialLabel.Text = "Razon Social:"
         '
         'Razon_SocialTextBox
         '
         Me.Razon_SocialTextBox.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.FARMACIABindingSource, "Razon_Social", True))
         Me.Razon_SocialTextBox.Location = New System.Drawing.Point(119, 56)
         Me.Razon_SocialTextBox.Name = "Razon_SocialTextBox"
-        Me.Razon_SocialTextBox.Size = New System.Drawing.Size(100, 20)
+        Me.Razon_SocialTextBox.Size = New System.Drawing.Size(145, 20)
         Me.Razon_SocialTextBox.TabIndex = 14
-        '
-        'RIFLabel
-        '
-        RIFLabel.AutoSize = True
-        RIFLabel.Location = New System.Drawing.Point(40, 85)
-        RIFLabel.Name = "RIFLabel"
-        RIFLabel.Size = New System.Drawing.Size(27, 13)
-        RIFLabel.TabIndex = 14
-        RIFLabel.Text = "RIF:"
         '
         'RIFTextBox
         '
         Me.RIFTextBox.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.FARMACIABindingSource, "RIF", True))
         Me.RIFTextBox.Location = New System.Drawing.Point(119, 82)
         Me.RIFTextBox.Name = "RIFTextBox"
-        Me.RIFTextBox.Size = New System.Drawing.Size(100, 20)
+        Me.RIFTextBox.Size = New System.Drawing.Size(145, 20)
         Me.RIFTextBox.TabIndex = 15
-        '
-        'TelefonoLabel
-        '
-        TelefonoLabel.AutoSize = True
-        TelefonoLabel.Location = New System.Drawing.Point(40, 111)
-        TelefonoLabel.Name = "TelefonoLabel"
-        TelefonoLabel.Size = New System.Drawing.Size(52, 13)
-        TelefonoLabel.TabIndex = 15
-        TelefonoLabel.Text = "Telefono:"
         '
         'TelefonoTextBox
         '
         Me.TelefonoTextBox.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.FARMACIABindingSource, "Telefono", True))
         Me.TelefonoTextBox.Location = New System.Drawing.Point(119, 108)
         Me.TelefonoTextBox.Name = "TelefonoTextBox"
-        Me.TelefonoTextBox.Size = New System.Drawing.Size(100, 20)
+        Me.TelefonoTextBox.Size = New System.Drawing.Size(145, 20)
         Me.TelefonoTextBox.TabIndex = 16
-        '
-        'DireccionLabel
-        '
-        DireccionLabel.AutoSize = True
-        DireccionLabel.Location = New System.Drawing.Point(40, 137)
-        DireccionLabel.Name = "DireccionLabel"
-        DireccionLabel.Size = New System.Drawing.Size(55, 13)
-        DireccionLabel.TabIndex = 16
-        DireccionLabel.Text = "Direccion:"
         '
         'DireccionTextBox
         '
         Me.DireccionTextBox.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.FARMACIABindingSource, "Direccion", True))
         Me.DireccionTextBox.Location = New System.Drawing.Point(119, 134)
         Me.DireccionTextBox.Name = "DireccionTextBox"
-        Me.DireccionTextBox.Size = New System.Drawing.Size(100, 20)
+        Me.DireccionTextBox.Size = New System.Drawing.Size(145, 20)
         Me.DireccionTextBox.TabIndex = 17
-        '
-        'LogoLabel
-        '
-        LogoLabel.AutoSize = True
-        LogoLabel.Location = New System.Drawing.Point(40, 160)
-        LogoLabel.Name = "LogoLabel"
-        LogoLabel.Size = New System.Drawing.Size(34, 13)
-        LogoLabel.TabIndex = 17
-        LogoLabel.Text = "Logo:"
         '
         'LogoPictureBox
         '
         Me.LogoPictureBox.DataBindings.Add(New System.Windows.Forms.Binding("Image", Me.FARMACIABindingSource, "Logo", True))
         Me.LogoPictureBox.Location = New System.Drawing.Point(119, 160)
         Me.LogoPictureBox.Name = "LogoPictureBox"
-        Me.LogoPictureBox.Size = New System.Drawing.Size(100, 105)
+        Me.LogoPictureBox.Size = New System.Drawing.Size(145, 135)
         Me.LogoPictureBox.TabIndex = 18
         Me.LogoPictureBox.TabStop = False
         '
@@ -299,7 +289,7 @@ Partial Class Configuracion
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(377, 341)
+        Me.ClientSize = New System.Drawing.Size(377, 313)
         Me.Controls.Add(LogoLabel)
         Me.Controls.Add(Me.LogoPictureBox)
         Me.Controls.Add(DireccionLabel)
@@ -311,10 +301,10 @@ Partial Class Configuracion
         Me.Controls.Add(Razon_SocialLabel)
         Me.Controls.Add(Me.Razon_SocialTextBox)
         Me.Controls.Add(Me.FARMACIABindingNavigator)
-        Me.Controls.Add(Me.Button2)
         Me.Controls.Add(Me.Button1)
         Me.Name = "Configuracion"
         Me.Text = "Configuracion"
+        Me.WindowState = System.Windows.Forms.FormWindowState.Maximized
         CType(Me.FarmaciaSJDataSet, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.FARMACIABindingSource, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.FARMACIABindingNavigator, System.ComponentModel.ISupportInitialize).EndInit()
@@ -327,7 +317,6 @@ Partial Class Configuracion
     End Sub
     Friend WithEvents Button1 As System.Windows.Forms.Button
     Friend WithEvents OpenFileDialog1 As System.Windows.Forms.OpenFileDialog
-    Friend WithEvents Button2 As System.Windows.Forms.Button
     Friend WithEvents FarmaciaSJDataSet As FARMACIASJ.FarmaciaSJDataSet
     Friend WithEvents FARMACIABindingSource As System.Windows.Forms.BindingSource
     Friend WithEvents FARMACIATableAdapter As FARMACIASJ.FarmaciaSJDataSetTableAdapters.FARMACIATableAdapter

@@ -61,7 +61,7 @@ Partial Class FARMACIASJ_SESION
         '
         'UsernameLabel
         '
-        Me.UsernameLabel.Location = New System.Drawing.Point(258, 30)
+        Me.UsernameLabel.Location = New System.Drawing.Point(216, 33)
         Me.UsernameLabel.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.UsernameLabel.Name = "UsernameLabel"
         Me.UsernameLabel.Size = New System.Drawing.Size(330, 28)
@@ -71,7 +71,7 @@ Partial Class FARMACIASJ_SESION
         '
         'PasswordLabel
         '
-        Me.PasswordLabel.Location = New System.Drawing.Point(258, 100)
+        Me.PasswordLabel.Location = New System.Drawing.Point(216, 103)
         Me.PasswordLabel.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.PasswordLabel.Name = "PasswordLabel"
         Me.PasswordLabel.Size = New System.Drawing.Size(330, 28)
@@ -82,16 +82,16 @@ Partial Class FARMACIASJ_SESION
         'UsernameTextBox
         '
         Me.UsernameTextBox.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper
-        Me.UsernameTextBox.Location = New System.Drawing.Point(261, 54)
-        Me.UsernameTextBox.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.UsernameTextBox.Location = New System.Drawing.Point(219, 57)
+        Me.UsernameTextBox.Margin = New System.Windows.Forms.Padding(4)
         Me.UsernameTextBox.Name = "UsernameTextBox"
         Me.UsernameTextBox.Size = New System.Drawing.Size(328, 22)
         Me.UsernameTextBox.TabIndex = 1
         '
         'PasswordTextBox
         '
-        Me.PasswordTextBox.Location = New System.Drawing.Point(261, 124)
-        Me.PasswordTextBox.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.PasswordTextBox.Location = New System.Drawing.Point(219, 127)
+        Me.PasswordTextBox.Margin = New System.Windows.Forms.Padding(4)
         Me.PasswordTextBox.MaxLength = 18
         Me.PasswordTextBox.Name = "PasswordTextBox"
         Me.PasswordTextBox.PasswordChar = Global.Microsoft.VisualBasic.ChrW(42)
@@ -100,8 +100,8 @@ Partial Class FARMACIASJ_SESION
         '
         'OK
         '
-        Me.OK.Location = New System.Drawing.Point(296, 198)
-        Me.OK.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.OK.Location = New System.Drawing.Point(254, 201)
+        Me.OK.Margin = New System.Windows.Forms.Padding(4)
         Me.OK.Name = "OK"
         Me.OK.Size = New System.Drawing.Size(141, 28)
         Me.OK.TabIndex = 4
@@ -110,8 +110,8 @@ Partial Class FARMACIASJ_SESION
         'Cancel
         '
         Me.Cancel.DialogResult = System.Windows.Forms.DialogResult.Cancel
-        Me.Cancel.Location = New System.Drawing.Point(450, 198)
-        Me.Cancel.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.Cancel.Location = New System.Drawing.Point(408, 201)
+        Me.Cancel.Margin = New System.Windows.Forms.Padding(4)
         Me.Cancel.Name = "Cancel"
         Me.Cancel.Size = New System.Drawing.Size(141, 28)
         Me.Cancel.TabIndex = 5
@@ -134,10 +134,10 @@ Partial Class FARMACIASJ_SESION
         'LogoPictureBox
         '
         Me.LogoPictureBox.DataBindings.Add(New System.Windows.Forms.Binding("Image", Me.FARMACIABindingSource, "Logo", True))
-        Me.LogoPictureBox.Location = New System.Drawing.Point(0, 34)
-        Me.LogoPictureBox.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.LogoPictureBox.Location = New System.Drawing.Point(16, 33)
+        Me.LogoPictureBox.Margin = New System.Windows.Forms.Padding(4)
         Me.LogoPictureBox.Name = "LogoPictureBox"
-        Me.LogoPictureBox.Size = New System.Drawing.Size(252, 213)
+        Me.LogoPictureBox.Size = New System.Drawing.Size(174, 150)
         Me.LogoPictureBox.TabIndex = 8
         Me.LogoPictureBox.TabStop = False
         '
@@ -176,8 +176,8 @@ Partial Class FARMACIASJ_SESION
         'BindingNavigatorCountItem
         '
         Me.BindingNavigatorCountItem.Name = "BindingNavigatorCountItem"
-        Me.BindingNavigatorCountItem.Size = New System.Drawing.Size(38, 28)
-        Me.BindingNavigatorCountItem.Text = "de {0}"
+        Me.BindingNavigatorCountItem.Size = New System.Drawing.Size(36, 28)
+        Me.BindingNavigatorCountItem.Text = "of {0}"
         Me.BindingNavigatorCountItem.ToolTipText = "Total number of items"
         '
         'BindingNavigatorSeparator1
@@ -260,7 +260,7 @@ Partial Class FARMACIASJ_SESION
         Me.AutoScaleDimensions = New System.Drawing.SizeF(9.0!, 16.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.CancelButton = Me.Cancel
-        Me.ClientSize = New System.Drawing.Size(621, 251)
+        Me.ClientSize = New System.Drawing.Size(590, 251)
         Me.Controls.Add(Me.LogoPictureBox)
         Me.Controls.Add(Me.FARMACIABindingNavigator)
         Me.Controls.Add(Me.Cancel)
@@ -271,7 +271,7 @@ Partial Class FARMACIASJ_SESION
         Me.Controls.Add(Me.UsernameLabel)
         Me.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog
-        Me.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.Margin = New System.Windows.Forms.Padding(4)
         Me.MaximizeBox = False
         Me.MinimizeBox = False
         Me.Name = "FARMACIASJ_SESION"

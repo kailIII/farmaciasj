@@ -62,7 +62,7 @@ Partial Class Modificar_compra
         'Button3
         '
         Me.Button3.Location = New System.Drawing.Point(743, 575)
-        Me.Button3.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.Button3.Margin = New System.Windows.Forms.Padding(4)
         Me.Button3.Name = "Button3"
         Me.Button3.Size = New System.Drawing.Size(116, 34)
         Me.Button3.TabIndex = 16
@@ -87,9 +87,9 @@ Partial Class Modificar_compra
         Me.GroupBox5.Controls.Add(Me.Cantidad)
         Me.GroupBox5.Controls.Add(Me.Label20)
         Me.GroupBox5.Location = New System.Drawing.Point(18, 414)
-        Me.GroupBox5.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.GroupBox5.Margin = New System.Windows.Forms.Padding(4)
         Me.GroupBox5.Name = "GroupBox5"
-        Me.GroupBox5.Padding = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.GroupBox5.Padding = New System.Windows.Forms.Padding(4)
         Me.GroupBox5.Size = New System.Drawing.Size(841, 153)
         Me.GroupBox5.TabIndex = 14
         Me.GroupBox5.TabStop = False
@@ -99,7 +99,7 @@ Partial Class Modificar_compra
         '
         Me.CRestar.Enabled = False
         Me.CRestar.Location = New System.Drawing.Point(152, 55)
-        Me.CRestar.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.CRestar.Margin = New System.Windows.Forms.Padding(4)
         Me.CRestar.Name = "CRestar"
         Me.CRestar.Size = New System.Drawing.Size(148, 22)
         Me.CRestar.TabIndex = 16
@@ -120,7 +120,7 @@ Partial Class Modificar_compra
         '
         Me.Button1.Enabled = False
         Me.Button1.Location = New System.Drawing.Point(693, 116)
-        Me.Button1.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.Button1.Margin = New System.Windows.Forms.Padding(4)
         Me.Button1.Name = "Button1"
         Me.Button1.Size = New System.Drawing.Size(112, 28)
         Me.Button1.TabIndex = 14
@@ -131,7 +131,7 @@ Partial Class Modificar_compra
         '
         Me.DESCUENTO.Enabled = False
         Me.DESCUENTO.Location = New System.Drawing.Point(466, 114)
-        Me.DESCUENTO.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.DESCUENTO.Margin = New System.Windows.Forms.Padding(4)
         Me.DESCUENTO.MaxLength = 3
         Me.DESCUENTO.Name = "DESCUENTO"
         Me.DESCUENTO.Size = New System.Drawing.Size(199, 22)
@@ -154,7 +154,7 @@ Partial Class Modificar_compra
         '
         Me.PVP.Enabled = False
         Me.PVP.Location = New System.Drawing.Point(466, 82)
-        Me.PVP.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.PVP.Margin = New System.Windows.Forms.Padding(4)
         Me.PVP.MaxLength = 10
         Me.PVP.Name = "PVP"
         Me.PVP.Size = New System.Drawing.Size(199, 22)
@@ -179,7 +179,7 @@ Partial Class Modificar_compra
         Me.FVENCE.Enabled = False
         Me.FVENCE.Format = System.Windows.Forms.DateTimePickerFormat.Custom
         Me.FVENCE.Location = New System.Drawing.Point(466, 50)
-        Me.FVENCE.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.FVENCE.Margin = New System.Windows.Forms.Padding(4)
         Me.FVENCE.Name = "FVENCE"
         Me.FVENCE.Size = New System.Drawing.Size(199, 22)
         Me.FVENCE.TabIndex = 9
@@ -199,7 +199,7 @@ Partial Class Modificar_compra
         '
         Me.CTotal.Enabled = False
         Me.CTotal.Location = New System.Drawing.Point(152, 119)
-        Me.CTotal.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.CTotal.Margin = New System.Windows.Forms.Padding(4)
         Me.CTotal.Name = "CTotal"
         Me.CTotal.Size = New System.Drawing.Size(148, 22)
         Me.CTotal.TabIndex = 7
@@ -220,7 +220,7 @@ Partial Class Modificar_compra
         '
         Me.CUnidad.Enabled = False
         Me.CUnidad.Location = New System.Drawing.Point(152, 87)
-        Me.CUnidad.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.CUnidad.Margin = New System.Windows.Forms.Padding(4)
         Me.CUnidad.Name = "CUnidad"
         Me.CUnidad.Size = New System.Drawing.Size(148, 22)
         Me.CUnidad.TabIndex = 5
@@ -241,7 +241,7 @@ Partial Class Modificar_compra
         '
         Me.Cantidad.Enabled = False
         Me.Cantidad.Location = New System.Drawing.Point(152, 23)
-        Me.Cantidad.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.Cantidad.Margin = New System.Windows.Forms.Padding(4)
         Me.Cantidad.Name = "Cantidad"
         Me.Cantidad.Size = New System.Drawing.Size(148, 22)
         Me.Cantidad.TabIndex = 3
@@ -265,9 +265,9 @@ Partial Class Modificar_compra
         Me.GroupBox3.Controls.Add(Me.CODIGO_BARRAS)
         Me.GroupBox3.Controls.Add(Me.Label11)
         Me.GroupBox3.Location = New System.Drawing.Point(18, 341)
-        Me.GroupBox3.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.GroupBox3.Margin = New System.Windows.Forms.Padding(4)
         Me.GroupBox3.Name = "GroupBox3"
-        Me.GroupBox3.Padding = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.GroupBox3.Padding = New System.Windows.Forms.Padding(4)
         Me.GroupBox3.Size = New System.Drawing.Size(841, 65)
         Me.GroupBox3.TabIndex = 13
         Me.GroupBox3.TabStop = False
@@ -287,7 +287,7 @@ Partial Class Modificar_compra
         '
         Me.NOMBRE_PRODUCTO.Enabled = False
         Me.NOMBRE_PRODUCTO.Location = New System.Drawing.Point(472, 23)
-        Me.NOMBRE_PRODUCTO.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.NOMBRE_PRODUCTO.Margin = New System.Windows.Forms.Padding(4)
         Me.NOMBRE_PRODUCTO.Name = "NOMBRE_PRODUCTO"
         Me.NOMBRE_PRODUCTO.Size = New System.Drawing.Size(337, 22)
         Me.NOMBRE_PRODUCTO.TabIndex = 12
@@ -296,7 +296,7 @@ Partial Class Modificar_compra
         '
         Me.CODIGO_BARRAS.Enabled = False
         Me.CODIGO_BARRAS.Location = New System.Drawing.Point(158, 23)
-        Me.CODIGO_BARRAS.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.CODIGO_BARRAS.Margin = New System.Windows.Forms.Padding(4)
         Me.CODIGO_BARRAS.Name = "CODIGO_BARRAS"
         Me.CODIGO_BARRAS.Size = New System.Drawing.Size(148, 22)
         Me.CODIGO_BARRAS.TabIndex = 1
@@ -315,7 +315,7 @@ Partial Class Modificar_compra
         '
         Me.DETALLE_COMPRA.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
         Me.DETALLE_COMPRA.Location = New System.Drawing.Point(21, 176)
-        Me.DETALLE_COMPRA.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.DETALLE_COMPRA.Margin = New System.Windows.Forms.Padding(4)
         Me.DETALLE_COMPRA.Name = "DETALLE_COMPRA"
         Me.DETALLE_COMPRA.Size = New System.Drawing.Size(842, 121)
         Me.DETALLE_COMPRA.TabIndex = 12
@@ -327,9 +327,9 @@ Partial Class Modificar_compra
         Me.GroupBox2.Controls.Add(Me.RIF_PROVEEDOR)
         Me.GroupBox2.Controls.Add(Me.Label4)
         Me.GroupBox2.Location = New System.Drawing.Point(18, 94)
-        Me.GroupBox2.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.GroupBox2.Margin = New System.Windows.Forms.Padding(4)
         Me.GroupBox2.Name = "GroupBox2"
-        Me.GroupBox2.Padding = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.GroupBox2.Padding = New System.Windows.Forms.Padding(4)
         Me.GroupBox2.Size = New System.Drawing.Size(845, 75)
         Me.GroupBox2.TabIndex = 11
         Me.GroupBox2.TabStop = False
@@ -349,7 +349,7 @@ Partial Class Modificar_compra
         '
         Me.NOMBRE_PROVEEDOR.Enabled = False
         Me.NOMBRE_PROVEEDOR.Location = New System.Drawing.Point(537, 28)
-        Me.NOMBRE_PROVEEDOR.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.NOMBRE_PROVEEDOR.Margin = New System.Windows.Forms.Padding(4)
         Me.NOMBRE_PROVEEDOR.Name = "NOMBRE_PROVEEDOR"
         Me.NOMBRE_PROVEEDOR.Size = New System.Drawing.Size(276, 22)
         Me.NOMBRE_PROVEEDOR.TabIndex = 2
@@ -359,7 +359,7 @@ Partial Class Modificar_compra
         Me.RIF_PROVEEDOR.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper
         Me.RIF_PROVEEDOR.Enabled = False
         Me.RIF_PROVEEDOR.Location = New System.Drawing.Point(98, 28)
-        Me.RIF_PROVEEDOR.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.RIF_PROVEEDOR.Margin = New System.Windows.Forms.Padding(4)
         Me.RIF_PROVEEDOR.Name = "RIF_PROVEEDOR"
         Me.RIF_PROVEEDOR.Size = New System.Drawing.Size(304, 22)
         Me.RIF_PROVEEDOR.TabIndex = 1
@@ -379,9 +379,9 @@ Partial Class Modificar_compra
         Me.GroupBox1.Controls.Add(Me.Numero)
         Me.GroupBox1.Controls.Add(Me.Label3)
         Me.GroupBox1.Location = New System.Drawing.Point(18, 15)
-        Me.GroupBox1.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.GroupBox1.Margin = New System.Windows.Forms.Padding(4)
         Me.GroupBox1.Name = "GroupBox1"
-        Me.GroupBox1.Padding = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.GroupBox1.Padding = New System.Windows.Forms.Padding(4)
         Me.GroupBox1.Size = New System.Drawing.Size(845, 68)
         Me.GroupBox1.TabIndex = 10
         Me.GroupBox1.TabStop = False
@@ -390,7 +390,7 @@ Partial Class Modificar_compra
         'Numero
         '
         Me.Numero.Location = New System.Drawing.Point(668, 23)
-        Me.Numero.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.Numero.Margin = New System.Windows.Forms.Padding(4)
         Me.Numero.Name = "Numero"
         Me.Numero.Size = New System.Drawing.Size(148, 22)
         Me.Numero.TabIndex = 5
@@ -408,7 +408,7 @@ Partial Class Modificar_compra
         'NDETALLE
         '
         Me.NDETALLE.Location = New System.Drawing.Point(182, 311)
-        Me.NDETALLE.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.NDETALLE.Margin = New System.Windows.Forms.Padding(4)
         Me.NDETALLE.MaxLength = 2
         Me.NDETALLE.Name = "NDETALLE"
         Me.NDETALLE.Size = New System.Drawing.Size(148, 22)
@@ -438,9 +438,10 @@ Partial Class Modificar_compra
         Me.Controls.Add(Me.GroupBox2)
         Me.Controls.Add(Me.GroupBox1)
         Me.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.Margin = New System.Windows.Forms.Padding(4)
         Me.Name = "Modificar_compra"
         Me.Text = "Modificar compra"
+        Me.WindowState = System.Windows.Forms.FormWindowState.Maximized
         Me.GroupBox5.ResumeLayout(False)
         Me.GroupBox5.PerformLayout()
         Me.GroupBox3.ResumeLayout(False)

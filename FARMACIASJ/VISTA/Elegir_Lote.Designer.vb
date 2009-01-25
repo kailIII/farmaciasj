@@ -42,6 +42,7 @@ Partial Class Elegir_Lote
         Me.Margin = New System.Windows.Forms.Padding(4)
         Me.Name = "Elegir_Lote"
         Me.Text = "Elegir Lote"
+        Me.WindowState = System.Windows.Forms.FormWindowState.Maximized
         Me.ResumeLayout(False)
 
     End Sub

@@ -67,9 +67,9 @@ Partial Class Registrar_Proveedor_Compra
         Me.GroupBox1.Controls.Add(Me.Label2)
         Me.GroupBox1.Controls.Add(Me.Label1)
         Me.GroupBox1.Location = New System.Drawing.Point(28, 15)
-        Me.GroupBox1.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.GroupBox1.Margin = New System.Windows.Forms.Padding(4)
         Me.GroupBox1.Name = "GroupBox1"
-        Me.GroupBox1.Padding = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.GroupBox1.Padding = New System.Windows.Forms.Padding(4)
         Me.GroupBox1.Size = New System.Drawing.Size(602, 411)
         Me.GroupBox1.TabIndex = 2
         Me.GroupBox1.TabStop = False
@@ -78,7 +78,7 @@ Partial Class Registrar_Proveedor_Compra
         'Button1
         '
         Me.Button1.Location = New System.Drawing.Point(488, 290)
-        Me.Button1.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.Button1.Margin = New System.Windows.Forms.Padding(4)
         Me.Button1.Name = "Button1"
         Me.Button1.Size = New System.Drawing.Size(99, 25)
         Me.Button1.TabIndex = 21
@@ -90,7 +90,7 @@ Partial Class Registrar_Proveedor_Compra
         Me.Telefonos.FormattingEnabled = True
         Me.Telefonos.ItemHeight = 16
         Me.Telefonos.Location = New System.Drawing.Point(124, 327)
-        Me.Telefonos.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.Telefonos.Margin = New System.Windows.Forms.Padding(4)
         Me.Telefonos.Name = "Telefonos"
         Me.Telefonos.Size = New System.Drawing.Size(349, 68)
         Me.Telefonos.TabIndex = 20
@@ -98,7 +98,7 @@ Partial Class Registrar_Proveedor_Compra
         'TLF_Cod_Area
         '
         Me.TLF_Cod_Area.Location = New System.Drawing.Point(124, 290)
-        Me.TLF_Cod_Area.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.TLF_Cod_Area.Margin = New System.Windows.Forms.Padding(4)
         Me.TLF_Cod_Area.MaxLength = 4
         Me.TLF_Cod_Area.Name = "TLF_Cod_Area"
         Me.TLF_Cod_Area.Size = New System.Drawing.Size(88, 22)
@@ -127,7 +127,7 @@ Partial Class Registrar_Proveedor_Compra
         'TLF_Numero
         '
         Me.TLF_Numero.Location = New System.Drawing.Point(224, 290)
-        Me.TLF_Numero.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.TLF_Numero.Margin = New System.Windows.Forms.Padding(4)
         Me.TLF_Numero.MaxLength = 7
         Me.TLF_Numero.Name = "TLF_Numero"
         Me.TLF_Numero.Size = New System.Drawing.Size(252, 22)
@@ -137,7 +137,7 @@ Partial Class Registrar_Proveedor_Compra
         '
         Me.Saldo.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper
         Me.Saldo.Location = New System.Drawing.Point(124, 258)
-        Me.Saldo.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.Saldo.Margin = New System.Windows.Forms.Padding(4)
         Me.Saldo.MaxLength = 18
         Me.Saldo.Name = "Saldo"
         Me.Saldo.Size = New System.Drawing.Size(301, 22)
@@ -149,7 +149,7 @@ Partial Class Registrar_Proveedor_Compra
         '
         Me.Ciudad.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper
         Me.Ciudad.Location = New System.Drawing.Point(124, 226)
-        Me.Ciudad.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.Ciudad.Margin = New System.Windows.Forms.Padding(4)
         Me.Ciudad.Name = "Ciudad"
         Me.Ciudad.Size = New System.Drawing.Size(350, 22)
         Me.Ciudad.TabIndex = 12
@@ -157,7 +157,7 @@ Partial Class Registrar_Proveedor_Compra
         'Dir
         '
         Me.Dir.Location = New System.Drawing.Point(124, 151)
-        Me.Dir.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.Dir.Margin = New System.Windows.Forms.Padding(4)
         Me.Dir.MaxLength = 200
         Me.Dir.Name = "Dir"
         Me.Dir.Size = New System.Drawing.Size(350, 63)
@@ -167,7 +167,7 @@ Partial Class Registrar_Proveedor_Compra
         'Correo
         '
         Me.Correo.Location = New System.Drawing.Point(124, 119)
-        Me.Correo.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.Correo.Margin = New System.Windows.Forms.Padding(4)
         Me.Correo.MaxLength = 20
         Me.Correo.Name = "Correo"
         Me.Correo.Size = New System.Drawing.Size(350, 22)
@@ -177,7 +177,7 @@ Partial Class Registrar_Proveedor_Compra
         '
         Me.Nombre.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper
         Me.Nombre.Location = New System.Drawing.Point(124, 87)
-        Me.Nombre.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.Nombre.Margin = New System.Windows.Forms.Padding(4)
         Me.Nombre.MaxLength = 30
         Me.Nombre.Name = "Nombre"
         Me.Nombre.Size = New System.Drawing.Size(350, 22)
@@ -187,7 +187,7 @@ Partial Class Registrar_Proveedor_Compra
         '
         Me.Rif.Enabled = False
         Me.Rif.Location = New System.Drawing.Point(124, 55)
-        Me.Rif.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.Rif.Margin = New System.Windows.Forms.Padding(4)
         Me.Rif.Name = "Rif"
         Me.Rif.Size = New System.Drawing.Size(350, 22)
         Me.Rif.TabIndex = 8
@@ -196,7 +196,7 @@ Partial Class Registrar_Proveedor_Compra
         '
         Me.Codigo.Enabled = False
         Me.Codigo.Location = New System.Drawing.Point(124, 23)
-        Me.Codigo.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.Codigo.Margin = New System.Windows.Forms.Padding(4)
         Me.Codigo.Name = "Codigo"
         Me.Codigo.Size = New System.Drawing.Size(350, 22)
         Me.Codigo.TabIndex = 7
@@ -274,7 +274,7 @@ Partial Class Registrar_Proveedor_Compra
         'Boton_Registrar
         '
         Me.Boton_Registrar.Location = New System.Drawing.Point(518, 433)
-        Me.Boton_Registrar.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.Boton_Registrar.Margin = New System.Windows.Forms.Padding(4)
         Me.Boton_Registrar.Name = "Boton_Registrar"
         Me.Boton_Registrar.Size = New System.Drawing.Size(112, 28)
         Me.Boton_Registrar.TabIndex = 16
@@ -289,9 +289,10 @@ Partial Class Registrar_Proveedor_Compra
         Me.Controls.Add(Me.GroupBox1)
         Me.Controls.Add(Me.Boton_Registrar)
         Me.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.Margin = New System.Windows.Forms.Padding(4)
         Me.Name = "Registrar_Proveedor_Compra"
         Me.Text = "Registrar Proveedor Compra"
+        Me.WindowState = System.Windows.Forms.FormWindowState.Maximized
         Me.GroupBox1.ResumeLayout(False)
         Me.GroupBox1.PerformLayout()
         Me.ResumeLayout(False)

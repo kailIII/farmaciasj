@@ -45,9 +45,9 @@ Partial Class Despedir_Empleado
         Me.GroupBox1.Controls.Add(Me.Label1)
         Me.GroupBox1.Controls.Add(Me.Cedula)
         Me.GroupBox1.Location = New System.Drawing.Point(20, 16)
-        Me.GroupBox1.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.GroupBox1.Margin = New System.Windows.Forms.Padding(4)
         Me.GroupBox1.Name = "GroupBox1"
-        Me.GroupBox1.Padding = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.GroupBox1.Padding = New System.Windows.Forms.Padding(4)
         Me.GroupBox1.Size = New System.Drawing.Size(464, 161)
         Me.GroupBox1.TabIndex = 0
         Me.GroupBox1.TabStop = False
@@ -56,7 +56,7 @@ Partial Class Despedir_Empleado
         'Buscando
         '
         Me.Buscando.Location = New System.Drawing.Point(333, 119)
-        Me.Buscando.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.Buscando.Margin = New System.Windows.Forms.Padding(4)
         Me.Buscando.Name = "Buscando"
         Me.Buscando.Size = New System.Drawing.Size(112, 28)
         Me.Buscando.TabIndex = 6
@@ -67,7 +67,7 @@ Partial Class Despedir_Empleado
         '
         Me.Cargo_Actual.Enabled = False
         Me.Cargo_Actual.Location = New System.Drawing.Point(159, 87)
-        Me.Cargo_Actual.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.Cargo_Actual.Margin = New System.Windows.Forms.Padding(4)
         Me.Cargo_Actual.Name = "Cargo_Actual"
         Me.Cargo_Actual.Size = New System.Drawing.Size(284, 22)
         Me.Cargo_Actual.TabIndex = 5
@@ -96,7 +96,7 @@ Partial Class Despedir_Empleado
         '
         Me.Nombres.Enabled = False
         Me.Nombres.Location = New System.Drawing.Point(159, 55)
-        Me.Nombres.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.Nombres.Margin = New System.Windows.Forms.Padding(4)
         Me.Nombres.Name = "Nombres"
         Me.Nombres.Size = New System.Drawing.Size(284, 22)
         Me.Nombres.TabIndex = 2
@@ -114,7 +114,7 @@ Partial Class Despedir_Empleado
         'Cedula
         '
         Me.Cedula.Location = New System.Drawing.Point(159, 23)
-        Me.Cedula.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.Cedula.Margin = New System.Windows.Forms.Padding(4)
         Me.Cedula.Name = "Cedula"
         Me.Cedula.Size = New System.Drawing.Size(284, 22)
         Me.Cedula.TabIndex = 0
@@ -125,9 +125,9 @@ Partial Class Despedir_Empleado
         Me.GroupBox2.Controls.Add(Me.Label4)
         Me.GroupBox2.Controls.Add(Me.Justificacion)
         Me.GroupBox2.Location = New System.Drawing.Point(20, 186)
-        Me.GroupBox2.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.GroupBox2.Margin = New System.Windows.Forms.Padding(4)
         Me.GroupBox2.Name = "GroupBox2"
-        Me.GroupBox2.Padding = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.GroupBox2.Padding = New System.Windows.Forms.Padding(4)
         Me.GroupBox2.Size = New System.Drawing.Size(464, 188)
         Me.GroupBox2.TabIndex = 1
         Me.GroupBox2.TabStop = False
@@ -137,7 +137,7 @@ Partial Class Despedir_Empleado
         '
         Me.Eliminando.Enabled = False
         Me.Eliminando.Location = New System.Drawing.Point(333, 148)
-        Me.Eliminando.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.Eliminando.Margin = New System.Windows.Forms.Padding(4)
         Me.Eliminando.Name = "Eliminando"
         Me.Eliminando.Size = New System.Drawing.Size(112, 28)
         Me.Eliminando.TabIndex = 7
@@ -158,7 +158,7 @@ Partial Class Despedir_Empleado
         '
         Me.Justificacion.Enabled = False
         Me.Justificacion.Location = New System.Drawing.Point(14, 44)
-        Me.Justificacion.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.Justificacion.Margin = New System.Windows.Forms.Padding(4)
         Me.Justificacion.Name = "Justificacion"
         Me.Justificacion.Size = New System.Drawing.Size(430, 95)
         Me.Justificacion.TabIndex = 12
@@ -172,9 +172,10 @@ Partial Class Despedir_Empleado
         Me.Controls.Add(Me.GroupBox2)
         Me.Controls.Add(Me.GroupBox1)
         Me.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.Margin = New System.Windows.Forms.Padding(4)
         Me.Name = "Despedir_Empleado"
         Me.Text = "Despedir Empleado"
+        Me.WindowState = System.Windows.Forms.FormWindowState.Maximized
         Me.GroupBox1.ResumeLayout(False)
         Me.GroupBox1.PerformLayout()
         Me.GroupBox2.ResumeLayout(False)

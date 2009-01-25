@@ -305,6 +305,7 @@ Partial Class Ingresar_Producto
         Me.Margin = New System.Windows.Forms.Padding(4)
         Me.Name = "Ingresar_Producto"
         Me.Text = "Ingresar Producto"
+        Me.WindowState = System.Windows.Forms.FormWindowState.Maximized
         CType(Me.LINEABindingSource, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.FarmaciaSJDataSet, System.ComponentModel.ISupportInitialize).EndInit()
         Me.GroupBox2.ResumeLayout(False)

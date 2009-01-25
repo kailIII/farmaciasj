@@ -41,9 +41,9 @@ Partial Class Suspender_Pedido_frecuente
         Me.GroupBox1.Controls.Add(Me.Numero_Pedido)
         Me.GroupBox1.Controls.Add(Me.Label1)
         Me.GroupBox1.Location = New System.Drawing.Point(20, 16)
-        Me.GroupBox1.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.GroupBox1.Margin = New System.Windows.Forms.Padding(4)
         Me.GroupBox1.Name = "GroupBox1"
-        Me.GroupBox1.Padding = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.GroupBox1.Padding = New System.Windows.Forms.Padding(4)
         Me.GroupBox1.Size = New System.Drawing.Size(426, 98)
         Me.GroupBox1.TabIndex = 0
         Me.GroupBox1.TabStop = False
@@ -52,7 +52,7 @@ Partial Class Suspender_Pedido_frecuente
         'Buscar
         '
         Me.Buscar.Location = New System.Drawing.Point(288, 55)
-        Me.Buscar.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.Buscar.Margin = New System.Windows.Forms.Padding(4)
         Me.Buscar.Name = "Buscar"
         Me.Buscar.Size = New System.Drawing.Size(112, 28)
         Me.Buscar.TabIndex = 2
@@ -62,7 +62,7 @@ Partial Class Suspender_Pedido_frecuente
         'Numero_Pedido
         '
         Me.Numero_Pedido.Location = New System.Drawing.Point(88, 23)
-        Me.Numero_Pedido.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.Numero_Pedido.Margin = New System.Windows.Forms.Padding(4)
         Me.Numero_Pedido.Name = "Numero_Pedido"
         Me.Numero_Pedido.Size = New System.Drawing.Size(310, 22)
         Me.Numero_Pedido.TabIndex = 1
@@ -87,9 +87,9 @@ Partial Class Suspender_Pedido_frecuente
         Me.GroupBox2.Controls.Add(Me.Cliente)
         Me.GroupBox2.Controls.Add(Me.Label2)
         Me.GroupBox2.Location = New System.Drawing.Point(20, 122)
-        Me.GroupBox2.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.GroupBox2.Margin = New System.Windows.Forms.Padding(4)
         Me.GroupBox2.Name = "GroupBox2"
-        Me.GroupBox2.Padding = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.GroupBox2.Padding = New System.Windows.Forms.Padding(4)
         Me.GroupBox2.Size = New System.Drawing.Size(426, 161)
         Me.GroupBox2.TabIndex = 1
         Me.GroupBox2.TabStop = False
@@ -99,7 +99,7 @@ Partial Class Suspender_Pedido_frecuente
         '
         Me.Suspender.Enabled = False
         Me.Suspender.Location = New System.Drawing.Point(220, 121)
-        Me.Suspender.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.Suspender.Margin = New System.Windows.Forms.Padding(4)
         Me.Suspender.Name = "Suspender"
         Me.Suspender.Size = New System.Drawing.Size(180, 28)
         Me.Suspender.TabIndex = 6
@@ -110,7 +110,7 @@ Partial Class Suspender_Pedido_frecuente
         '
         Me.Cantidad.Enabled = False
         Me.Cantidad.Location = New System.Drawing.Point(98, 89)
-        Me.Cantidad.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.Cantidad.Margin = New System.Windows.Forms.Padding(4)
         Me.Cantidad.Name = "Cantidad"
         Me.Cantidad.Size = New System.Drawing.Size(88, 22)
         Me.Cantidad.TabIndex = 5
@@ -129,7 +129,7 @@ Partial Class Suspender_Pedido_frecuente
         '
         Me.Producto.Enabled = False
         Me.Producto.Location = New System.Drawing.Point(98, 57)
-        Me.Producto.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.Producto.Margin = New System.Windows.Forms.Padding(4)
         Me.Producto.Name = "Producto"
         Me.Producto.Size = New System.Drawing.Size(301, 22)
         Me.Producto.TabIndex = 3
@@ -148,7 +148,7 @@ Partial Class Suspender_Pedido_frecuente
         '
         Me.Cliente.Enabled = False
         Me.Cliente.Location = New System.Drawing.Point(98, 25)
-        Me.Cliente.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.Cliente.Margin = New System.Windows.Forms.Padding(4)
         Me.Cliente.Name = "Cliente"
         Me.Cliente.Size = New System.Drawing.Size(301, 22)
         Me.Cliente.TabIndex = 1
@@ -171,9 +171,10 @@ Partial Class Suspender_Pedido_frecuente
         Me.Controls.Add(Me.GroupBox2)
         Me.Controls.Add(Me.GroupBox1)
         Me.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.Margin = New System.Windows.Forms.Padding(4)
         Me.Name = "Suspender_Pedido_frecuente"
         Me.Text = "Suspender Pedido Frecuente"
+        Me.WindowState = System.Windows.Forms.FormWindowState.Maximized
         Me.GroupBox1.ResumeLayout(False)
         Me.GroupBox1.PerformLayout()
         Me.GroupBox2.ResumeLayout(False)

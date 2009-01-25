@@ -202,6 +202,7 @@ Partial Class Compra2
         Me.Margin = New System.Windows.Forms.Padding(4)
         Me.Name = "Compra2"
         Me.Text = "Compra"
+        Me.WindowState = System.Windows.Forms.FormWindowState.Maximized
         Me.GroupBox1.ResumeLayout(False)
         Me.GroupBox1.PerformLayout()
         Me.ResumeLayout(False)

@@ -48,7 +48,7 @@ Partial Class Registrar_Pedido
         '
         Me.ingresar.Enabled = False
         Me.ingresar.Location = New System.Drawing.Point(338, 449)
-        Me.ingresar.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.ingresar.Margin = New System.Windows.Forms.Padding(4)
         Me.ingresar.Name = "ingresar"
         Me.ingresar.Size = New System.Drawing.Size(160, 28)
         Me.ingresar.TabIndex = 12
@@ -66,9 +66,9 @@ Partial Class Registrar_Pedido
         Me.GroupBox1.Controls.Add(Me.Label3)
         Me.GroupBox1.Controls.Add(Me.Label2)
         Me.GroupBox1.Location = New System.Drawing.Point(18, 15)
-        Me.GroupBox1.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.GroupBox1.Margin = New System.Windows.Forms.Padding(4)
         Me.GroupBox1.Name = "GroupBox1"
-        Me.GroupBox1.Padding = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.GroupBox1.Padding = New System.Windows.Forms.Padding(4)
         Me.GroupBox1.Size = New System.Drawing.Size(486, 224)
         Me.GroupBox1.TabIndex = 15
         Me.GroupBox1.TabStop = False
@@ -77,7 +77,7 @@ Partial Class Registrar_Pedido
         'Cantidad
         '
         Me.Cantidad.Location = New System.Drawing.Point(150, 186)
-        Me.Cantidad.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.Cantidad.Margin = New System.Windows.Forms.Padding(4)
         Me.Cantidad.Name = "Cantidad"
         Me.Cantidad.Size = New System.Drawing.Size(88, 22)
         Me.Cantidad.TabIndex = 7
@@ -105,7 +105,7 @@ Partial Class Registrar_Pedido
         'Descripcion
         '
         Me.Descripcion.Location = New System.Drawing.Point(150, 87)
-        Me.Descripcion.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.Descripcion.Margin = New System.Windows.Forms.Padding(4)
         Me.Descripcion.Name = "Descripcion"
         Me.Descripcion.Size = New System.Drawing.Size(312, 90)
         Me.Descripcion.TabIndex = 6
@@ -114,7 +114,7 @@ Partial Class Registrar_Pedido
         'Fecha_Fin
         '
         Me.Fecha_Fin.Location = New System.Drawing.Point(150, 55)
-        Me.Fecha_Fin.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.Fecha_Fin.Margin = New System.Windows.Forms.Padding(4)
         Me.Fecha_Fin.Name = "Fecha_Fin"
         Me.Fecha_Fin.Size = New System.Drawing.Size(313, 22)
         Me.Fecha_Fin.TabIndex = 5
@@ -122,7 +122,7 @@ Partial Class Registrar_Pedido
         'Fecha_Inicio
         '
         Me.Fecha_Inicio.Location = New System.Drawing.Point(150, 23)
-        Me.Fecha_Inicio.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.Fecha_Inicio.Margin = New System.Windows.Forms.Padding(4)
         Me.Fecha_Inicio.Name = "Fecha_Inicio"
         Me.Fecha_Inicio.Size = New System.Drawing.Size(313, 22)
         Me.Fecha_Inicio.TabIndex = 3
@@ -160,7 +160,7 @@ Partial Class Registrar_Pedido
         'RIF
         '
         Me.RIF.Location = New System.Drawing.Point(150, 23)
-        Me.RIF.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.RIF.Margin = New System.Windows.Forms.Padding(4)
         Me.RIF.Name = "RIF"
         Me.RIF.Size = New System.Drawing.Size(312, 22)
         Me.RIF.TabIndex = 8
@@ -179,7 +179,7 @@ Partial Class Registrar_Pedido
         '
         Me.Razon_Social.Enabled = False
         Me.Razon_Social.Location = New System.Drawing.Point(150, 55)
-        Me.Razon_Social.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.Razon_Social.Margin = New System.Windows.Forms.Padding(4)
         Me.Razon_Social.Name = "Razon_Social"
         Me.Razon_Social.Size = New System.Drawing.Size(312, 22)
         Me.Razon_Social.TabIndex = 9
@@ -191,9 +191,9 @@ Partial Class Registrar_Pedido
         Me.GroupBox2.Controls.Add(Me.Razon_Social)
         Me.GroupBox2.Controls.Add(Me.RIF)
         Me.GroupBox2.Location = New System.Drawing.Point(18, 246)
-        Me.GroupBox2.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.GroupBox2.Margin = New System.Windows.Forms.Padding(4)
         Me.GroupBox2.Name = "GroupBox2"
-        Me.GroupBox2.Padding = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.GroupBox2.Padding = New System.Windows.Forms.Padding(4)
         Me.GroupBox2.Size = New System.Drawing.Size(486, 94)
         Me.GroupBox2.TabIndex = 17
         Me.GroupBox2.TabStop = False
@@ -206,9 +206,9 @@ Partial Class Registrar_Pedido
         Me.GroupBox3.Controls.Add(Me.Nombre_Producto)
         Me.GroupBox3.Controls.Add(Me.Codigo_Barras)
         Me.GroupBox3.Location = New System.Drawing.Point(18, 347)
-        Me.GroupBox3.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.GroupBox3.Margin = New System.Windows.Forms.Padding(4)
         Me.GroupBox3.Name = "GroupBox3"
-        Me.GroupBox3.Padding = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.GroupBox3.Padding = New System.Windows.Forms.Padding(4)
         Me.GroupBox3.Size = New System.Drawing.Size(486, 95)
         Me.GroupBox3.TabIndex = 21
         Me.GroupBox3.TabStop = False
@@ -238,7 +238,7 @@ Partial Class Registrar_Pedido
         '
         Me.Nombre_Producto.Enabled = False
         Me.Nombre_Producto.Location = New System.Drawing.Point(150, 55)
-        Me.Nombre_Producto.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.Nombre_Producto.Margin = New System.Windows.Forms.Padding(4)
         Me.Nombre_Producto.Name = "Nombre_Producto"
         Me.Nombre_Producto.Size = New System.Drawing.Size(312, 22)
         Me.Nombre_Producto.TabIndex = 11
@@ -246,7 +246,7 @@ Partial Class Registrar_Pedido
         'Codigo_Barras
         '
         Me.Codigo_Barras.Location = New System.Drawing.Point(150, 23)
-        Me.Codigo_Barras.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.Codigo_Barras.Margin = New System.Windows.Forms.Padding(4)
         Me.Codigo_Barras.Name = "Codigo_Barras"
         Me.Codigo_Barras.Size = New System.Drawing.Size(312, 22)
         Me.Codigo_Barras.TabIndex = 10
@@ -261,9 +261,10 @@ Partial Class Registrar_Pedido
         Me.Controls.Add(Me.ingresar)
         Me.Controls.Add(Me.GroupBox1)
         Me.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.Margin = New System.Windows.Forms.Padding(4)
         Me.Name = "Registrar_Pedido"
         Me.Text = "Registrar Pedido"
+        Me.WindowState = System.Windows.Forms.FormWindowState.Maximized
         Me.GroupBox1.ResumeLayout(False)
         Me.GroupBox1.PerformLayout()
         Me.GroupBox2.ResumeLayout(False)

@@ -69,9 +69,9 @@ Partial Class Realizar_Venta
         Me.GroupBox1.Controls.Add(Me.Nombre)
         Me.GroupBox1.Controls.Add(Me.Label3)
         Me.GroupBox1.Location = New System.Drawing.Point(18, 79)
-        Me.GroupBox1.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.GroupBox1.Margin = New System.Windows.Forms.Padding(4)
         Me.GroupBox1.Name = "GroupBox1"
-        Me.GroupBox1.Padding = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.GroupBox1.Padding = New System.Windows.Forms.Padding(4)
         Me.GroupBox1.Size = New System.Drawing.Size(992, 60)
         Me.GroupBox1.TabIndex = 0
         Me.GroupBox1.TabStop = False
@@ -80,7 +80,7 @@ Partial Class Realizar_Venta
         'Identidad
         '
         Me.Identidad.Location = New System.Drawing.Point(72, 22)
-        Me.Identidad.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.Identidad.Margin = New System.Windows.Forms.Padding(4)
         Me.Identidad.Name = "Identidad"
         Me.Identidad.Size = New System.Drawing.Size(298, 22)
         Me.Identidad.TabIndex = 1
@@ -99,7 +99,7 @@ Partial Class Realizar_Venta
         '
         Me.Nombre.Enabled = False
         Me.Nombre.Location = New System.Drawing.Point(496, 22)
-        Me.Nombre.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.Nombre.Margin = New System.Windows.Forms.Padding(4)
         Me.Nombre.Name = "Nombre"
         Me.Nombre.Size = New System.Drawing.Size(474, 22)
         Me.Nombre.TabIndex = 13
@@ -122,9 +122,9 @@ Partial Class Realizar_Venta
         Me.GroupBox2.Controls.Add(Me.Vence)
         Me.GroupBox2.Controls.Add(Me.Label17)
         Me.GroupBox2.Location = New System.Drawing.Point(18, 15)
-        Me.GroupBox2.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.GroupBox2.Margin = New System.Windows.Forms.Padding(4)
         Me.GroupBox2.Name = "GroupBox2"
-        Me.GroupBox2.Padding = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.GroupBox2.Padding = New System.Windows.Forms.Padding(4)
         Me.GroupBox2.Size = New System.Drawing.Size(992, 59)
         Me.GroupBox2.TabIndex = 1
         Me.GroupBox2.TabStop = False
@@ -135,7 +135,7 @@ Partial Class Realizar_Venta
         Me.Fecha_Compra.CustomFormat = "dd/MM/yyyy HH:MM:ss"
         Me.Fecha_Compra.Format = System.Windows.Forms.DateTimePickerFormat.Custom
         Me.Fecha_Compra.Location = New System.Drawing.Point(45, 23)
-        Me.Fecha_Compra.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.Fecha_Compra.Margin = New System.Windows.Forms.Padding(4)
         Me.Fecha_Compra.Name = "Fecha_Compra"
         Me.Fecha_Compra.Size = New System.Drawing.Size(206, 22)
         Me.Fecha_Compra.TabIndex = 8
@@ -155,7 +155,7 @@ Partial Class Realizar_Venta
         '
         Me.Numero.Enabled = False
         Me.Numero.Location = New System.Drawing.Point(831, 23)
-        Me.Numero.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.Numero.Margin = New System.Windows.Forms.Padding(4)
         Me.Numero.Name = "Numero"
         Me.Numero.Size = New System.Drawing.Size(139, 22)
         Me.Numero.TabIndex = 6
@@ -165,7 +165,7 @@ Partial Class Realizar_Venta
         Me.Vence.CustomFormat = "dd/MM/yyyy HH:MM:ss"
         Me.Vence.Format = System.Windows.Forms.DateTimePickerFormat.Custom
         Me.Vence.Location = New System.Drawing.Point(483, 23)
-        Me.Vence.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.Vence.Margin = New System.Windows.Forms.Padding(4)
         Me.Vence.Name = "Vence"
         Me.Vence.Size = New System.Drawing.Size(206, 22)
         Me.Vence.TabIndex = 2
@@ -198,9 +198,9 @@ Partial Class Realizar_Venta
         Me.GroupBox3.Controls.Add(Me.Label11)
         Me.GroupBox3.Controls.Add(Me.Codigo_Barras)
         Me.GroupBox3.Location = New System.Drawing.Point(18, 331)
-        Me.GroupBox3.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.GroupBox3.Margin = New System.Windows.Forms.Padding(4)
         Me.GroupBox3.Name = "GroupBox3"
-        Me.GroupBox3.Padding = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.GroupBox3.Padding = New System.Windows.Forms.Padding(4)
         Me.GroupBox3.Size = New System.Drawing.Size(734, 150)
         Me.GroupBox3.TabIndex = 3
         Me.GroupBox3.TabStop = False
@@ -209,7 +209,7 @@ Partial Class Realizar_Venta
         'Cantidad
         '
         Me.Cantidad.Location = New System.Drawing.Point(399, 81)
-        Me.Cantidad.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.Cantidad.Margin = New System.Windows.Forms.Padding(4)
         Me.Cantidad.MaxLength = 3
         Me.Cantidad.Name = "Cantidad"
         Me.Cantidad.Size = New System.Drawing.Size(102, 22)
@@ -228,7 +228,7 @@ Partial Class Realizar_Venta
         'Button1
         '
         Me.Button1.Location = New System.Drawing.Point(590, 114)
-        Me.Button1.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.Button1.Margin = New System.Windows.Forms.Padding(4)
         Me.Button1.Name = "Button1"
         Me.Button1.Size = New System.Drawing.Size(135, 28)
         Me.Button1.TabIndex = 5
@@ -239,7 +239,7 @@ Partial Class Realizar_Venta
         '
         Me.SubtotalP.Enabled = False
         Me.SubtotalP.Location = New System.Drawing.Point(590, 81)
-        Me.SubtotalP.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.SubtotalP.Margin = New System.Windows.Forms.Padding(4)
         Me.SubtotalP.Name = "SubtotalP"
         Me.SubtotalP.Size = New System.Drawing.Size(133, 22)
         Me.SubtotalP.TabIndex = 11
@@ -258,7 +258,7 @@ Partial Class Realizar_Venta
         '
         Me.Descuento.Enabled = False
         Me.Descuento.Location = New System.Drawing.Point(106, 119)
-        Me.Descuento.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.Descuento.Margin = New System.Windows.Forms.Padding(4)
         Me.Descuento.Name = "Descuento"
         Me.Descuento.Size = New System.Drawing.Size(172, 22)
         Me.Descuento.TabIndex = 9
@@ -277,7 +277,7 @@ Partial Class Realizar_Venta
         '
         Me.Descripcion.Enabled = False
         Me.Descripcion.Location = New System.Drawing.Point(399, 22)
-        Me.Descripcion.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.Descripcion.Margin = New System.Windows.Forms.Padding(4)
         Me.Descripcion.Name = "Descripcion"
         Me.Descripcion.Size = New System.Drawing.Size(324, 47)
         Me.Descripcion.TabIndex = 7
@@ -297,7 +297,7 @@ Partial Class Realizar_Venta
         '
         Me.Punitario.Enabled = False
         Me.Punitario.Location = New System.Drawing.Point(106, 87)
-        Me.Punitario.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.Punitario.Margin = New System.Windows.Forms.Padding(4)
         Me.Punitario.Name = "Punitario"
         Me.Punitario.Size = New System.Drawing.Size(172, 22)
         Me.Punitario.TabIndex = 5
@@ -316,7 +316,7 @@ Partial Class Realizar_Venta
         '
         Me.NombreP.Enabled = False
         Me.NombreP.Location = New System.Drawing.Point(106, 55)
-        Me.NombreP.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.NombreP.Margin = New System.Windows.Forms.Padding(4)
         Me.NombreP.Name = "NombreP"
         Me.NombreP.Size = New System.Drawing.Size(172, 22)
         Me.NombreP.TabIndex = 3
@@ -344,7 +344,7 @@ Partial Class Realizar_Venta
         'Codigo_Barras
         '
         Me.Codigo_Barras.Location = New System.Drawing.Point(106, 23)
-        Me.Codigo_Barras.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.Codigo_Barras.Margin = New System.Windows.Forms.Padding(4)
         Me.Codigo_Barras.Name = "Codigo_Barras"
         Me.Codigo_Barras.Size = New System.Drawing.Size(172, 22)
         Me.Codigo_Barras.TabIndex = 3
@@ -358,9 +358,9 @@ Partial Class Realizar_Venta
         Me.GroupBox4.Controls.Add(Me.Sub_Total)
         Me.GroupBox4.Controls.Add(Me.Label8)
         Me.GroupBox4.Location = New System.Drawing.Point(759, 331)
-        Me.GroupBox4.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.GroupBox4.Margin = New System.Windows.Forms.Padding(4)
         Me.GroupBox4.Name = "GroupBox4"
-        Me.GroupBox4.Padding = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.GroupBox4.Padding = New System.Windows.Forms.Padding(4)
         Me.GroupBox4.Size = New System.Drawing.Size(250, 150)
         Me.GroupBox4.TabIndex = 4
         Me.GroupBox4.TabStop = False
@@ -370,7 +370,7 @@ Partial Class Realizar_Venta
         '
         Me.Total.Enabled = False
         Me.Total.Location = New System.Drawing.Point(106, 98)
-        Me.Total.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.Total.Margin = New System.Windows.Forms.Padding(4)
         Me.Total.Name = "Total"
         Me.Total.Size = New System.Drawing.Size(122, 22)
         Me.Total.TabIndex = 5
@@ -390,7 +390,7 @@ Partial Class Realizar_Venta
         '
         Me.Impuesto.Enabled = False
         Me.Impuesto.Location = New System.Drawing.Point(106, 66)
-        Me.Impuesto.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.Impuesto.Margin = New System.Windows.Forms.Padding(4)
         Me.Impuesto.Name = "Impuesto"
         Me.Impuesto.Size = New System.Drawing.Size(122, 22)
         Me.Impuesto.TabIndex = 3
@@ -410,7 +410,7 @@ Partial Class Realizar_Venta
         '
         Me.Sub_Total.Enabled = False
         Me.Sub_Total.Location = New System.Drawing.Point(106, 34)
-        Me.Sub_Total.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.Sub_Total.Margin = New System.Windows.Forms.Padding(4)
         Me.Sub_Total.Name = "Sub_Total"
         Me.Sub_Total.Size = New System.Drawing.Size(122, 22)
         Me.Sub_Total.TabIndex = 1
@@ -429,7 +429,7 @@ Partial Class Realizar_Venta
         'Button2
         '
         Me.Button2.Location = New System.Drawing.Point(782, 489)
-        Me.Button2.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.Button2.Margin = New System.Windows.Forms.Padding(4)
         Me.Button2.Name = "Button2"
         Me.Button2.Size = New System.Drawing.Size(228, 28)
         Me.Button2.TabIndex = 12
@@ -440,7 +440,7 @@ Partial Class Realizar_Venta
         '
         Me.DETALLE_VENTA.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
         Me.DETALLE_VENTA.Location = New System.Drawing.Point(18, 146)
-        Me.DETALLE_VENTA.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.DETALLE_VENTA.Margin = New System.Windows.Forms.Padding(4)
         Me.DETALLE_VENTA.Name = "DETALLE_VENTA"
         Me.DETALLE_VENTA.Size = New System.Drawing.Size(990, 177)
         Me.DETALLE_VENTA.TabIndex = 7
@@ -458,9 +458,8 @@ Partial Class Realizar_Venta
         Me.Controls.Add(Me.GroupBox2)
         Me.Controls.Add(Me.GroupBox1)
         Me.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.Margin = New System.Windows.Forms.Padding(4)
         Me.Name = "Realizar_Venta"
-        Me.StartPosition = System.Windows.Forms.FormStartPosition.Manual
         Me.Text = "Realizar Venta"
         Me.WindowState = System.Windows.Forms.FormWindowState.Maximized
         Me.GroupBox1.ResumeLayout(False)

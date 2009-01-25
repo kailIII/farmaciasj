@@ -69,7 +69,7 @@ Partial Class Registrar_Devolucion
         '
         Me.Procesar.Enabled = False
         Me.Procesar.Location = New System.Drawing.Point(760, 575)
-        Me.Procesar.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.Procesar.Margin = New System.Windows.Forms.Padding(4)
         Me.Procesar.Name = "Procesar"
         Me.Procesar.Size = New System.Drawing.Size(248, 28)
         Me.Procesar.TabIndex = 11
@@ -85,9 +85,9 @@ Partial Class Registrar_Devolucion
         Me.GroupBox4.Controls.Add(Me.Sub_Total)
         Me.GroupBox4.Controls.Add(Me.Label8)
         Me.GroupBox4.Location = New System.Drawing.Point(759, 439)
-        Me.GroupBox4.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.GroupBox4.Margin = New System.Windows.Forms.Padding(4)
         Me.GroupBox4.Name = "GroupBox4"
-        Me.GroupBox4.Padding = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.GroupBox4.Padding = New System.Windows.Forms.Padding(4)
         Me.GroupBox4.Size = New System.Drawing.Size(250, 128)
         Me.GroupBox4.TabIndex = 10
         Me.GroupBox4.TabStop = False
@@ -97,7 +97,7 @@ Partial Class Registrar_Devolucion
         '
         Me.Total.Enabled = False
         Me.Total.Location = New System.Drawing.Point(106, 87)
-        Me.Total.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.Total.Margin = New System.Windows.Forms.Padding(4)
         Me.Total.Name = "Total"
         Me.Total.Size = New System.Drawing.Size(122, 22)
         Me.Total.TabIndex = 5
@@ -118,7 +118,7 @@ Partial Class Registrar_Devolucion
         '
         Me.Impuesto.Enabled = False
         Me.Impuesto.Location = New System.Drawing.Point(106, 55)
-        Me.Impuesto.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.Impuesto.Margin = New System.Windows.Forms.Padding(4)
         Me.Impuesto.Name = "Impuesto"
         Me.Impuesto.Size = New System.Drawing.Size(122, 22)
         Me.Impuesto.TabIndex = 3
@@ -139,7 +139,7 @@ Partial Class Registrar_Devolucion
         '
         Me.Sub_Total.Enabled = False
         Me.Sub_Total.Location = New System.Drawing.Point(106, 23)
-        Me.Sub_Total.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.Sub_Total.Margin = New System.Windows.Forms.Padding(4)
         Me.Sub_Total.Name = "Sub_Total"
         Me.Sub_Total.Size = New System.Drawing.Size(122, 22)
         Me.Sub_Total.TabIndex = 1
@@ -170,9 +170,9 @@ Partial Class Registrar_Devolucion
         Me.GroupBox3.Controls.Add(Me.Label11)
         Me.GroupBox3.Controls.Add(Me.Codigo_Barras)
         Me.GroupBox3.Location = New System.Drawing.Point(18, 439)
-        Me.GroupBox3.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.GroupBox3.Margin = New System.Windows.Forms.Padding(4)
         Me.GroupBox3.Name = "GroupBox3"
-        Me.GroupBox3.Padding = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.GroupBox3.Padding = New System.Windows.Forms.Padding(4)
         Me.GroupBox3.Size = New System.Drawing.Size(734, 128)
         Me.GroupBox3.TabIndex = 9
         Me.GroupBox3.TabStop = False
@@ -182,7 +182,7 @@ Partial Class Registrar_Devolucion
         '
         Me.Devolver.Enabled = False
         Me.Devolver.Location = New System.Drawing.Point(556, 87)
-        Me.Devolver.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.Devolver.Margin = New System.Windows.Forms.Padding(4)
         Me.Devolver.Name = "Devolver"
         Me.Devolver.Size = New System.Drawing.Size(168, 28)
         Me.Devolver.TabIndex = 15
@@ -193,7 +193,7 @@ Partial Class Registrar_Devolucion
         '
         Me.Cantidad.Enabled = False
         Me.Cantidad.Location = New System.Drawing.Point(556, 55)
-        Me.Cantidad.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.Cantidad.Margin = New System.Windows.Forms.Padding(4)
         Me.Cantidad.MaxLength = 3
         Me.Cantidad.Name = "Cantidad"
         Me.Cantidad.Size = New System.Drawing.Size(166, 22)
@@ -214,7 +214,7 @@ Partial Class Registrar_Devolucion
         '
         Me.Descuento.Enabled = False
         Me.Descuento.Location = New System.Drawing.Point(106, 87)
-        Me.Descuento.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.Descuento.Margin = New System.Windows.Forms.Padding(4)
         Me.Descuento.Name = "Descuento"
         Me.Descuento.Size = New System.Drawing.Size(172, 22)
         Me.Descuento.TabIndex = 9
@@ -234,7 +234,7 @@ Partial Class Registrar_Devolucion
         '
         Me.Punitario.Enabled = False
         Me.Punitario.Location = New System.Drawing.Point(106, 55)
-        Me.Punitario.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.Punitario.Margin = New System.Windows.Forms.Padding(4)
         Me.Punitario.Name = "Punitario"
         Me.Punitario.Size = New System.Drawing.Size(172, 22)
         Me.Punitario.TabIndex = 5
@@ -253,7 +253,7 @@ Partial Class Registrar_Devolucion
         '
         Me.NombreP.Enabled = False
         Me.NombreP.Location = New System.Drawing.Point(364, 23)
-        Me.NombreP.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.NombreP.Margin = New System.Windows.Forms.Padding(4)
         Me.NombreP.Name = "NombreP"
         Me.NombreP.Size = New System.Drawing.Size(358, 22)
         Me.NombreP.TabIndex = 3
@@ -281,7 +281,7 @@ Partial Class Registrar_Devolucion
         'Codigo_Barras
         '
         Me.Codigo_Barras.Location = New System.Drawing.Point(106, 23)
-        Me.Codigo_Barras.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.Codigo_Barras.Margin = New System.Windows.Forms.Padding(4)
         Me.Codigo_Barras.Name = "Codigo_Barras"
         Me.Codigo_Barras.Size = New System.Drawing.Size(172, 22)
         Me.Codigo_Barras.TabIndex = 0
@@ -290,9 +290,9 @@ Partial Class Registrar_Devolucion
         '
         Me.GroupBox5.Controls.Add(Me.Detalle_DEV)
         Me.GroupBox5.Location = New System.Drawing.Point(20, 272)
-        Me.GroupBox5.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.GroupBox5.Margin = New System.Windows.Forms.Padding(4)
         Me.GroupBox5.Name = "GroupBox5"
-        Me.GroupBox5.Padding = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.GroupBox5.Padding = New System.Windows.Forms.Padding(4)
         Me.GroupBox5.Size = New System.Drawing.Size(988, 160)
         Me.GroupBox5.TabIndex = 14
         Me.GroupBox5.TabStop = False
@@ -304,7 +304,7 @@ Partial Class Registrar_Devolucion
         Me.Detalle_DEV.AllowUserToDeleteRows = False
         Me.Detalle_DEV.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
         Me.Detalle_DEV.Location = New System.Drawing.Point(10, 23)
-        Me.Detalle_DEV.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.Detalle_DEV.Margin = New System.Windows.Forms.Padding(4)
         Me.Detalle_DEV.Name = "Detalle_DEV"
         Me.Detalle_DEV.ReadOnly = True
         Me.Detalle_DEV.Size = New System.Drawing.Size(968, 129)
@@ -314,7 +314,7 @@ Partial Class Registrar_Devolucion
         '
         Me.Direccion.Enabled = False
         Me.Direccion.Location = New System.Drawing.Point(405, 48)
-        Me.Direccion.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.Direccion.Margin = New System.Windows.Forms.Padding(4)
         Me.Direccion.Name = "Direccion"
         Me.Direccion.Size = New System.Drawing.Size(574, 22)
         Me.Direccion.TabIndex = 6
@@ -323,7 +323,7 @@ Partial Class Registrar_Devolucion
         '
         Me.Telefono.Enabled = False
         Me.Telefono.Location = New System.Drawing.Point(120, 48)
-        Me.Telefono.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.Telefono.Margin = New System.Windows.Forms.Padding(4)
         Me.Telefono.Name = "Telefono"
         Me.Telefono.Size = New System.Drawing.Size(187, 22)
         Me.Telefono.TabIndex = 8
@@ -362,7 +362,7 @@ Partial Class Registrar_Devolucion
         '
         Me.Razon_Social.Enabled = False
         Me.Razon_Social.Location = New System.Drawing.Point(120, 16)
-        Me.Razon_Social.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.Razon_Social.Margin = New System.Windows.Forms.Padding(4)
         Me.Razon_Social.Name = "Razon_Social"
         Me.Razon_Social.Size = New System.Drawing.Size(492, 22)
         Me.Razon_Social.TabIndex = 13
@@ -381,7 +381,7 @@ Partial Class Registrar_Devolucion
         '
         Me.Rif.Enabled = False
         Me.Rif.Location = New System.Drawing.Point(681, 16)
-        Me.Rif.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.Rif.Margin = New System.Windows.Forms.Padding(4)
         Me.Rif.Name = "Rif"
         Me.Rif.Size = New System.Drawing.Size(298, 22)
         Me.Rif.TabIndex = 2
@@ -398,9 +398,9 @@ Partial Class Registrar_Devolucion
         Me.GroupBox2.Controls.Add(Me.Telefono)
         Me.GroupBox2.Controls.Add(Me.Direccion)
         Me.GroupBox2.Location = New System.Drawing.Point(16, 70)
-        Me.GroupBox2.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.GroupBox2.Margin = New System.Windows.Forms.Padding(4)
         Me.GroupBox2.Name = "GroupBox2"
-        Me.GroupBox2.Padding = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.GroupBox2.Padding = New System.Windows.Forms.Padding(4)
         Me.GroupBox2.Size = New System.Drawing.Size(992, 194)
         Me.GroupBox2.TabIndex = 8
         Me.GroupBox2.TabStop = False
@@ -412,7 +412,7 @@ Partial Class Registrar_Devolucion
         Me.DETALLE_VENTA.AllowUserToDeleteRows = False
         Me.DETALLE_VENTA.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
         Me.DETALLE_VENTA.Location = New System.Drawing.Point(14, 80)
-        Me.DETALLE_VENTA.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.DETALLE_VENTA.Margin = New System.Windows.Forms.Padding(4)
         Me.DETALLE_VENTA.Name = "DETALLE_VENTA"
         Me.DETALLE_VENTA.ReadOnly = True
         Me.DETALLE_VENTA.Size = New System.Drawing.Size(968, 100)
@@ -425,9 +425,9 @@ Partial Class Registrar_Devolucion
         Me.GroupBox1.Controls.Add(Me.Numero_Control)
         Me.GroupBox1.Controls.Add(Me.Label1)
         Me.GroupBox1.Location = New System.Drawing.Point(18, 15)
-        Me.GroupBox1.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.GroupBox1.Margin = New System.Windows.Forms.Padding(4)
         Me.GroupBox1.Name = "GroupBox1"
-        Me.GroupBox1.Padding = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.GroupBox1.Padding = New System.Windows.Forms.Padding(4)
         Me.GroupBox1.Size = New System.Drawing.Size(992, 48)
         Me.GroupBox1.TabIndex = 0
         Me.GroupBox1.TabStop = False
@@ -438,7 +438,7 @@ Partial Class Registrar_Devolucion
         Me.Fecha_Compra.CustomFormat = "dd/MM/yyyy HH:MM:ss"
         Me.Fecha_Compra.Format = System.Windows.Forms.DateTimePickerFormat.Custom
         Me.Fecha_Compra.Location = New System.Drawing.Point(24, 16)
-        Me.Fecha_Compra.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.Fecha_Compra.Margin = New System.Windows.Forms.Padding(4)
         Me.Fecha_Compra.Name = "Fecha_Compra"
         Me.Fecha_Compra.Size = New System.Drawing.Size(206, 22)
         Me.Fecha_Compra.TabIndex = 16
@@ -450,7 +450,7 @@ Partial Class Registrar_Devolucion
         Me.Vence1.Enabled = False
         Me.Vence1.Format = System.Windows.Forms.DateTimePickerFormat.Custom
         Me.Vence1.Location = New System.Drawing.Point(242, 15)
-        Me.Vence1.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.Vence1.Margin = New System.Windows.Forms.Padding(4)
         Me.Vence1.Name = "Vence1"
         Me.Vence1.Size = New System.Drawing.Size(206, 22)
         Me.Vence1.TabIndex = 15
@@ -459,7 +459,7 @@ Partial Class Registrar_Devolucion
         'Numero_Control
         '
         Me.Numero_Control.Location = New System.Drawing.Point(772, 16)
-        Me.Numero_Control.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.Numero_Control.Margin = New System.Windows.Forms.Padding(4)
         Me.Numero_Control.Name = "Numero_Control"
         Me.Numero_Control.Size = New System.Drawing.Size(208, 22)
         Me.Numero_Control.TabIndex = 1
@@ -486,9 +486,10 @@ Partial Class Registrar_Devolucion
         Me.Controls.Add(Me.GroupBox2)
         Me.Controls.Add(Me.GroupBox1)
         Me.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.Margin = New System.Windows.Forms.Padding(4)
         Me.Name = "Registrar_Devolucion"
         Me.Text = "Registrar Devolución"
+        Me.WindowState = System.Windows.Forms.FormWindowState.Maximized
         Me.GroupBox4.ResumeLayout(False)
         Me.GroupBox4.PerformLayout()
         Me.GroupBox3.ResumeLayout(False)

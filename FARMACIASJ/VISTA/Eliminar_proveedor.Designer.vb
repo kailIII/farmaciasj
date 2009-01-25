@@ -123,6 +123,7 @@ Partial Class Eliminar_proveedor
         Me.Margin = New System.Windows.Forms.Padding(4)
         Me.Name = "Eliminar_proveedor"
         Me.Text = "Eliminar proveedor"
+        Me.WindowState = System.Windows.Forms.FormWindowState.Maximized
         Me.GroupBox3.ResumeLayout(False)
         Me.GroupBox2.ResumeLayout(False)
         Me.GroupBox2.PerformLayout()

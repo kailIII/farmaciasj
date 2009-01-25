@@ -48,9 +48,9 @@ Partial Class Modificar_Linea
         Me.GroupBox1.Controls.Add(Me.Label2)
         Me.GroupBox1.Controls.Add(Me.Label1)
         Me.GroupBox1.Location = New System.Drawing.Point(18, 15)
-        Me.GroupBox1.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.GroupBox1.Margin = New System.Windows.Forms.Padding(4)
         Me.GroupBox1.Name = "GroupBox1"
-        Me.GroupBox1.Padding = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.GroupBox1.Padding = New System.Windows.Forms.Padding(4)
         Me.GroupBox1.Size = New System.Drawing.Size(498, 326)
         Me.GroupBox1.TabIndex = 1
         Me.GroupBox1.TabStop = False
@@ -90,7 +90,7 @@ Partial Class Modificar_Linea
         '
         Me.Modificar_Boton.Enabled = False
         Me.Modificar_Boton.Location = New System.Drawing.Point(362, 283)
-        Me.Modificar_Boton.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.Modificar_Boton.Margin = New System.Windows.Forms.Padding(4)
         Me.Modificar_Boton.Name = "Modificar_Boton"
         Me.Modificar_Boton.Size = New System.Drawing.Size(112, 28)
         Me.Modificar_Boton.TabIndex = 7
@@ -111,7 +111,7 @@ Partial Class Modificar_Linea
         '
         Me.MargenUtil.Enabled = False
         Me.MargenUtil.Location = New System.Drawing.Point(302, 240)
-        Me.MargenUtil.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.MargenUtil.Margin = New System.Windows.Forms.Padding(4)
         Me.MargenUtil.MaxLength = 3
         Me.MargenUtil.Name = "MargenUtil"
         Me.MargenUtil.Size = New System.Drawing.Size(148, 22)
@@ -121,7 +121,7 @@ Partial Class Modificar_Linea
         '
         Me.DescripcionLinea.Enabled = False
         Me.DescripcionLinea.Location = New System.Drawing.Point(112, 55)
-        Me.DescripcionLinea.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.DescripcionLinea.Margin = New System.Windows.Forms.Padding(4)
         Me.DescripcionLinea.MaxLength = 200
         Me.DescripcionLinea.Name = "DescripcionLinea"
         Me.DescripcionLinea.Size = New System.Drawing.Size(360, 133)
@@ -132,7 +132,7 @@ Partial Class Modificar_Linea
         '
         Me.DescMax.Enabled = False
         Me.DescMax.Location = New System.Drawing.Point(302, 203)
-        Me.DescMax.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.DescMax.Margin = New System.Windows.Forms.Padding(4)
         Me.DescMax.MaxLength = 3
         Me.DescMax.Name = "DescMax"
         Me.DescMax.Size = New System.Drawing.Size(148, 22)
@@ -142,7 +142,7 @@ Partial Class Modificar_Linea
         '
         Me.NombreLinea.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper
         Me.NombreLinea.Location = New System.Drawing.Point(112, 23)
-        Me.NombreLinea.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.NombreLinea.Margin = New System.Windows.Forms.Padding(4)
         Me.NombreLinea.MaxLength = 50
         Me.NombreLinea.Name = "NombreLinea"
         Me.NombreLinea.Size = New System.Drawing.Size(360, 22)
@@ -175,9 +175,10 @@ Partial Class Modificar_Linea
         Me.ClientSize = New System.Drawing.Size(538, 357)
         Me.Controls.Add(Me.GroupBox1)
         Me.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.Margin = New System.Windows.Forms.Padding(4)
         Me.Name = "Modificar_Linea"
         Me.Text = "Modificar_Linea"
+        Me.WindowState = System.Windows.Forms.FormWindowState.Maximized
         Me.GroupBox1.ResumeLayout(False)
         Me.GroupBox1.PerformLayout()
         Me.ResumeLayout(False)
