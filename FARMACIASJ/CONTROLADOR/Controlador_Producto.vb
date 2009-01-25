@@ -178,7 +178,7 @@ Public Class Controlador_Producto
         Dim a As Boolean
         a = producto.modificar_producto(Id_producto, desc_producto, ge_producto, u_producto, linea)
         If (a = True) Then
-            MsgBox("El producto se ha modificado con exito", MsgBoxStyle.OkOnly, "Informacion")
+            MsgBox("El producto se ha modificado con éxito", MsgBoxStyle.OkOnly, "Informacion")
         Else
             MsgBox("Error, el producto no se ha podido modificar", MsgBoxStyle.OkOnly, "Error")
         End If

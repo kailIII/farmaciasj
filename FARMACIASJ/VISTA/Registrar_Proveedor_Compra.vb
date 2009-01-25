@@ -61,7 +61,7 @@ Public Class Registrar_Proveedor_Compra
         If (MsgBox("Esta seguro de Ingresar al Proveedor: " & Me.Nombre.Text, MsgBoxStyle.YesNo, "Confirmar") = MsgBoxResult.Yes) Then
             a = Proveedor.Ingresando_Proveedor2(Me.Rif.Text, Me.Nombre.Text, Me.Ciudad.Text, Me.Dir.Text, Me.Telefonos, Codigo.Text, Me.Correo.Text, Me.Saldo.Text, Me)
             If (a = True) Then
-                MsgBox("Se Ingreso el proveedor con Exito", MsgBoxStyle.OkOnly, "Informacion")
+                MsgBox("Se Ingreso el proveedor con éxito", MsgBoxStyle.OkOnly, "Informacion")
                 Proveedor.Buscar_Rif(Rif.Text, Proveedor.Compra)
             Else
                 MsgBox("El proveedor no se pudo ingresar, verifique e intente de nuevo", MsgBoxStyle.OkOnly, "Error")

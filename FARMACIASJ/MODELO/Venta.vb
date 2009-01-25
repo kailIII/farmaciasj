@@ -210,10 +210,10 @@ Public Class Venta
             BD.Fill(FarmaciaSJ, "CLIENTE")
             Factura.SetDataSource(FarmaciaSJ)
             Factura.PrintToPrinter(1, True, 1, 2)
-            MsgBox("La factura se Processo con exito", MsgBoxStyle.OkOnly, "Aviso")
+            MsgBox("La factura se procesó con éxito", MsgBoxStyle.OkOnly, "Aviso")
             Return FarmaciaSJ
         Catch E As Exception
-            MsgBox("La Factura se processo con exito, pero existen errores con la Impresor", MsgBoxStyle.OkOnly, "Error")
+            MsgBox("La Factura se procesó con éxito, pero existen problemas con la Impresora", MsgBoxStyle.OkOnly, "Error")
             Return FarmaciaSJ
         End Try
     End Function

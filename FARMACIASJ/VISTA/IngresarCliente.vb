@@ -96,7 +96,7 @@ Public Class IngresarCliente
             If (NOMBRE.Text <> "" And RIF.Text <> "" And TELEFONO.Text <> "" And DIRECCION.Text <> "") Then
                 If (MsgBox("Seguro que desea Ingresar al Cliente: " & NOMBRE.Text, MsgBoxStyle.YesNo, "Verificar") = MsgBoxResult.Yes) Then
                     If (Cliente.Ingresar_Cliente(RIF.Text, NOMBRE.Text, TELEFONO.Text, DIRECCION.Text)) Then
-                        MsgBox("El Cliente se ingreso con Exito", MsgBoxStyle.OkOnly, "Informacion")
+                        MsgBox("El Cliente se ingreso con éxito", MsgBoxStyle.OkOnly, "Informacion")
                         If (Cliente.condicion = 1) Then
                             Cliente.Buscar_Cliente(Me.RIF.Text, Cliente.Venta)
                             Me.Close()
@@ -112,7 +112,7 @@ Public Class IngresarCliente
             If (NOMBRE.Text <> "" And APELLIDO.Text <> "" And RIF.Text <> "" And TELEFONO.Text <> "" And DIRECCION.Text <> "") Then
                 If (MsgBox("Seguro que desea Ingresar al Cliente: " & NOMBRE.Text & " " & APELLIDO.Text, MsgBoxStyle.YesNo, "Verificar") = MsgBoxResult.Yes) Then
                     If (Cliente.Ingresar_Cliente(RIF.Text, NOMBRE.Text, APELLIDO.Text, TELEFONO.Text, DIRECCION.Text)) Then
-                        MsgBox("El Cliente se ingreso con Exito", MsgBoxStyle.OkOnly, "Informacion")
+                        MsgBox("El Cliente se ingreso con éxito", MsgBoxStyle.OkOnly, "Informacion")
                         If (Cliente.condicion = 1) Then
                             Cliente.Buscar_Cliente(Me.RIF.Text, Cliente.Venta)
                             Me.Close()

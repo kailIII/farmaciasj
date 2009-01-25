@@ -300,7 +300,7 @@ Partial Class Administrador
         Me.MainMenuStrip = Me.MenuStrip
         Me.Margin = New System.Windows.Forms.Padding(4)
         Me.Name = "Administrador"
-        Me.Text = "ADMINISTRADOR"
+        Me.Text = "FarmaciaSJ - Administrador"
         Me.WindowState = System.Windows.Forms.FormWindowState.Maximized
         Me.MenuStrip.ResumeLayout(False)
         Me.MenuStrip.PerformLayout()

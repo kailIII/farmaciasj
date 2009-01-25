@@ -52,7 +52,7 @@ Public Class Controlador_OtrosGastos
         resultado = Gasto.Insertar_Otro_Gasto()
 
         If (resultado = True) Then
-            MsgBox("El Gasto se ingreso con exito en la Base de datos", MsgBoxStyle.OkOnly, "Aviso")
+            MsgBox("El Gasto se ingreso con éxito en la Base de datos", MsgBoxStyle.OkOnly, "Aviso")
             Ventana = Me.Ventana
             Ventana.Close()
         Else

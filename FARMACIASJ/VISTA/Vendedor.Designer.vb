@@ -58,15 +58,15 @@ Partial Class Vendedor
         '
         Me.PuntoDeVentaToolStripMenuItem.Name = "PuntoDeVentaToolStripMenuItem"
         Me.PuntoDeVentaToolStripMenuItem.ShortcutKeys = CType((System.Windows.Forms.Keys.Control Or System.Windows.Forms.Keys.V), System.Windows.Forms.Keys)
-        Me.PuntoDeVentaToolStripMenuItem.Size = New System.Drawing.Size(257, 22)
-        Me.PuntoDeVentaToolStripMenuItem.Text = "Punto_De_Venta"
+        Me.PuntoDeVentaToolStripMenuItem.Size = New System.Drawing.Size(253, 22)
+        Me.PuntoDeVentaToolStripMenuItem.Text = "Punto de Venta"
         '
         'DeToolStripMenuItem
         '
         Me.DeToolStripMenuItem.Name = "DeToolStripMenuItem"
         Me.DeToolStripMenuItem.ShortcutKeys = CType((System.Windows.Forms.Keys.Control Or System.Windows.Forms.Keys.D), System.Windows.Forms.Keys)
-        Me.DeToolStripMenuItem.Size = New System.Drawing.Size(257, 22)
-        Me.DeToolStripMenuItem.Text = "&Devolucion_Venta"
+        Me.DeToolStripMenuItem.Size = New System.Drawing.Size(253, 22)
+        Me.DeToolStripMenuItem.Text = "&Devolucion Venta"
         '
         'RegToolStripMenuItem
         '
@@ -80,13 +80,13 @@ Partial Class Vendedor
         Me.ConfiguracionToolStripMenuItem.Font = New System.Drawing.Font("Tahoma", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.ConfiguracionToolStripMenuItem.Name = "ConfiguracionToolStripMenuItem"
         Me.ConfiguracionToolStripMenuItem.Size = New System.Drawing.Size(108, 20)
-        Me.ConfiguracionToolStripMenuItem.Text = "C&onfiguracion"
+        Me.ConfiguracionToolStripMenuItem.Text = "C&onfiguración"
         '
         'DatosFarmaciaToolStripMenuItem
         '
         Me.DatosFarmaciaToolStripMenuItem.Name = "DatosFarmaciaToolStripMenuItem"
-        Me.DatosFarmaciaToolStripMenuItem.Size = New System.Drawing.Size(192, 22)
-        Me.DatosFarmaciaToolStripMenuItem.Text = "Datos_Farmacia"
+        Me.DatosFarmaciaToolStripMenuItem.Size = New System.Drawing.Size(188, 22)
+        Me.DatosFarmaciaToolStripMenuItem.Text = "Datos Farmacia"
         '
         'SalirToolStripMenuItem
         '
@@ -100,15 +100,15 @@ Partial Class Vendedor
         '
         Me.CerrarSesionToolStripMenuItem.Name = "CerrarSesionToolStripMenuItem"
         Me.CerrarSesionToolStripMenuItem.ShortcutKeys = CType((System.Windows.Forms.Keys.Alt Or System.Windows.Forms.Keys.S), System.Windows.Forms.Keys)
-        Me.CerrarSesionToolStripMenuItem.Size = New System.Drawing.Size(248, 22)
-        Me.CerrarSesionToolStripMenuItem.Text = "Cerrar_Sesion"
+        Me.CerrarSesionToolStripMenuItem.Size = New System.Drawing.Size(244, 22)
+        Me.CerrarSesionToolStripMenuItem.Text = "Cerrar Sesión"
         '
         'CerrarProgramaToolStripMenuItem
         '
         Me.CerrarProgramaToolStripMenuItem.Name = "CerrarProgramaToolStripMenuItem"
         Me.CerrarProgramaToolStripMenuItem.ShortcutKeys = CType((System.Windows.Forms.Keys.Alt Or System.Windows.Forms.Keys.P), System.Windows.Forms.Keys)
-        Me.CerrarProgramaToolStripMenuItem.Size = New System.Drawing.Size(248, 22)
-        Me.CerrarProgramaToolStripMenuItem.Text = "Cerrar_Programa"
+        Me.CerrarProgramaToolStripMenuItem.Size = New System.Drawing.Size(244, 22)
+        Me.CerrarProgramaToolStripMenuItem.Text = "Cerrar Programa"
         '
         'StatusStrip
         '
@@ -138,7 +138,7 @@ Partial Class Vendedor
         Me.MainMenuStrip = Me.MenuStrip
         Me.Margin = New System.Windows.Forms.Padding(4)
         Me.Name = "Vendedor"
-        Me.Text = "VENDEDOR"
+        Me.Text = "FarmaciaSJ - Vendedor"
         Me.WindowState = System.Windows.Forms.FormWindowState.Maximized
         Me.MenuStrip.ResumeLayout(False)
         Me.MenuStrip.PerformLayout()

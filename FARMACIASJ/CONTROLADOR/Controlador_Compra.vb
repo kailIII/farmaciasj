@@ -95,10 +95,10 @@ Public Class Controlador_Compra
                 a = Compra_x.Modificar_Proveedor(CTotal, Id_Proveedor)
                 Compra.DETALLE_COMPRA.DataSource = ControladorF.Traer_Detalle(Compra_x.Buscar_Id_Compra_Factura(Numero))
                 Compra.DETALLE_COMPRA.Update()
-                MsgBox("La Compra se Modifico con Exito", MsgBoxStyle.OkOnly, "Informa")
+                MsgBox("La Compra se modificó con éxito", MsgBoxStyle.OkOnly, "Informa")
             End If
         Else
-            MsgBox("No se pudo modificar la Compra, Verifique e Itente de nuevo", MsgBoxStyle.OkOnly, "Error")
+            MsgBox("No se pudo modificar la Compra, verifique e intente de nuevo", MsgBoxStyle.OkOnly, "Error")
         End If
     End Sub
 
