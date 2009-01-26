@@ -68,6 +68,7 @@
     <Compile Include="CONTROLADOR\Controlador_Producto.vb" />
     <Compile Include="CONTROLADOR\Controlador_Proveedor.vb" />
     <Compile Include="CONTROLADOR\Controlador_Venta.vb" />
+    <Compile Include="CONTROLADOR\Validaciones_Generales.vb" />
     <Compile Include="MODELO\Empleado.vb" />
     <Compile Include="MODELO\FarmaciaSJDataSet.Designer.vb">
       <AutoGen>True</AutoGen>
@@ -77,7 +78,7 @@
     <Compile Include="MODELO\Compra.vb" />
     <Compile Include="MODELO\Cliente.vb" />
     <Compile Include="CONTROLADOR\Controlador_Cliente.vb" />
-    <Compile Include="MODELO\Validaciones_Generales.vb" />
+    <Compile Include="CONTROLADOR\Validaciones_Generales.vb" />
     <Compile Include="MODELO\Impuesto.vb" />
     <Compile Include="MODELO\Linea.vb" />
     <Compile Include="MODELO\OtrosGastos.vb" />
