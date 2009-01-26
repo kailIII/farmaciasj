@@ -153,7 +153,7 @@ Public Class Controlador_Empleado
                     ' cambio de sueldo
                     Ventana.Cargo.Text = Cargo_Temporal
                     Ventana.Sueldo.Text = Sueldo_Temporal
-                    Ventana.Cargo.Enabled = False
+                    Ventana.Cargo.Enabled = True
                     Ventana.Sueldo.Enabled = True
                     Ventana.Sueldo.Focus()
                     Ventana.Registrando.Enabled = True
@@ -209,6 +209,22 @@ Public Class Controlador_Empleado
         Ventana.Show()
     End Sub
 
+    Public Sub Abrir_Reporte(ByVal Padre As Windows.Forms.Form)
+        Dim Ventana As Reporte
+        Ventana = New Reporte
+        Dim Nomina As Nomina
+        Dim Empleado As Empleado
+        Dim Resultado As Boolean
+        Empleado = New Empleado
 
-
+        Resultado = Empleado.Generar_Reporte_Nomina()
+        If (Resultado = True) Then
+            Nomina = Empleado.Reporte
+            Ventana.visor.ReportSource = Nomina
+            Ventana.MdiParent = Padre
+            Ventana.Show()
+        Else
+            MsgBox("Error, El Reporte no se ha podido Generar, Intente de nuevo", MsgBoxStyle.OkOnly, "Error")
+        End If
+    End Sub
 End Class

@@ -44,3 +44,4 @@ C:\Documents and Settings\jeraro\Mis documentos\FarnaciaSJ\FARMACIASJ\obj\Debug\
 C:\Documents and Settings\jeraro\Mis documentos\FarnaciaSJ\FARMACIASJ\obj\Debug\FARMACIASJ.application
 C:\Documents and Settings\jeraro\Mis documentos\FarnaciaSJ\FARMACIASJ\obj\Debug\FARMACIASJ.exe
 C:\Documents and Settings\jeraro\Mis documentos\FarnaciaSJ\FARMACIASJ\obj\Debug\FARMACIASJ.pdb
+C:\Documents and Settings\jeraro\Mis documentos\FarnaciaSJ\FARMACIASJ\obj\Debug\FARMACIASJ.Nomina.rpt

@@ -166,19 +166,19 @@ Partial Class Administrador
         'IngresarToolStripMenuItem
         '
         Me.IngresarToolStripMenuItem.Name = "IngresarToolStripMenuItem"
-        Me.IngresarToolStripMenuItem.Size = New System.Drawing.Size(152, 22)
+        Me.IngresarToolStripMenuItem.Size = New System.Drawing.Size(148, 22)
         Me.IngresarToolStripMenuItem.Text = "Ingresar"
         '
         'ConsultarToolStripMenuItem
         '
         Me.ConsultarToolStripMenuItem.Name = "ConsultarToolStripMenuItem"
-        Me.ConsultarToolStripMenuItem.Size = New System.Drawing.Size(152, 22)
+        Me.ConsultarToolStripMenuItem.Size = New System.Drawing.Size(148, 22)
         Me.ConsultarToolStripMenuItem.Text = "Modificar"
         '
         'EliminarToolStripMenuItem
         '
         Me.EliminarToolStripMenuItem.Name = "EliminarToolStripMenuItem"
-        Me.EliminarToolStripMenuItem.Size = New System.Drawing.Size(152, 22)
+        Me.EliminarToolStripMenuItem.Size = New System.Drawing.Size(148, 22)
         Me.EliminarToolStripMenuItem.Text = "Eliminar"
         '
         'RegistrarCompraToolStripMenuItem

@@ -123,4 +123,9 @@ Public Class Administrador
         Dim Ventana As New Controlador_Proveedor
         Ventana.Abrir_Ventana_Eliminar_Proveedor(Me)
     End Sub
+
+    Private Sub ReporteDeEmpleadosToolStripMenuItem_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles ReporteDeEmpleadosToolStripMenuItem.Click
+        Dim Proveedor As New Controlador_Empleado
+        Proveedor.Abrir_Reporte(Me)
+    End Sub
 End Class

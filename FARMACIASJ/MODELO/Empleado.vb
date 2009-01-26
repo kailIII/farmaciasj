@@ -1,4 +1,5 @@
 Public Class Empleado
+    Public Reporte As Nomina
     Public Function Existe_Empleado(ByVal Cedula As String) As Integer
 
         Dim Empleo As FarmaciaSJDataSetTableAdapters.EMPLEADOTableAdapter
@@ -135,7 +136,7 @@ Public Class Empleado
             Dim BasedeDatos As FarmaciaSJDataSet
             BasedeDatos = New FarmaciaSJDataSet
             EmpleadoTableAdapter = New FarmaciaSJDataSetTableAdapters.EMPLEADOTableAdapter
-            'EmpleadoTableAdapter.Insert(Nombre, Apellido, Cedula, Telefono, Correo)
+            EmpleadoTableAdapter.Insert(Nombre, Apellido, Cedula, Telefono, Correo)
             EmpleadoTableAdapter.Update(BasedeDatos.EMPLEADO)
             BasedeDatos.AcceptChanges()
             Return True
@@ -156,14 +157,40 @@ Public Class Empleado
 
             Consulta.Connection = Conextion
             If Actualizar Then
-                Consulta.CommandText = "UPDATE HISTORICO_EMPLEADO SET CARGO='" & Cargo & "', SUELDO='" & Sueldo & "' WHERE FECHA_FIN IS NULL AND ID_EMPLEADO=" & Id_Empleado
-            Else
-                Consulta.CommandText = "INSERT INTO HISTORICO_EMPLEADO (ID_EMPLEADO,CARGO,SUELDO,FECHA_INGRESO,FECHA_FIN,JUSTIFICACION) VALUES (" & Id_Empleado & ", '" & Cargo & "'," & Sueldo & ", GETDATE(), NULL, '')"
+                Consulta.CommandText = "UPDATE HISTORICO_EMPLEADO SET FECHA_FIN=GETDATE(), JUSTIFICACION='Cambio de Salario o Cargo' WHERE FECHA_FIN IS NULL AND ID_EMPLEADO=" & Id_Empleado
+                Consulta.ExecuteNonQuery()
             End If
-
+            Consulta.CommandText = "INSERT INTO HISTORICO_EMPLEADO (ID_EMPLEADO,CARGO,SUELDO,FECHA_INGRESO,FECHA_FIN,JUSTIFICACION) VALUES (" & Id_Empleado & ", '" & Cargo & "'," & Sueldo & ", GETDATE(), NULL, '')"
             Consulta.ExecuteNonQuery()
             Return True
-        Catch ex As ArgumentNullException
+        Catch ex As Exception
+            Return False
+        End Try
+    End Function
+
+    Public Function Generar_Reporte_Nomina() As Boolean
+        Me.Reporte = New Nomina
+        Dim FarmaciaSJ As New FarmaciaSJDataSet
+        Dim Detalle As FarmaciaSJDataSetTableAdapters.DETALLE_VENTATableAdapter = New FarmaciaSJDataSetTableAdapters.DETALLE_VENTATableAdapter
+        Dim Connection As Data.SqlClient.SqlConnection = New Data.SqlClient.SqlConnection
+        Dim Command As Data.SqlClient.SqlCommand = New Data.SqlClient.SqlCommand
+        Dim Control2 As New Data.DataSet
+        Dim BD As Data.SqlClient.SqlDataAdapter
+        Try
+            Connection = Detalle.Connection
+            Command.Connection = Connection
+            Command.CommandText = "SELECT     ID_Farmacia, Razon_Social, RIF, Telefono, Direccion, Logo FROM         FARMACIA WHERE     (ID_Farmacia = 1)"
+            BD = New Data.SqlClient.SqlDataAdapter(Command)
+            BD.Fill(FarmaciaSJ, "FARMACIA")
+            Command.CommandText = "SELECT     EMPLEADO.* FROM         EMPLEADO"
+            BD = New Data.SqlClient.SqlDataAdapter(Command)
+            BD.Fill(FarmaciaSJ, "EMPLEADO")
+            Command.CommandText = "SELECT     HISTORICO_EMPLEADO.* FROM         HISTORICO_EMPLEADO WHERE     (FECHA_FIN IS NULL)"
+            BD = New Data.SqlClient.SqlDataAdapter(Command)
+            BD.Fill(FarmaciaSJ, "HISTORICO_EMPLEADO")
+            Me.Reporte.SetDataSource(FarmaciaSJ)
+            Return True
+        Catch E As Exception
             Return False
         End Try
     End Function
