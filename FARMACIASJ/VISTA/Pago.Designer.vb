@@ -58,7 +58,7 @@ Partial Class Pago
         '
         Me.Numero_Factura.Enabled = False
         Me.Numero_Factura.Location = New System.Drawing.Point(210, 23)
-        Me.Numero_Factura.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.Numero_Factura.Margin = New System.Windows.Forms.Padding(4)
         Me.Numero_Factura.Name = "Numero_Factura"
         Me.Numero_Factura.Size = New System.Drawing.Size(236, 22)
         Me.Numero_Factura.TabIndex = 1
@@ -77,7 +77,7 @@ Partial Class Pago
         '
         Me.Numero_ID.Enabled = False
         Me.Numero_ID.Location = New System.Drawing.Point(210, 55)
-        Me.Numero_ID.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.Numero_ID.Margin = New System.Windows.Forms.Padding(4)
         Me.Numero_ID.Name = "Numero_ID"
         Me.Numero_ID.Size = New System.Drawing.Size(236, 22)
         Me.Numero_ID.TabIndex = 4
@@ -96,7 +96,7 @@ Partial Class Pago
         '
         Me.Stotal.Enabled = False
         Me.Stotal.Location = New System.Drawing.Point(210, 87)
-        Me.Stotal.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.Stotal.Margin = New System.Windows.Forms.Padding(4)
         Me.Stotal.Name = "Stotal"
         Me.Stotal.Size = New System.Drawing.Size(236, 22)
         Me.Stotal.TabIndex = 6
@@ -115,7 +115,7 @@ Partial Class Pago
         '
         Me.Impuestos.Enabled = False
         Me.Impuestos.Location = New System.Drawing.Point(210, 119)
-        Me.Impuestos.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.Impuestos.Margin = New System.Windows.Forms.Padding(4)
         Me.Impuestos.Name = "Impuestos"
         Me.Impuestos.Size = New System.Drawing.Size(236, 22)
         Me.Impuestos.TabIndex = 8
@@ -134,7 +134,7 @@ Partial Class Pago
         '
         Me.Total.Enabled = False
         Me.Total.Location = New System.Drawing.Point(210, 151)
-        Me.Total.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.Total.Margin = New System.Windows.Forms.Padding(4)
         Me.Total.Name = "Total"
         Me.Total.Size = New System.Drawing.Size(236, 22)
         Me.Total.TabIndex = 10
@@ -154,7 +154,7 @@ Partial Class Pago
         Me.ComboBox1.FormattingEnabled = True
         Me.ComboBox1.Items.AddRange(New Object() {"EFECTIVO", "CHEQUE", "TARJETA DEBITO", "TARJETA CREDITO"})
         Me.ComboBox1.Location = New System.Drawing.Point(210, 185)
-        Me.ComboBox1.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.ComboBox1.Margin = New System.Windows.Forms.Padding(4)
         Me.ComboBox1.Name = "ComboBox1"
         Me.ComboBox1.Size = New System.Drawing.Size(236, 24)
         Me.ComboBox1.TabIndex = 13
@@ -173,7 +173,7 @@ Partial Class Pago
         'Vuelto
         '
         Me.Vuelto.Location = New System.Drawing.Point(210, 250)
-        Me.Vuelto.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.Vuelto.Margin = New System.Windows.Forms.Padding(4)
         Me.Vuelto.Name = "Vuelto"
         Me.Vuelto.Size = New System.Drawing.Size(236, 22)
         Me.Vuelto.TabIndex = 18
@@ -182,7 +182,7 @@ Partial Class Pago
         'LNCT
         '
         Me.LNCT.AutoSize = True
-        Me.LNCT.Location = New System.Drawing.Point(18, 223)
+        Me.LNCT.Location = New System.Drawing.Point(18, 222)
         Me.LNCT.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.LNCT.Name = "LNCT"
         Me.LNCT.Size = New System.Drawing.Size(178, 16)
@@ -193,7 +193,7 @@ Partial Class Pago
         'NCT
         '
         Me.NCT.Location = New System.Drawing.Point(210, 219)
-        Me.NCT.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.NCT.Margin = New System.Windows.Forms.Padding(4)
         Me.NCT.MaxLength = 18
         Me.NCT.Name = "NCT"
         Me.NCT.Size = New System.Drawing.Size(236, 22)
@@ -206,15 +206,15 @@ Partial Class Pago
         Me.LMonto.Location = New System.Drawing.Point(18, 223)
         Me.LMonto.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.LMonto.Name = "LMonto"
-        Me.LMonto.Size = New System.Drawing.Size(42, 16)
+        Me.LMonto.Size = New System.Drawing.Size(50, 16)
         Me.LMonto.TabIndex = 15
-        Me.LMonto.Text = "Moto"
+        Me.LMonto.Text = "Monto"
         Me.LMonto.Visible = False
         '
         'Monto
         '
         Me.Monto.Location = New System.Drawing.Point(210, 219)
-        Me.Monto.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.Monto.Margin = New System.Windows.Forms.Padding(4)
         Me.Monto.MaxLength = 10
         Me.Monto.Name = "Monto"
         Me.Monto.Size = New System.Drawing.Size(236, 22)
@@ -226,7 +226,7 @@ Partial Class Pago
         Me.Vencimiento.CustomFormat = "dd/MM/yyyy"
         Me.Vencimiento.Format = System.Windows.Forms.DateTimePickerFormat.Custom
         Me.Vencimiento.Location = New System.Drawing.Point(210, 250)
-        Me.Vencimiento.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.Vencimiento.Margin = New System.Windows.Forms.Padding(4)
         Me.Vencimiento.Name = "Vencimiento"
         Me.Vencimiento.Size = New System.Drawing.Size(236, 22)
         Me.Vencimiento.TabIndex = 20
@@ -235,7 +235,7 @@ Partial Class Pago
         'LFVencimiento
         '
         Me.LFVencimiento.AutoSize = True
-        Me.LFVencimiento.Location = New System.Drawing.Point(18, 255)
+        Me.LFVencimiento.Location = New System.Drawing.Point(18, 254)
         Me.LFVencimiento.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.LFVencimiento.Name = "LFVencimiento"
         Me.LFVencimiento.Size = New System.Drawing.Size(144, 16)
@@ -246,7 +246,7 @@ Partial Class Pago
         'Button1
         '
         Me.Button1.Location = New System.Drawing.Point(336, 282)
-        Me.Button1.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.Button1.Margin = New System.Windows.Forms.Padding(4)
         Me.Button1.Name = "Button1"
         Me.Button1.Size = New System.Drawing.Size(112, 28)
         Me.Button1.TabIndex = 22
@@ -277,9 +277,9 @@ Partial Class Pago
         Me.GroupBox1.Controls.Add(Me.ComboBox1)
         Me.GroupBox1.Controls.Add(Me.Label7)
         Me.GroupBox1.Location = New System.Drawing.Point(18, 15)
-        Me.GroupBox1.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.GroupBox1.Margin = New System.Windows.Forms.Padding(4)
         Me.GroupBox1.Name = "GroupBox1"
-        Me.GroupBox1.Padding = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.GroupBox1.Padding = New System.Windows.Forms.Padding(4)
         Me.GroupBox1.Size = New System.Drawing.Size(471, 322)
         Me.GroupBox1.TabIndex = 23
         Me.GroupBox1.TabStop = False
@@ -292,7 +292,7 @@ Partial Class Pago
         Me.ClientSize = New System.Drawing.Size(502, 350)
         Me.Controls.Add(Me.GroupBox1)
         Me.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.Margin = New System.Windows.Forms.Padding(4)
         Me.Name = "Pago"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.Manual
         Me.Text = "Pago"

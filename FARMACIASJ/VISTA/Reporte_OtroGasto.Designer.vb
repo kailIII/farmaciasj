@@ -81,10 +81,10 @@ Partial Class Reporte_OtroGasto
         '
         'Button1
         '
-        Me.Button1.Location = New System.Drawing.Point(328, 78)
+        Me.Button1.Location = New System.Drawing.Point(299, 80)
         Me.Button1.Margin = New System.Windows.Forms.Padding(4)
         Me.Button1.Name = "Button1"
-        Me.Button1.Size = New System.Drawing.Size(112, 28)
+        Me.Button1.Size = New System.Drawing.Size(140, 27)
         Me.Button1.TabIndex = 5
         Me.Button1.Text = "Generar Reporte"
         Me.Button1.UseVisualStyleBackColor = True
