@@ -10,13 +10,13 @@
     <RootNamespace>FARMACIASJ</RootNamespace>
     <AssemblyName>FARMACIASJ</AssemblyName>
     <MyType>Empty</MyType>
-    <StartupObject>FARMACIASJ.FARMACIASJ_SESION</StartupObject>
+    <StartupObject>FARMACIASJ.Aplicar_Impuesto</StartupObject>
     <IsWebBootstrapper>false</IsWebBootstrapper>
     <ManifestCertificateThumbprint>BE915DBA9573890985BC89021FD0BBB2F4FEF247</ManifestCertificateThumbprint>
     <ManifestKeyFile>FARMACIASJ_TemporaryKey.pfx</ManifestKeyFile>
     <GenerateManifests>true</GenerateManifests>
     <SignManifests>true</SignManifests>
-    <PublishUrl>C:\Documents and Settings\jeraro\Mis documentos\FarnaciaSJ\FARMACIASJ\Publicado\</PublishUrl>
+    <PublishUrl>C:\Documents and Settings\jeraro\Mis documentos\Publicado\</PublishUrl>
     <Install>true</Install>
     <InstallFrom>Disk</InstallFrom>
     <UpdateEnabled>false</UpdateEnabled>
@@ -26,8 +26,14 @@
     <UpdatePeriodically>false</UpdatePeriodically>
     <UpdateRequired>false</UpdateRequired>
     <MapFileExtensions>true</MapFileExtensions>
+    <TargetCulture>es-VE</TargetCulture>
+    <ProductName>FarmaciaSJ V1.0</ProductName>
+    <PublisherName>FarmaciaSJ</PublisherName>
+    <AutorunEnabled>true</AutorunEnabled>
     <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
     <BootstrapperEnabled>true</BootstrapperEnabled>
+    <BootstrapperComponentsLocation>Relative</BootstrapperComponentsLocation>
+    <ApplicationIcon>Logo.ico</ApplicationIcon>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -54,6 +60,7 @@
   <ItemGroup>
     <Compile Include="CONTROLADOR\Controlador_Compra.vb" />
     <Compile Include="CONTROLADOR\Controlador_Empleado.vb" />
+    <Compile Include="CONTROLADOR\Controlador_Impuesto.vb" />
     <Compile Include="CONTROLADOR\Controlador_Ingresar_Producto.vb" />
     <Compile Include="CONTROLADOR\Controlador_Linea.vb" />
     <Compile Include="CONTROLADOR\Controlador_OtrosGastos.vb" />
@@ -70,7 +77,8 @@
     <Compile Include="MODELO\Compra.vb" />
     <Compile Include="MODELO\Cliente.vb" />
     <Compile Include="CONTROLADOR\Controlador_Cliente.vb" />
-    <Compile Include="CONTROLADOR\Validaciones_Generales.vb" />
+    <Compile Include="MODELO\Validaciones_Generales.vb" />
+    <Compile Include="MODELO\Impuesto.vb" />
     <Compile Include="MODELO\Linea.vb" />
     <Compile Include="MODELO\OtrosGastos.vb" />
     <Compile Include="MODELO\Pedido_Frecuente.vb" />
@@ -91,6 +99,12 @@
       <DependentUpon>Aplicar Impuesto.vb</DependentUpon>
     </Compile>
     <Compile Include="VISTA\Aplicar Impuesto.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="VISTA\Aplicar_Linea.Designer.vb">
+      <DependentUpon>Aplicar_Linea.vb</DependentUpon>
+    </Compile>
+    <Compile Include="VISTA\Aplicar_Linea.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="VISTA\Buscar_Proveedor.Designer.vb">
@@ -309,6 +323,10 @@
       <SubType>Designer</SubType>
       <DependentUpon>Aplicar Impuesto.vb</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="VISTA\Aplicar_Linea.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>Aplicar_Linea.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="VISTA\Buscar_Proveedor.resx">
       <SubType>Designer</SubType>
       <DependentUpon>Buscar_Proveedor.vb</DependentUpon>
@@ -454,6 +472,7 @@
     <Reference Include="CrystalDecisions.Shared, Version=10.2.3600.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL" />
     <Reference Include="CrystalDecisions.Windows.Forms, Version=10.2.3600.0, Culture=neutral, PublicKeyToken=692fbea5521e1304" />
     <Reference Include="System" />
+    <Reference Include="System.Configuration.Install" />
     <Reference Include="System.Data, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=x86">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\..\..\..\..\WINDOWS\assembly\GAC_32\System.Data\2.0.0.0__b77a5c561934e089\System.Data.dll</HintPath>
@@ -508,6 +527,9 @@
   </ItemGroup>
   <ItemGroup>
     <Service Include="{967B4E0D-AD0C-4609-AB67-0FA40C0206D8}" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Logo.ico" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.VisualBasic.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

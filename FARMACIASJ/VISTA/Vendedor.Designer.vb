@@ -20,6 +20,7 @@ Partial Class Vendedor
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
+        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(Vendedor))
         Me.MenuStrip = New System.Windows.Forms.MenuStrip
         Me.VentaToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem
         Me.PuntoDeVentaToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem
@@ -71,7 +72,7 @@ Partial Class Vendedor
         'RegToolStripMenuItem
         '
         Me.RegToolStripMenuItem.Name = "RegToolStripMenuItem"
-        Me.RegToolStripMenuItem.Size = New System.Drawing.Size(257, 22)
+        Me.RegToolStripMenuItem.Size = New System.Drawing.Size(253, 22)
         Me.RegToolStripMenuItem.Text = "Registrar Pedidos"
         '
         'ConfiguracionToolStripMenuItem
@@ -134,6 +135,7 @@ Partial Class Vendedor
         Me.Controls.Add(Me.MenuStrip)
         Me.Controls.Add(Me.StatusStrip)
         Me.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
         Me.IsMdiContainer = True
         Me.MainMenuStrip = Me.MenuStrip
         Me.Margin = New System.Windows.Forms.Padding(4)

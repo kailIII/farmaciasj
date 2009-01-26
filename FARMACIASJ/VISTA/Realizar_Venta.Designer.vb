@@ -55,6 +55,7 @@ Partial Class Realizar_Venta
         Me.Label8 = New System.Windows.Forms.Label
         Me.Button2 = New System.Windows.Forms.Button
         Me.DETALLE_VENTA = New System.Windows.Forms.DataGridView
+        Me.Button3 = New System.Windows.Forms.Button
         Me.GroupBox1.SuspendLayout()
         Me.GroupBox2.SuspendLayout()
         Me.GroupBox3.SuspendLayout()
@@ -428,7 +429,7 @@ Partial Class Realizar_Venta
         '
         'Button2
         '
-        Me.Button2.Location = New System.Drawing.Point(782, 489)
+        Me.Button2.Location = New System.Drawing.Point(548, 489)
         Me.Button2.Margin = New System.Windows.Forms.Padding(4)
         Me.Button2.Name = "Button2"
         Me.Button2.Size = New System.Drawing.Size(228, 28)
@@ -445,12 +446,23 @@ Partial Class Realizar_Venta
         Me.DETALLE_VENTA.Size = New System.Drawing.Size(990, 177)
         Me.DETALLE_VENTA.TabIndex = 7
         '
+        'Button3
+        '
+        Me.Button3.Location = New System.Drawing.Point(787, 489)
+        Me.Button3.Margin = New System.Windows.Forms.Padding(4)
+        Me.Button3.Name = "Button3"
+        Me.Button3.Size = New System.Drawing.Size(228, 28)
+        Me.Button3.TabIndex = 13
+        Me.Button3.Text = "Cancelar"
+        Me.Button3.UseVisualStyleBackColor = True
+        '
         'Realizar_Venta
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(9.0!, 16.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.AutoSize = True
         Me.ClientSize = New System.Drawing.Size(1028, 521)
+        Me.Controls.Add(Me.Button3)
         Me.Controls.Add(Me.DETALLE_VENTA)
         Me.Controls.Add(Me.Button2)
         Me.Controls.Add(Me.GroupBox4)
@@ -510,4 +522,5 @@ Partial Class Realizar_Venta
     Friend WithEvents Label2 As System.Windows.Forms.Label
     Friend WithEvents Numero As System.Windows.Forms.TextBox
     Friend WithEvents Fecha_Compra As System.Windows.Forms.DateTimePicker
+    Friend WithEvents Button3 As System.Windows.Forms.Button
 End Class

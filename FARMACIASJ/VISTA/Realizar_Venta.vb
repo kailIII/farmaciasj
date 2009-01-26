@@ -126,7 +126,7 @@ Public Class Realizar_Venta
         End If
     End Sub
 
-    Private Sub Button3_Click(ByVal sender As System.Object, ByVal e As System.EventArgs)
+    Private Sub Button3_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Button3.Click
         Dim ControladorF As Controlador_Venta
 
         ControladorF = New Controlador_Venta

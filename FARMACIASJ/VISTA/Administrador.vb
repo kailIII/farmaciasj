@@ -47,7 +47,6 @@ Public Class Administrador
     End Sub
 
     Private Sub CERRARPROGRAMAToolStripMenuItem_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles CERRARPROGRAMAToolStripMenuItem.Click
-        Me.Finalize()
         Me.Close()
     End Sub
 
