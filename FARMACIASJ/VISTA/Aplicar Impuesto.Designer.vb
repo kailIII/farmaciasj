@@ -27,7 +27,7 @@ Partial Class Aplicar_Impuesto
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(350, 233)
         Me.Name = "Aplicar_Impuesto"
-        Me.Text = "Aplicar_Impuesto"
+        Me.Text = "Aplicar Impuesto"
         Me.ResumeLayout(False)
 
     End Sub

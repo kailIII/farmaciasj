@@ -29,8 +29,6 @@ Partial Class IngresarCliente
         Me.APELLIDO = New System.Windows.Forms.TextBox
         Me.TELEFONO = New System.Windows.Forms.TextBox
         Me.DIRECCION = New System.Windows.Forms.TextBox
-        Me.ComboBox1 = New System.Windows.Forms.ComboBox
-        Me.Label1 = New System.Windows.Forms.Label
         Me.GroupBox1 = New System.Windows.Forms.GroupBox
         Me.Button1 = New System.Windows.Forms.Button
         Me.GroupBox1.SuspendLayout()
@@ -39,7 +37,7 @@ Partial Class IngresarCliente
         'LIdentidad
         '
         Me.LIdentidad.AutoSize = True
-        Me.LIdentidad.Location = New System.Drawing.Point(8, 65)
+        Me.LIdentidad.Location = New System.Drawing.Point(8, 26)
         Me.LIdentidad.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.LIdentidad.Name = "LIdentidad"
         Me.LIdentidad.Size = New System.Drawing.Size(36, 16)
@@ -49,7 +47,7 @@ Partial Class IngresarCliente
         'LNOMBRE
         '
         Me.LNOMBRE.AutoSize = True
-        Me.LNOMBRE.Location = New System.Drawing.Point(8, 97)
+        Me.LNOMBRE.Location = New System.Drawing.Point(8, 58)
         Me.LNOMBRE.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.LNOMBRE.Name = "LNOMBRE"
         Me.LNOMBRE.Size = New System.Drawing.Size(67, 16)
@@ -59,7 +57,7 @@ Partial Class IngresarCliente
         'LApellido
         '
         Me.LApellido.AutoSize = True
-        Me.LApellido.Location = New System.Drawing.Point(8, 129)
+        Me.LApellido.Location = New System.Drawing.Point(8, 90)
         Me.LApellido.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.LApellido.Name = "LApellido"
         Me.LApellido.Size = New System.Drawing.Size(70, 16)
@@ -70,7 +68,7 @@ Partial Class IngresarCliente
         'TELEFONOLabel
         '
         Me.TELEFONOLabel.AutoSize = True
-        Me.TELEFONOLabel.Location = New System.Drawing.Point(8, 161)
+        Me.TELEFONOLabel.Location = New System.Drawing.Point(8, 122)
         Me.TELEFONOLabel.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.TELEFONOLabel.Name = "TELEFONOLabel"
         Me.TELEFONOLabel.Size = New System.Drawing.Size(74, 16)
@@ -80,7 +78,7 @@ Partial Class IngresarCliente
         'DIRECCIONLabel
         '
         Me.DIRECCIONLabel.AutoSize = True
-        Me.DIRECCIONLabel.Location = New System.Drawing.Point(8, 199)
+        Me.DIRECCIONLabel.Location = New System.Drawing.Point(8, 160)
         Me.DIRECCIONLabel.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.DIRECCIONLabel.Name = "DIRECCIONLabel"
         Me.DIRECCIONLabel.Size = New System.Drawing.Size(78, 16)
@@ -90,7 +88,7 @@ Partial Class IngresarCliente
         'RIF
         '
         Me.RIF.Enabled = False
-        Me.RIF.Location = New System.Drawing.Point(120, 62)
+        Me.RIF.Location = New System.Drawing.Point(120, 23)
         Me.RIF.Margin = New System.Windows.Forms.Padding(4)
         Me.RIF.Name = "RIF"
         Me.RIF.Size = New System.Drawing.Size(265, 22)
@@ -100,7 +98,7 @@ Partial Class IngresarCliente
         '
         Me.NOMBRE.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper
         Me.NOMBRE.Enabled = False
-        Me.NOMBRE.Location = New System.Drawing.Point(120, 94)
+        Me.NOMBRE.Location = New System.Drawing.Point(120, 55)
         Me.NOMBRE.Margin = New System.Windows.Forms.Padding(4)
         Me.NOMBRE.Name = "NOMBRE"
         Me.NOMBRE.Size = New System.Drawing.Size(265, 22)
@@ -109,7 +107,7 @@ Partial Class IngresarCliente
         'APELLIDO
         '
         Me.APELLIDO.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper
-        Me.APELLIDO.Location = New System.Drawing.Point(120, 126)
+        Me.APELLIDO.Location = New System.Drawing.Point(120, 87)
         Me.APELLIDO.Margin = New System.Windows.Forms.Padding(4)
         Me.APELLIDO.Name = "APELLIDO"
         Me.APELLIDO.Size = New System.Drawing.Size(265, 22)
@@ -119,7 +117,7 @@ Partial Class IngresarCliente
         'TELEFONO
         '
         Me.TELEFONO.Enabled = False
-        Me.TELEFONO.Location = New System.Drawing.Point(120, 158)
+        Me.TELEFONO.Location = New System.Drawing.Point(120, 119)
         Me.TELEFONO.Margin = New System.Windows.Forms.Padding(4)
         Me.TELEFONO.MaxLength = 12
         Me.TELEFONO.Name = "TELEFONO"
@@ -129,38 +127,16 @@ Partial Class IngresarCliente
         'DIRECCION
         '
         Me.DIRECCION.Enabled = False
-        Me.DIRECCION.Location = New System.Drawing.Point(120, 196)
+        Me.DIRECCION.Location = New System.Drawing.Point(120, 157)
         Me.DIRECCION.Margin = New System.Windows.Forms.Padding(4)
         Me.DIRECCION.Multiline = True
         Me.DIRECCION.Name = "DIRECCION"
         Me.DIRECCION.Size = New System.Drawing.Size(265, 86)
         Me.DIRECCION.TabIndex = 10
         '
-        'ComboBox1
-        '
-        Me.ComboBox1.FormattingEnabled = True
-        Me.ComboBox1.Items.AddRange(New Object() {"JURIDICO", "NATURAL", "EXTRANJERO"})
-        Me.ComboBox1.Location = New System.Drawing.Point(120, 23)
-        Me.ComboBox1.Margin = New System.Windows.Forms.Padding(4)
-        Me.ComboBox1.Name = "ComboBox1"
-        Me.ComboBox1.Size = New System.Drawing.Size(265, 24)
-        Me.ComboBox1.TabIndex = 11
-        '
-        'Label1
-        '
-        Me.Label1.AutoSize = True
-        Me.Label1.Location = New System.Drawing.Point(8, 27)
-        Me.Label1.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
-        Me.Label1.Name = "Label1"
-        Me.Label1.Size = New System.Drawing.Size(40, 16)
-        Me.Label1.TabIndex = 12
-        Me.Label1.Text = "Tipo"
-        '
         'GroupBox1
         '
         Me.GroupBox1.Controls.Add(Me.Button1)
-        Me.GroupBox1.Controls.Add(Me.Label1)
-        Me.GroupBox1.Controls.Add(Me.ComboBox1)
         Me.GroupBox1.Controls.Add(Me.DIRECCIONLabel)
         Me.GroupBox1.Controls.Add(Me.DIRECCION)
         Me.GroupBox1.Controls.Add(Me.TELEFONOLabel)
@@ -175,14 +151,14 @@ Partial Class IngresarCliente
         Me.GroupBox1.Margin = New System.Windows.Forms.Padding(4)
         Me.GroupBox1.Name = "GroupBox1"
         Me.GroupBox1.Padding = New System.Windows.Forms.Padding(4)
-        Me.GroupBox1.Size = New System.Drawing.Size(405, 332)
+        Me.GroupBox1.Size = New System.Drawing.Size(405, 298)
         Me.GroupBox1.TabIndex = 13
         Me.GroupBox1.TabStop = False
         Me.GroupBox1.Text = "Cliente"
         '
         'Button1
         '
-        Me.Button1.Location = New System.Drawing.Point(258, 290)
+        Me.Button1.Location = New System.Drawing.Point(258, 251)
         Me.Button1.Margin = New System.Windows.Forms.Padding(4)
         Me.Button1.Name = "Button1"
         Me.Button1.Size = New System.Drawing.Size(129, 30)
@@ -194,7 +170,7 @@ Partial Class IngresarCliente
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(9.0!, 16.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(435, 357)
+        Me.ClientSize = New System.Drawing.Size(435, 327)
         Me.Controls.Add(Me.GroupBox1)
         Me.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Margin = New System.Windows.Forms.Padding(4)
@@ -211,8 +187,6 @@ Partial Class IngresarCliente
     Friend WithEvents APELLIDO As System.Windows.Forms.TextBox
     Friend WithEvents TELEFONO As System.Windows.Forms.TextBox
     Friend WithEvents DIRECCION As System.Windows.Forms.TextBox
-    Friend WithEvents ComboBox1 As System.Windows.Forms.ComboBox
-    Friend WithEvents Label1 As System.Windows.Forms.Label
     Friend WithEvents GroupBox1 As System.Windows.Forms.GroupBox
     Friend WithEvents Button1 As System.Windows.Forms.Button
     Friend WithEvents LIdentidad As System.Windows.Forms.Label

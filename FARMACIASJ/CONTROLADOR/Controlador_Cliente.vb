@@ -12,6 +12,38 @@ Public Class Controlador_Cliente
             If (MsgBox("EL Cliente no existe en la BD, ¿Desea Ingresarlo?", MsgBoxStyle.YesNo, "Error") = MsgBoxResult.Yes) Then
                 IngresarCliente = New IngresarCliente
                 IngresarCliente.MdiParent = Venta.MdiParent
+                If (Numero(0) = Char.Parse("V") Or Numero(0) = Char.Parse("E")) Then
+                    IngresarCliente.LNOMBRE.Text = "Nombre"
+                    IngresarCliente.LIdentidad.Text = "Cedula"
+                    IngresarCliente.NOMBRE.Enabled = True
+                    IngresarCliente.RIF.Enabled = False
+                    IngresarCliente.TELEFONO.Enabled = True
+                    IngresarCliente.DIRECCION.Enabled = True
+                    IngresarCliente.LApellido.Visible = True
+                    IngresarCliente.APELLIDO.Visible = True
+                    IngresarCliente.RIF.MaxLength = 9
+                ElseIf (Numero(0) = Char.Parse("J") Or Numero(0) = Char.Parse("G")) Then
+                    IngresarCliente.LNOMBRE.Text = "Razon Social"
+                    IngresarCliente.LIdentidad.Text = "Rif"
+                    IngresarCliente.NOMBRE.Enabled = True
+                    IngresarCliente.RIF.Enabled = False
+                    IngresarCliente.TELEFONO.Enabled = True
+                    IngresarCliente.DIRECCION.Enabled = True
+                    IngresarCliente.LApellido.Visible = False
+                    IngresarCliente.APELLIDO.Visible = False
+                    IngresarCliente.RIF.MaxLength = 10
+                ElseIf (Numero(0) = Char.Parse("P")) Then
+                    IngresarCliente.LNOMBRE.Text = "Nombre"
+                    IngresarCliente.LIdentidad.Text = "PASSAPORTE"
+                    IngresarCliente.NOMBRE.Enabled = True
+                    IngresarCliente.RIF.Enabled = False
+                    IngresarCliente.TELEFONO.Enabled = True
+                    IngresarCliente.DIRECCION.Enabled = True
+                    IngresarCliente.LApellido.Visible = True
+                    IngresarCliente.APELLIDO.Visible = True
+                    IngresarCliente.RIF.MaxLength = 12
+                End If
+                IngresarCliente.RIF.Text = Numero
                 condicion = 1
                 Me.Venta = Venta
                 IngresarCliente.Cliente = Me
