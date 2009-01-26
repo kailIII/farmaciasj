@@ -50,13 +50,8 @@ Public Class Empleado
             End If
         Catch e As Data.SqlClient.SqlException
         End Try
-
         Return Id_Empleado
     End Function
-
-
-
-
 
 
     Public Function Buscar_Info_Empleado(ByVal Reder As Data.SqlClient.SqlDataReader, ByVal Id_Empleado As Integer, ByVal Tabla_Empleado As Boolean) As Data.SqlClient.SqlDataReader
@@ -111,6 +106,29 @@ Public Class Empleado
 
         Return Id_Cargo
     End Function
+
+
+    Public Function EmpleadoDespedido(ByVal Reder As Data.SqlClient.SqlDataReader, ByVal Id_Empleado As Integer) As Data.SqlClient.SqlDataReader
+
+        Dim Empleo As FarmaciaSJDataSetTableAdapters.EMPLEADOTableAdapter
+        Dim Conextion As Data.SqlClient.SqlConnection
+        Dim Consulta As Data.SqlClient.SqlCommand
+        Try
+            Empleo = New FarmaciaSJDataSetTableAdapters.EMPLEADOTableAdapter
+            Conextion = Empleo.Connection
+            Consulta = New Data.SqlClient.SqlCommand
+            Conextion.Open()
+            Consulta.Connection = Conextion
+            Consulta.CommandText = "SELECT     HISTORICO_EMPLEADO.JUSTIFICACION, HISTORICO_EMPLEADO.CARGO, HISTORICO_EMPLEADO.SUELDO, EMPLEADO.MAIL AS Expr1, EMPLEADO.TELEFONO AS Expr2, EMPLEADO.IDENTIDAD AS Expr3, EMPLEADO.APELLIDO AS Expr4, EMPLEADO.NOMBRE AS Expr5, EMPLEADO.ID_EMPLEADO AS Expr6 FROM         EMPLEADO INNER JOIN                      HISTORICO_EMPLEADO ON EMPLEADO.ID_EMPLEADO = HISTORICO_EMPLEADO.ID_EMPLEADO WHERE     (EMPLEADO.ID_EMPLEADO = " & Id_Empleado & ") AND (HISTORICO_EMPLEADO.FECHA_FIN IS NOT NULL) ORDER BY HISTORICO_EMPLEADO.FECHA_INGRESO DESC"
+            Reder = Consulta.ExecuteReader()
+            If (Reder.Read = True) Then
+                Return Reder
+            End If
+        Catch e As Data.SqlClient.SqlException
+        End Try
+        Return Reder
+    End Function
+
 
     Public Function Despedir_Empleado_Ultimo_Cargo(ByVal Id_Historico_Cargo As Integer, ByVal Justificacion As String) As Boolean
         Dim Adaptador As FarmaciaSJDataSetTableAdapters.PROVEEDORTableAdapter

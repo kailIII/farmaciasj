@@ -191,10 +191,12 @@ Public Class Controlador_Producto
         Try
             ConsultaBD = Modelo.Buscar_Info_Producto(Codigo)
             Ventana.NombreProducto.Text = ConsultaBD.Item(1).ToString
+            Return True
         Catch ex As Exception
             MsgBox("Error, el código del producto es inválido ", MsgBoxStyle.OkOnly, "Error")
             Ventana.CodigoBarras.Focus()
             Ventana.NombreProducto.Text = ""
+            Return False
         End Try
     End Function
 

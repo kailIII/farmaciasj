@@ -36,9 +36,15 @@ Partial Class TLF_Proveedor
         Me.NombreProducto = New System.Windows.Forms.TextBox
         Me.CodigoBarras = New System.Windows.Forms.TextBox
         Me.Label6 = New System.Windows.Forms.Label
+        Me.GroupBox4 = New System.Windows.Forms.GroupBox
+        Me.lista1 = New System.Windows.Forms.ListBox
+        Me.GroupBox5 = New System.Windows.Forms.GroupBox
+        Me.lista2 = New System.Windows.Forms.ListBox
         Me.GroupBox1.SuspendLayout()
         Me.GroupBox2.SuspendLayout()
         Me.GroupBox3.SuspendLayout()
+        Me.GroupBox4.SuspendLayout()
+        Me.GroupBox5.SuspendLayout()
         Me.SuspendLayout()
         '
         'GroupBox1
@@ -163,6 +169,7 @@ Partial Class TLF_Proveedor
         '
         'Productos
         '
+        Me.Productos.Enabled = False
         Me.Productos.Location = New System.Drawing.Point(306, 85)
         Me.Productos.Name = "Productos"
         Me.Productos.Size = New System.Drawing.Size(91, 28)
@@ -203,11 +210,51 @@ Partial Class TLF_Proveedor
         Me.Label6.TabIndex = 0
         Me.Label6.Text = "Código"
         '
+        'GroupBox4
+        '
+        Me.GroupBox4.Controls.Add(Me.lista1)
+        Me.GroupBox4.Location = New System.Drawing.Point(432, 12)
+        Me.GroupBox4.Name = "GroupBox4"
+        Me.GroupBox4.Size = New System.Drawing.Size(328, 166)
+        Me.GroupBox4.TabIndex = 6
+        Me.GroupBox4.TabStop = False
+        Me.GroupBox4.Text = "Teléfonos"
+        '
+        'lista1
+        '
+        Me.lista1.FormattingEnabled = True
+        Me.lista1.ItemHeight = 16
+        Me.lista1.Location = New System.Drawing.Point(6, 21)
+        Me.lista1.Name = "lista1"
+        Me.lista1.Size = New System.Drawing.Size(316, 132)
+        Me.lista1.TabIndex = 0
+        '
+        'GroupBox5
+        '
+        Me.GroupBox5.Controls.Add(Me.lista2)
+        Me.GroupBox5.Location = New System.Drawing.Point(432, 184)
+        Me.GroupBox5.Name = "GroupBox5"
+        Me.GroupBox5.Size = New System.Drawing.Size(328, 152)
+        Me.GroupBox5.TabIndex = 7
+        Me.GroupBox5.TabStop = False
+        Me.GroupBox5.Text = "Proveedores"
+        '
+        'lista2
+        '
+        Me.lista2.FormattingEnabled = True
+        Me.lista2.ItemHeight = 16
+        Me.lista2.Location = New System.Drawing.Point(6, 21)
+        Me.lista2.Name = "lista2"
+        Me.lista2.Size = New System.Drawing.Size(316, 116)
+        Me.lista2.TabIndex = 0
+        '
         'TLF_Proveedor
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(9.0!, 16.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(436, 350)
+        Me.ClientSize = New System.Drawing.Size(772, 350)
+        Me.Controls.Add(Me.GroupBox5)
+        Me.Controls.Add(Me.GroupBox4)
         Me.Controls.Add(Me.GroupBox3)
         Me.Controls.Add(Me.GroupBox2)
         Me.Controls.Add(Me.GroupBox1)
@@ -222,6 +269,8 @@ Partial Class TLF_Proveedor
         Me.GroupBox2.PerformLayout()
         Me.GroupBox3.ResumeLayout(False)
         Me.GroupBox3.PerformLayout()
+        Me.GroupBox4.ResumeLayout(False)
+        Me.GroupBox5.ResumeLayout(False)
         Me.ResumeLayout(False)
 
     End Sub
@@ -242,4 +291,8 @@ Partial Class TLF_Proveedor
     Friend WithEvents NombreProducto As System.Windows.Forms.TextBox
     Friend WithEvents CodigoBarras As System.Windows.Forms.TextBox
     Friend WithEvents Label6 As System.Windows.Forms.Label
+    Friend WithEvents GroupBox4 As System.Windows.Forms.GroupBox
+    Friend WithEvents lista1 As System.Windows.Forms.ListBox
+    Friend WithEvents GroupBox5 As System.Windows.Forms.GroupBox
+    Friend WithEvents lista2 As System.Windows.Forms.ListBox
 End Class

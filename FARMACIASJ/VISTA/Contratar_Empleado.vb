@@ -27,4 +27,23 @@ Public Class Contratar_Empleado
             End If
         End If
     End Sub
+    Private Sub Cedula_TextChanged(ByVal sender As System.Object, ByVal e As Windows.Forms.KeyPressEventArgs) Handles Cedula.KeyPress
+        Dim Controlador As Controlador_Empleado = New Controlador_Empleado
+        If (e.KeyChar = Char.ConvertFromUtf32(13)) Then
+
+            If Controlador.Verificar_Existencia_Empleado(Me.Cedula.Text) Then
+                'Cuando exite y esta despedido entonces preguntar si desea contratarlo.
+                'Cuando exite y ya está contratado entonces no hace nada.
+                Controlador.VerificarEmpleo(Me.Cedula.Text, Me)
+            Else
+                Me.Nombre.Enabled = True
+                Me.Apellido.Enabled = True
+                Me.Telefono.Enabled = True
+                Me.Correo.Enabled = True
+                Me.Nombre.Focus()
+            End If
+        End If
+    End Sub
+
+
 End Class

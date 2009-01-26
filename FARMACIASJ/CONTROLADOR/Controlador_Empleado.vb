@@ -59,8 +59,6 @@ Public Class Controlador_Empleado
                 If Modelo.Ingresar_Empleado(Ventana.Cedula.Text, Ventana.Nombre.Text, Ventana.Apellido.Text, Ventana.Telefono.Text, Ventana.Correo.Text) Then
                     Dim Id_Empleado_Nuevo As Integer = Modelo.Existe_Empleado(Cedula)
                     Dim Ventana_Asignar_Cargo As Modificar_Sueldo = New Modificar_Sueldo
-                    'Asignar_Cargo.MdiParent = Ventana.MdiParent
-                    '  While (Ventana_Asignar_Cargo.Contratado = False)
 
                     Ventana_Asignar_Cargo.Show()
                     Ventana_Asignar_Cargo.Cedula.Text = Ventana.Cedula.Text
@@ -78,10 +76,8 @@ Public Class Controlador_Empleado
                     Ventana.Telefono.Enabled = False
                     Ventana.Correo.Enabled = False
                     Ventana.Contratando.Enabled = False
-
-
                     Ventana_Asignar_Cargo.Cargo.Focus()
-                    ' End While
+                    Ventana.Close()
 
                 End If
             End If
@@ -227,4 +223,54 @@ Public Class Controlador_Empleado
             MsgBox("Error, El Reporte no se ha podido Generar, Intente de nuevo", MsgBoxStyle.OkOnly, "Error")
         End If
     End Sub
+
+    Public Function Verificar_Existencia_Empleado(ByVal Rif As String) As Boolean
+        Dim Modelo As Empleado = New Empleado
+        Dim Id_Empleado As Integer = Modelo.Existe_Empleado(Rif)
+        If Id_Empleado > 0 Then
+            Return True
+        Else
+            Return False
+        End If
+    End Function
+
+    Public Sub VerificarEmpleo(ByVal Rif As String, ByVal Ventana As Contratar_Empleado)
+        Dim ConsultaBD As Data.SqlClient.SqlDataReader
+        Dim Modelo As Empleado = New Empleado
+        Dim Id_Empleado As Integer = Modelo.Existe_Empleado(Rif)
+        Try
+            ConsultaBD = Modelo.Buscar_Info_Empleado(ConsultaBD, Id_Empleado, False)
+            MsgBox("Error, el empleado '" & ConsultaBD.Item(0).ToString & " " & ConsultaBD.Item(1).ToString & "' se encuentra contratado", MsgBoxStyle.OkOnly, "Error")
+            'Cuando exite y esta despedido entonces preguntar si desea contratarlo.
+        Catch ex As Exception
+            'Cuando exite y ya está contratado entonces no hace nada.
+            ConsultaBD = Modelo.EmpleadoDespedido(ConsultaBD, Id_Empleado)
+            Dim Respuesta As MsgBoxResult = MsgBox("El empleado " & ConsultaBD.Item(7).ToString & " " & ConsultaBD.Item(6).ToString & " fue despedido bajo la siguiente justificación: " & ConsultaBD.Item(0).ToString & ". ¿Desea contratarlo nuevamente?", MsgBoxStyle.OkCancel, "Aviso")
+            If Respuesta = MsgBoxResult.Ok Then
+                'Lanzar ventana
+                Dim Ventana_Asignar_Cargo As Modificar_Sueldo = New Modificar_Sueldo
+
+                Ventana_Asignar_Cargo.Show()
+                Ventana_Asignar_Cargo.Cedula.Text = ConsultaBD.Item(5).ToString
+                Ventana_Asignar_Cargo.Nombres.Text = ConsultaBD.Item(7).ToString & " " & ConsultaBD.Item(6).ToString
+                Ventana_Asignar_Cargo.Cargo.Enabled = True
+                Ventana_Asignar_Cargo.Sueldo.Enabled = True
+                Ventana_Asignar_Cargo.Cedula.Enabled = False
+                Ventana_Asignar_Cargo.Buscando.Enabled = False
+
+                Ventana_Asignar_Cargo.Registrando.Enabled = True
+                Ventana_Asignar_Cargo.Id_Empleado = Id_Empleado
+
+                Ventana.Nombre.Enabled = False
+                Ventana.Apellido.Enabled = False
+                Ventana.Telefono.Enabled = False
+                Ventana.Correo.Enabled = False
+                Ventana.Contratando.Enabled = False
+
+                Ventana_Asignar_Cargo.Cargo.Focus()
+                Ventana.Close()
+            End If
+        End Try
+    End Sub
+
 End Class

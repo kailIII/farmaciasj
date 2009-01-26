@@ -68,6 +68,7 @@ Partial Class Contratar_Empleado
         '
         'Apellido
         '
+        Me.Apellido.Enabled = False
         Me.Apellido.Location = New System.Drawing.Point(114, 87)
         Me.Apellido.Margin = New System.Windows.Forms.Padding(4)
         Me.Apellido.Name = "Apellido"
@@ -86,6 +87,7 @@ Partial Class Contratar_Empleado
         '
         'Correo
         '
+        Me.Correo.Enabled = False
         Me.Correo.Location = New System.Drawing.Point(114, 151)
         Me.Correo.Margin = New System.Windows.Forms.Padding(4)
         Me.Correo.Name = "Correo"
@@ -104,6 +106,7 @@ Partial Class Contratar_Empleado
         '
         'Telefono
         '
+        Me.Telefono.Enabled = False
         Me.Telefono.Location = New System.Drawing.Point(114, 119)
         Me.Telefono.Margin = New System.Windows.Forms.Padding(4)
         Me.Telefono.Name = "Telefono"
@@ -132,6 +135,7 @@ Partial Class Contratar_Empleado
         '
         'Nombre
         '
+        Me.Nombre.Enabled = False
         Me.Nombre.Location = New System.Drawing.Point(114, 55)
         Me.Nombre.Margin = New System.Windows.Forms.Padding(4)
         Me.Nombre.Name = "Nombre"
