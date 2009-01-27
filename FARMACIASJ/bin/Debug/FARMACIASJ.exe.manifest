@@ -33,14 +33,14 @@
     </dependentAssembly>
   </dependency>
   <dependency>
-    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="FARMACIASJ.exe" size="843776">
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="FARMACIASJ.exe" size="847872">
       <assemblyIdentity name="FARMACIASJ" version="0.0.0.0" language="neutral" processorArchitecture="msil" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
-        <dsig:DigestValue>KPISH+brXKIJfL2MivNSJmR5QHA=</dsig:DigestValue>
+        <dsig:DigestValue>KsQV+TIU18lGI5RT7nFY/6CdxvE=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>

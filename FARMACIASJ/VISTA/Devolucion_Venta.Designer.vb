@@ -83,6 +83,8 @@ Partial Class Devolucion_Venta
         '
         'Identidad
         '
+        Me.Identidad.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper
+        Me.Identidad.Enabled = False
         Me.Identidad.Location = New System.Drawing.Point(72, 22)
         Me.Identidad.Margin = New System.Windows.Forms.Padding(4)
         Me.Identidad.Name = "Identidad"
@@ -143,7 +145,6 @@ Partial Class Devolucion_Venta
         Me.Fecha_Compra.Name = "Fecha_Compra"
         Me.Fecha_Compra.Size = New System.Drawing.Size(206, 22)
         Me.Fecha_Compra.TabIndex = 8
-        Me.Fecha_Compra.Visible = False
         '
         'Label2
         '
@@ -157,6 +158,7 @@ Partial Class Devolucion_Venta
         '
         'Numero
         '
+        Me.Numero.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper
         Me.Numero.Location = New System.Drawing.Point(831, 23)
         Me.Numero.Margin = New System.Windows.Forms.Padding(4)
         Me.Numero.Name = "Numero"

@@ -108,27 +108,31 @@ Public Class Devolucion_Venta
         Dim Controladorf As Controlador_Venta
         Dim i As Integer
         If (e.KeyChar = Char.ConvertFromUtf32(13)) Then
-            Controladorf = New Controlador_Venta
-            If (Integer.Parse(Me.Cantidad.Text) <= Me.CantidadM) Then
-                Pu = Double.Parse(Me.Punitario.Text)
-                Descuento = Double.Parse(Me.Descuento.Text)
-                Cantidad = Integer.Parse(Me.Cantidad.Text)
-                Subtotal = Pu * Cantidad
-                Descuento = Descuento / 100
-                Descuento = 1 - Descuento
-                Subtotal = (Subtotal * Descuento)
-                i = 0
-                Do While (i < CImpuestos)
-                    Impuesto1 = Math.Round((ValorI(i) / 100), 2)
-                    Impuesto1 = Math.Round(Subtotal * Impuesto1, 2)
-                    Impuesto = Math.Round(Impuesto + Impuesto1, 2)
-                    i = i + 1
-                Loop
-                Me.SubtotalP.Text = CStr(Subtotal)
-                ImpuestoP = Impuesto
-            Else
-                MsgBox("La Cantidad supera la cantidad disponible", MsgBoxStyle.OkOnly, "Alert")
+            If (Me.Cantidad.Text(0) = Char.Parse("-")) Then
+                Controladorf = New Controlador_Venta
+                If (Integer.Parse(Me.Cantidad.Text) <= Me.CantidadM) Then
+                    Pu = Double.Parse(Me.Punitario.Text)
+                    Descuento = Double.Parse(Me.Descuento.Text)
+                    Cantidad = Integer.Parse(Me.Cantidad.Text)
+                    Subtotal = Pu * Cantidad
+                    Descuento = Descuento / 100
+                    Descuento = 1 - Descuento
+                    Subtotal = (Subtotal * Descuento)
+                    i = 0
+                    Do While (i < CImpuestos)
+                        Impuesto1 = Math.Round((ValorI(i) / 100), 2)
+                        Impuesto1 = Math.Round(Subtotal * Impuesto1, 2)
+                        Impuesto = Math.Round(Impuesto + Impuesto1, 2)
+                        i = i + 1
+                    Loop
+                    Me.SubtotalP.Text = CStr(Subtotal)
+                    ImpuestoP = Impuesto
+                Else
+                    MsgBox("La Cantidad supera la cantidad Vendidad", MsgBoxStyle.OkOnly, "Alert")
+                End If
             End If
+        Else
+            MsgBox(" La Cantidad debe ser negativa", MsgBoxStyle.OkOnly, "Error")
         End If
     End Sub
 

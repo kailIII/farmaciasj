@@ -80,6 +80,7 @@ Partial Class Realizar_Venta
         '
         'Identidad
         '
+        Me.Identidad.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper
         Me.Identidad.Location = New System.Drawing.Point(72, 22)
         Me.Identidad.Margin = New System.Windows.Forms.Padding(4)
         Me.Identidad.Name = "Identidad"
