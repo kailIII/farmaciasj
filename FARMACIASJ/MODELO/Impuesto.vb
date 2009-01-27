@@ -11,6 +11,7 @@ Public Class Impuesto
         Me.id = 0
         Me.Nombre = Nombre
         Me.Descripcion = Descripcion
+        Me.Justificacion = Justificacion
         Me.Valor = valor
         Me.Lineas = Lineas
     End Sub
@@ -19,6 +20,7 @@ Public Class Impuesto
         Me.id = -1
         Me.Nombre = Nombre
         Me.Descripcion = ""
+        Me.Justificacion = ""
         Me.Valor = 0
     End Sub
     Public Sub New()

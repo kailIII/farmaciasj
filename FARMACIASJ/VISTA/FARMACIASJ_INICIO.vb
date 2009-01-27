@@ -29,7 +29,7 @@ Public NotInheritable Class FARMACIASJ_INICIO
         'Version.Text = System.String.Format(Version.Text, My.Application.Info.Version.Major, My.Application.Info.Version.Minor)
 
         'Copyright info
-        Cargando.Interval = 10
+        Cargando.Interval = 5
         Cargando.Start()
     End Sub
 

@@ -19,7 +19,6 @@ Public Class Aplicar_Impuesto
         If (Contador = 1) Then
             Dim Lineas() As Integer
             Controlador = New Controlador_Impuesto(Me.Nombre.Text, Me.Descripcion.Text, Double.Parse(Me.Valor.Text), "Creacion del Impuesto", Lineas, Me)
-
         ElseIf (Contador = 2) Then
             Me.Controlador.set_Justificacion(Me.Justificacion.Text)
             Me.Controlador.set_Valor(Double.Parse(Me.Valor.Text))

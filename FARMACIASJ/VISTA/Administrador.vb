@@ -127,4 +127,17 @@ Public Class Administrador
         Dim Proveedor As New Controlador_Empleado
         Proveedor.Abrir_Reporte(Me)
     End Sub
+
+    Private Sub AboutToolStripMenuItem_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles AboutToolStripMenuItem.Click
+        Dim About As New AboutBox1
+        About.MdiParent = Me
+        About.Show()
+    End Sub
+
+    Private Sub AplicarImpuestoToolStripMenuItem_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles AplicarImpuestoToolStripMenuItem.Click
+        Dim Impuesto As Controlador_Impuesto
+
+        Impuesto = New Controlador_Impuesto(Me)
+        Impuesto.Abrir_Impuesto()
+    End Sub
 End Class

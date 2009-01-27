@@ -4,14 +4,14 @@
   <description asmv2:publisher="FarmaciaSJ" asmv2:product="FarmaciaSJ V1.0" xmlns="urn:schemas-microsoft-com:asm.v1" />
   <deployment install="true" mapFileExtensions="true" />
   <dependency>
-    <dependentAssembly dependencyType="install" codebase="FARMACIASJ.exe.manifest" size="3293">
+    <dependentAssembly dependencyType="install" codebase="FARMACIASJ.exe.manifest" size="3305">
       <assemblyIdentity name="FARMACIASJ.exe" version="1.0.0.2" publicKeyToken="0000000000000000" language="es-VE" processorArchitecture="msil" type="win32" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
-        <dsig:DigestValue>cjkqSuKhbNaR8KvJpZHLRj5Ei8Q=</dsig:DigestValue>
+        <dsig:DigestValue>XRtW29JjfMifHxzgeg1jkQHwwEA=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>

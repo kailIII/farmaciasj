@@ -70,6 +70,9 @@ Public Class Controlador_Impuesto
             Impuesto.Contador = 0
             Impuesto.Button1.Enabled = True
         Else
+            Impuesto.Descripcion.Text = ""
+            Impuesto.Valor.Text = "0"
+            Impuesto.Justificacion.Text = ""
             Impuesto.Descripcion.Enabled = True
             Impuesto.Valor.Enabled = True
             Impuesto.Modificar.Visible = False
@@ -136,5 +139,10 @@ Public Class Controlador_Impuesto
         Me.ventana.Close()
     End Sub
 
+    Public Sub Abrir_Impuesto()
+        Dim Aplicar As New Aplicar_Impuesto
+        Aplicar.MdiParent = Me.ventana
+        Aplicar.Show()
+    End Sub
 
 End Class

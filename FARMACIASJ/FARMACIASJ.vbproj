@@ -10,7 +10,7 @@
     <RootNamespace>FARMACIASJ</RootNamespace>
     <AssemblyName>FARMACIASJ</AssemblyName>
     <MyType>Empty</MyType>
-    <StartupObject>FARMACIASJ.Aplicar_Impuesto</StartupObject>
+    <StartupObject>FARMACIASJ.FARMACIASJ_INICIO</StartupObject>
     <IsWebBootstrapper>false</IsWebBootstrapper>
     <ManifestCertificateThumbprint>BE915DBA9573890985BC89021FD0BBB2F4FEF247</ManifestCertificateThumbprint>
     <ManifestKeyFile>FARMACIASJ_TemporaryKey.pfx</ManifestKeyFile>
@@ -33,7 +33,7 @@
     <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
     <BootstrapperEnabled>true</BootstrapperEnabled>
     <BootstrapperComponentsLocation>Relative</BootstrapperComponentsLocation>
-    <ApplicationIcon>Logo.ico</ApplicationIcon>
+    <ApplicationIcon>VISTA\Logo.ico</ApplicationIcon>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -69,16 +69,16 @@
     <Compile Include="CONTROLADOR\Controlador_Producto.vb" />
     <Compile Include="CONTROLADOR\Controlador_Proveedor.vb" />
     <Compile Include="CONTROLADOR\Controlador_Venta.vb" />
-    <Compile Include="FarmaciaSJDataSet.Designer.vb">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>FarmaciaSJDataSet.xsd</DependentUpon>
-    </Compile>
     <Compile Include="MODELO\Empleado.vb" />
     <Compile Include="MODELO\Compra.vb" />
     <Compile Include="MODELO\Cliente.vb" />
     <Compile Include="CONTROLADOR\Controlador_Cliente.vb" />
     <Compile Include="CONTROLADOR\Validaciones_Generales.vb" />
+    <Compile Include="MODELO\FarmaciaSJDataSet.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>FarmaciaSJDataSet.xsd</DependentUpon>
+    </Compile>
     <Compile Include="MODELO\Impuesto.vb" />
     <Compile Include="MODELO\Linea.vb" />
     <Compile Include="MODELO\OtrosGastos.vb" />
@@ -95,6 +95,12 @@
       <AutoGen>True</AutoGen>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
       <DependentUpon>Settings.settings</DependentUpon>
+    </Compile>
+    <Compile Include="VISTA\AboutBox1.Designer.vb">
+      <DependentUpon>AboutBox1.vb</DependentUpon>
+    </Compile>
+    <Compile Include="VISTA\AboutBox1.vb">
+      <SubType>Form</SubType>
     </Compile>
     <Compile Include="VISTA\Aplicar Impuesto.Designer.vb">
       <DependentUpon>Aplicar Impuesto.vb</DependentUpon>
@@ -320,6 +326,10 @@
       <Generator>VbMyResourcesResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.vb</LastGenOutput>
     </EmbeddedResource>
+    <EmbeddedResource Include="VISTA\AboutBox1.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>AboutBox1.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="VISTA\Aplicar Impuesto.resx">
       <SubType>Designer</SubType>
       <DependentUpon>Aplicar Impuesto.vb</DependentUpon>
@@ -491,18 +501,17 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <None Include="FarmaciaSJDataSet.xsc">
+    <None Include="MODELO\app.config" />
+    <None Include="MODELO\FarmaciaSJDataSet.xsc">
       <DependentUpon>FarmaciaSJDataSet.xsd</DependentUpon>
     </None>
-    <None Include="FarmaciaSJDataSet.xsd">
+    <None Include="MODELO\FarmaciaSJDataSet.xsd">
       <Generator>MSDataSetGenerator</Generator>
       <LastGenOutput>FarmaciaSJDataSet.Designer.vb</LastGenOutput>
-      <SubType>Designer</SubType>
     </None>
-    <None Include="FarmaciaSJDataSet.xss">
+    <None Include="MODELO\FarmaciaSJDataSet.xss">
       <DependentUpon>FarmaciaSJDataSet.xsd</DependentUpon>
     </None>
-    <None Include="MODELO\app.config" />
     <None Include="My Project\Settings.settings">
       <CustomToolNamespace>My</CustomToolNamespace>
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -530,7 +539,8 @@
     <Service Include="{967B4E0D-AD0C-4609-AB67-0FA40C0206D8}" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Logo.ico" />
+    <None Include="VISTA\Logo.bmp" />
+    <Content Include="VISTA\Logo.ico" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.VisualBasic.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

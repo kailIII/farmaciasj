@@ -193,3 +193,5 @@ C:\Documents and Settings\jeraro\Mis documentos\FarmaciaSJ\FARMACIASJ\obj\Releas
 C:\Documents and Settings\jeraro\Mis documentos\FarmaciaSJ\FARMACIASJ\obj\Release\FARMACIASJ.application
 C:\Documents and Settings\jeraro\Mis documentos\FarmaciaSJ\FARMACIASJ\obj\Release\FARMACIASJ.exe
 C:\Documents and Settings\jeraro\Mis documentos\FarmaciaSJ\FARMACIASJ\obj\Release\FARMACIASJ.pdb
+C:\Documents and Settings\jeraro\Mis documentos\FarmaciaSJ\FARMACIASJ\obj\Debug\FARMACIASJ.AboutBox1.resources
+C:\Documents and Settings\jeraro\Mis documentos\FarmaciaSJ\FARMACIASJ\obj\Release\FARMACIASJ.AboutBox1.resources

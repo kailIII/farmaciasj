@@ -56,13 +56,16 @@ Partial Class Administrador
         Me.StatusStrip = New System.Windows.Forms.StatusStrip
         Me.ToolStripStatusLabel = New System.Windows.Forms.ToolStripStatusLabel
         Me.ToolTip = New System.Windows.Forms.ToolTip(Me.components)
+        Me.AyudaToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem
+        Me.AboutToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem
+        Me.AplicarImpuestoToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem
         Me.MenuStrip.SuspendLayout()
         Me.StatusStrip.SuspendLayout()
         Me.SuspendLayout()
         '
         'MenuStrip
         '
-        Me.MenuStrip.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.VentaToolStripMenuItem, Me.InventarioToolStripMenuItem, Me.CompraToolStripMenuItem, Me.EmpleadoToolStripMenuItem, Me.ConfiguracionToolStripMenuItem, Me.SALIRToolStripMenuItem})
+        Me.MenuStrip.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.VentaToolStripMenuItem, Me.InventarioToolStripMenuItem, Me.CompraToolStripMenuItem, Me.EmpleadoToolStripMenuItem, Me.ConfiguracionToolStripMenuItem, Me.AyudaToolStripMenuItem, Me.SALIRToolStripMenuItem})
         Me.MenuStrip.Location = New System.Drawing.Point(0, 0)
         Me.MenuStrip.Name = "MenuStrip"
         Me.MenuStrip.Padding = New System.Windows.Forms.Padding(9, 2, 0, 2)
@@ -72,7 +75,7 @@ Partial Class Administrador
         '
         'VentaToolStripMenuItem
         '
-        Me.VentaToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.PuntoDeVentaToolStripMenuItem, Me.DevolverFacturaToolStripMenuItem, Me.RegistrarPedidosToolStripMenuItem, Me.SupenderPedidosToolStripMenuItem})
+        Me.VentaToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.PuntoDeVentaToolStripMenuItem, Me.DevolverFacturaToolStripMenuItem, Me.RegistrarPedidosToolStripMenuItem, Me.SupenderPedidosToolStripMenuItem, Me.AplicarImpuestoToolStripMenuItem})
         Me.VentaToolStripMenuItem.Font = New System.Drawing.Font("Tahoma", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.VentaToolStripMenuItem.Name = "VentaToolStripMenuItem"
         Me.VentaToolStripMenuItem.Size = New System.Drawing.Size(59, 20)
@@ -288,6 +291,26 @@ Partial Class Administrador
         Me.ToolStripStatusLabel.Size = New System.Drawing.Size(38, 17)
         Me.ToolStripStatusLabel.Text = "Status"
         '
+        'AyudaToolStripMenuItem
+        '
+        Me.AyudaToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.AboutToolStripMenuItem})
+        Me.AyudaToolStripMenuItem.Font = New System.Drawing.Font("Tahoma", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.AyudaToolStripMenuItem.Name = "AyudaToolStripMenuItem"
+        Me.AyudaToolStripMenuItem.Size = New System.Drawing.Size(62, 20)
+        Me.AyudaToolStripMenuItem.Text = "Ayuda"
+        '
+        'AboutToolStripMenuItem
+        '
+        Me.AboutToolStripMenuItem.Name = "AboutToolStripMenuItem"
+        Me.AboutToolStripMenuItem.Size = New System.Drawing.Size(152, 22)
+        Me.AboutToolStripMenuItem.Text = "About"
+        '
+        'AplicarImpuestoToolStripMenuItem
+        '
+        Me.AplicarImpuestoToolStripMenuItem.Name = "AplicarImpuestoToolStripMenuItem"
+        Me.AplicarImpuestoToolStripMenuItem.Size = New System.Drawing.Size(205, 22)
+        Me.AplicarImpuestoToolStripMenuItem.Text = "Aplicar Impuesto"
+        '
         'Administrador
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(9.0!, 16.0!)
@@ -345,5 +368,8 @@ Partial Class Administrador
     Friend WithEvents ReporteDeEmpleadosToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
     Friend WithEvents IngresarOtrosGastosToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
     Friend WithEvents ReporteDeOtrosGastosToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
+    Friend WithEvents AyudaToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
+    Friend WithEvents AboutToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
+    Friend WithEvents AplicarImpuestoToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
 
 End Class
