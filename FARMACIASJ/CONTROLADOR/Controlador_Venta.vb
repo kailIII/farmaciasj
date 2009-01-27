@@ -166,8 +166,8 @@ Public Class Controlador_Venta
             Ventana.Cantidad.Enabled = True
             Ventana.Cantidad.Focus()
             Ventana.Devolver.Enabled = True
-            Ventana.Detalle_DEV.DataSource = ControladorF.Traer_Detalle_Devolucion(Venta_x.Ultima_Devolucion(Venta_x.Buscar_Id_Venta_Factura(Control_Numero)))
-            Ventana.Detalle_DEV.Update()
+            'Ventana.Detalle_DEV.DataSource = ControladorF.Traer_Detalle_Devolucion(Venta_x.Ultima_Devolucion(Venta_x.Buscar_Id_Venta_Factura(Control_Numero)))
+            'Ventana.Detalle_DEV.Update()
             ' Calcular el total a devolver....
         Else
             MsgBox("El producto no está en la venta", MsgBoxStyle.OkOnly, "Error")
@@ -176,7 +176,6 @@ Public Class Controlador_Venta
         End If
 
     End Sub
-
 
 
     Public Sub Abrir_Ventana_Devolucion(ByVal Padre As Windows.Forms.Form)

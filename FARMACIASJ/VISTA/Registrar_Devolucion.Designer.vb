@@ -463,6 +463,7 @@ Partial Class Registrar_Devolucion
         Me.Numero_Control.Name = "Numero_Control"
         Me.Numero_Control.Size = New System.Drawing.Size(208, 22)
         Me.Numero_Control.TabIndex = 1
+        Me.Numero_Control.Text = "F023"
         '
         'Label1
         '

@@ -32,7 +32,10 @@ Public Class Registrar_Devolucion
         Dim FarmaciaSJ As FarmaciaSJDataSet
         Venta_x = New Venta
         Realizar_Venta = New Realizar_Venta
+        Dim Controlador As Controlador_Devolucion = New Controlador_Devolucion
+        Controlador.DevolverPorCantidades(Me.Numero_Control.Text, Me.Codigo_Barras.Text, Me)
         FarmaciaSJ = Venta_x.Cargar_Reporte(Venta_x.Ultima_Devolucion(Venta_x.Buscar_Id_Venta_Factura(Me.Numero_Control.Text)))
+
     End Sub
 
     Private Sub Devolver_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Devolver.Click
