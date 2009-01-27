@@ -98,4 +98,20 @@ Public Class Controlador_Impuesto
             MsgBox("Se producjo un erro la operacion no se ha podido realizar intente de nuevo", MsgBoxStyle.OkOnly, "Error")
         End If
     End Sub
+    Public Sub ProcesarImpuesto(ByVal ListaSin As Integer(), ByVal ListaCon As Integer())
+        Dim Modelo As Impuesto = New Impuesto
+        If Modelo.AsignarImpuesto(ListaCon, get_ID()) Then
+            If Modelo.RemoverImpuestoLinea(ListaSin, get_ID()) Then
+                MsgBox("Se han modificado las líneas e impuesto.", MsgBoxStyle.OkOnly, "Información")
+            Else
+                MsgBox("Error al tratar de modificar impuestos de líneas.", MsgBoxStyle.OkOnly, "Error")
+            End If
+        Else
+            MsgBox("Error al tratar de modificar impuestos de líneas.", MsgBoxStyle.OkOnly, "Error")
+        End If
+
+
+    End Sub
+
+
 End Class

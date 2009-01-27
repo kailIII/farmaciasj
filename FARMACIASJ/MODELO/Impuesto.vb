@@ -172,4 +172,51 @@ Public Class Impuesto
             Return False
         End Try
     End Function
+
+    Public Function RemoverImpuestoLinea(ByVal Lineasin As Integer(), ByVal Id_Impuesto As Integer) As Boolean
+        Dim Proveedor_x As FarmaciaSJDataSetTableAdapters.Linea_ImpuestoTableAdapter = New FarmaciaSJDataSetTableAdapters.Linea_ImpuestoTableAdapter
+        Dim Conextion As Data.SqlClient.SqlConnection = Proveedor_x.Connection
+        Dim Consulta As Data.SqlClient.SqlCommand = New Data.SqlClient.SqlCommand
+        Try
+            Dim i As Integer = 0
+            While i < Lineasin.Length
+                Conextion.Open()
+                Consulta.Connection = Conextion
+                Consulta.CommandText = "DELETE FROM Linea_Impuesto WHERE ID_LINEA=" & Lineasin(i) & " AND ID_IMPUESTO=" & Id_Impuesto
+                Try
+                    Consulta.ExecuteNonQuery()
+                Catch ex As Exception
+                End Try
+                Conextion.Close()
+                i = i + 1
+            End While
+            Return True
+        Catch ex As ArgumentNullException
+            Return False
+        End Try
+    End Function
+
+    Public Function AsignarImpuesto(ByVal Lineacon As Integer(), ByVal Id_Impuesto As Integer) As Boolean
+        Dim Proveedor_x As FarmaciaSJDataSetTableAdapters.Linea_ImpuestoTableAdapter = New FarmaciaSJDataSetTableAdapters.Linea_ImpuestoTableAdapter
+        Dim Conextion As Data.SqlClient.SqlConnection = Proveedor_x.Connection
+        Dim Consulta As Data.SqlClient.SqlCommand = New Data.SqlClient.SqlCommand
+        Try
+            Dim i As Integer = 0
+            While i < Lineacon.Length
+                Conextion.Open()
+                Consulta.Connection = Conextion
+                Consulta.CommandText = "INSERT INTO Linea_Impuesto ([ID_LINEA],[ID_IMPUESTO]) VALUES(" & Lineacon(i) & ", " & Id_Impuesto & ")"
+                Try
+                    Consulta.ExecuteNonQuery()
+                Catch ex As Exception
+                End Try
+                Conextion.Close()
+                i = i + 1
+            End While
+            Return True
+        Catch ex As ArgumentNullException
+            Return False
+        End Try
+    End Function
+
 End Class

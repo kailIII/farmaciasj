@@ -10,12 +10,12 @@
     <RootNamespace>FARMACIASJ</RootNamespace>
     <AssemblyName>FARMACIASJ</AssemblyName>
     <MyType>Empty</MyType>
-    <StartupObject>FARMACIASJ.Administrador</StartupObject>
+    <StartupObject>FARMACIASJ.Aplicar_Impuesto</StartupObject>
     <IsWebBootstrapper>false</IsWebBootstrapper>
     <ManifestCertificateThumbprint>BE915DBA9573890985BC89021FD0BBB2F4FEF247</ManifestCertificateThumbprint>
     <ManifestKeyFile>FARMACIASJ_TemporaryKey.pfx</ManifestKeyFile>
     <GenerateManifests>true</GenerateManifests>
-    <SignManifests>true</SignManifests>
+    <SignManifests>false</SignManifests>
     <PublishUrl>C:\Documents and Settings\jeraro\Mis documentos\Publicado\</PublishUrl>
     <Install>true</Install>
     <InstallFrom>Disk</InstallFrom>
@@ -69,12 +69,12 @@
     <Compile Include="CONTROLADOR\Controlador_Producto.vb" />
     <Compile Include="CONTROLADOR\Controlador_Proveedor.vb" />
     <Compile Include="CONTROLADOR\Controlador_Venta.vb" />
-    <Compile Include="MODELO\Empleado.vb" />
-    <Compile Include="MODELO\FarmaciaSJDataSet.Designer.vb">
+    <Compile Include="FarmaciaSJDataSet.Designer.vb">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>FarmaciaSJDataSet.xsd</DependentUpon>
     </Compile>
+    <Compile Include="MODELO\Empleado.vb" />
     <Compile Include="MODELO\Compra.vb" />
     <Compile Include="MODELO\Cliente.vb" />
     <Compile Include="CONTROLADOR\Controlador_Cliente.vb" />
@@ -491,18 +491,18 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <None Include="MODELO\app.config" />
-    <None Include="MODELO\FarmaciaSJDataSet.xsc">
+    <None Include="FarmaciaSJDataSet.xsc">
       <DependentUpon>FarmaciaSJDataSet.xsd</DependentUpon>
     </None>
-    <None Include="MODELO\FarmaciaSJDataSet.xsd">
+    <None Include="FarmaciaSJDataSet.xsd">
       <Generator>MSDataSetGenerator</Generator>
       <LastGenOutput>FarmaciaSJDataSet.Designer.vb</LastGenOutput>
       <SubType>Designer</SubType>
     </None>
-    <None Include="MODELO\FarmaciaSJDataSet.xss">
+    <None Include="FarmaciaSJDataSet.xss">
       <DependentUpon>FarmaciaSJDataSet.xsd</DependentUpon>
     </None>
+    <None Include="MODELO\app.config" />
     <None Include="My Project\Settings.settings">
       <CustomToolNamespace>My</CustomToolNamespace>
       <Generator>SettingsSingleFileGenerator</Generator>
