@@ -80,16 +80,22 @@ Public Class Controlador_Impuesto
     Public Sub ir_a_Lineas()
         Dim Aplicar_Linea As Aplicar_Linea
         Dim Impuesto As Aplicar_Impuesto
+        Dim resultado As Boolean
         Impuesto = Me.ventana
         Aplicar_Linea = New Aplicar_Linea
         Aplicar_Linea.Controlador = Me
         Aplicar_Linea.Impuesto.Text = Impuesto.Nombre.Text
         Aplicar_Linea.Valor.Text = Impuesto.Valor.Text
         Aplicar_Linea.Contador = Impuesto.Contador
-        Me.Impuesto.Traer_Lineas(Aplicar_Linea)
-        Impuesto.Visible = False
-        Aplicar_Linea.Aplicar = Impuesto
-        Aplicar_Linea.MdiParent = Impuesto.MdiParent
-        Aplicar_Linea.Show()
+        resultado = Me.Impuesto.Traer_Lineas(Aplicar_Linea)
+        If (resultado = True) Then
+            Impuesto.Visible = False
+            Aplicar_Linea.Aplicar = Impuesto
+            Aplicar_Linea.MdiParent = Impuesto.MdiParent
+            Me.ventana = Aplicar_Linea
+            Aplicar_Linea.Show()
+        Else
+            MsgBox("Se producjo un erro la operacion no se ha podido realizar intente de nuevo", MsgBoxStyle.OkOnly, "Error")
+        End If
     End Sub
 End Class

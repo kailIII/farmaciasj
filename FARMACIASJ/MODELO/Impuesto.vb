@@ -121,6 +121,8 @@ Public Class Impuesto
         Dim L As Integer
         Dim J As Integer
         Dim b As Boolean
+        Dim g As Integer
+        Dim h As Integer
         Try
             Conextion.Open()
             Consulta.Connection = Conextion
@@ -141,6 +143,8 @@ Public Class Impuesto
                 i = i + 1
             End While
             i = 0
+            g = 0
+            h = 0
             While (Reder.Read = True)
                 i = Integer.Parse(Reder.Item(0).ToString)
                 J = 0
@@ -151,7 +155,15 @@ Public Class Impuesto
                     End If
                     J = J + 1
                 End While
-
+                If (b = True) Then
+                    Ventana.Lineas2.Items.Insert(g, Reder.Item(1).ToString)
+                    lineascon(g) = i
+                    g = g + 1
+                Else
+                    Ventana.Lineas1.Items.Insert(h, Reder.Item(1).ToString)
+                    lineassin(h) = i
+                    h = h + 1
+                End If
             End While
             Return True
         Catch ex As Exception

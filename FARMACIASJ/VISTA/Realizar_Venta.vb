@@ -46,7 +46,7 @@ Public Class Realizar_Venta
         Dim ControladorP As Controlador_Producto
         ControladorP = New Controlador_Producto
         If (e.KeyChar = Char.ConvertFromUtf32(13)) Then
-            ControladorP.Buscar_CodigoBarras(Me.Codigo_Barras.Text, Me)
+            ControladorP.Buscar_CodigoBarras(Me.Codigo_Barras.Text, Me, 0)
         End If
     End Sub
 
@@ -138,7 +138,7 @@ Public Class Realizar_Venta
         If (ID_Factura <> -1) Then
             ControladorF = New Controlador_Venta
             ControladorF.Descontar_Inventario(ID_Factura)
-            ControladorF.Procesar_Venta(ID_Factura, Me)
+            ControladorF.Procesar_Venta(ID_Factura, Me, 0)
         Else
             MsgBox("No se puede Facturar si la Facutra esta vacia", MsgBoxStyle.OkOnly, "Error")
         End If

@@ -52,17 +52,32 @@ Public Class Controlador_Venta
         Venta = New Venta
         Venta.Descontar_Inventario(ID_Venta)
     End Sub
-    Public Sub Procesar_Venta(ByVal ID_FACTURA As Integer, ByVal Venta As Realizar_Venta)
+    Public Sub Procesar_Venta(ByVal ID_FACTURA As Integer, ByVal RVenta As Windows.Forms.Form, ByVal i As Integer)
         Dim Pago As Pago
         Pago = New Pago
-        Pago.ID_Factura = ID_FACTURA
-        Pago.Numero_Factura.Text = Venta.Numero.Text
-        Pago.Numero_ID.Text = Venta.Identidad.Text
-        Pago.Stotal.Text = Venta.Sub_Total.Text
-        Pago.Impuestos.Text = Venta.Impuesto.Text
-        Pago.Total.Text = Venta.Total.Text
-        Pago.MdiParent = Venta.MdiParent
-        Venta.Close()
+        If (i = 0) Then
+            Dim Venta As Realizar_Venta
+            Venta = RVenta
+            Pago.ID_Factura = ID_FACTURA
+            Pago.Numero_Factura.Text = Venta.Numero.Text
+            Pago.Numero_ID.Text = Venta.Identidad.Text
+            Pago.Stotal.Text = Venta.Sub_Total.Text
+            Pago.Impuestos.Text = Venta.Impuesto.Text
+            Pago.Total.Text = Venta.Total.Text
+            Pago.MdiParent = Venta.MdiParent
+            Venta.Close()
+        Else
+            Dim Venta As Devolucion_Venta
+            Venta = RVenta
+            Pago.ID_Factura = ID_FACTURA
+            Pago.Numero_Factura.Text = Venta.Numero.Text
+            Pago.Numero_ID.Text = Venta.Identidad.Text
+            Pago.Stotal.Text = Venta.Sub_Total.Text
+            Pago.Impuestos.Text = Venta.Impuesto.Text
+            Pago.Total.Text = Venta.Total.Text
+            Pago.MdiParent = Venta.MdiParent
+            Venta.Close()
+        End If
         Pago.Show()
     End Sub
     Public Sub Actualizar_Pago(ByVal ID_Factura As Integer, ByVal Stotal As String, ByVal Impuestos As String, ByVal Total As String, ByVal Tipo_Pago As String, ByVal Monto As String, ByVal Vuelto As String, ByVal NCT As String, ByVal Vencimiento As String, ByVal Pago As Pago)
@@ -106,7 +121,7 @@ Public Class Controlador_Venta
 
 
     'LZ
-    Public Sub Buscar_Info_Factura(ByVal Control_Numero As String, ByVal Ventana As Registrar_Devolucion)
+    Public Sub Buscar_Info_Factura(ByVal Control_Numero As String, ByVal Ventana As Devolucion_Venta)
         Dim Venta_x As Venta = New Venta
         Dim Id_Cliente As Integer = Venta_x.Buscar_id_Cliente_Factura(Control_Numero)
         Dim ControladorF As Controlador_Venta = New Controlador_Venta
@@ -119,10 +134,8 @@ Public Class Controlador_Venta
 
         Else
             MsgBox("Número de factura inválido", MsgBoxStyle.OkOnly, "Error")
-            Ventana.Razon_Social.Text = ""
-            Ventana.Rif.Text = ""
-            Ventana.Telefono.Text = ""
-            Ventana.Direccion.Text = ""
+            Ventana.Nombre.Text = ""
+            Ventana.Identidad.Text = ""
             Ventana.DETALLE_VENTA.DataSource = DBNull.Value
             Ventana.DETALLE_VENTA.Update()
         End If
@@ -134,7 +147,7 @@ Public Class Controlador_Venta
         Return Venta.Traer_Detalle_Devolucion(Id_Factura)
     End Function
 
-    Public Sub Devolucion_Productos(ByVal Control_Numero As String, ByVal Codigo_Barras As String, ByVal Ventana As Registrar_Devolucion)
+    Public Sub Devolucion_Productos(ByVal Control_Numero As String, ByVal Codigo_Barras As String, ByVal Ventana As Devolucion_Venta)
         Dim Producto_x As Producto = New Producto
 
         Dim Venta_x As Venta = New Venta
@@ -145,12 +158,12 @@ Public Class Controlador_Venta
         If Venta_x.Existe_Producto_Venta(Id_Venta, Codigo_Barras) Then
 
             Venta_x.Consulta_Producto_Venta(Id_Venta, Codigo_Barras, Ventana)
-            Venta_x.Calculo_Impuesto_Devolucion(Id_Venta, Ventana.ID_Detalle_Publico)
+            Venta_x.Calculo_Impuesto_Devolucion(Id_Venta, Ventana.ID_Detalle)
             'Insert de devoluciones
             Dim Id_Venta_Devolucion As Integer = Venta_x.Id_Venta_Devolucion(Id_Venta)
             If Not (Id_Venta_Devolucion > 0) Then
 
-                If Not (Venta_x.Crear_Devolucion(Id_Venta, Ventana.Id_Cliente_Publico, Ventana)) Then
+                If Not (Venta_x.Crear_Devolucion(Id_Venta, Ventana.ID_Cliente, Ventana)) Then
                     MsgBox("El producto no se pudo procesar", MsgBoxStyle.OkOnly, "Error")
                 Else
 
@@ -165,13 +178,13 @@ Public Class Controlador_Venta
 
             Ventana.Cantidad.Enabled = True
             Ventana.Cantidad.Focus()
-            Ventana.Devolver.Enabled = True
+            'Ventana.Devolver.Enabled = True
             'Ventana.Detalle_DEV.DataSource = ControladorF.Traer_Detalle_Devolucion(Venta_x.Ultima_Devolucion(Venta_x.Buscar_Id_Venta_Factura(Control_Numero)))
             'Ventana.Detalle_DEV.Update()
             ' Calcular el total a devolver....
         Else
             MsgBox("El producto no está en la venta", MsgBoxStyle.OkOnly, "Error")
-            Ventana.Devolver.Enabled = False
+            'Ventana.Devolver.Enabled = False
 
         End If
 
@@ -179,8 +192,8 @@ Public Class Controlador_Venta
 
 
     Public Sub Abrir_Ventana_Devolucion(ByVal Padre As Windows.Forms.Form)
-        Dim Venta_Devolucion As Registrar_Devolucion
-        Venta_Devolucion = New Registrar_Devolucion
+        Dim Venta_Devolucion As Devolucion_Venta
+        Venta_Devolucion = New Devolucion_Venta
         Venta_Devolucion.MdiParent = Padre
         Venta_Devolucion.Show()
     End Sub

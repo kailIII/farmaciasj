@@ -22,7 +22,7 @@ Partial Class Aplicar_Linea
         Me.Lineas1 = New System.Windows.Forms.ListBox
         Me.Button1 = New System.Windows.Forms.Button
         Me.Button2 = New System.Windows.Forms.Button
-        Me.ListBox1 = New System.Windows.Forms.ListBox
+        Me.Lineas2 = New System.Windows.Forms.ListBox
         Me.Button3 = New System.Windows.Forms.Button
         Me.Label1 = New System.Windows.Forms.Label
         Me.Label2 = New System.Windows.Forms.Label
@@ -58,13 +58,13 @@ Partial Class Aplicar_Linea
         Me.Button2.Text = "<"
         Me.Button2.UseVisualStyleBackColor = True
         '
-        'ListBox1
+        'Lineas2
         '
-        Me.ListBox1.FormattingEnabled = True
-        Me.ListBox1.Location = New System.Drawing.Point(276, 70)
-        Me.ListBox1.Name = "ListBox1"
-        Me.ListBox1.Size = New System.Drawing.Size(195, 186)
-        Me.ListBox1.TabIndex = 3
+        Me.Lineas2.FormattingEnabled = True
+        Me.Lineas2.Location = New System.Drawing.Point(276, 70)
+        Me.Lineas2.Name = "Lineas2"
+        Me.Lineas2.Size = New System.Drawing.Size(195, 186)
+        Me.Lineas2.TabIndex = 3
         '
         'Button3
         '
@@ -139,7 +139,7 @@ Partial Class Aplicar_Linea
         Me.Controls.Add(Me.Label2)
         Me.Controls.Add(Me.Label1)
         Me.Controls.Add(Me.Button3)
-        Me.Controls.Add(Me.ListBox1)
+        Me.Controls.Add(Me.Lineas2)
         Me.Controls.Add(Me.Button2)
         Me.Controls.Add(Me.Button1)
         Me.Controls.Add(Me.Lineas1)
@@ -152,7 +152,7 @@ Partial Class Aplicar_Linea
     Friend WithEvents Lineas1 As System.Windows.Forms.ListBox
     Friend WithEvents Button1 As System.Windows.Forms.Button
     Friend WithEvents Button2 As System.Windows.Forms.Button
-    Friend WithEvents ListBox1 As System.Windows.Forms.ListBox
+    Friend WithEvents Lineas2 As System.Windows.Forms.ListBox
     Friend WithEvents Button3 As System.Windows.Forms.Button
     Friend WithEvents Label1 As System.Windows.Forms.Label
     Friend WithEvents Label2 As System.Windows.Forms.Label

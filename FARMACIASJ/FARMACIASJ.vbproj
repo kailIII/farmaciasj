@@ -10,7 +10,7 @@
     <RootNamespace>FARMACIASJ</RootNamespace>
     <AssemblyName>FARMACIASJ</AssemblyName>
     <MyType>Empty</MyType>
-    <StartupObject>FARMACIASJ.Aplicar_Impuesto</StartupObject>
+    <StartupObject>FARMACIASJ.Administrador</StartupObject>
     <IsWebBootstrapper>false</IsWebBootstrapper>
     <ManifestCertificateThumbprint>BE915DBA9573890985BC89021FD0BBB2F4FEF247</ManifestCertificateThumbprint>
     <ManifestKeyFile>FARMACIASJ_TemporaryKey.pfx</ManifestKeyFile>
@@ -138,6 +138,12 @@
     <Compile Include="VISTA\Despedir_Empleado.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="VISTA\Devolucion_Venta.Designer.vb">
+      <DependentUpon>Devolucion_Venta.vb</DependentUpon>
+    </Compile>
+    <Compile Include="VISTA\Devolucion_Venta.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="VISTA\Elegir_Lote.Designer.vb">
       <DependentUpon>Elegir_Lote.vb</DependentUpon>
     </Compile>
@@ -258,12 +264,6 @@
     <Compile Include="VISTA\Registrar_Compra.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="VISTA\Registrar_Devolucion.Designer.vb">
-      <DependentUpon>Registrar_Devolucion.vb</DependentUpon>
-    </Compile>
-    <Compile Include="VISTA\Registrar_Devolucion.vb">
-      <SubType>Form</SubType>
-    </Compile>
     <Compile Include="VISTA\Registrar_Pedido.Designer.vb">
       <DependentUpon>Registrar_Pedido.vb</DependentUpon>
     </Compile>
@@ -348,6 +348,10 @@
       <DependentUpon>Despedir_Empleado.vb</DependentUpon>
       <SubType>Designer</SubType>
     </EmbeddedResource>
+    <EmbeddedResource Include="VISTA\Devolucion_Venta.resx">
+      <DependentUpon>Devolucion_Venta.vb</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
     <EmbeddedResource Include="VISTA\Elegir_Lote.resx">
       <DependentUpon>Elegir_Lote.vb</DependentUpon>
       <SubType>Designer</SubType>
@@ -427,10 +431,6 @@
     <EmbeddedResource Include="VISTA\Registrar_Compra.resx">
       <SubType>Designer</SubType>
       <DependentUpon>Registrar_Compra.vb</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="VISTA\Registrar_Devolucion.resx">
-      <DependentUpon>Registrar_Devolucion.vb</DependentUpon>
-      <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="VISTA\Registrar_Pedido.resx">
       <SubType>Designer</SubType>

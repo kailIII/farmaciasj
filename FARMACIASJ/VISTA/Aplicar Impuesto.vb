@@ -24,7 +24,6 @@ Public Class Aplicar_Impuesto
             Me.Controlador.set_Justificacion(Me.Justificacion.Text)
             Me.Controlador.set_Valor(Double.Parse(Me.Valor.Text))
         End If
-        Controlador.Ir_a_Lineas()
-        Me.Close()
+        Controlador.ir_a_Lineas()
     End Sub
 End Class

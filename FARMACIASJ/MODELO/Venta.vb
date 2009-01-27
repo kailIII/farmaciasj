@@ -258,7 +258,7 @@ Public Class Venta
 
 
 
-    Public Sub Buscar_Info_Cliente(ByVal Id_Cliente As Integer, ByVal Venta As Registrar_Devolucion)
+    Public Sub Buscar_Info_Cliente(ByVal Id_Cliente As Integer, ByVal Venta As Devolucion_Venta)
 
         Dim Cliente As FarmaciaSJDataSetTableAdapters.CLIENTETableAdapter
         Dim Conextion As Data.SqlClient.SqlConnection
@@ -274,18 +274,16 @@ Public Class Venta
             Consulta.CommandText = "SELECT APELLIDO+', '+NOMBRE, IDENTIDAD, TELEFONO, DIRECCION, ID_CLIENTE FROM CLIENTE WHERE ID_CLIENTE=" & Id_Cliente
             Reder = Consulta.ExecuteReader()
             If (Reder.Read = True) Then
-                Venta.Razon_Social.Text = Reder.Item(0).ToString()
-                Venta.Rif.Text = Reder.Item(1).ToString()
-                Venta.Telefono.Text = Reder.Item(2).ToString()
-                Venta.Direccion.Text = Reder.Item(3).ToString()
-                Venta.Id_Cliente_Publico = CInt(Reder.Item(4).ToString())
+                Venta.Nombre.Text = Reder.Item(0).ToString()
+                Venta.Identidad.Text = Reder.Item(1).ToString()
+                Venta.ID_Cliente = CInt(Reder.Item(4).ToString())
                 Reder.Close()
             End If
         Catch e As Data.SqlClient.SqlException
         End Try
     End Sub
 
-    Public Sub Buscar_Info_Venta_Producto(ByVal Id_Cliente As Integer, ByVal Venta As Registrar_Devolucion)
+    Public Sub Buscar_Info_Venta_Producto(ByVal Id_Cliente As Integer, ByVal Venta As Devolucion_Venta)
 
         Dim Cliente As FarmaciaSJDataSetTableAdapters.CLIENTETableAdapter
         Dim Conextion As Data.SqlClient.SqlConnection
@@ -301,11 +299,9 @@ Public Class Venta
             Consulta.CommandText = "SELECT APELLIDO+', '+NOMBRE, IDENTIDAD, TELEFONO, DIRECCION, ID_CLIENTE FROM CLIENTE WHERE ID_CLIENTE=" & Id_Cliente
             Reder = Consulta.ExecuteReader()
             If (Reder.Read = True) Then
-                Venta.Razon_Social.Text = Reder.Item(0).ToString()
-                Venta.Rif.Text = Reder.Item(1).ToString()
-                Venta.Telefono.Text = Reder.Item(2).ToString()
-                Venta.Direccion.Text = Reder.Item(3).ToString()
-                Venta.Id_Cliente_Publico = CInt(Reder.Item(4).ToString())
+                Venta.Nombre.Text = Reder.Item(0).ToString()
+                Venta.Identidad.Text = Reder.Item(1).ToString()
+                Venta.ID_Cliente = CInt(Reder.Item(4).ToString())
                 Reder.Close()
             End If
         Catch e As Data.SqlClient.SqlException
@@ -409,7 +405,7 @@ Public Class Venta
 
 
 
-    Public Sub Consulta_Producto_Venta(ByVal Id_Venta As Integer, ByVal Numero_Control As String, ByVal Ventana As Registrar_Devolucion)
+    Public Sub Consulta_Producto_Venta(ByVal Id_Venta As Integer, ByVal Numero_Control As String, ByVal Ventana As Devolucion_Venta)
 
         Dim Cliente As FarmaciaSJDataSetTableAdapters.CLIENTETableAdapter
         Dim Conextion As Data.SqlClient.SqlConnection
@@ -432,9 +428,9 @@ Public Class Venta
                 Ventana.Sub_Total.Text = Reder.Item(4).ToString
                 Ventana.Impuesto.Text = Reder.Item(5).ToString
                 Ventana.Total.Text = Reder.Item(6).ToString
-                Ventana.Id_Lote_Publico = CInt(Reder.Item(8).ToString)
-                Ventana.Id_Producto_Publico = CInt(Reder.Item(7).ToString)
-                Ventana.ID_Detalle_Publico = CInt(Reder.Item(9).ToString)
+                Ventana.ID_Lote = CInt(Reder.Item(8).ToString)
+                Ventana.ID_Producto = CInt(Reder.Item(7).ToString)
+                Ventana.ID_Detalle = CInt(Reder.Item(9).ToString)
 
             End If
         Catch e As Data.SqlClient.SqlException
@@ -502,12 +498,12 @@ Public Class Venta
 
 
 
-    Public Function Ingresar_Det_Venta(ByVal Id_Venta As Integer, ByVal Ventana As Registrar_Devolucion, ByVal Id_Producto As Integer) As Boolean
+    Public Function Ingresar_Det_Venta(ByVal Id_Venta As Integer, ByVal Ventana As Devolucion_Venta, ByVal Id_Producto As Integer) As Boolean
         Dim Conexion As FarmaciaSJDataSetTableAdapters.DETALLE_VENTATableAdapter
         Try
             BasedeDatos = New FarmaciaSJDataSet
             Conexion = New FarmaciaSJDataSetTableAdapters.DETALLE_VENTATableAdapter
-            Conexion.Insert(Tamano_Det_Venta(), Id_Venta, CInt(Ventana.Cantidad.Text), Ventana.Id_Lote_Publico, Id_Producto)
+            Conexion.Insert(Tamano_Det_Venta(), Id_Venta, CInt(Ventana.Cantidad.Text), Ventana.ID_Lote, Id_Producto)
             Conexion.Update(BasedeDatos.DETALLE_VENTA)
             Return True
         Catch err As ArgumentNullException
@@ -516,12 +512,12 @@ Public Class Venta
     End Function
 
 
-    Public Function Crear_Devolucion(ByVal Id_Devolucion_Id_Venta As Integer, ByVal Id_Cliente As Integer, ByVal Ventana As Registrar_Devolucion) As Boolean
+    Public Function Crear_Devolucion(ByVal Id_Devolucion_Id_Venta As Integer, ByVal Id_Cliente As Integer, ByVal Ventana As Devolucion_Venta) As Boolean
         Dim Conexion As FarmaciaSJDataSetTableAdapters.VENTATableAdapter
         Try
             BasedeDatos = New FarmaciaSJDataSet
             Conexion = New FarmaciaSJDataSetTableAdapters.VENTATableAdapter
-            Conexion.Insert("F" & Tamano_Det_Venta(), Ventana.Fecha_Compra.Value, Ventana.Vence1.Value, 0, 0, 0, 0, 0, 0, "", "", Ventana.Fecha_Compra.Value, Id_Cliente, Id_Devolucion_Id_Venta)
+            Conexion.Insert("F" & Tamano_Det_Venta(), Ventana.Fecha_Compra.Value, Ventana.Vence.Value, 0, 0, 0, 0, 0, 0, "", "", Ventana.Fecha_Compra.Value, Id_Cliente, Id_Devolucion_Id_Venta)
             Conexion.Update(BasedeDatos.VENTA)
             Return True
         Catch err As ArgumentNullException
