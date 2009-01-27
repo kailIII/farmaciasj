@@ -44,7 +44,7 @@ Partial Class Aplicar_Impuesto
         'Nombre
         '
         Me.Nombre.Location = New System.Drawing.Point(174, 38)
-        Me.Nombre.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.Nombre.Margin = New System.Windows.Forms.Padding(4)
         Me.Nombre.Name = "Nombre"
         Me.Nombre.Size = New System.Drawing.Size(276, 22)
         Me.Nombre.TabIndex = 1
@@ -63,7 +63,7 @@ Partial Class Aplicar_Impuesto
         '
         Me.Descripcion.Enabled = False
         Me.Descripcion.Location = New System.Drawing.Point(174, 76)
-        Me.Descripcion.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.Descripcion.Margin = New System.Windows.Forms.Padding(4)
         Me.Descripcion.Name = "Descripcion"
         Me.Descripcion.Size = New System.Drawing.Size(276, 128)
         Me.Descripcion.TabIndex = 3
@@ -94,7 +94,7 @@ Partial Class Aplicar_Impuesto
         'Justificacion
         '
         Me.Justificacion.Location = New System.Drawing.Point(174, 249)
-        Me.Justificacion.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.Justificacion.Margin = New System.Windows.Forms.Padding(4)
         Me.Justificacion.Name = "Justificacion"
         Me.Justificacion.Size = New System.Drawing.Size(276, 128)
         Me.Justificacion.TabIndex = 17
@@ -115,7 +115,7 @@ Partial Class Aplicar_Impuesto
         'Modificar
         '
         Me.Modificar.Location = New System.Drawing.Point(464, 210)
-        Me.Modificar.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.Modificar.Margin = New System.Windows.Forms.Padding(4)
         Me.Modificar.Name = "Modificar"
         Me.Modificar.Size = New System.Drawing.Size(112, 28)
         Me.Modificar.TabIndex = 18
@@ -125,8 +125,9 @@ Partial Class Aplicar_Impuesto
         '
         'Button1
         '
+        Me.Button1.Enabled = False
         Me.Button1.Location = New System.Drawing.Point(260, 385)
-        Me.Button1.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.Button1.Margin = New System.Windows.Forms.Padding(4)
         Me.Button1.Name = "Button1"
         Me.Button1.Size = New System.Drawing.Size(112, 28)
         Me.Button1.TabIndex = 19
@@ -149,7 +150,7 @@ Partial Class Aplicar_Impuesto
         Me.Controls.Add(Me.Nombre)
         Me.Controls.Add(Me.Label1)
         Me.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.Margin = New System.Windows.Forms.Padding(4)
         Me.Name = "Aplicar_Impuesto"
         Me.Text = "Aplicar Impuesto"
         Me.ResumeLayout(False)

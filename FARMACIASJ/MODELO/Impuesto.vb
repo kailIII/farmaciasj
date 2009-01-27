@@ -149,12 +149,14 @@ Public Class Impuesto
                 i = Integer.Parse(Reder.Item(0).ToString)
                 J = 0
                 b = False
-                While (J < Me.Lineas.Length)
-                    If (i = Me.Lineas(J)) Then
-                        b = True
-                    End If
-                    J = J + 1
-                End While
+                If (Me.id > 0) Then
+                    While (J < Me.Lineas.Length)
+                        If (i = Me.Lineas(J)) Then
+                            b = True
+                        End If
+                        J = J + 1
+                    End While
+                End If
                 If (b = True) Then
                     Ventana.Lineas2.Items.Insert(g, Reder.Item(1).ToString)
                     lineascon(g) = i
@@ -173,7 +175,7 @@ Public Class Impuesto
         End Try
     End Function
 
-    Public Function RemoverImpuestoLinea(ByVal Lineasin As Integer(), ByVal Id_Impuesto As Integer) As Boolean
+    Public Function RemoverImpuestoLinea(ByVal Lineasin As Integer()) As Boolean
         Dim Proveedor_x As FarmaciaSJDataSetTableAdapters.Linea_ImpuestoTableAdapter = New FarmaciaSJDataSetTableAdapters.Linea_ImpuestoTableAdapter
         Dim Conextion As Data.SqlClient.SqlConnection = Proveedor_x.Connection
         Dim Consulta As Data.SqlClient.SqlCommand = New Data.SqlClient.SqlCommand
@@ -182,7 +184,7 @@ Public Class Impuesto
             While i < Lineasin.Length
                 Conextion.Open()
                 Consulta.Connection = Conextion
-                Consulta.CommandText = "DELETE FROM Linea_Impuesto WHERE ID_LINEA=" & Lineasin(i) & " AND ID_IMPUESTO=" & Id_Impuesto
+                Consulta.CommandText = "DELETE FROM Linea_Impuesto WHERE ID_LINEA=" & Lineasin(i) & " AND ID_IMPUESTO=" & Me.id
                 Try
                     Consulta.ExecuteNonQuery()
                 Catch ex As Exception
@@ -196,7 +198,7 @@ Public Class Impuesto
         End Try
     End Function
 
-    Public Function AsignarImpuesto(ByVal Lineacon As Integer(), ByVal Id_Impuesto As Integer) As Boolean
+    Public Function AsignarImpuesto(ByVal Lineacon As Integer()) As Boolean
         Dim Proveedor_x As FarmaciaSJDataSetTableAdapters.Linea_ImpuestoTableAdapter = New FarmaciaSJDataSetTableAdapters.Linea_ImpuestoTableAdapter
         Dim Conextion As Data.SqlClient.SqlConnection = Proveedor_x.Connection
         Dim Consulta As Data.SqlClient.SqlCommand = New Data.SqlClient.SqlCommand
@@ -205,7 +207,7 @@ Public Class Impuesto
             While i < Lineacon.Length
                 Conextion.Open()
                 Consulta.Connection = Conextion
-                Consulta.CommandText = "INSERT INTO Linea_Impuesto ([ID_LINEA],[ID_IMPUESTO]) VALUES(" & Lineacon(i) & ", " & Id_Impuesto & ")"
+                Consulta.CommandText = "INSERT INTO Linea_Impuesto ([ID_LINEA],[ID_IMPUESTO]) VALUES(" & Lineacon(i) & ", " & Me.id & ")"
                 Try
                     Consulta.ExecuteNonQuery()
                 Catch ex As Exception
@@ -218,5 +220,78 @@ Public Class Impuesto
             Return False
         End Try
     End Function
+
+
+    Function NuevoImpuesto() As Boolean
+        Dim Proveedor_x As FarmaciaSJDataSetTableAdapters.Linea_ImpuestoTableAdapter = New FarmaciaSJDataSetTableAdapters.Linea_ImpuestoTableAdapter
+        Dim Conextion As Data.SqlClient.SqlConnection = Proveedor_x.Connection
+        Dim Consulta As Data.SqlClient.SqlCommand = New Data.SqlClient.SqlCommand
+        Try
+            Conextion.Open()
+            Consulta.Connection = Conextion
+            Consulta.CommandText = "INSERT INTO [IMPUESTO]([Nombre]  ,[Descripcion]) VALUES('" & Me.Nombre & "','" & Me.Descripcion & "')"
+            Consulta.ExecuteNonQuery()
+            Conextion.Close()
+            Me.id = Me.Buscar_Id_Impuesto(Me.Nombre)
+            Conextion.Open()
+            Consulta.Connection = Conextion
+            Consulta.CommandText = "INSERT INTO [HISTORICO_IMPUESTO]([ID_IMPUESTO],[FECHA_INICIO],[FECHA_FIN],[VALOR],[DESCRIPCION])  VALUES(" & Me.id & ",GETDATE(),NULL," & Me.Valor & ", '" & Me.Justificacion & "')"
+            Consulta.ExecuteNonQuery()
+            Conextion.Close()
+            Return True
+        Catch ex As ArgumentNullException
+            Return False
+        End Try
+    End Function
+
+    Public Function Buscar_Id_Impuesto(ByVal Nombre As String) As Integer
+
+        Dim Empleo As FarmaciaSJDataSetTableAdapters.EMPLEADOTableAdapter
+        Dim Conextion As Data.SqlClient.SqlConnection
+        Dim Consulta As Data.SqlClient.SqlCommand
+        Dim Reder As Data.SqlClient.SqlDataReader
+        Dim Id_Empleado As Integer = 0
+
+        Try
+            Empleo = New FarmaciaSJDataSetTableAdapters.EMPLEADOTableAdapter
+            Conextion = Empleo.Connection
+            Consulta = New Data.SqlClient.SqlCommand
+            Conextion.Open()
+            Consulta.Connection = Conextion
+            Consulta.CommandText = "SELECT [ID_IMPUESTO], [Nombre], [Descripcion]  FROM [IMPUESTO] where NOMBRE='" & Nombre & "'"
+            Reder = Consulta.ExecuteReader()
+            If (Reder.Read = True) Then
+                Id_Empleado = CInt(Reder.Item(0).ToString())
+                Reder.Close()
+            End If
+        Catch e As Data.SqlClient.SqlException
+        End Try
+
+        Return Id_Empleado
+    End Function
+
+
+    Function ModificarImpuesto() As Boolean
+        Dim Proveedor_x As FarmaciaSJDataSetTableAdapters.Linea_ImpuestoTableAdapter = New FarmaciaSJDataSetTableAdapters.Linea_ImpuestoTableAdapter
+        Dim Conextion As Data.SqlClient.SqlConnection = Proveedor_x.Connection
+        Dim Consulta As Data.SqlClient.SqlCommand = New Data.SqlClient.SqlCommand
+        Try
+            Conextion.Open()
+            Consulta.Connection = Conextion
+            Consulta.CommandText = "UPDATE [HISTORICO_IMPUESTO]   SET [FECHA_FIN] = GETDATE() WHERE ID_IMPUESTO=" & Me.id & " AND FECHA_FIN IS NULL"
+            Consulta.ExecuteNonQuery()
+            Conextion.Close()
+
+            Conextion.Open()
+            Consulta.Connection = Conextion
+            Consulta.CommandText = "INSERT INTO [HISTORICO_IMPUESTO]([ID_IMPUESTO],[FECHA_INICIO],[FECHA_FIN] ,[VALOR] ,[DESCRIPCION])  VALUES(" & Me.id & ",GETDATE(),NULL, " & Me.Valor & ", '" & Me.Justificacion & "')"
+            Consulta.ExecuteNonQuery()
+            Conextion.Close()
+            Return True
+        Catch ex As ArgumentNullException
+            Return False
+        End Try
+    End Function
+
 
 End Class

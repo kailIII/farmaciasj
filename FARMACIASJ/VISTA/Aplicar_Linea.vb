@@ -10,26 +10,25 @@ Public Class Aplicar_Linea
         Return Array.IndexOf(ArregloLinea, 0)
 
     End Function
-
-    Public Function ContarCeros(ByVal ArregloLinea As Integer(), ByVal Posicion As Integer) As Integer
-        Dim Tamano As Integer = ArregloLinea.Length
-        Dim CantidadCero As Integer = 0
+    Public Sub Acomodar(ByVal Posicion As Integer, ByVal Tamano As Integer, ByVal ArregloLinea As Integer())
         Dim i As Integer = Posicion
         While i < Tamano
-            If ArregloLinea(Posicion) = 0 Then
-                CantidadCero = CantidadCero + 1
-            End If
+            Try
+                ArregloLinea(i) = ArregloLinea(i + 1)
+            Catch ex As Exception
+
+            End Try
             i = i + 1
         End While
-        Return Tamano - Posicion - CantidadCero
-    End Function
+    End Sub
 
     Private Sub der_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles der.Click
         Try
             Me.Lineas2.Items.Add(Me.Lineas1.SelectedItem.ToString)
             'Problema con la siguiente linea...
-            Lineascon(BuscarPosicion(Lineascon)) = Lineassin(ContarCeros(Lineassin, Me.Lineas1.SelectedIndex))
+            Lineascon(BuscarPosicion(Lineascon)) = Lineassin(Me.Lineas1.SelectedIndex)
             Lineassin(Me.Lineas1.SelectedIndex) = 0
+            Acomodar(Me.Lineas1.SelectedIndex, Me.Lineas1.Items.Count, Lineassin)
             Me.Lineas1.Items.RemoveAt(Me.Lineas1.SelectedIndex)
         Catch ex As Exception
         End Try
@@ -40,6 +39,7 @@ Public Class Aplicar_Linea
             Me.Lineas1.Items.Add(Me.Lineas2.SelectedItem.ToString)
             Lineassin(BuscarPosicion(Lineassin)) = Lineascon(Me.Lineas2.SelectedIndex)
             Lineascon(Me.Lineas2.SelectedIndex) = 0
+            Acomodar(Me.Lineas2.SelectedIndex, Me.Lineas2.Items.Count, Lineascon)
             Me.Lineas2.Items.RemoveAt(Me.Lineas2.SelectedIndex)
         Catch ex As Exception
         End Try

@@ -68,6 +68,7 @@ Public Class Controlador_Impuesto
             Impuesto.Justificacion.Enabled = False
             Impuesto.Modificar.Visible = True
             Impuesto.Contador = 0
+            Impuesto.Button1.Enabled = True
         Else
             Impuesto.Descripcion.Enabled = True
             Impuesto.Valor.Enabled = True
@@ -75,6 +76,7 @@ Public Class Controlador_Impuesto
             Impuesto.Justificacion.Visible = False
             Impuesto.LJustificacion.Visible = False
             Impuesto.Contador = 1
+            Impuesto.Button1.Enabled = True
         End If
     End Sub
     Public Sub ir_a_Lineas()
@@ -95,13 +97,34 @@ Public Class Controlador_Impuesto
             Me.ventana = Aplicar_Linea
             Aplicar_Linea.Show()
         Else
-            MsgBox("Se producjo un erro la operacion no se ha podido realizar intente de nuevo", MsgBoxStyle.OkOnly, "Error")
+            MsgBox("Se produjo un error en la operación, intente nuevamente.", MsgBoxStyle.OkOnly, "Error")
         End If
     End Sub
     Public Sub ProcesarImpuesto(ByVal ListaSin As Integer(), ByVal ListaCon As Integer())
-        Dim Modelo As Impuesto = New Impuesto
-        If Modelo.AsignarImpuesto(ListaCon, get_ID()) Then
-            If Modelo.RemoverImpuestoLinea(ListaSin, get_ID()) Then
+
+        Dim Modelo_Linea As Aplicar_Linea
+        Modelo_Linea = Me.ventana
+        If Modelo_Linea.Contador = 1 Then
+            'Nuevo Impuesto
+            If Me.Impuesto.NuevoImpuesto() Then
+                MsgBox("Se han creado el impuesto.", MsgBoxStyle.OkOnly, "Información")
+            Else
+                MsgBox("Error al crear el impuesto.", MsgBoxStyle.OkOnly, "Error")
+            End If
+
+
+        ElseIf Modelo_Linea.Contador = 2 Then
+            'Modificar Impuesto. Update en historico_impuest de fecha fin + Insert en historico_impuest
+
+            If Me.Impuesto.ModificarImpuesto() Then
+                MsgBox("Se han modificado el impuesto.", MsgBoxStyle.OkOnly, "Información")
+            Else
+                MsgBox("Error al modificar el impuesto.", MsgBoxStyle.OkOnly, "Error")
+            End If
+
+        End If
+        If Me.Impuesto.AsignarImpuesto(ListaCon) Then
+            If Me.Impuesto.RemoverImpuestoLinea(ListaSin) Then
                 MsgBox("Se han modificado las líneas e impuesto.", MsgBoxStyle.OkOnly, "Información")
             Else
                 MsgBox("Error al tratar de modificar impuestos de líneas.", MsgBoxStyle.OkOnly, "Error")
@@ -110,7 +133,7 @@ Public Class Controlador_Impuesto
             MsgBox("Error al tratar de modificar impuestos de líneas.", MsgBoxStyle.OkOnly, "Error")
         End If
 
-
+        Me.ventana.Close()
     End Sub
 
 
