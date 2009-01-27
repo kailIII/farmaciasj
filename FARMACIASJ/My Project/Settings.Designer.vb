@@ -84,6 +84,17 @@ Namespace My
                 Return CType(Me("FarmaciaSJConnectionString2"),String)
             End Get
         End Property
+        
+        <Global.System.Configuration.ApplicationScopedSettingAttribute(),  _
+         Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.Configuration.SpecialSettingAttribute(Global.System.Configuration.SpecialSetting.ConnectionString),  _
+         Global.System.Configuration.DefaultSettingValueAttribute("Data Source=.\SQLEXPRESS;AttachDbFilename=|DataDirectory|\MODELO\FarmaciaSJ.mdf;I"& _ 
+            "ntegrated Security=True;Connect Timeout=30;User Instance=True")>  _
+        Public ReadOnly Property FarmaciaSJConnectionString3() As String
+            Get
+                Return CType(Me("FarmaciaSJConnectionString3"),String)
+            End Get
+        End Property
     End Class
 End Namespace
 

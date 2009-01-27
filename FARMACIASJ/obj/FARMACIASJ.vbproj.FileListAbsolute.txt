@@ -195,3 +195,5 @@ C:\Documents and Settings\jeraro\Mis documentos\FarmaciaSJ\FARMACIASJ\obj\Releas
 C:\Documents and Settings\jeraro\Mis documentos\FarmaciaSJ\FARMACIASJ\obj\Release\FARMACIASJ.pdb
 C:\Documents and Settings\jeraro\Mis documentos\FarmaciaSJ\FARMACIASJ\obj\Debug\FARMACIASJ.AboutBox1.resources
 C:\Documents and Settings\jeraro\Mis documentos\FarmaciaSJ\FARMACIASJ\obj\Release\FARMACIASJ.AboutBox1.resources
+C:\Documents and Settings\jeraro\Mis documentos\FarmaciaSJ\FARMACIASJ\bin\Debug\MODELO\FarmaciaSJ.mdf
+C:\Documents and Settings\jeraro\Mis documentos\FarmaciaSJ\FARMACIASJ\bin\Debug\MODELO\FarmaciaSJ_log.ldf

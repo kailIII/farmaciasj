@@ -40,17 +40,35 @@
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
-        <dsig:DigestValue>wGZdk02pcqDqOoRZl/UplQYcCvI=</dsig:DigestValue>
+        <dsig:DigestValue>KsP4Wk2wPD6Kfg+e9YUszhplCs8=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
-  <file name="FARMACIASJ.exe.config" size="2139">
+  <file name="FARMACIASJ.exe.config" size="2441">
     <hash>
       <dsig:Transforms>
         <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
       </dsig:Transforms>
       <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
-      <dsig:DigestValue>MI3ay0u8Mu33cTXahc/h2ZZeO7w=</dsig:DigestValue>
+      <dsig:DigestValue>Cuov1hyLqWKrGEBqP/f0UqbwCkw=</dsig:DigestValue>
+    </hash>
+  </file>
+  <file name="MODELO\FarmaciaSJ.mdf" size="3145728" writeableType="applicationData">
+    <hash>
+      <dsig:Transforms>
+        <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+      </dsig:Transforms>
+      <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
+      <dsig:DigestValue>7YYcnJKzx+S4dAI6Tio0uEL5KbY=</dsig:DigestValue>
+    </hash>
+  </file>
+  <file name="MODELO\FarmaciaSJ_log.ldf" size="516096" writeableType="applicationData">
+    <hash>
+      <dsig:Transforms>
+        <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+      </dsig:Transforms>
+      <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
+      <dsig:DigestValue>kroti47u6TF79pzqRKmO+sD/FOM=</dsig:DigestValue>
     </hash>
   </file>
   <file name="VISTA\Logo.ico" size="1078">

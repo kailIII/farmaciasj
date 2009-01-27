@@ -69,16 +69,16 @@
     <Compile Include="CONTROLADOR\Controlador_Producto.vb" />
     <Compile Include="CONTROLADOR\Controlador_Proveedor.vb" />
     <Compile Include="CONTROLADOR\Controlador_Venta.vb" />
-    <Compile Include="MODELO\Empleado.vb" />
-    <Compile Include="MODELO\Compra.vb" />
-    <Compile Include="MODELO\Cliente.vb" />
-    <Compile Include="CONTROLADOR\Controlador_Cliente.vb" />
-    <Compile Include="CONTROLADOR\Validaciones_Generales.vb" />
     <Compile Include="MODELO\FarmaciaSJDataSet.Designer.vb">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>FarmaciaSJDataSet.xsd</DependentUpon>
     </Compile>
+    <Compile Include="MODELO\Empleado.vb" />
+    <Compile Include="MODELO\Compra.vb" />
+    <Compile Include="MODELO\Cliente.vb" />
+    <Compile Include="CONTROLADOR\Controlador_Cliente.vb" />
+    <Compile Include="CONTROLADOR\Validaciones_Generales.vb" />
     <Compile Include="MODELO\Impuesto.vb" />
     <Compile Include="MODELO\Linea.vb" />
     <Compile Include="MODELO\OtrosGastos.vb" />
@@ -502,16 +502,6 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="MODELO\app.config" />
-    <None Include="MODELO\FarmaciaSJDataSet.xsc">
-      <DependentUpon>FarmaciaSJDataSet.xsd</DependentUpon>
-    </None>
-    <None Include="MODELO\FarmaciaSJDataSet.xsd">
-      <Generator>MSDataSetGenerator</Generator>
-      <LastGenOutput>FarmaciaSJDataSet.Designer.vb</LastGenOutput>
-    </None>
-    <None Include="MODELO\FarmaciaSJDataSet.xss">
-      <DependentUpon>FarmaciaSJDataSet.xsd</DependentUpon>
-    </None>
     <None Include="My Project\Settings.settings">
       <CustomToolNamespace>My</CustomToolNamespace>
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -539,7 +529,27 @@
     <Service Include="{967B4E0D-AD0C-4609-AB67-0FA40C0206D8}" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="app.config" />
+    <None Include="MODELO\app.config" />
+    <None Include="MODELO\FarmaciaSJDataSet.xsc">
+      <DependentUpon>FarmaciaSJDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="MODELO\FarmaciaSJDataSet.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>FarmaciaSJDataSet.Designer.vb</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="MODELO\FarmaciaSJDataSet.xss">
+      <DependentUpon>FarmaciaSJDataSet.xsd</DependentUpon>
+    </None>
     <None Include="VISTA\Logo.bmp" />
+    <Content Include="MODELO\FarmaciaSJ.mdf">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="MODELO\FarmaciaSJ_log.ldf">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      <DependentUpon>FarmaciaSJ.mdf</DependentUpon>
+    </Content>
     <Content Include="VISTA\Logo.ico" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.VisualBasic.targets" />
