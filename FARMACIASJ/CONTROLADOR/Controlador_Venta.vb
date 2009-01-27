@@ -52,6 +52,11 @@ Public Class Controlador_Venta
         Venta = New Venta
         Venta.Descontar_Inventario(ID_Venta)
     End Sub
+    Public Sub Ahumentar_Inventario(ByVal ID_Venta As Integer)
+        Dim Venta As Venta
+        Venta = New Venta
+        Venta.Ahumentar_Inventario(ID_Venta)
+    End Sub
     Public Sub Procesar_Venta(ByVal ID_FACTURA As Integer, ByVal RVenta As Windows.Forms.Form, ByVal i As Integer)
         Dim Pago As Pago
         Pago = New Pago
@@ -66,19 +71,20 @@ Public Class Controlador_Venta
             Pago.Total.Text = Venta.Total.Text
             Pago.MdiParent = Venta.MdiParent
             Venta.Close()
-        Else
-            Dim Venta As Devolucion_Venta
-            Venta = RVenta
-            Pago.ID_Factura = ID_FACTURA
-            Pago.Numero_Factura.Text = Venta.Numero.Text
-            Pago.Numero_ID.Text = Venta.Identidad.Text
-            Pago.Stotal.Text = Venta.Sub_Total.Text
-            Pago.Impuestos.Text = Venta.Impuesto.Text
-            Pago.Total.Text = Venta.Total.Text
-            Pago.MdiParent = Venta.MdiParent
-            Venta.Close()
         End If
         Pago.Show()
+    End Sub
+    Public Sub Procesar_Devolucion(ByVal ID_FACTURA As Integer, ByVal RVenta As Windows.Forms.Form, ByVal i As Integer)
+        Dim Venta As Venta
+
+        If (i = 1) Then
+            Dim Ventana As Devolucion_Venta
+            Ventana = RVenta
+            Venta = New Venta
+            Venta.Actualizar_Factura(ID_FACTURA, Ventana.Sub_Total.Text, Ventana.Impuesto.Text, Ventana.Total.Text, Ventana.Vuelto.Text)
+            Venta.Cargar_Reporte(ID_FACTURA)
+            Ventana.Close()
+        End If
     End Sub
     Public Sub Actualizar_Pago(ByVal ID_Factura As Integer, ByVal Stotal As String, ByVal Impuestos As String, ByVal Total As String, ByVal Tipo_Pago As String, ByVal Monto As String, ByVal Vuelto As String, ByVal NCT As String, ByVal Vencimiento As String, ByVal Pago As Pago)
         Dim Venta As Venta
@@ -125,9 +131,21 @@ Public Class Controlador_Venta
         Dim Venta_x As Venta = New Venta
         Dim Id_Cliente As Integer = Venta_x.Buscar_id_Cliente_Factura(Control_Numero)
         Dim ControladorF As Controlador_Venta = New Controlador_Venta
+        Dim reder As Data.SqlClient.SqlDataReader
 
         If (Id_Cliente > 0) Then
+            Ventana.ID_Factura = Venta_x.Buscar_Id_Venta_Factura(Control_Numero)
             Venta_x.Buscar_Info_Cliente(Id_Cliente, Ventana)
+            reder = Venta_x.Info_Factura(Ventana.ID_Factura)
+            If (reder.Read = True) Then
+                Ventana.Fecha_Compra.Text = reder.Item(0).ToString
+                Ventana.Vence.Text = reder.Item(1).ToString
+                Ventana.Sub_Total.Text = reder.Item(2).ToString
+                Ventana.Impuesto.Text = reder.Item(3).ToString
+                Ventana.Total.Text = reder.Item(4).ToString
+                Ventana.Monto.Text = reder.Item(5).ToString
+                Ventana.Vuelto.Text = reder.Item(6).ToString
+            End If
             Ventana.DETALLE_VENTA.DataSource = ControladorF.Traer_Detalle(Venta_x.Buscar_Id_Venta_Factura(Control_Numero))
             Ventana.DETALLE_VENTA.Update()
             Ventana.Codigo_Barras.Focus()

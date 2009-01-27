@@ -55,7 +55,10 @@ Partial Class Devolucion_Venta
         Me.Label8 = New System.Windows.Forms.Label
         Me.Button2 = New System.Windows.Forms.Button
         Me.DETALLE_VENTA = New System.Windows.Forms.DataGridView
-        Me.Button3 = New System.Windows.Forms.Button
+        Me.Vuelto = New System.Windows.Forms.TextBox
+        Me.Label4 = New System.Windows.Forms.Label
+        Me.Monto = New System.Windows.Forms.TextBox
+        Me.Label5 = New System.Windows.Forms.Label
         Me.GroupBox1.SuspendLayout()
         Me.GroupBox2.SuspendLayout()
         Me.GroupBox3.SuspendLayout()
@@ -361,7 +364,7 @@ Partial Class Devolucion_Venta
         Me.GroupBox4.Margin = New System.Windows.Forms.Padding(4)
         Me.GroupBox4.Name = "GroupBox4"
         Me.GroupBox4.Padding = New System.Windows.Forms.Padding(4)
-        Me.GroupBox4.Size = New System.Drawing.Size(250, 150)
+        Me.GroupBox4.Size = New System.Drawing.Size(250, 177)
         Me.GroupBox4.TabIndex = 4
         Me.GroupBox4.TabStop = False
         Me.GroupBox4.Text = "Totales"
@@ -369,7 +372,7 @@ Partial Class Devolucion_Venta
         'Total
         '
         Me.Total.Enabled = False
-        Me.Total.Location = New System.Drawing.Point(106, 98)
+        Me.Total.Location = New System.Drawing.Point(107, 82)
         Me.Total.Margin = New System.Windows.Forms.Padding(4)
         Me.Total.Name = "Total"
         Me.Total.Size = New System.Drawing.Size(122, 22)
@@ -379,7 +382,7 @@ Partial Class Devolucion_Venta
         'Label10
         '
         Me.Label10.AutoSize = True
-        Me.Label10.Location = New System.Drawing.Point(18, 102)
+        Me.Label10.Location = New System.Drawing.Point(19, 86)
         Me.Label10.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.Label10.Name = "Label10"
         Me.Label10.Size = New System.Drawing.Size(44, 16)
@@ -389,7 +392,7 @@ Partial Class Devolucion_Venta
         'Impuesto
         '
         Me.Impuesto.Enabled = False
-        Me.Impuesto.Location = New System.Drawing.Point(106, 66)
+        Me.Impuesto.Location = New System.Drawing.Point(107, 50)
         Me.Impuesto.Margin = New System.Windows.Forms.Padding(4)
         Me.Impuesto.Name = "Impuesto"
         Me.Impuesto.Size = New System.Drawing.Size(122, 22)
@@ -399,7 +402,7 @@ Partial Class Devolucion_Venta
         'Label9
         '
         Me.Label9.AutoSize = True
-        Me.Label9.Location = New System.Drawing.Point(18, 70)
+        Me.Label9.Location = New System.Drawing.Point(19, 54)
         Me.Label9.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.Label9.Name = "Label9"
         Me.Label9.Size = New System.Drawing.Size(71, 16)
@@ -409,7 +412,7 @@ Partial Class Devolucion_Venta
         'Sub_Total
         '
         Me.Sub_Total.Enabled = False
-        Me.Sub_Total.Location = New System.Drawing.Point(106, 34)
+        Me.Sub_Total.Location = New System.Drawing.Point(107, 18)
         Me.Sub_Total.Margin = New System.Windows.Forms.Padding(4)
         Me.Sub_Total.Name = "Sub_Total"
         Me.Sub_Total.Size = New System.Drawing.Size(122, 22)
@@ -419,7 +422,7 @@ Partial Class Devolucion_Venta
         'Label8
         '
         Me.Label8.AutoSize = True
-        Me.Label8.Location = New System.Drawing.Point(18, 38)
+        Me.Label8.Location = New System.Drawing.Point(19, 22)
         Me.Label8.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.Label8.Name = "Label8"
         Me.Label8.Size = New System.Drawing.Size(76, 16)
@@ -428,7 +431,7 @@ Partial Class Devolucion_Venta
         '
         'Button2
         '
-        Me.Button2.Location = New System.Drawing.Point(548, 489)
+        Me.Button2.Location = New System.Drawing.Point(524, 489)
         Me.Button2.Margin = New System.Windows.Forms.Padding(4)
         Me.Button2.Name = "Button2"
         Me.Button2.Size = New System.Drawing.Size(228, 28)
@@ -445,15 +448,45 @@ Partial Class Devolucion_Venta
         Me.DETALLE_VENTA.Size = New System.Drawing.Size(990, 177)
         Me.DETALLE_VENTA.TabIndex = 7
         '
-        'Button3
+        'Vuelto
         '
-        Me.Button3.Location = New System.Drawing.Point(787, 489)
-        Me.Button3.Margin = New System.Windows.Forms.Padding(4)
-        Me.Button3.Name = "Button3"
-        Me.Button3.Size = New System.Drawing.Size(228, 28)
-        Me.Button3.TabIndex = 13
-        Me.Button3.Text = "Cancelar"
-        Me.Button3.UseVisualStyleBackColor = True
+        Me.Vuelto.Enabled = False
+        Me.Vuelto.Location = New System.Drawing.Point(866, 474)
+        Me.Vuelto.Margin = New System.Windows.Forms.Padding(4)
+        Me.Vuelto.Name = "Vuelto"
+        Me.Vuelto.Size = New System.Drawing.Size(122, 22)
+        Me.Vuelto.TabIndex = 17
+        Me.Vuelto.Text = "0,0"
+        '
+        'Label4
+        '
+        Me.Label4.AutoSize = True
+        Me.Label4.Location = New System.Drawing.Point(778, 478)
+        Me.Label4.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
+        Me.Label4.Name = "Label4"
+        Me.Label4.Size = New System.Drawing.Size(52, 16)
+        Me.Label4.TabIndex = 16
+        Me.Label4.Text = "Vuelto"
+        '
+        'Monto
+        '
+        Me.Monto.Enabled = False
+        Me.Monto.Location = New System.Drawing.Point(866, 442)
+        Me.Monto.Margin = New System.Windows.Forms.Padding(4)
+        Me.Monto.Name = "Monto"
+        Me.Monto.Size = New System.Drawing.Size(122, 22)
+        Me.Monto.TabIndex = 15
+        Me.Monto.Text = "0,0"
+        '
+        'Label5
+        '
+        Me.Label5.AutoSize = True
+        Me.Label5.Location = New System.Drawing.Point(778, 446)
+        Me.Label5.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
+        Me.Label5.Name = "Label5"
+        Me.Label5.Size = New System.Drawing.Size(50, 16)
+        Me.Label5.TabIndex = 14
+        Me.Label5.Text = "Monto"
         '
         'Devolucion_Venta
         '
@@ -461,7 +494,10 @@ Partial Class Devolucion_Venta
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.AutoSize = True
         Me.ClientSize = New System.Drawing.Size(1028, 521)
-        Me.Controls.Add(Me.Button3)
+        Me.Controls.Add(Me.Vuelto)
+        Me.Controls.Add(Me.Label4)
+        Me.Controls.Add(Me.Monto)
+        Me.Controls.Add(Me.Label5)
         Me.Controls.Add(Me.DETALLE_VENTA)
         Me.Controls.Add(Me.Button2)
         Me.Controls.Add(Me.GroupBox4)
@@ -483,6 +519,7 @@ Partial Class Devolucion_Venta
         Me.GroupBox4.PerformLayout()
         CType(Me.DETALLE_VENTA, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
+        Me.PerformLayout()
 
     End Sub
     Friend WithEvents GroupBox1 As System.Windows.Forms.GroupBox
@@ -521,5 +558,8 @@ Partial Class Devolucion_Venta
     Friend WithEvents Label2 As System.Windows.Forms.Label
     Friend WithEvents Numero As System.Windows.Forms.TextBox
     Friend WithEvents Fecha_Compra As System.Windows.Forms.DateTimePicker
-    Friend WithEvents Button3 As System.Windows.Forms.Button
+    Friend WithEvents Vuelto As System.Windows.Forms.TextBox
+    Friend WithEvents Label4 As System.Windows.Forms.Label
+    Friend WithEvents Monto As System.Windows.Forms.TextBox
+    Friend WithEvents Label5 As System.Windows.Forms.Label
 End Class

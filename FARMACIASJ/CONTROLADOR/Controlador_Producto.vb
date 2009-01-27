@@ -88,51 +88,22 @@ Public Class Controlador_Producto
         Else
             Dim Venta As Devolucion_Venta
             Venta = RVenta
-            Lotes = Producto.Buscar_CodigoBarras(Codigo)
-            filas = Producto.Cantidad_Filas(Codigo)
+            Lotes = Producto.Buscar_CodigoBarras3(Venta.ID_Factura, Codigo)
             Impuestos = Producto.Impuestos(Codigo)
             CImpuestos = Producto.Cantidad_Impuestos(Codigo)
-            If (filas = 1) Then
-                If (Lotes.Read = True) Then
-                    Venta.ID_Producto = Integer.Parse(Lotes.Item(0).ToString)
-                    Venta.ID_Lote = Integer.Parse(Lotes.Item(1).ToString)
-                    Venta.NombreP.Text = Lotes.Item(2).ToString
-                    Venta.Descripcion.Text = Lotes.Item(3).ToString
-                    Venta.Codigo_Barras.Text = Lotes.Item(4).ToString
-                    Venta.Punitario.Text = Lotes.Item(6).ToString
-                    Venta.Descuento.Text = Lotes.Item(7).ToString
-                    Venta.Cantidad.Text = CStr(0.0)
-                    Venta.SubtotalP.Text = CStr(0.0)
-                    Venta.ImpuestoP = 0.0
-                    If (CImpuestos > 0) Then
-                        i = 0
-                        Do While (Impuestos.Read() = True)
-                            Venta.ID_Impuesto(i) = Integer.Parse(Impuestos.Item(1).ToString)
-                            Venta.ID_Historico_Impuesto(i) = Integer.Parse(Impuestos.Item(0).ToString)
-                            Venta.ValorI(i) = Double.Parse(Impuestos.Item(2).ToString)
-                            i = i + 1
-                        Loop
-                        Venta.CImpuestos = CImpuestos
-                    End If
-                    Return True
-                End If
-            ElseIf (filas > 1) Then
-                Me.Venta2 = Venta
-                i = 0
-                ELotes = New Elegir_Lote
-
-                Do While (Lotes.Read() = True)
-                    Cadena = Lotes.Item(2).ToString & " Vence: " & Lotes.Item(5).ToString
-                    ELotes.Lotes.Items.Insert(i, Cadena)
-                    ID_Productos(i) = Lotes.Item(0).ToString
-                    ID_LOTES(i) = Lotes.Item(1).ToString
-                    Nombre(i) = Lotes.Item(2).ToString
-                    Descripcion(i) = Lotes.Item(3).ToString
-                    Codigos(i) = Lotes.Item(4).ToString
-                    PVPs(i) = Lotes.Item(6).ToString
-                    Descuentos(i) = Lotes.Item(7).ToString
-                    i = i + 1
-                Loop
+            If (Lotes.Read = True) Then
+                Venta.ID_Detalle = Integer.Parse(Lotes.Item(0).ToString)
+                Venta.ID_Producto = Integer.Parse(Lotes.Item(2).ToString)
+                Venta.ID_Lote = Integer.Parse(Lotes.Item(1).ToString)
+                Venta.CantidadM = Integer.Parse(Lotes.Item(3).ToString)
+                Venta.NombreP.Text = Lotes.Item(6).ToString
+                Venta.Descripcion.Text = Lotes.Item(3).ToString
+                Venta.Codigo_Barras.Text = Lotes.Item(7).ToString
+                Venta.Punitario.Text = Lotes.Item(4).ToString
+                Venta.Descuento.Text = Lotes.Item(5).ToString
+                Venta.Cantidad.Text = CStr(0.0)
+                Venta.SubtotalP.Text = CStr(0.0)
+                Venta.ImpuestoP = 0.0
                 If (CImpuestos > 0) Then
                     i = 0
                     Do While (Impuestos.Read() = True)
@@ -143,14 +114,11 @@ Public Class Controlador_Producto
                     Loop
                     Venta.CImpuestos = CImpuestos
                 End If
-                ELotes.ControladorP = Me
-                ELotes.MdiParent = Venta.MdiParent
-                ELotes.Show()
                 Return True
             Else
-                MsgBox("El producto Solicitado no existe", MsgBoxStyle.OkOnly, "Alert")
-                Return False
-            End If
+                MsgBox("El producto Solicitado no fue vendido en esta factura", MsgBoxStyle.OkOnly, "Alert")
+            Return False
+        End If
         End If
     End Function
 

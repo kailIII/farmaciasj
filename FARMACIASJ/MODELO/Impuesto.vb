@@ -165,6 +165,8 @@ Public Class Impuesto
                     h = h + 1
                 End If
             End While
+            Ventana.Lineassin = lineassin
+            Ventana.Lineascon = lineascon
             Return True
         Catch ex As Exception
             Return False

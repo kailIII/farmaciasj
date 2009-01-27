@@ -37,6 +37,24 @@ Public Class Producto
         Return Reder
     End Function
 
+    Public Function Buscar_CodigoBarras3(ByVal Venta As Integer, ByVal Codigo As String) As Data.SqlClient.SqlDataReader
+        Dim Producto As FarmaciaSJDataSetTableAdapters.PRODUCTOTableAdapter
+        Dim Lote As FarmaciaSJDataSetTableAdapters.LOTETableAdapter
+        Dim Conextion As Data.SqlClient.SqlConnection
+        Dim Consulta As Data.SqlClient.SqlCommand
+        Dim Reder As Data.SqlClient.SqlDataReader
+
+        Producto = New FarmaciaSJDataSetTableAdapters.PRODUCTOTableAdapter
+        Lote = New FarmaciaSJDataSetTableAdapters.LOTETableAdapter
+        Conextion = Producto.Connection
+        Consulta = New Data.SqlClient.SqlCommand
+        Conextion.Open()
+        Consulta.Connection = Conextion
+        Consulta.CommandText = "SELECT     DETALLE_VENTA.ID_DETALLE_VENTA, LOTE.ID_LOTE, PRODUCTO.ID_PRODUCTO, DETALLE_VENTA.Cantidad, LOTE.PVP, LOTE.DESCUENTO,  PRODUCTO.NOMBRE, PRODUCTO.CODIGO_DE_BARRAS, PRODUCTO.CODIGO FROM         DETALLE_VENTA INNER JOIN LOTE ON DETALLE_VENTA.ID_LOTE = LOTE.ID_LOTE AND DETALLE_VENTA.ID_PRODUCTO = LOTE.ID_PRODUCTO INNER JOIN PRODUCTO ON LOTE.ID_PRODUCTO = PRODUCTO.ID_PRODUCTO WHERE     (DETALLE_VENTA.ID_VENTA = " & Venta & ") AND (PRODUCTO.CODIGO_DE_BARRAS = '" & Codigo & "')"
+        Reder = Consulta.ExecuteReader()
+        Return Reder
+    End Function
+
     Public Function Cantidad_Filas(ByVal Codigo As String) As Integer
         Dim Producto As FarmaciaSJDataSetTableAdapters.PRODUCTOTableAdapter
         Dim Lote As FarmaciaSJDataSetTableAdapters.LOTETableAdapter

@@ -9,6 +9,7 @@ Public Class Devolucion_Venta
     Public ValorI(1000) As Double
     Public CImpuestos As Integer
     Public ImpuestoP As Double
+    Public CantidadM As Integer
 
     Private Sub Numero_Control_TextChanged(ByVal sender As System.Object, ByVal e As Windows.Forms.KeyPressEventArgs) Handles Numero.KeyPress
         If (e.KeyChar = Char.ConvertFromUtf32(13)) Then
@@ -57,6 +58,8 @@ Public Class Devolucion_Venta
         Dim subt As Double
         Dim Total As Double
         Dim impuesto As Double
+        Dim Monto As Double
+        Dim Vuelto As Double
 
         ControladorF = New Controlador_Venta
         ControladorC = New Controlador_Cliente
@@ -82,6 +85,9 @@ Public Class Devolucion_Venta
             Me.Impuesto.Text = CStr(impuesto)
             Total = Math.Round(subt + impuesto, 2)
             Me.Total.Text = CStr(Total)
+            Vuelto = Double.Parse(Me.Vuelto.Text)
+            Vuelto = Vuelto - (Double.Parse(Me.SubtotalP.Text) + ImpuestoP)
+            Me.Vuelto.Text = CStr(Vuelto)
             Me.Codigo_Barras.Text = ""
             Me.NombreP.Text = ""
             Me.Punitario.Text = ""
@@ -103,7 +109,7 @@ Public Class Devolucion_Venta
         Dim i As Integer
         If (e.KeyChar = Char.ConvertFromUtf32(13)) Then
             Controladorf = New Controlador_Venta
-            If (Controladorf.combrobarcantidad(ID_Lote, ID_Producto, Integer.Parse(Me.Cantidad.Text)) = True) Then
+            If (Integer.Parse(Me.Cantidad.Text) <= Me.CantidadM) Then
                 Pu = Double.Parse(Me.Punitario.Text)
                 Descuento = Double.Parse(Me.Descuento.Text)
                 Cantidad = Integer.Parse(Me.Cantidad.Text)
@@ -132,12 +138,23 @@ Public Class Devolucion_Venta
         Dim ControladorF As Controlador_Venta
         If (ID_Factura <> -1) Then
             ControladorF = New Controlador_Venta
-            ControladorF.Descontar_Inventario(ID_Factura)
-            ControladorF.Procesar_Venta(ID_Factura, Me, 1)
+            If (Me.Sub_Total.Text.Contains(",") = False) Then
+                Me.Sub_Total.Text = Me.Sub_Total.Text & ",00"
+            End If
+            If (Me.Impuesto.Text.Contains(",") = False) Then
+                Me.Impuesto.Text = Me.Impuesto.Text & ",00"
+            End If
+            If (Me.Total.Text.Contains(",") = False) Then
+                Me.Total.Text = Me.Total.Text & ",00"
+            End If
+            If (Me.Vuelto.Text.Contains(",") = False) Then
+                Me.Vuelto.Text = Me.Vuelto.Text & ",00"
+            End If
+            ControladorF.Ahumentar_Inventario(ID_Factura)
+            ControladorF.Procesar_Devolucion(ID_Factura, Me, 1)
         Else
             MsgBox("No se puede Facturar si la Facutra esta vacia", MsgBoxStyle.OkOnly, "Error")
         End If
     End Sub
-
 
 End Class

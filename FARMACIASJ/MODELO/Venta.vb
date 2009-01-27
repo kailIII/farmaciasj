@@ -121,6 +121,74 @@ Public Class Venta
         Loop
     End Sub
 
+    Public Sub Ahumentar_Inventario(ByVal ID_Venta As Integer)
+        Dim Venta As FarmaciaSJDataSetTableAdapters.VENTATableAdapter
+        Dim Conextion As Data.SqlClient.SqlConnection
+        Dim Consulta As Data.SqlClient.SqlCommand
+        Dim Consulta2 As Data.SqlClient.SqlCommand
+        Dim Reder As Data.SqlClient.SqlDataReader
+        Dim ID_Lote(1000) As Integer
+        Dim ID_Producto(1000) As Integer
+        Dim Cantidad(1000) As Integer
+        Dim C As Integer
+        Dim I As Integer
+        Venta = New FarmaciaSJDataSetTableAdapters.VENTATableAdapter
+        Conextion = Venta.Connection
+        Consulta = New Data.SqlClient.SqlCommand
+        Consulta.Connection = Conextion
+        Consulta.Connection.Open()
+        Consulta.CommandText = "SELECT     Cantidad, ID_LOTE, ID_PRODUCTO FROM         DETALLE_VENTA WHERE     (ID_VENTA = " & ID_Venta & "  and Cantidad < 0)"
+        Reder = Consulta.ExecuteReader()
+        I = 0
+        Do While (Reder.Read = True)
+            ID_Lote(I) = Integer.Parse(Reder.Item(1).ToString)
+            ID_Producto(I) = Integer.Parse(Reder.Item(2).ToString)
+            Cantidad(I) = Integer.Parse(Reder.Item(0).ToString)
+            I = I + 1
+        Loop
+        Reder.Close()
+        C = I
+        I = 0
+        Do While (I < C)
+            Consulta2 = New Data.SqlClient.SqlCommand
+            Consulta2.Connection = Conextion
+            Consulta2.CommandText = "UPDATE [FarmaciaSJ].[dbo].[LOTE] SET [CANTIDAD] = CANTIDAD-" & Cantidad(I) & " WHERE ID_LOTE=" & ID_Lote(I) & " and ID_PRODUCTO=" & ID_Producto(I)
+            Consulta2.ExecuteNonQuery()
+            I = I + 1
+        Loop
+    End Sub
+
+    Public Sub Actualizar_Factura(ByVal ID_Factura As Integer, ByVal Sub_Total As String, ByVal Impuesto As String, ByVal Total As String, ByVal Vuelto As String)
+        Dim Venta As FarmaciaSJDataSetTableAdapters.VENTATableAdapter
+        Dim Conextion As Data.SqlClient.SqlConnection
+        Dim Consulta As Data.SqlClient.SqlCommand
+        Dim Stotal1(2) As String
+        Dim Impuesto1(2) As String
+        Dim Total1(2) As String
+        Dim Monto1(2) As String
+        Dim Vuelto1(2) As String
+        Dim Fecha(3) As String
+        Try
+            Venta = New FarmaciaSJDataSetTableAdapters.VENTATableAdapter
+            Conextion = Venta.Connection
+            Consulta = New Data.SqlClient.SqlCommand
+            Conextion.Open()
+            Consulta.Connection = Conextion
+            Stotal1 = Sub_Total.Split(Char.Parse(","))
+            Sub_Total = Stotal1(0) & "." & Stotal1(1)
+            Impuesto1 = Impuesto.Split(Char.Parse(","))
+            Impuesto = Impuesto1(0) & "." & Impuesto1(1)
+            Total1 = Total.Split(Char.Parse(","))
+            Total = Total1(0) & "." & Total1(1)
+            Vuelto1 = Vuelto.Split(Char.Parse(","))
+            Vuelto = Vuelto1(0) & "." & Vuelto1(1)
+            Consulta.CommandText = "UPDATE [FarmaciaSJ].[dbo].[VENTA] SET [SUB-TOTAL] = " & Sub_Total & " ,[IMPUESTO] = " & Impuesto & ",[TOTAL] = " & Total & " ,[VUELTO] = " & Vuelto & " WHERE ID_VENTA=" & ID_Factura
+            Consulta.ExecuteNonQuery()
+        Catch e As Data.SqlClient.SqlException
+            MsgBox(e.Message, MsgBoxStyle.OkOnly, "Alert")
+        End Try
+    End Sub
+
     Public Sub Pago(ByVal ID_Factura As Integer, ByVal Stotal As String, ByVal Impuestos As String, ByVal Total As String, ByVal TIPO_PAGO As String, ByVal Monto As String, ByVal Vuelto As String, ByVal NCT As String, ByVal Vencimiento As String)
         Dim Venta As FarmaciaSJDataSetTableAdapters.VENTATableAdapter
         Dim Conextion As Data.SqlClient.SqlConnection
@@ -199,10 +267,10 @@ Public Class Venta
             Command.CommandText = "SELECT     ID_DETALLE_VENTA, Cantidad, ID_VENTA, ID_LOTE, ID_PRODUCTO FROM         DETALLE_VENTA WHERE     (ID_VENTA = " & ID_Factura & ")"
             BD = New Data.SqlClient.SqlDataAdapter(Command)
             BD.Fill(FarmaciaSJ, "DETALLE_VENTA")
-            Command.CommandText = "SELECT     LOTE.* FROM         LOTE INNER JOIN DETALLE_VENTA ON LOTE.ID_LOTE = DETALLE_VENTA.ID_LOTE AND LOTE.ID_PRODUCTO = DETALLE_VENTA.ID_PRODUCTO WHERE     (DETALLE_VENTA.ID_VENTA = " & ID_Factura & ")"
+            Command.CommandText = "SELECT     LOTE.* FROM         LOTE"
             BD = New Data.SqlClient.SqlDataAdapter(Command)
             BD.Fill(FarmaciaSJ, "LOTE")
-            Command.CommandText = "SELECT     PRODUCTO.* FROM         DETALLE_VENTA INNER JOIN PRODUCTO ON DETALLE_VENTA.ID_PRODUCTO = PRODUCTO.ID_PRODUCTO WHERE     (DETALLE_VENTA.ID_VENTA = " & ID_Factura & ")"
+            Command.CommandText = "SELECT     PRODUCTO.* FROM         PRODUCTO"
             BD = New Data.SqlClient.SqlDataAdapter(Command)
             BD.Fill(FarmaciaSJ, "PRODUCTO")
             Command.CommandText = "SELECT     ID_CLIENTE,IDENTIDAD, NOMBRE, APELLIDO, TELEFONO, DIRECCION FROM         CLIENTE"
@@ -322,7 +390,23 @@ Public Class Venta
         Return Table
     End Function
 
+    Public Function Info_Factura(ByVal ID_Factura As Integer) As Data.SqlClient.SqlDataReader
+        Dim Producto As FarmaciaSJDataSetTableAdapters.PRODUCTOTableAdapter
+        Dim Lote As FarmaciaSJDataSetTableAdapters.LOTETableAdapter
+        Dim Conextion As Data.SqlClient.SqlConnection
+        Dim Consulta As Data.SqlClient.SqlCommand
+        Dim Reder As Data.SqlClient.SqlDataReader
 
+        Producto = New FarmaciaSJDataSetTableAdapters.PRODUCTOTableAdapter
+        Lote = New FarmaciaSJDataSetTableAdapters.LOTETableAdapter
+        Conextion = Producto.Connection
+        Consulta = New Data.SqlClient.SqlCommand
+        Conextion.Open()
+        Consulta.Connection = Conextion
+        Consulta.CommandText = "SELECT     FECHA, VENCE, [SUB-TOTAL], IMPUESTO, TOTAL, MONTO, VUELTO FROM         VENTA WHERE     (ID_VENTA = " & ID_Factura & ")"
+        Reder = Consulta.ExecuteReader()
+        Return Reder
+    End Function
     Public Function Ultima_Devolucion(ByVal Id_Venta As Integer) As Integer
 
         Dim Cliente As FarmaciaSJDataSetTableAdapters.CLIENTETableAdapter
