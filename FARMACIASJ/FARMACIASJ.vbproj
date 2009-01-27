@@ -59,6 +59,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="CONTROLADOR\Controlador_Compra.vb" />
+    <Compile Include="CONTROLADOR\Controlador_Devolucion.vb" />
     <Compile Include="CONTROLADOR\Controlador_Empleado.vb" />
     <Compile Include="CONTROLADOR\Controlador_Impuesto.vb" />
     <Compile Include="CONTROLADOR\Controlador_Ingresar_Producto.vb" />
@@ -68,7 +69,6 @@
     <Compile Include="CONTROLADOR\Controlador_Producto.vb" />
     <Compile Include="CONTROLADOR\Controlador_Proveedor.vb" />
     <Compile Include="CONTROLADOR\Controlador_Venta.vb" />
-    <Compile Include="CONTROLADOR\Validaciones_Generales.vb" />
     <Compile Include="MODELO\Empleado.vb" />
     <Compile Include="MODELO\FarmaciaSJDataSet.Designer.vb">
       <AutoGen>True</AutoGen>

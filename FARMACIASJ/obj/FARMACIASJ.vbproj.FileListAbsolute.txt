@@ -130,3 +130,10 @@ C:\Documents and Settings\jeraro\Mis documentos\FarmaciaSJ2\FARMACIASJ\obj\Debug
 C:\Documents and Settings\jeraro\Mis documentos\FarmaciaSJ2\FARMACIASJ\obj\Debug\FARMACIASJ.exe
 C:\Documents and Settings\jeraro\Mis documentos\FarmaciaSJ2\FARMACIASJ\obj\Debug\FARMACIASJ.pdb
 C:\Documents and Settings\jeraro\Mis documentos\FarmaciaSJ2\FARMACIASJ\bin\Debug\FARMACIASJ.exe.config
+C:\Documents and Settings\jeraro\Mis documentos\FarmaciaSJ2\FARMACIASJ\bin\Debug\FARMACIASJ.exe.manifest
+C:\Documents and Settings\jeraro\Mis documentos\FarmaciaSJ2\FARMACIASJ\bin\Debug\FARMACIASJ.application
+C:\Documents and Settings\jeraro\Mis documentos\FarmaciaSJ2\FARMACIASJ\bin\Debug\FARMACIASJ.exe
+C:\Documents and Settings\jeraro\Mis documentos\FarmaciaSJ2\FARMACIASJ\bin\Debug\FARMACIASJ.pdb
+C:\Documents and Settings\jeraro\Mis documentos\FarmaciaSJ2\FARMACIASJ\bin\Debug\System.Data.dll
+C:\Documents and Settings\jeraro\Mis documentos\FarmaciaSJ2\FARMACIASJ\obj\Debug\FARMACIASJ.exe.manifest
+C:\Documents and Settings\jeraro\Mis documentos\FarmaciaSJ2\FARMACIASJ\obj\Debug\FARMACIASJ.application
