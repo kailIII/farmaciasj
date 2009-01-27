@@ -35,25 +35,29 @@ Partial Class Aplicar_Linea
         'Lineas1
         '
         Me.Lineas1.FormattingEnabled = True
-        Me.Lineas1.Location = New System.Drawing.Point(24, 70)
+        Me.Lineas1.ItemHeight = 16
+        Me.Lineas1.Location = New System.Drawing.Point(36, 86)
+        Me.Lineas1.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
         Me.Lineas1.Name = "Lineas1"
-        Me.Lineas1.Size = New System.Drawing.Size(195, 186)
+        Me.Lineas1.Size = New System.Drawing.Size(290, 228)
         Me.Lineas1.TabIndex = 0
         '
         'Button1
         '
-        Me.Button1.Location = New System.Drawing.Point(225, 99)
+        Me.Button1.Location = New System.Drawing.Point(338, 122)
+        Me.Button1.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
         Me.Button1.Name = "Button1"
-        Me.Button1.Size = New System.Drawing.Size(45, 36)
+        Me.Button1.Size = New System.Drawing.Size(68, 44)
         Me.Button1.TabIndex = 1
         Me.Button1.Text = ">"
         Me.Button1.UseVisualStyleBackColor = True
         '
         'Button2
         '
-        Me.Button2.Location = New System.Drawing.Point(225, 181)
+        Me.Button2.Location = New System.Drawing.Point(338, 223)
+        Me.Button2.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
         Me.Button2.Name = "Button2"
-        Me.Button2.Size = New System.Drawing.Size(45, 36)
+        Me.Button2.Size = New System.Drawing.Size(68, 44)
         Me.Button2.TabIndex = 2
         Me.Button2.Text = "<"
         Me.Button2.UseVisualStyleBackColor = True
@@ -61,16 +65,19 @@ Partial Class Aplicar_Linea
         'Lineas2
         '
         Me.Lineas2.FormattingEnabled = True
-        Me.Lineas2.Location = New System.Drawing.Point(276, 70)
+        Me.Lineas2.ItemHeight = 16
+        Me.Lineas2.Location = New System.Drawing.Point(414, 86)
+        Me.Lineas2.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
         Me.Lineas2.Name = "Lineas2"
-        Me.Lineas2.Size = New System.Drawing.Size(195, 186)
+        Me.Lineas2.Size = New System.Drawing.Size(290, 228)
         Me.Lineas2.TabIndex = 3
         '
         'Button3
         '
-        Me.Button3.Location = New System.Drawing.Point(396, 262)
+        Me.Button3.Location = New System.Drawing.Point(594, 322)
+        Me.Button3.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
         Me.Button3.Name = "Button3"
-        Me.Button3.Size = New System.Drawing.Size(75, 23)
+        Me.Button3.Size = New System.Drawing.Size(112, 28)
         Me.Button3.TabIndex = 4
         Me.Button3.Text = "Aplicar"
         Me.Button3.UseVisualStyleBackColor = True
@@ -78,60 +85,66 @@ Partial Class Aplicar_Linea
         'Label1
         '
         Me.Label1.AutoSize = True
-        Me.Label1.Location = New System.Drawing.Point(21, 51)
+        Me.Label1.Location = New System.Drawing.Point(32, 63)
+        Me.Label1.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.Label1.Name = "Label1"
-        Me.Label1.Size = New System.Drawing.Size(100, 13)
+        Me.Label1.Size = New System.Drawing.Size(145, 16)
         Me.Label1.TabIndex = 5
         Me.Label1.Text = "Lineas sin Impuesto"
         '
         'Label2
         '
         Me.Label2.AutoSize = True
-        Me.Label2.Location = New System.Drawing.Point(273, 51)
+        Me.Label2.Location = New System.Drawing.Point(410, 63)
+        Me.Label2.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.Label2.Name = "Label2"
-        Me.Label2.Size = New System.Drawing.Size(105, 13)
+        Me.Label2.Size = New System.Drawing.Size(150, 16)
         Me.Label2.TabIndex = 6
         Me.Label2.Text = "Lineas con Impuesto"
         '
         'Label3
         '
         Me.Label3.AutoSize = True
-        Me.Label3.Location = New System.Drawing.Point(21, 24)
+        Me.Label3.Location = New System.Drawing.Point(32, 30)
+        Me.Label3.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.Label3.Name = "Label3"
-        Me.Label3.Size = New System.Drawing.Size(50, 13)
+        Me.Label3.Size = New System.Drawing.Size(71, 16)
         Me.Label3.TabIndex = 7
         Me.Label3.Text = "Impuesto"
         '
         'Impuesto
         '
         Me.Impuesto.Enabled = False
-        Me.Impuesto.Location = New System.Drawing.Point(77, 21)
+        Me.Impuesto.Location = New System.Drawing.Point(116, 26)
+        Me.Impuesto.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
         Me.Impuesto.Name = "Impuesto"
-        Me.Impuesto.Size = New System.Drawing.Size(142, 20)
+        Me.Impuesto.Size = New System.Drawing.Size(211, 22)
         Me.Impuesto.TabIndex = 8
         '
         'Valor
         '
         Me.Valor.Enabled = False
-        Me.Valor.Location = New System.Drawing.Point(309, 21)
+        Me.Valor.Location = New System.Drawing.Point(464, 26)
+        Me.Valor.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
         Me.Valor.Name = "Valor"
-        Me.Valor.Size = New System.Drawing.Size(162, 20)
+        Me.Valor.Size = New System.Drawing.Size(241, 22)
         Me.Valor.TabIndex = 10
         '
         'Label4
         '
         Me.Label4.AutoSize = True
-        Me.Label4.Location = New System.Drawing.Point(273, 24)
+        Me.Label4.Location = New System.Drawing.Point(410, 30)
+        Me.Label4.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.Label4.Name = "Label4"
-        Me.Label4.Size = New System.Drawing.Size(31, 13)
+        Me.Label4.Size = New System.Drawing.Size(45, 16)
         Me.Label4.TabIndex = 9
         Me.Label4.Text = "Valor"
         '
         'Aplicar_Linea
         '
-        Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
+        Me.AutoScaleDimensions = New System.Drawing.SizeF(9.0!, 16.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(503, 296)
+        Me.ClientSize = New System.Drawing.Size(754, 364)
         Me.Controls.Add(Me.Valor)
         Me.Controls.Add(Me.Label4)
         Me.Controls.Add(Me.Impuesto)
@@ -143,8 +156,10 @@ Partial Class Aplicar_Linea
         Me.Controls.Add(Me.Button2)
         Me.Controls.Add(Me.Button1)
         Me.Controls.Add(Me.Lineas1)
+        Me.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
         Me.Name = "Aplicar_Linea"
-        Me.Text = "Aplicar_Linea"
+        Me.Text = "Aplicar Linea"
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
